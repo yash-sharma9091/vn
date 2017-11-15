@@ -5,8 +5,8 @@ import Home from '../components/Home';
 import Register from '../components/Register/Register';
 import ChangePass from '../components/ChangePass/ChangePass';
 import Login from '../components/Login/Login';
-import Header from '../components/partials/Header';
-import Footer from '../components/partials/Footer';
+/*import Header from '../components/partials/Header';
+import Footer from '../components/partials/Footer';*/
 export const Router = props => {
 	const { history } = props;
 	
