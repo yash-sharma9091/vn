@@ -8,12 +8,10 @@ import './Logo.css';
 class Logo extends Component {
   	render() {
     	return (
-     		<div className="App">
 				<div className="LogoBox text-center">
 					<img src={LogoBox}/>
 					<a><img src={LogoIcon}/></a>
                 </div>
-      		</div>
     	);
   	}
 }
