@@ -116,32 +116,32 @@ class RegisterForm extends Component {
 		                        <Field 
               			        	component={FormField} type="textarea"
               			        	name="lesson_planning" label="What are your school's challenges as they relate to online lesson planning?"
-              			        	id="lessonPlanning" labelClassName="gradient-color" size="md" />
+              			        	id="lessonPlanning" labelClassName="gradient-color" rows="3" />
 		                        
 		                        <Field 
               			        	component={FormField} type="textarea"
               			        	name="grade_book" label="What are your school's challenges as they relate to the teacher's grade book?"
-              			        	id="gradeBook" labelClassName="gradient-color" size="md" />
+              			        	id="gradeBook" labelClassName="gradient-color" rows="3" />
 
               			        <Field 
               			        	component={FormField} type="textarea"
               			        	name="student_class" label="What are your school's challenges as they relate to student's classwork?"
-              			        	id="studentClass" labelClassName="gradient-color" size="md" />
+              			        	id="studentClass" labelClassName="gradient-color" rows="3" />
 
               			        <Field 
               			        	component={FormField} type="textarea"
               			        	name="goal_lesson_planning" label="What are your school's goals as they relate to online lesson planning?"
-              			        	id="goalLessonPlanning" labelClassName="gradient-color" size="md" />
+              			        	id="goalLessonPlanning" labelClassName="gradient-color" rows="3" />
 
               			        <Field 
               			        	component={FormField} type="textarea"
               			        	name="grade_book" label="What are your school's goals as they relate to the teacher's grade book?"
-              			        	id="gradeBook" labelClassName="gradient-color" size="md" />
+              			        	id="gradeBook" labelClassName="gradient-color" rows="3" />
 
               			        <Field 
               			        	component={FormField} type="textarea"
               			        	name="goal_student_class" label="What are your school's goals as they relate to student's classwork?"
-              			        	id="goalStudentClass" labelClassName="gradient-color" size="md"/>
+              			        	id="goalStudentClass" labelClassName="gradient-color" rows="3"/>
 		                
 	                        	<FormSubmit 
             						error={error} invalid={pristine}

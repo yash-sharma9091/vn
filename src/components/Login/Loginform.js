@@ -1,9 +1,23 @@
 import React, { Component } from 'react';
+import { Form } from 'reactstrap';
+import FormField from "../Common/FormField";
+import FormSubmit from "../Common/FormSubmit";
+import { Field, SubmissionError,reduxForm } from 'redux-form';
+import {Required, Email, Number} from '../../lib/Validate';
 import Logo from  '../Logo/Logo';
 import './Login.css';
 
 class Loginform extends Component {
+	constructor(props) {
+      	super(props);
+      	this.formSubmit = this.formSubmit.bind(this);
+      	this.state = {
+      		success: ''
+      	}
+	}
+
   	render() {
+		const { error, handleSubmit, pristine, submitting, submitSucceeded} = this.props;
     	return (
      		<div className="login-box light-sm-bg">
 				 <div className="login-header">
@@ -16,15 +30,28 @@ class Loginform extends Component {
 				 </div>
 				 <div className="login-form" >
 					<div className="d-flex flex-row justify-content-center">
-					 <form className="col-6">
-                        <div className="form-group">
-                            <label className="d-block gradient-color" htmlFor="exampleInputEmail1">Unique Account Number*</label>
-                            <input type="email" className="form-control" aria-describedby="emailHelp" placeholder="Enter unique account number" />
+					 <form onSubmit={handleSubmit(this.formSubmit)} className="col-6">
+						<Field 
+							component={FormField} type="text"
+							name="Unique Account Number" label="Unique Account Number*"
+							id="Unique_Account_Number" labelClassName="gradient-color"
+							placeholder="Enter unique account number" validate={Required} doValidate={true}/>
+						
+						<Field 
+							component={FormField} type="text"
+							name="Password" label="Password*"
+							id="Password" labelClassName="gradient-color"
+							placeholder="Enter password" validate={Required} doValidate={true}/>
+
+                        {/* <div className="form-group">
+                            <label className="d-block gradient-color" htmlFor="exampleInputEmail1"></label>
+                            <input type="email" className="form-control" aria-describedby="emailHelp" placeholder="" />
                         </div>
                         <div className="form-group">
-                            <label className="gradient-color" for="exampleInputPassword1">Password*</label>
-                            <input type="password" className="form-control" placeholder="Enter password" />
-                        </div>
+                            <label className="gradient-color" for="exampleInputPassword1"></label>
+                            <input type="password" className="form-control" placeholder="" />
+                        </div> */}
+
 						<div className="form-group row col-sm-12">
 							<div className="form-check">
 							<label className="form-check-label">
@@ -32,7 +59,12 @@ class Loginform extends Component {
 							</label>
 						</div>
 						</div>
-						<button type="button" className="btn btn-block btn-primary">Login</button>
+
+						<FormSubmit 
+							error={error} invalid={pristine}
+							submitting={submitting} className="btn-block btn-primary"
+							buttonSaveLoading="Processing..." buttonSave="Login"/>
+
 						<div className="d-flex flex-row justify-content-center p-2">
 							<button type="button" className="btn btn-link forgot-link pointer">Forgot Password?</button>
 						</div>
@@ -45,7 +77,14 @@ class Loginform extends Component {
 				 </div>
 			</div>
     	);
-  	}
+	  }
+	formSubmit(values) {
+		console.log(values);
+	}
 }
 
-export default Loginform;
+const _LoginForm = reduxForm({
+  	form: 'LoginForm',
+})(Loginform);
+
+export default _LoginForm;
