@@ -22,9 +22,8 @@ body{
     background-color: #0a4cab;
     border-color: #0a4cab;
 }
-/* .form-control:focus {
-    border-color: #0a4ba8;
-} */
+
+/*gradient-color*/
 .gradient-color{
    background: -webkit-linear-gradient(right,#070703 35%,#0a4cac);
    background: -moz-linear-gradient(right,#070703 35%,#0a4cac);
@@ -32,9 +31,29 @@ body{
     color: #3645d9;
    -webkit-background-clip: text;
    -moz-background-clip: text;
-   -webkit-text-fill-color: transparent;
+   -webkit-text-fill-color: transparent; 
    -moz-text-fill-color: transparent;
 }
+
+/*gradient-button*/
+.btn.gradient-button{
+   background: -webkit-linear-gradient(right,#070703 35%,#0a4cac);
+   background: -moz-linear-gradient(right,#070703 35%,#0a4cac);
+   background: -webkit-linear-gradient(right,#070703 35%,#0a4cac);
+   color: #ffffff;
+   text-decoration: underline;
+}
+.btn.gradient-button:active, .btn.gradient-button.active {
+   background: -webkit-linear-gradient(right,#070703 35%,#0a4cac);
+   background: -moz-linear-gradient(right,#070703 35%,#0a4cac);
+   background: -webkit-linear-gradient(right,#070703 35%,#0a4cac);
+}
+.btn.gradient-button, .btn.gradient-button.active{
+   background: -webkit-linear-gradient(right,#070703 35%,#0a4cac);
+   background: -moz-linear-gradient(right,#070703 35%,#0a4cac);
+   background: -webkit-linear-gradient(right,#070703 35%,#0a4cac);
+}
+
 .light-gray{color:#6a6a68;}
 .mandatory-tag{
     -webkit-text-fill-color: #777f84; font-size: 13px;
