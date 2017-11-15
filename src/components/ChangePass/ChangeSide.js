@@ -3,9 +3,9 @@ import facebookIcon from '../../assets/images/svg/facebook-logo2.svg';
 import googleIcon from '../../assets/images/svg/google-plus-logo2.svg';
 import twiiterIcon from '../../assets/images/svg/twitter-logo2.svg';
 import linkedinIcon from '../../assets/images/svg/linkedin.svg';
-import './Login.css';
+import './Change.css';
 
-class Loginside extends Component {
+class Changeside extends Component {
   	render() {
     	return (
      		<div className="login-side">
@@ -32,4 +32,4 @@ class Loginside extends Component {
   	}
 }
 
-export default Loginside;
+export default Changeside;
