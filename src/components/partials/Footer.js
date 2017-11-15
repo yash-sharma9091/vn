@@ -17,10 +17,10 @@ class Footer extends Component {
 							 </div>
 							 <div className="share-links">
 								 <ul>
-								 	<li><a className="pointer"><img src={facebookIcon}/></a></li>
-									<li><a className="pointer"><img src={googleIcon}/></a></li>
-									<li><a className="pointer"><img src={twiiterIcon}/></a></li>
-									<li><a className="pointer"><img src={linkedinIcon}/></a></li>
+								 	<li><a className="pointer"><img src={facebookIcon} alt="Facebook"/></a></li>
+									<li><a className="pointer"><img src={googleIcon} alt="Google"/></a></li>
+									<li><a className="pointer"><img src={twiiterIcon} alt="Twitter"/></a></li>
+									<li><a className="pointer"><img src={linkedinIcon} alt="linkedin"/></a></li>
 								 </ul>
 							 </div>
 							 <div>

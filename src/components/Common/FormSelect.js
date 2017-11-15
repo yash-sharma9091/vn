@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
-import { FormGroup, Label, Input, FormFeedback, InputGroupAddon, InputGroup } from 'reactstrap';
+import { FormGroup, Label, Input } from 'reactstrap';
 export class FormSelect extends Component {
 	render() {
 		const {labelClassName, id, label, formGroupClassName, input, type} = this.props;

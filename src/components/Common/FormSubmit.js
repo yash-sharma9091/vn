@@ -8,7 +8,7 @@ class FormSubmit extends Component {
   	render() {
     	const {invalid, submitting, buttonSaveLoading, buttonSave, className} = this.props;
     	return (
-          	<Button type="submit" bsStyle="primary" className={className} disabled={invalid || submitting}>
+          	<Button type="submit" className={className} disabled={invalid || submitting}>
             	{submitting ?
               	(buttonSaveLoading ? buttonSaveLoading : 'Submitting...') :
               	(buttonSave ? buttonSave : 'Submit')}

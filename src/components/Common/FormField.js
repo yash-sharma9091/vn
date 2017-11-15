@@ -36,7 +36,7 @@ class FormField extends Component {
 		}
 	}
 	renderInput() {
-		const {meta, input, type, label, placeholder, labelClassName, className, doValidate, id, maskInput} = this.props;
+		const {meta, input, type, label, placeholder, className, doValidate, id, maskInput} = this.props;
 		if( doValidate && maskInput ) {
 			return ( <InputMask 
 				{...input} 

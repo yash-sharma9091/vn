@@ -6,6 +6,7 @@ import FormSelect from "../Common/FormSelect";
 import FormSubmit from "../Common/FormSubmit";
 import { Field, SubmissionError,reduxForm } from 'redux-form';
 import {Required, Email, Number} from '../../lib/Validate';
+import {Http} from '../../lib/Http';
 import './Register.css';
 
 class RegisterForm extends Component {
@@ -18,15 +19,18 @@ class RegisterForm extends Component {
     }
 
   	render() {
-  		const { error, handleSubmit, pristine, submitting, submitSucceeded} = this.props;
+  		const { error, handleSubmit, pristine, submitting} = this.props;
   		const options = [
 			{key: 'public', value: 'Public'},
 			{key: 'private', value: 'Private'},
 			{key: 'charter', value: 'Charter'},
 			{key: 'other', value: 'Other'}
 		], levels = [
-			{key: 'e4', value: 'E4'},
-			{key: 'k4', value: 'K4'}
+			{key: 'k5', value: 'K5'},
+			{key: 'k6', value: 'K6'},
+			{key: 'k8', value: 'K8'},
+			{key: 'k9', value: 'K9'},
+			{key: 'k12', value: 'K12'}
 		];
     	return (
      		<div className="App">
@@ -55,7 +59,7 @@ class RegisterForm extends Component {
               			        	name="email_address" label="Email Address*"
               			        	id="email" labelClassName="gradient-color"
               			        	placeholder="Enter email address" validate={[Required,Email]} doValidate={true}/>
-		                        <div class="form-row">
+		                        <div className="form-row">
 		                        	<Field 
 		                        		component={FormField} type="text" formGroupClassName="col-md-6"
 		                        		name="contact_telephoneno" label="Contact Telephone Number*"
@@ -80,7 +84,7 @@ class RegisterForm extends Component {
               			        	id="schoolAddress" labelClassName="gradient-color"
               			        	placeholder="Enter school address" validate={Required} doValidate={true}/>
 		                        
-		                        <div class="form-row">
+		                        <div className="form-row">
 		                            <Field 
 		                            	component={FormField} type="text" formGroupClassName="col-md-4"
 		                            	name="no_of_students" label="Total No. of Students"
@@ -103,44 +107,44 @@ class RegisterForm extends Component {
 		                        
 		                        <Field 
               			        	component={FormField} type="text"
-              			        	name="pilot_program" label="Why do you want your school to be a part of the pilot program?"
-              			        	id="pilotProgram" labelClassName="gradient-color"
+              			        	name="become_pilot_description" label="Why do you want your school to be a part of the pilot program?"
+              			        	id="become_pilot_description" labelClassName="gradient-color"
               			        	placeholder="Enter reason"/>
 		                        
 		                        <Field 
               			        	component={FormField} type="text"
-              			        	name="laptops" label="Does your school have student laptops, and if so how many?"
-              			        	id="schoolAddress" labelClassName="gradient-color"
+              			        	name="no_of_students_laptop" label="Does your school have student laptops, and if so how many?"
+              			        	id="no_of_students_laptop" labelClassName="gradient-color"
               			        	placeholder="0" doValidate={true} validate={Number} />
 		                       
 		                        <Field 
               			        	component={FormField} type="textarea"
-              			        	name="lesson_planning" label="What are your school's challenges as they relate to online lesson planning?"
+              			        	name="school_challenges_lesson_planning" label="What are your school's challenges as they relate to online lesson planning?"
               			        	id="lessonPlanning" labelClassName="gradient-color" size="md" />
 		                        
 		                        <Field 
               			        	component={FormField} type="textarea"
-              			        	name="grade_book" label="What are your school's challenges as they relate to the teacher's grade book?"
+              			        	name="school_challenges_teacher_gradebook" label="What are your school's challenges as they relate to the teacher's grade book?"
               			        	id="gradeBook" labelClassName="gradient-color" size="md" />
 
               			        <Field 
               			        	component={FormField} type="textarea"
-              			        	name="student_class" label="What are your school's challenges as they relate to student's classwork?"
+              			        	name="school_challenges_students_classwork" label="What are your school's challenges as they relate to student's classwork?"
               			        	id="studentClass" labelClassName="gradient-color" size="md" />
 
               			        <Field 
               			        	component={FormField} type="textarea"
-              			        	name="goal_lesson_planning" label="What are your school's goals as they relate to online lesson planning?"
+              			        	name="school_goals_lesson_planning" label="What are your school's goals as they relate to online lesson planning?"
               			        	id="goalLessonPlanning" labelClassName="gradient-color" size="md" />
 
               			        <Field 
               			        	component={FormField} type="textarea"
-              			        	name="grade_book" label="What are your school's goals as they relate to the teacher's grade book?"
+              			        	name="school_goals_teacher_gradebook" label="What are your school's goals as they relate to the teacher's grade book?"
               			        	id="gradeBook" labelClassName="gradient-color" size="md" />
 
               			        <Field 
               			        	component={FormField} type="textarea"
-              			        	name="goal_student_class" label="What are your school's goals as they relate to student's classwork?"
+              			        	name="school_goals_students_classwork" label="What are your school's goals as they relate to student's classwork?"
               			        	id="goalStudentClass" labelClassName="gradient-color" size="md"/>
 		                
 	                        	<FormSubmit 
@@ -155,7 +159,31 @@ class RegisterForm extends Component {
     	);
   	}
   	formSubmit(values) {
-  		console.log(values);
+  		const {dispatch, reset} = this.props;
+  		if( _.has(values, 'contact_telephoneno') ) {
+  			values.contact_telephoneno = _.replace(values.contact_telephoneno, /-|\s|\+1/g, "");
+  		}
+  		if( _.has(values, 'school_telephoneno') ) {
+  			values.school_telephoneno = _.replace(values.school_telephoneno, /-|\s|\+1/g, "");
+  		}
+
+  		return new Promise((resolve, reject) => {
+  			Http.post('signupSchool', values)
+  			.then(({data}) => {
+  				console.log(data);
+  				dispatch(reset('signupForm'));
+  				resolve();
+  			})
+  			.catch(({errors}) => {
+  				let _message = {_error: errors.message};
+  				
+  				if( errors.hasOwnProperty('email_address') ) {
+  					_message = {email_address: errors.email_address.message};
+  				}
+  				
+  				reject(new SubmissionError(_message));
+  			});
+  		});
   	}
 }
 
