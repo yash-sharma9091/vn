@@ -5,6 +5,7 @@ import Home from '../components/Home';
 import Register from '../components/Register/Register';
 import ChangePass from '../components/ChangePass/ChangePass';
 import Thanku from '../components/Thanku/Thanku';
+import HomePage from '../components/HomePage/HomePage';
 import Login from '../components/Login/Login';
 /*import Header from '../components/partials/Header';
 import Footer from '../components/partials/Footer';*/
@@ -21,6 +22,7 @@ export const Router = props => {
 				<Route path="/login" component={Login} />
 				<Route path="/changepass" component={ChangePass} />
 				<Route path="/thanku" component={Thanku} />
+				<Route path="/home" component={HomePage} />
 		  	</Switch>
 		  	{/* <Footer/> */}
 		 </div>	 	

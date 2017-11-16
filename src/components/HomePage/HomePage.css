@@ -1,0 +1,72 @@
+.main-header .LogoBox {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+/*Banner*/
+.homeBanner{
+    background: url('../../assets/images/home-bg.png');
+    width: 100%;
+	background-size: cover;
+}
+.homeBanner-tags{
+    padding: 220px 0 100px;
+}
+.homeBanner-tags h2{
+    font-size: 28px;
+}
+.homeBanner-tags .link-button{
+	margin: 15px 0 0 0; text-decoration: underline;
+	color:#ffffff;
+}
+.homeBanner-tags .link-button:hover{
+	color:#ffffff;text-decoration: none;
+}
+
+.main-header .navbar-nav .nav-link{
+	color:#ffffff;
+	font-size: 15px;
+	border-radius: 3px;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+.main-header .navbar-nav .nav-item.active .nav-link{
+	background-color:#f8f034;
+	color:#000000;
+}
+
+/*whatweDo*/
+.whatweDo .heading{font-size: 24px;}
+.whatweDo .para{color:#6a6a68; font-size: 16px;}
+.whatweDo .see-more-link{text-decoration: underline !important; font-size: 14px; cursor: pointer;display: block;}
+.vedio-icon{position: absolute;
+left: 0;
+right: 0;
+top: 0;
+bottom: 0;
+margin: auto;
+height: 135px;
+display: block;
+text-align: center;
+cursor: pointer;}
+
+/*BecomePilotSchool*/
+.BecomePilotSchool{ background: url('../../assets/images/becomeapilot.png') no-repeat center center;
+background-size: cover;}
+.BecomePilotSchool .btn-info,
+.BecomePilotSchool .btn-info:active, 
+.BecomePilotSchool .btn-info.active {
+    color: #fff;
+    background-color: transparent;
+    border-color: #6582ac;
+	padding: 15px 50px;
+	text-decoration: underline !important;
+}
+
+.BecomePilotSchool .btn-info:focus, 
+.BecomePilotSchool .btn-info.focus {
+    -webkit-box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5);
+}
