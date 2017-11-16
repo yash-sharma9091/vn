@@ -1,4 +1,3 @@
-export function exportPath(props) {
-	const pathname = props.location.pathname.split('/')[1];
-	return pathname;
+export function exportPath(pathname) {
+	return pathname.split('/')[1];
 }

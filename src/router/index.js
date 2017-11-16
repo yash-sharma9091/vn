@@ -14,7 +14,7 @@ export const Router = props => {
 	return (
 		<ConnectedRouter history={history}>
 		<div>
-			<Header {...history}/>
+			<Header />
 			<Switch>                           
 				<Route path="/" exact={true} component={HomePage} />
 				<Route path="/join" component={Register} />
@@ -22,7 +22,7 @@ export const Router = props => {
 				<Route path="/changepass" component={ChangePass} />
 				<Route path="*" component={NotFound} />
 		  	</Switch>
-		  	<Footer {...history}/>
+		  	<Footer />
 		 </div>	 	
 		</ConnectedRouter>
 	);	

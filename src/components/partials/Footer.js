@@ -5,10 +5,12 @@ import googleIcon from '../../assets/images/svg/google-plus-logo.svg';
 import twiiterIcon from '../../assets/images/svg/twitter-logo-silhouette.svg';
 import linkedinIcon from '../../assets/images/svg/linkedin-logo.svg';
 import {exportPath} from '../Common/MatchComponent';
-
+import { connect } from 'react-redux';
+import {CopyRightText} from './CopyRightText';
 class Footer extends Component {
   	render() {
-  		if(!_.isEmpty(this.props) && !['login', 'thankyou'].includes(exportPath(this.props)) ) {
+  		const {location} = this.props;
+  		if(!_.isEmpty(location) && !['login', 'thankyou'].includes(exportPath(location.pathname)) ) {
 	    	return (
 	     		<div className="App">
 	        		<footer className="padding-10">
@@ -27,7 +29,7 @@ class Footer extends Component {
 									 </ul>
 								 </div>
 								 <div>
-									<div className="copyright-tag text-uppercase">© 2017 COPYRIGHT pencilink</div>
+									<div className="copyright-tag text-uppercase"><CopyRightText /></div>
 								 </div>
 							</div>
 						</div>
@@ -39,5 +41,7 @@ class Footer extends Component {
 	    }	
   	}
 }
-
-export default Footer;
+const mapStateToProps = (state) => ({
+	location: state.router.location
+});
+export default connect(mapStateToProps)(Footer);

@@ -39,10 +39,12 @@ class MainHeader extends Component {
                                     <NavItem>
                                         <LinkContainer to="/join">
                                             <NavLink className="text-uppercase" >Join Pencil Ink</NavLink>
-                                        </LinkContainer>    
+                                        </LinkContainer>
                                     </NavItem>
                                     <NavItem className="active">
-                                        <NavLink className="text-uppercase" href="">Login</NavLink>
+                                        <LinkContainer to="/login">
+                                            <NavLink className="text-uppercase">Login</NavLink>
+                                        </LinkContainer>    
                                     </NavItem>
                                 </Nav>
                             </form>    

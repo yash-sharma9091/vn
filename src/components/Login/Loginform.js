@@ -3,10 +3,12 @@ import { Form } from 'reactstrap';
 import FormField from "../Common/FormField";
 import FormSubmit from "../Common/FormSubmit";
 import { Field, SubmissionError,reduxForm } from 'redux-form';
-import {Required, Email, Number} from '../../lib/Validate';
+import {Required} from '../../lib/Validate';
 import {Http} from '../../lib/Http';
 import Logo from  '../Logo/Logo';
 import './Login.css';
+import {CopyRightText} from '../partials/CopyRightText';
+import Alert from '../Common/Alert';
 
 class Loginform extends Component {
 	constructor(props) {
@@ -18,7 +20,8 @@ class Loginform extends Component {
 	}
 
   	render() {
-		const { error, handleSubmit, pristine, submitting, submitSucceeded} = this.props;
+		const { error, handleSubmit, pristine, submitting} = this.props;
+
     	return (
      		<div className="login-box light-sm-bg">
 				 <div className="login-header">
@@ -26,12 +29,13 @@ class Loginform extends Component {
 				 </div>
 				 <div className="home-copy-right">
 					<div className="text-center">
-						<div className="copyright-tag text-uppercase">© 2017 COPYRIGHT pencilink</div>
+						<div className="copyright-tag text-uppercase"><CopyRightText/></div>
 					</div>
 				 </div>
 				 <div className="login-form" >
 					<div className="d-flex flex-row justify-content-center">
 					 <Form onSubmit={handleSubmit(this.formSubmit)} className="col-6">
+					 	<Alert alertVisible={error} alertMsg={error} className={error ? "danger":"success"}/>
 						<Field 
 							component={FormField} type="text"
 							name="Unique Account Number" label="Unique Account Number*"
@@ -81,6 +85,16 @@ class Loginform extends Component {
 	  }
 	formSubmit(values) {
 		console.log(values);
+		return new Promise((resolve, reject) => {
+			Http.post('login', values)
+			.then(({data}) => {
+				console.log(data);
+			})
+			.catch(({errors}) => {
+				console.log(errors);
+				reject(new SubmissionError({_error: errors.message}));
+			});
+		});
 	}
 }
 
