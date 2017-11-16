@@ -1,6 +1,6 @@
 /*Banner*/
 .Banner{
-    background: url('../../assets/images/profile-banner.png');
+    background: url('../../assets/images/home-bg.png');
     width: 100%;
     background-size: cover;
 }
