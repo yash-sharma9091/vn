@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import ThankuForm from  './ThankuForm';
+import ThankYouForm from  './ThankYouForm.js';
 import Logo from  '../Logo/Logo';
-import './Thanku.css';
+import './ThankYou.css';
 
-class Thanku extends Component {
+class ThankYou extends Component {
   	render() {
     	return (
             <div className="thanku-panel">
@@ -11,11 +11,11 @@ class Thanku extends Component {
 				    <Logo />
                 </div>
                 <div className="thanku-group">
-                    <ThankuForm />
+                    <ThankYouForm />
                 </div>
             </div>
     	);
   	}
 }
 
-export default Thanku;
+export default ThankYou;
