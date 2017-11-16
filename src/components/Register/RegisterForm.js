@@ -7,7 +7,7 @@ import FormSubmit from "../Common/FormSubmit";
 import { Field, SubmissionError,reduxForm } from 'redux-form';
 import {Required, Email, Number, maxLength4} from '../../lib/Validate';
 import {Http} from '../../lib/Http';
-//import { push } from 'react-router-redux';
+import Alert from '../Common/Alert';
 import './Register.css';
 
 class RegisterForm extends Component {
@@ -39,6 +39,7 @@ class RegisterForm extends Component {
                     <div className="container">
                       	<div className="row justify-content-center">
                       		<Form onSubmit={handleSubmit(this.formSubmit)} className="col-sm-6">
+                      			<Alert alertVisible={error} alertMsg={error} className={error ? "danger":"success"}/>
 		                        {/*<div className="form-group">
 		                            <label className="d-block gradient-color" htmlFor="exampleInputEmail1">Contact Name*
 		                                <span className="float-right d-inline-block mandatory-tag">All fields mark as * are mandatory</span>
@@ -216,7 +217,9 @@ const _RegisterForm = reduxForm({
   		
   		if (errorEl && errorEl.focus) {
   			errorEl.focus();
-  		}	
+  		} else {
+  			window.scrollTo(0, 0);
+  		}
     }
 })(RegisterForm);
 
