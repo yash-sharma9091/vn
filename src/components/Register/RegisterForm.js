@@ -5,8 +5,9 @@ import FormField from "../Common/FormField";
 import FormSelect from "../Common/FormSelect";
 import FormSubmit from "../Common/FormSubmit";
 import { Field, SubmissionError,reduxForm } from 'redux-form';
-import {Required, Email, Number} from '../../lib/Validate';
+import {Required, Email, Number, maxLength4} from '../../lib/Validate';
 import {Http} from '../../lib/Http';
+//import { push } from 'react-router-redux';
 import './Register.css';
 
 class RegisterForm extends Component {
@@ -89,7 +90,7 @@ class RegisterForm extends Component {
 		                            	component={FormField} type="text" formGroupClassName="col-md-4"
 		                            	name="no_of_students" label="Total No. of Students"
 		                            	id="noOfStudents" labelClassName="gradient-color"
-		                            	doValidate={true} validate={Number}
+		                            	doValidate={true} validate={[Number, maxLength4]}
 		                            	placeholder="0"/>
 		                            <Field 
 		                            	component={FormSelect} formGroupClassName="col-md-4"
@@ -159,7 +160,7 @@ class RegisterForm extends Component {
     	);
   	}
   	formSubmit(values) {
-  		const {dispatch, reset} = this.props;
+  		const {dispatch, reset, showThanks} = this.props;
   		if( _.has(values, 'contact_telephoneno') ) {
   			values.contact_telephoneno = _.replace(values.contact_telephoneno, /-|\s|\+1/g, "");
   		}
@@ -170,8 +171,8 @@ class RegisterForm extends Component {
   		return new Promise((resolve, reject) => {
   			Http.post('signupSchool', values)
   			.then(({data}) => {
-  				console.log(data);
   				dispatch(reset('signupForm'));
+  				showThanks();
   				resolve();
   			})
   			.catch(({errors}) => {

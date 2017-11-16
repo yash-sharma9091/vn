@@ -8,7 +8,7 @@ import {exportPath} from '../Common/MatchComponent';
 
 class Footer extends Component {
   	render() {
-  		if(!_.isEmpty(this.props) && exportPath(this.props) !== 'login') {
+  		if(!_.isEmpty(this.props) && !['login', 'thankyou'].includes(exportPath(this.props)) ) {
 	    	return (
 	     		<div className="App">
 	        		<footer className="padding-10">
