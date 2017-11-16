@@ -1,8 +1,8 @@
 /* global */
 import React, { Component } from 'react';
-import './Thanku.css';
+import './ThankYou.css';
 
-class ThankuForm extends Component {
+class ThankYouForm extends Component {
   	render() {
     	return (
             <div className="d-flex justify-content-center">
@@ -17,4 +17,4 @@ class ThankuForm extends Component {
   	}
 }
 
-export default ThankuForm;
+export default ThankYouForm;
