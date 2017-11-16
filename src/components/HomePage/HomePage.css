@@ -2,7 +2,6 @@
     position: absolute;
     left: 0;
     right: 0;
-    z-index: 1;
 }
 
 /*Banner*/
@@ -30,8 +29,9 @@
 	font-size: 15px;
 	border-radius: 3px;
 	padding-left: 15px;
-	padding-right: 15px;
+    padding-right: 15px;
 }
+.main-header .navbar-nav .nav-link:hover{color:#f8f034;}
 .main-header .navbar-nav .nav-item.active .nav-link{
 	background-color:#f8f034;
 	color:#000000;
@@ -55,18 +55,12 @@ cursor: pointer;}
 /*BecomePilotSchool*/
 .BecomePilotSchool{ background: url('../../assets/images/becomeapilot.png') no-repeat center center;
 background-size: cover;}
+
 .BecomePilotSchool .btn-info,
 .BecomePilotSchool .btn-info:active, 
-.BecomePilotSchool .btn-info.active {
-    color: #fff;
-    background-color: transparent;
-    border-color: #6582ac;
-	padding: 15px 50px;
-	text-decoration: underline !important;
-}
+.BecomePilotSchool .btn-info.active 
+{color: #fff;background-color: transparent;border-color: #6582ac;padding: 15px 50px;text-decoration: underline !important;}
 
 .BecomePilotSchool .btn-info:focus, 
-.BecomePilotSchool .btn-info.focus {
-    -webkit-box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5);
-    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5);
-}
+.BecomePilotSchool .btn-info.focus 
+{-webkit-box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5);box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5);}

@@ -87,10 +87,13 @@ footer{background-color: #ffffff;}
 .footer-links .btn{color:#121619; font-size: 14px; cursor: pointer; text-decoration: none;}
 .footer-links .btn:hover{color:#0a4ba8;}
 .copyright-tag{color:#717375; font-size: 14px;}
-.share-links ul li{display: inline-block;}
-.share-links ul li a {background-color: #d4d5d5;display: block;height: 25px;width: 25px;margin: 0 5px;text-align: center; border-radius: 3px;}
-.share-links ul li a:hover{background-color:#0a4ba8;}
-.share-links ul li a img{width:15px;}
+
+/*share-links*/
+.share-links > ul > li{display: inline-block;}
+.share-links > ul > li > a {background-color: #d4d5d5;display: block;height: 25px;width: 25px;margin: 0 5px;text-align: center; border-radius: 3px;}
+.share-links > ul > li > a:hover{background-color:#0a4ba8;}
+.share-links > ul > li > a > img{width:15px;}
+
 .input-group + .invalid-feedback{display: block;}
 .img-block{display: block;max-width: 100%;}
 
