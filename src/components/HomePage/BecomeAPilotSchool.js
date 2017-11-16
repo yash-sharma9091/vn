@@ -7,7 +7,7 @@ class BecomePilotSchool extends Component {
                 <div className="BecomePilotSchool pt-5 pb-5">
                     <div className="container">
                          <div className="d-flex justify-content-center mt-4 mb-4">
-                            <button type="button" class="btn btn-info">How Can My School Become A Pilot School ?</button>
+                            <button type="button" className="btn btn-info">How Can My School Become A Pilot School ?</button>
                          </div>   
                     </div>
                 </div>

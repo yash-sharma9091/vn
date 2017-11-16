@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { ConnectedRouter } from 'react-router-redux';
-import Home from '../components/Home';
 import Register from '../components/Register/Register';
 import ChangePass from '../components/ChangePass/ChangePass';
 import Thanku from '../components/Thanku/Thanku';
@@ -16,13 +15,13 @@ export const Router = props => {
 		<ConnectedRouter history={history}>
 		<div>
 			 {/* <Header/>  */}
-			<Switch>
-				<Route path="/" exact={true} component={Home} />
+			<Switch>                           
+				<Route path="/" exact={true} component={HomePage} />
 				<Route path="/signup" component={Register} />
 				<Route path="/login" component={Login} />
 				<Route path="/changepass" component={ChangePass} />
 				<Route path="/thanku" component={Thanku} />
-				<Route path="/home" component={HomePage} />
+				{/* <Route path="/home" component={HomePage} /> */}
 		  	</Switch>
 		  	{/* <Footer/> */}
 		 </div>	 	

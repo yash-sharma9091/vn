@@ -1,4 +1,4 @@
-/* global _ */
+/* global */
 import React, { Component } from 'react';
 import './Thanku.css';
 

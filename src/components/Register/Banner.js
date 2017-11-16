@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import BannerImg from '../../assets/images/profile-banner.png';
 import './Register.css';
 
 class Banner extends Component {

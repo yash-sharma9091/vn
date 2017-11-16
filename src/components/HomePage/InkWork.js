@@ -12,8 +12,8 @@ class InkWork extends Component {
                     <div className="row justify-content-center">
                         <div className="col-sm-8 mt-4">
 							<div className="relative">
-								<img className="img-block" src={workVideoImg} />
-								 <a className="vedio-icon"><img src={workVideoImgIcon} /></a>
+								<img className="img-block" src={workVideoImg} alt="" />
+								 <a className="vedio-icon"><img src={workVideoImgIcon} alt="" /></a>
 							</div>
                         </div>
                     </div>

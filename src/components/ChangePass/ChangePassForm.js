@@ -30,7 +30,7 @@ class ChangePassForm extends Component {
 				 </div>
 				 <div className="login-form" >
 					<div className="d-flex flex-row justify-content-center">
-					 <form onSubmit={handleSubmit(this.formSubmit)}  className="col-6">
+					 <Form onSubmit={handleSubmit(this.formSubmit)}  className="col-6">
 						<h3 className="gradient-color text-center">Change Password</h3>
 						<p className="text-center light-gray">Enter a new password for this account</p>
 						<Field 
@@ -73,7 +73,7 @@ class ChangePassForm extends Component {
 						<div className="d-flex flex-row justify-content-center p-2">
 							<button type="button" className="btn btn-link forgot-link pointer">Cancel</button>	
 						</div>
-					</form>
+					</Form>
 				   </div>
 				 </div>
 			</div>
