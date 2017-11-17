@@ -3,8 +3,10 @@ import { Form } from 'reactstrap';
 import FormField from "../Common/FormField";
 import FormSubmit from "../Common/FormSubmit";
 import { Field, SubmissionError,reduxForm } from 'redux-form';
-import {Required, Email, Number} from '../../lib/Validate';
 import Logo from  '../Logo/Logo';
+import {LinkContainer} from 'react-router-bootstrap';
+import {login} from '../../lib/SiteLinks';
+import {UAN} from '../../lib/Validate';
 
 class ForgotPassForm extends Component {
 	constructor(props) {
@@ -31,12 +33,12 @@ class ForgotPassForm extends Component {
 					<div className="d-flex flex-row justify-content-center">
 					 <Form onSubmit={handleSubmit(this.formSubmit)}  className="col-6">
 						<h3 className="gradient-color text-center">Forgot Your Password</h3>
-						<p className="text-center light-gray">Enter your email below, and we’ll send you the Reset Link</p>
+						<p className="text-center light-gray">Enter your unique account number below, and we’ll send you the Reset Link</p>
 						<Field 
 							component={FormField} type="text"
 							name="unique account number" label="Enter Unique Account Number"
 							id="unique_account_number" labelClassName="gradient-color"
-							placeholder="Enter unique account number" validate={Required} doValidate={true}/>
+							placeholder="Enter unique account number" validate={UAN} doValidate={true}/>
 						
 						<FormSubmit 
 							error={error} invalid={pristine}
@@ -44,7 +46,9 @@ class ForgotPassForm extends Component {
 							buttonSaveLoading="Processing..." buttonSave="Send Reset Link"/>
 
 						<div className="d-flex flex-row justify-content-center p-2">
-							<button type="button" className="btn btn-link forgot-link pointer">Back to Login</button>	
+							<LinkContainer to={login}>
+								<button type="button" className="btn btn-link forgot-link pointer">Back to Login</button>	
+							</LinkContainer>	
 						</div>
 					</Form>
 				   </div>

@@ -3,7 +3,7 @@ import { Form } from 'reactstrap';
 import FormField from "../Common/FormField";
 import FormSubmit from "../Common/FormSubmit";
 import { Field, SubmissionError,reduxForm } from 'redux-form';
-import {Required} from '../../lib/Validate';
+import {Required, UAN} from '../../lib/Validate';
 import Logo from  '../Logo/Logo';
 import './Login.css';
 import {CopyRightText} from '../partials/CopyRightText';
@@ -41,7 +41,7 @@ class Loginform extends Component {
 								component={FormField} type="text"
 								name="uan" label="Unique Account Number*"
 								id="Unique_Account_Number" labelClassName="gradient-color"
-								placeholder="Enter unique account number" doValidate={true}/>
+								placeholder="Enter unique account number" validate={UAN} doValidate={true}/>
 							
 							<Field 
 								component={FormField} type="text"
@@ -102,14 +102,7 @@ class Loginform extends Component {
 }
 
 const _LoginForm = reduxForm({
-  	form: 'LoginForm',
-  	validate: (values) => {
-    	const errors = {};
-    	if(!values.uan) {
-      		errors.uan = 'Unique account number is required';
-    	}
-    	return errors;
-    },
+  	form: 'LoginForm'
 })(Loginform);
 
 

@@ -4,13 +4,14 @@ import facebookIcon from '../../assets/images/svg/facebook-letter-logo.svg';
 import googleIcon from '../../assets/images/svg/google-plus-logo.svg';
 import twiiterIcon from '../../assets/images/svg/twitter-logo-silhouette.svg';
 import linkedinIcon from '../../assets/images/svg/linkedin-logo.svg';
-import {exportPath} from '../Common/MatchComponent';
+//import {exportPath} from '../Common/MatchComponent';
 import { connect } from 'react-redux';
 import {CopyRightText} from './CopyRightText';
+import {forgotPassword, login} from '../../lib/SiteLinks';
 class Footer extends Component {
   	render() {
   		const {location} = this.props;
-  		if(!_.isEmpty(location) && !['login', 'thankyou'].includes(exportPath(location.pathname)) ) {
+  		if(!_.isEmpty(location) && ![login, forgotPassword].includes(location.pathname) ) {
 	    	return (
 	     		<div className="App">
 	        		<footer className="padding-10">
