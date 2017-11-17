@@ -3,10 +3,8 @@ import { Route, Switch } from 'react-router-dom';
 import { ConnectedRouter } from 'react-router-redux';
 import Register from '../components/Register/Register';
 import ChangePass from '../components/ChangePass/ChangePass';
-
 import ForgotPass from '../components/ForgotPass/ForgotPass';
 import ThankYou from '../components/ThankYou/ThankYou.js';
-
 import HomePage from '../components/HomePage/HomePage';
 import Login from '../components/Login/Login';
 import Faq from '../components/Faq/Faq';
