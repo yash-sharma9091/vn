@@ -3,5 +3,15 @@
     background: url('../../assets/images/faq-banner.png') no-repeat center center;
     width: 100%;
     background-size: cover;
-    min-height: 400px;
+    min-height: 300px;
 }
+
+.num404 *{display: block; text-align: center;}
+.num404 span{font-size: 200px; color: gray;}
+.num404 small{display: block;font-size: 18px;font-weight: 500;margin-top: -44px;  }
+.error404 *{margin: auto; display: block; text-align: center; }
+.error404 h2{font-size: 60px; color: #196be1;}
+.error404 p{font-size:14px;line-height: 21px;margin: 15px auto;max-width: 330px;}
+.error404{margin-top:86px;}
+.error404 a{max-width:300px;margin: auto;display: block;background-color: #0a4cab;padding: 10px;color: white;margin-top: 10px;}
+.error-page{min-height:400px;}
