@@ -23,7 +23,6 @@ class ErrorContent extends Component {
                     </div>
                   </div>
                 </div>
-
     	);
   	}
 }
