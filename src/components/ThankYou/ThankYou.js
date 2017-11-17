@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ThankYouForm from  './ThankYouForm.js';
+import ThankYouForm from  './ThankYouForm';
 import Logo from  '../Logo/Logo';
 import './ThankYou.css';
 

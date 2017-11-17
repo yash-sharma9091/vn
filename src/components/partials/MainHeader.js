@@ -2,20 +2,18 @@ import React, { Component } from 'react';
 import { Collapse, Navbar, NavbarToggler, Nav, NavItem, NavLink } from 'reactstrap';
 import Logo from  '../Logo/Logo';
 import {LinkContainer} from 'react-router-bootstrap';
+import {join, login} from '../../lib/SiteLinks';
 
 class MainHeader extends Component {
     constructor(props) {
-
         super(props);
         this.toggle = this.toggle.bind(this);
-            this.state = {
+        this.state = {
             isOpen: false
         };
     }
     toggle() {
-        this.setState({
-        isOpen: !this.state.isOpen
-        });
+        this.setState({isOpen: !this.state.isOpen });
     }
 
   	render() {
@@ -37,12 +35,14 @@ class MainHeader extends Component {
                             <form className="form-inline my-2 my-lg-0">
                                 <Nav className="mr-auto" navbar>
                                     <NavItem>
-                                        <LinkContainer to="/join">
+                                        <LinkContainer to={join}>
                                             <NavLink className="text-uppercase" >Join Pencil Ink</NavLink>
-                                        </LinkContainer>    
+                                        </LinkContainer>
                                     </NavItem>
                                     <NavItem className="active">
-                                        <NavLink className="text-uppercase" href="">Login</NavLink>
+                                        <LinkContainer to={login}>
+                                            <NavLink className="text-uppercase">Login</NavLink>
+                                        </LinkContainer>    
                                     </NavItem>
                                 </Nav>
                             </form>    

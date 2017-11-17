@@ -10,7 +10,7 @@ class ThankYouForm extends Component {
                     <div className="heading gradient-color">Thank You !</div>
                     <div className="para">Lorem ipsum dolor sit amet, consectetur Proin non metus feugiat, volutpat purus nec, mollis Maecenas nec molestie tortor.</div>
                     <div className="tag gradient-color">The Pencil's Ink team will contact you shortly.</div>
-                    <button type="button" class="btn btn-block gradient-button">See Pilot Program Process</button>
+                    <button type="button" className="btn btn-block gradient-button">See Pilot Program Process</button>
                 </div>
             </div>
     	);

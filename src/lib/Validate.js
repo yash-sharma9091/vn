@@ -11,9 +11,16 @@ const Email = (value, allValues, props, name) => {
 const Number = (value, allValues, props, name) => {
 	return (/^\d+$/.test(value) ? undefined : 'Enter a valid number');
 }	
-
+const maxLength = max => value =>
+  value && value.length > max ? `Must be ${max} characters or less` : undefined
+const maxLength4 = maxLength(4);
+const maxLength200 = maxLength(200);
+const maxLength400 = maxLength(400);
 export{
 	Required,
 	Email,
-	Number
+	Number,
+	maxLength4,
+	maxLength200,
+	maxLength400
 };

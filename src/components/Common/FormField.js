@@ -36,7 +36,7 @@ class FormField extends Component {
 		}
 	}
 	renderInput() {
-		const {meta, input, type, label, placeholder, labelClassName, className, doValidate, id, maskInput, rows} = this.props;
+		const {meta, input, type, label, placeholder, className, doValidate, id, maskInput, rows} = this.props;
 		if( doValidate && maskInput ) {
 			return ( <InputMask 
 				{...input} 
@@ -48,7 +48,7 @@ class FormField extends Component {
 			return ( <Input 
 				{...input} 
 				className={className} id={id} 
-				placeholder={placeholder || label} type={type} 
+				placeholder={placeholder || label} type={type} rows={rows}
 				valid={!meta.touched ? null : (meta.error ? false: null)} /> 
 			);
 		} else {
