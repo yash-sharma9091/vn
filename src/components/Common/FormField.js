@@ -48,7 +48,7 @@ class FormField extends Component {
 			return ( <Input 
 				{...input} 
 				className={className} id={id} 
-				placeholder={placeholder || label} type={type} 
+				placeholder={placeholder || label} type={type} rows={rows}
 				valid={!meta.touched ? null : (meta.error ? false: null)} /> 
 			);
 		} else {

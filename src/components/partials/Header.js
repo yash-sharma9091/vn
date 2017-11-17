@@ -2,7 +2,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Logo from  '../Logo/Logo';
-import {exportPath} from '../Common/MatchComponent';
+//import {exportPath} from '../Common/MatchComponent';
+import {forgotPassword, login} from '../../lib/SiteLinks';
 class Header extends Component {
   	render() {
   		const {location} = this.props;
@@ -10,7 +11,7 @@ class Header extends Component {
     	return (
      		<div>
 				<header>
-					{!_.isEmpty(location) && !['login'].includes(exportPath(location.pathname)) && <Logo />}
+					{!_.isEmpty(location) && ![login, forgotPassword].includes(location.pathname) && <Logo />}
 				</header>
         		{/* <Link to="signup">Pilot Form</Link> */}
       		</div>

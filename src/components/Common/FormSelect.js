@@ -17,7 +17,7 @@ export class FormSelect extends Component {
 	options() {
 		const { options, displayKey, displayLabel } = this.props;
 		return options ? 
-			options.map((values, index) => <option key={index} value={values[displayKey]}>{values[displayLabel]}</option>)
+			options.map((values, index) => <option key={index} value={displayKey ? values[displayKey]: JSON.stringify(values)}>{values[displayLabel]}</option>)
 			: null;
 	}
 

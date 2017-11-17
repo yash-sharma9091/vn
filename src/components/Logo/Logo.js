@@ -3,13 +3,14 @@ import LogoBox from '../../assets/images/logo-box.png';
 import LogoIcon from '../../assets/images/logo.png';
 import './Logo.css';
 import {Link} from 'react-router-dom';
+import {home} from '../../lib/SiteLinks';
 
 class Logo extends Component {
   	render() {  	
     	return (
 			<div className="LogoBox text-center">
 				<img src={LogoBox} alt={LogoBox}/>
-				<Link to="/"><img src={LogoIcon} alt={LogoIcon}/></Link>
+				<Link to={home}><img src={LogoIcon} alt={LogoIcon}/></Link>
             </div>
     	);
   	}
