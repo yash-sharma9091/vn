@@ -7,11 +7,11 @@ import linkedinIcon from '../../assets/images/svg/linkedin-logo.svg';
 //import {exportPath} from '../Common/MatchComponent';
 import { connect } from 'react-redux';
 import {CopyRightText} from './CopyRightText';
-import {forgotPassword, login} from '../../lib/SiteLinks';
+import {removePartials} from '../../lib/Helper';
 class Footer extends Component {
   	render() {
   		const {location} = this.props;
-  		if(!_.isEmpty(location) && ![login, forgotPassword].includes(location.pathname) ) {
+  		if(!_.isEmpty(location) && removePartials(location) ) {
 	    	return (
 	     		<div className="App">
 	        		<footer className="padding-10">

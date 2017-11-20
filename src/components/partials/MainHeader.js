@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Collapse, Navbar, NavbarToggler, Nav, NavItem, NavLink } from 'reactstrap';
 import Logo from  '../Logo/Logo';
-import {LinkContainer} from 'react-router-bootstrap';
-import {join, login} from '../../lib/SiteLinks';
+import AuthButton from './AuthButton';
 
 class MainHeader extends Component {
     constructor(props) {
@@ -33,18 +32,7 @@ class MainHeader extends Component {
                                 </NavItem>
                             </Nav>
                             <form className="form-inline my-2 my-lg-0">
-                                <Nav className="mr-auto" navbar>
-                                    <NavItem>
-                                        <LinkContainer to={join}>
-                                            <NavLink className="text-uppercase" >Join Pencil Ink</NavLink>
-                                        </LinkContainer>
-                                    </NavItem>
-                                    <NavItem className="active">
-                                        <LinkContainer to={login}>
-                                            <NavLink className="text-uppercase">Login</NavLink>
-                                        </LinkContainer>    
-                                    </NavItem>
-                                </Nav>
+                                <AuthButton/>
                             </form>    
                         </Collapse>
                     </Navbar> 

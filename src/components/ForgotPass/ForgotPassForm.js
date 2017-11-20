@@ -20,7 +20,7 @@ class ForgotPassForm extends Component {
 	}
 	
   	render() {
-		const { error, handleSubmit, pristine, submitting, submitSucceeded} = this.props;
+		const { error, handleSubmit, pristine, submitting} = this.props;
 		const {success} = this.state;
     	return (
      		<div className="login-box light-sm-bg">

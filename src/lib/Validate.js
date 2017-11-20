@@ -11,6 +11,12 @@ const UAN = (value, allValues, props, name) => {
 const Email = (value, allValues, props, name) => {
 	return (/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ? undefined : 'Invalid email address');
 }
+const Alphabets = (value, allValues, props, name) => {
+	return (/^[a-zA-Z]+$/i.test(value) ? undefined : 'Only alphabets are allowed');
+}
+const Password = (value, allValues, props, name) => {
+	return (/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/.test(value) ? undefined : 'Password must contain at least 8 characters, at least one number and both lowercase and uppercase letters and special characters');
+}
 const Number = (value, allValues, props, name) => {
 	return (/^\d+$/.test(value) ? undefined : 'Enter a valid number');
 }	
@@ -26,5 +32,7 @@ export{
 	maxLength4,
 	maxLength200,
 	maxLength400,
-	UAN
+	UAN,
+	Password,
+	Alphabets
 };
