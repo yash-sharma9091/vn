@@ -11,7 +11,7 @@ import Faq from '../components/Faq/Faq';
 import NotFound from '../components/404/404';
 import Header from '../components/partials/Header';
 import Footer from '../components/partials/Footer';
-import {home, join, login, forgotPassword, notFound} from '../lib/SiteLinks';
+import {home, join, login, forgotPassword, notFound, faq} from '../lib/SiteLinks';
 export const Router = props => {
 	const { history } = props;
 	
@@ -25,6 +25,7 @@ export const Router = props => {
 						<Route path={login} component={Login} />
 						<Route path={forgotPassword} component={ForgotPass} />
 						<Route path={notFound} component={NotFound} />
+						<Route path={faq} component={Faq} />
 				  	</Switch>
 			  	<Footer />
 			 </div>	 	
