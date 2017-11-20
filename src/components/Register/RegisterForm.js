@@ -41,12 +41,7 @@ class RegisterForm extends Component {
                       	<div className="row justify-content-center">
                       		<Form onSubmit={handleSubmit(this.formSubmit)} className="col-sm-6">
                       			<Alert alertVisible={error} alertMsg={error} className={error ? "danger":"success"}/>
-		                        {/*<div className="form-group">
-		                            <label className="d-block gradient-color" htmlFor="exampleInputEmail1">Contact Name*
-		                                <span className="float-right d-inline-block mandatory-tag">All fields mark as * are mandatory</span>
-		                            </label>
-		                            <input type="email" className="form-control" aria-describedby="emailHelp" placeholder="Enter name" />
-		                        </div>*/}
+								<span className="float-right d-inline-block mandatory-tag">All fields mark as * are mandatory</span>
 		                        <Field 
               			        	component={FormField} type="text"
               			        	name="contact_name" label="Contact Name*"
@@ -56,7 +51,8 @@ class RegisterForm extends Component {
               			        	component={FormField} type="text"
               			        	name="contact_title" label="Contact Title*"
               			        	id="contactTitle" labelClassName="gradient-color"
-              			        	placeholder="Contact title" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
+              			        	placeholder="Enter Contact title" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
+              			        	
               			        <Field 
               			        	component={FormField} type="email"
               			        	name="email_address" label="Email Address*"
@@ -65,15 +61,15 @@ class RegisterForm extends Component {
 		                        <div className="form-row">
 		                        	<Field 
 		                        		component={FormField} type="text" formGroupClassName="col-md-6"
-		                        		name="contact_telephoneno" label="Contact Telephone Number*"
+		                        		name="contact_telephoneno" label="Enter contact Telephone Number*"
 		                        		id="ContactTelephoneNumber" labelClassName="gradient-color"
-		                        		placeholder="Contact Telephone Number"
+		                        		placeholder="Enter contact telephone number"
 		                        		doValidate={true} maskInput={true} inputAddOn={true} inputAddOnText="+1"/>
 		                        	<Field 
 		                        		component={FormField} type="text" formGroupClassName="col-md-6"
 		                        		name="school_telephoneno" label="School Telephone Number"
 		                        		id="SchoolTelephoneNumber" labelClassName="gradient-color"
-		                        		placeholder="School Telephone Number"
+		                        		placeholder="Enter school telephone number"
 		                        		doValidate={true} maskInput={true} inputAddOn={true} inputAddOnText="+1"/>
 		                        </div>
 		                        <Field 
@@ -87,21 +83,22 @@ class RegisterForm extends Component {
               			        	id="schoolAddress" labelClassName="gradient-color"
               			        	placeholder="Enter school address" validate={[Required, maxLength200]} doValidate={true}/>
 		                        
+								<Field 
+		                            component={FormField} type="text"
+		                            name="no_of_students" label="Enter Total No. of Students"
+		                            id="noOfStudents" labelClassName="gradient-color"
+		                            doValidate={true} validate={[Number, maxLength4]}
+		                            placeholder="Enter Total No. of Students"/>
+									
 		                        <div className="form-row">
 		                            <Field 
-		                            	component={FormField} type="text" formGroupClassName="col-md-4"
-		                            	name="no_of_students" label="Total No. of Students"
-		                            	id="noOfStudents" labelClassName="gradient-color"
-		                            	doValidate={true} validate={[Number, maxLength4]}
-		                            	placeholder="0"/>
-		                            <Field 
-		                            	component={FormSelect} formGroupClassName="col-md-4"
+		                            	component={FormSelect} formGroupClassName="col-md-6"
 		                            	name="school_type" type="select" emptyText="Select school"
 		                            	label="Type of School" className="input_both" options={options}
 		                            	displayKey={null} displayLabel={"name"} empty={true}
 		                            	labelClassName="gradient-color"/>
 		                            <Field 
-		                            	component={FormSelect} formGroupClassName="col-md-4"
+		                            	component={FormSelect} formGroupClassName="col-md-6"
 		                            	name="school_level" type="select" emptyText="Select levels"
 		                            	label="School Levels" className="input_both" options={levels}
 		                            	displayKey={"key"} displayLabel={"value"} empty={true}

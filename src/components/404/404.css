@@ -14,4 +14,5 @@
 .error404 p{font-size:14px;line-height: 21px;margin: 15px auto;max-width: 330px;}
 .error404{margin-top:86px;}
 .error404 a{max-width:300px;margin: auto;display: block;background-color: #0a4cab;padding: 10px;color: white;margin-top: 10px;}
+.error404 a:hover{text-decoration: none;}
 .error-page{min-height:400px;}
