@@ -4,4 +4,5 @@ join 			= '/join',
 login 			= '/login',
 forgotPassword 	= '/forgot-password',
 faq 	        = '/faq',
+resetPassword 	= '/reset-password',
 notFound 		= '*';
