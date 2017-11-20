@@ -56,7 +56,7 @@ body{
 }
 
 .light-gray{color:#6a6a68;}
-.mandatory-tag{-webkit-text-fill-color: #777f84; font-size: 13px;}
+.mandatory-tag{-webkit-text-fill-color: #636c72; font-size: 13px; padding-top:2px;}
 .color-white{color: #ffffff;}
 .light-white-bg{background-color:#ffffff;}
 .light-bg{background-color: #f7f7f9;}

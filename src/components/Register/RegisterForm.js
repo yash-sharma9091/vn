@@ -47,6 +47,7 @@ class RegisterForm extends Component {
 		                            </label>
 		                            <input type="email" className="form-control" aria-describedby="emailHelp" placeholder="Enter name" />
 		                        </div>*/}
+								<span className="float-right d-inline-block mandatory-tag">All fields mark as * are mandatory</span>
 		                        <Field 
               			        	component={FormField} type="text"
               			        	name="contact_name" label="Contact Name*"

@@ -24,8 +24,8 @@ export const Router = props => {
 						<Route path={join} component={Register} />
 						<Route path={login} component={Login} />
 						<Route path={forgotPassword} component={ForgotPass} />
-						<Route path={notFound} component={NotFound} />
 						<Route path={faq} component={Faq} />
+						<Route path={notFound} component={NotFound} />
 				  	</Switch>
 			  	<Footer />
 			 </div>	 	
