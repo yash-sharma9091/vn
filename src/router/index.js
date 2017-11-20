@@ -8,10 +8,11 @@ import ThankYou from '../components/ThankYou/ThankYou.js';
 import HomePage from '../components/HomePage/HomePage';
 import Login from '../components/Login/Login';
 import Faq from '../components/Faq/Faq';
+import SchoolStep from '../components/BuildSchoolStep/SchoolStep';
 import NotFound from '../components/404/404';
 import Header from '../components/partials/Header';
 import Footer from '../components/partials/Footer';
-import {home, join, login, forgotPassword, notFound, faq} from '../lib/SiteLinks';
+import {home, join, login, forgotPassword, notFound, faq, schoolstep} from '../lib/SiteLinks';
 export const Router = props => {
 	const { history } = props;
 	
@@ -25,6 +26,7 @@ export const Router = props => {
 						<Route path={login} component={Login} />
 						<Route path={forgotPassword} component={ForgotPass} />
 						<Route path={faq} component={Faq} />
+						<Route path={schoolstep} component={SchoolStep} />
 						<Route path={notFound} component={NotFound} />
 				  	</Switch>
 			  	<Footer />
