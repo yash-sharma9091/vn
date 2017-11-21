@@ -106,10 +106,10 @@ class RegisterForm extends Component {
 		                        </div>
 		                        
 		                        <Field 
-              			        	component={FormField} type="text"
+              			        	component={FormField} type="textarea"
               			        	name="become_pilot_description" label="Why do you want your school to be a part of the pilot program?"
               			        	id="become_pilot_description" labelClassName="gradient-color"
-              			        	placeholder="Why do you want your school to be a part of the pilot program?" validate={maxLength200} doValidate={true}/>
+              			        	rows="3" validate={maxLength400} doValidate={true}/>
 		                        
 		                        <Field 
               			        	component={FormField} type="text"

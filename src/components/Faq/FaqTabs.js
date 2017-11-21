@@ -17,13 +17,30 @@ class FaqTab extends Component {
         
         const {location} = this.props;
         if( location ) {
-            let tab = new URLSearchParams(location.search).get('tab');
-            this.setState({ activeTab: (tab === 'faq' ? '2' : '1') })
+            let tab = new URLSearchParams(location.search).get('tab'), search = '';
+            if( tab === 'contact' ) {
+                search = '1';
+            }if( tab === 'faq' ) {
+                search = '2';
+            }if( tab === 'join' ) {
+                search = '3';
+            }
+            this.setState({ activeTab: search })
         }
     }
 
     toggle(tab) {
+        const {history} = this.props;
         if (this.state.activeTab !== tab) {
+            let search = '';
+            if( tab === '1' ) {
+                search = 'contact';
+            }if( tab === '2' ) {
+                search = 'faq';
+            }if( tab === '3' ) {
+                search = 'join';
+            }
+            history.push({search: `?tab=${search}`})
             this.setState({activeTab: tab });
         }
     }
