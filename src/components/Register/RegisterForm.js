@@ -129,7 +129,7 @@ class RegisterForm extends Component {
 
               			        <Field 
               			        	component={FormField} type="textarea"
-              			        	name="chool_challenges_students_classwork" label="What are your school's challenges as they relate to student's classwork?"
+              			        	name="school_challenges_students_classwork" label="What are your school's challenges as they relate to student's classwork?"
               			        	id="studentClass" labelClassName="gradient-color" rows="3" validate={maxLength400} doValidate={true} />
 
               			        <Field 

@@ -8,7 +8,7 @@ class Faq extends Component {
     	return (
 			<div className="App">
 				<FaqBanner />
-				<FaqTabs />
+				<FaqTabs {...this.props}/>
 			</div>
     	);
   	}

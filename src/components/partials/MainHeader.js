@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Collapse, Navbar, NavbarToggler, Nav, NavItem, NavLink } from 'reactstrap';
 import Logo from  '../Logo/Logo';
 import AuthButton from './AuthButton';
+import {faq} from '../../lib/SiteLinks';
+import {LinkContainer} from 'react-router-bootstrap';
 
 class MainHeader extends Component {
     constructor(props) {
@@ -25,10 +27,14 @@ class MainHeader extends Component {
                         <Collapse isOpen={this.state.isOpen} navbar className="container">
                             <Nav className="mr-auto" navbar>
                                 <NavItem>
-                                    <NavLink className="text-uppercase" href="">Contact</NavLink>
+                                    <LinkContainer to={`${faq}?tab=contact`}>
+                                        <NavLink className="text-uppercase">Contact</NavLink>
+                                    </LinkContainer>    
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink className="text-uppercase" href="">Faq</NavLink>
+                                    <LinkContainer to={`${faq}?tab=faq`}>
+                                        <NavLink className="text-uppercase" href="">Faq</NavLink>
+                                    </LinkContainer>        
                                 </NavItem>
                             </Nav>
                             <form className="form-inline my-2 my-lg-0">

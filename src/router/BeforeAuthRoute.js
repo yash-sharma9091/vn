@@ -9,8 +9,7 @@ const BeforeAuthRoute = ({ component: Component, ...rest }) => {
 	  <Route {...rest} render={props => (
 	    token ? (
 	      	<Redirect to={{
-	      		pathname: '/dashboard', 
-	      		state: { from: props.location }
+	      		pathname: '/dashboard'
 	      	}}/>
 	    ) : (
 	     	<Component {...props}/>
