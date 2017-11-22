@@ -1,15 +1,3 @@
-.loader-main{
-      position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 200px;
-    height: 200px;
-    margin: auto;
-    text-align: center;
-}
-
 .loader,
 .loader:after {
   border-radius: 50%;
@@ -17,17 +5,17 @@
   height: 8em;
 }
 .loader-small { font-size: 5px; overflow: hidden; text-align: center;}
-.loader-default { font-size: 10px; }
+.loader-default { font-size: 8px; }
 .loader, .loader-small, .loader-default {
   display: block;
   overflow: hidden;
   margin: 60px auto;
   position: relative;
   text-indent: -9999em;
-  border-top: 0.9em solid rgba(200, 200, 200, 0.5);
-  border-right: 0.9em solid rgba(200, 200, 200, 0.5);
-  border-bottom: 0.9em solid rgba(200, 200, 200, 0.5);
-  border-left: 0.9em solid #1974d2;
+  border-top: 0.5em solid rgba(200, 200, 200, 0.5);
+  border-right: 0.5em solid rgba(200, 200, 200, 0.5);
+  border-bottom: 0.5em solid rgba(200, 200, 200, 0.5);
+  border-left: 0.5em solid #1354b3;
   -webkit-transform: translateZ(0);
   -ms-transform: translateZ(0);
   transform: translateZ(0);

@@ -10,7 +10,7 @@
     background-color: rgba(6, 41, 90, 0.83); 
     width: 100%;
 	background-size: cover;
-	transition: opacity 0.3s linear 1s;
+	transition: opacity 0.3s linear;
 }
 .homeBanner-tags{
     padding: 220px 0 100px;

@@ -60,7 +60,7 @@ class FormField extends Component {
 		}
 	}
 	characterCount() {
-		const {characterCount, maxChars, remainChars} = this.props;
+		const {characterCount} = this.props;
 		if(characterCount) {
 			return (
 				<small class="form-text text-muted text-right">(400/400)</small>

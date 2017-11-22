@@ -1,14 +1,7 @@
 /* global IMAGE_PATH */
 import React, { Component } from 'react';
 import './HomePage.css';
-function loadImage(src) {
-  return new Promise((resolve, reject) => {
-    const image = new Image();
-    image.onload = () => resolve(src);
-    image.onerror = err => reject(err);
-    image.src = src;
-  });
-}
+
 class HomeBanner extends Component {
 	constructor() {
 		super();
@@ -16,12 +9,20 @@ class HomeBanner extends Component {
 			bannerImg: {}
 		}
 	}
+	loadImage(src) {
+		return new Promise((resolve, reject) => {
+			const image = new Image();
+			image.onload = () => resolve(src);
+			image.onerror = err => reject(err);
+			image.src = src;
+		});
+	}
 	componentWillReceiveProps() {
 		const {banner_img} = this.props; let bannerImg = {};
 		
 		if ( banner_img ) {
 			let url = (IMAGE_PATH + '/' + banner_img[0].path);
-			loadImage(url)
+			this.loadImage(url)
 			.then(res => {
 				bannerImg = {
 					backgroundImage: 'url(' + res + ')',

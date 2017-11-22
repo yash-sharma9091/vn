@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
-import {home} from '../../lib/SiteLinks';
 import './404.css';
 
 class ErrorContent extends Component {

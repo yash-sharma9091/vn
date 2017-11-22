@@ -1,4 +1,3 @@
-/* global _ */
 import React, { Component } from 'react';
 import MainHeader from  '../partials/MainHeader.js';
 import HomeBanner from  './Banner';
@@ -8,7 +7,6 @@ import BecomePilotSchool from './BecomeAPilotSchool';
 import './HomePage.css';
 import {connect} from 'react-redux';
 import { FETCH_SITE_SETTINGS } from '../../constant';
-import {Loader} from '../Common/Loader';
 import InternalServerError from '../Error/InternalServerError'
 
 class HomePage extends Component {
