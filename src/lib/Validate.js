@@ -1,7 +1,5 @@
-const decorateNameField = (name) => {
-	let _name = name.replace(/_/, ' ');
-	return _name.charAt(0).toUpperCase() + _name.slice(1);
-}
+import {decorateNameField} from './Helper';
+
 const Required = (value, allValues, props, name) => {
 	return (value ? undefined : `${decorateNameField(name)} is required`);
 }

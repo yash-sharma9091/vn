@@ -1,6 +1,7 @@
 import axios from 'axios';
 import lodash from 'lodash';
 import moment from 'moment';
+import {networkAlert} from './lib/Helper';
 //import {Cookie} from './lib/Cookie';
 
 /* Global variables */
@@ -31,8 +32,8 @@ axios.interceptors.response.use( response => {
   	// Do something with response data
   	return response;
 }, (error) => {
-	if(!error.response){
-		alert('Network Failure! Make sure you have an active internet connection.');
+	if(!error.response && error.message === 'Network Error'){
+		networkAlert();
 	}
 	
   	// Do something with response error

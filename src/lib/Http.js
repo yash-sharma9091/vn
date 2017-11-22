@@ -23,8 +23,12 @@ export class Http {
 				resolve({data: data.records,  paging: data.paging });
 			})
 			.catch(error => {
-				console.log(error);
-				reject((error.response) ? error.response.data : error);
+				let _error = (error) ? {errors:{message: error.message}} : {errors:{message: 'Unknown Server Error!!'}};
+				if( error.response ) {
+					_error = error.response.data;
+				}
+				
+				reject(_error);
 			});
 		});
 	}

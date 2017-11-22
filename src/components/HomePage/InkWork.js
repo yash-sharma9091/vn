@@ -12,8 +12,9 @@ class InkWork extends Component {
                     <div className="row justify-content-center">
                         <div className="col-sm-8 mt-4">
 							<div className="relative">
-								<img className="img-block" src={workVideoImg} alt="" />
-								 <a className="vedio-icon"><img src={workVideoImgIcon} alt="" /></a>
+								{/*<img className="img-block" src={workVideoImg} alt="" />
+								 <a className="vedio-icon"><img src={workVideoImgIcon} alt="" /></a>*/}
+                                <iframe title="How it works" src="https://www.youtube.com/embed/_UDk_B8JoZQ" frameBorder="0" allowFullScreen />
 							</div>
                         </div>
                     </div>
