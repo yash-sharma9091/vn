@@ -3,6 +3,7 @@ import Banner from  './Banner';
 import RegisterForm from  './RegisterForm';
 import './Register.css';
 import ThankYou from '../ThankYou/ThankYou';
+import ScrollToTopOnMount from '../Common/ScrollToTopOnMount';
 
 class Register extends Component {
 	constructor() {
@@ -18,7 +19,7 @@ class Register extends Component {
      		<div>
         		{!showThankYou && <Banner />}
 				{!showThankYou && <RegisterForm showThanks={this.showThankYouPage}/>}
-				{showThankYou && <ThankYou />}
+				{showThankYou && <div><ScrollToTopOnMount /><ThankYou /></div>}
       		</div>
     	);
   	}

@@ -8,11 +8,11 @@ export class Cookie {
 	    let d = new Date();
 	    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
 	    let expires = `expires=${d.toUTCString()}`;
-	    document.cookie = `SocialProof.${cname}=${encodeURIComponent(_value)};${expires};path=/`;
+	    document.cookie = `VirtualNotebook.${cname}=${encodeURIComponent(_value)};${expires};path=/`;
 	}
 
 	static get(cname) {
-	    let name = `SocialProof.${cname}=`;
+	    let name = `VirtualNotebook.${cname}=`;
 	    let ca = document.cookie.split(';');
 	    for(let i = 0; i < ca.length; i++) {
 	        let c = ca[i];
@@ -30,7 +30,7 @@ export class Cookie {
 	    return undefined;
 	}
 	static delete(cname) {
-		document.cookie = `SocialProof.${cname}=;expires=Thu, 01 Jan 1970 00:00:00 UTC;`;
+		document.cookie = `VirtualNotebook.${cname}=;expires=Thu, 01 Jan 1970 00:00:00 UTC;`;
 	}
 	static check(cname) {
 	    return  Cookie.get(cname) ? true : false;

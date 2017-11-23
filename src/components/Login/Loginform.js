@@ -12,6 +12,7 @@ import { AUTH_REQUEST } from '../../constant';
 import {connect} from 'react-redux';
 import {LinkContainer} from 'react-router-bootstrap';
 import {join, forgotPassword} from '../../lib/SiteLinks';
+import {push} from 'react-router-redux';
 
 class Loginform extends Component {
 	constructor(props) {
@@ -44,7 +45,7 @@ class Loginform extends Component {
 								placeholder="Enter unique account number" validate={UAN} doValidate={true}/>
 							
 							<Field 
-								component={FormField} type="text"
+								component={FormField} type="password"
 								name="password" label="Password*"
 								id="Password" labelClassName="gradient-color"
 								placeholder="Enter password" validate={Required} doValidate={true}/>
@@ -52,8 +53,9 @@ class Loginform extends Component {
 							<div className="form-group row col-sm-12">
 									<div className="form-check">
 									<label className="form-check-label">
-										<input className="form-check-input" type="checkbox" /> Remember me
+										<Field name="remember_me" className="form-check-input" component="input" type="checkbox"/> Remember me
 									</label>
+									
 								</div>
 							</div>
 
@@ -82,7 +84,6 @@ class Loginform extends Component {
     	);
 	}
 	formSubmit(values) {
-		console.log(values);
 		const { dispatch } = this.props;
 		return new Promise((resolve, reject) => {
         	dispatch({
@@ -92,8 +93,7 @@ class Loginform extends Component {
             		reject(new SubmissionError({_error: error}));
           		},
           		callbackSuccess: () => {
-          			console.log('login success');
-            		//dispatch(push('/dashboard'));
+            		dispatch(push('/dashboard'));
             		resolve();
           		}
         	})

@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.css';
 import './assets/css/style.css';
 import './assets/css/responsive.css';
+import "./assets/css/loader.css";
 import App from './components/App';
 import {store, history} from './store/configureStore';
 import registerServiceWorker from './registerServiceWorker';

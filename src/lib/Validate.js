@@ -1,9 +1,7 @@
-const decorateNameField = (name) => {
-	let _name = name.replace(/_/, ' ');
-	return _name.charAt(0).toUpperCase() + _name.slice(1);
-}
+import {decorateNameField} from './Helper';
+
 const Required = (value, allValues, props, name) => {
-	return (value ? undefined : `${decorateNameField(name)} is Required`);
+	return (value ? undefined : `${decorateNameField(name)} is required`);
 }
 const UAN = (value, allValues, props, name) => {
 	return (value ? undefined : 'Unique account number is required');
@@ -11,8 +9,14 @@ const UAN = (value, allValues, props, name) => {
 const Email = (value, allValues, props, name) => {
 	return (/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ? undefined : 'Invalid email address');
 }
+const Alphabets = (value, allValues, props, name) => {
+	return (/^[a-zA-Z .]+$/i.test(value) ? undefined : 'Only alphabets are allowed');
+}
+const Password = (value, allValues, props, name) => {
+	return (/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/.test(value) ? undefined : 'Password must contain at least 8 characters, at least one number and both lowercase and uppercase letters and special characters');
+}
 const Number = (value, allValues, props, name) => {
-	return (/^\d+$/.test(value) ? undefined : 'Enter a valid number');
+	return  (value ? (/^\d+$/.test(value) ? undefined : 'Enter a valid number') : undefined );
 }	
 const maxLength = max => value =>
   value && value.length > max ? `Must be ${max} characters or less` : undefined
@@ -26,5 +30,7 @@ export{
 	maxLength4,
 	maxLength200,
 	maxLength400,
-	UAN
+	UAN,
+	Password,
+	Alphabets
 };

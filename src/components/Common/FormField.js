@@ -42,7 +42,7 @@ class FormField extends Component {
 				{...input} 
 				className={`form-control ${!meta.touched ? null : (meta.error ? 'is-invalid': null)}`} id={id} 
 				placeholder={placeholder || label} type={type} 
-				mask="999-999-9999" maskChar="_" /> 
+				mask="999-999-9999" maskChar={null} /> 
 			);
 		} else if(doValidate) {
 			return ( <Input 
@@ -58,6 +58,15 @@ class FormField extends Component {
 				placeholder={placeholder || label} type={type} rows={rows}/>
 			);
 		}
+	}
+	characterCount() {
+		const {characterCount} = this.props;
+		if(characterCount) {
+			return (
+				<small class="form-text text-muted text-right">(400/400)</small>
+			)
+		}
+		return null;
 	}
 }
 

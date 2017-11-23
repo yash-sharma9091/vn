@@ -5,7 +5,7 @@ import FormField from "../Common/FormField";
 import FormSelect from "../Common/FormSelect";
 import FormSubmit from "../Common/FormSubmit";
 import { Field, SubmissionError,reduxForm } from 'redux-form';
-import {Required, Email, Number, maxLength4,maxLength200,maxLength400} from '../../lib/Validate';
+import {Required, Email, Number, maxLength4,maxLength200,maxLength400, Alphabets} from '../../lib/Validate';
 import {Http} from '../../lib/Http';
 import Alert from '../Common/Alert';
 import './Register.css';
@@ -41,23 +41,18 @@ class RegisterForm extends Component {
                       	<div className="row justify-content-center">
                       		<Form onSubmit={handleSubmit(this.formSubmit)} className="col-sm-6">
                       			<Alert alertVisible={error} alertMsg={error} className={error ? "danger":"success"}/>
-		                        {/*<div className="form-group">
-		                            <label className="d-block gradient-color" htmlFor="exampleInputEmail1">Contact Name*
-		                                <span className="float-right d-inline-block mandatory-tag">All fields mark as * are mandatory</span>
-		                            </label>
-		                            <input type="email" className="form-control" aria-describedby="emailHelp" placeholder="Enter name" />
-		                        </div>*/}
 								<span className="float-right d-inline-block mandatory-tag">All fields mark as * are mandatory</span>
 		                        <Field 
               			        	component={FormField} type="text"
               			        	name="contact_name" label="Contact Name*"
               			        	id="contactName" labelClassName="gradient-color"
-              			        	placeholder="Enter contact name" validate={[Required, maxLength200]} doValidate={true}/>
+              			        	placeholder="Enter contact name" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
               			        <Field 
               			        	component={FormField} type="text"
               			        	name="contact_title" label="Contact Title*"
               			        	id="contactTitle" labelClassName="gradient-color"
-              			        	placeholder="Enter contact title" validate={[Required, maxLength200]} doValidate={true}/>
+              			        	placeholder="Enter Contact title" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
+              			        	
               			        <Field 
               			        	component={FormField} type="email"
               			        	name="email_address" label="Email Address*"
@@ -111,10 +106,10 @@ class RegisterForm extends Component {
 		                        </div>
 		                        
 		                        <Field 
-              			        	component={FormField} type="text"
+              			        	component={FormField} type="textarea"
               			        	name="become_pilot_description" label="Why do you want your school to be a part of the pilot program?"
               			        	id="become_pilot_description" labelClassName="gradient-color"
-              			        	placeholder="Why do you want your school to be a part of the pilot program?" validate={maxLength200} doValidate={true}/>
+              			        	rows="3" validate={maxLength400} doValidate={true}/>
 		                        
 		                        <Field 
               			        	component={FormField} type="text"
@@ -125,32 +120,32 @@ class RegisterForm extends Component {
 		                        <Field 
               			        	component={FormField} type="textarea"
               			        	name="school_challenges_lesson_planning" label="What are your school's challenges as they relate to online lesson planning?"
-              			        	id="lessonPlanning" labelClassName="gradient-color" rows="3" validate={maxLength200} doValidate={true} />
+              			        	id="lessonPlanning" labelClassName="gradient-color" rows="3" validate={maxLength400} doValidate={true} />
 		                        
 		                        <Field 
               			        	component={FormField} type="textarea"
               			        	name="school_challenges_teacher_gradebook" label="What are your school's challenges as they relate to the teacher's grade book?"
-              			        	id="gradeBook" labelClassName="gradient-color" rows="3" validate={maxLength200} doValidate={true} />
+              			        	id="gradeBook" labelClassName="gradient-color" rows="3" validate={maxLength400} doValidate={true} />
 
               			        <Field 
               			        	component={FormField} type="textarea"
-              			        	name="chool_challenges_students_classwork" label="What are your school's challenges as they relate to student's classwork?"
-              			        	id="studentClass" labelClassName="gradient-color" rows="3" validate={maxLength200} doValidate={true} />
+              			        	name="school_challenges_students_classwork" label="What are your school's challenges as they relate to student's classwork?"
+              			        	id="studentClass" labelClassName="gradient-color" rows="3" validate={maxLength400} doValidate={true} />
 
               			        <Field 
               			        	component={FormField} type="textarea"
               			        	name="school_goals_lesson_planning" label="What are your school's goals as they relate to online lesson planning?"
-              			        	id="goalLessonPlanning" labelClassName="gradient-color" rows="3" validate={maxLength200} doValidate={true} />
+              			        	id="goalLessonPlanning" labelClassName="gradient-color" rows="3" validate={maxLength400} doValidate={true} />
 
               			        <Field 
               			        	component={FormField} type="textarea"
               			        	name="school_goals_teacher_gradebook" label="What are your school's goals as they relate to the teacher's grade book?"
-              			        	id="gradeBook" labelClassName="gradient-color" rows="3" validate={maxLength200} doValidate={true} />
+              			        	id="gradeBook" labelClassName="gradient-color" rows="3" validate={maxLength400} doValidate={true} />
 
               			        <Field 
               			        	component={FormField} type="textarea"
               			        	name="school_goals_students_classwork" label="What are your school's goals as they relate to student's classwork?"
-              			        	id="goalStudentClass" labelClassName="gradient-color" rows="3" validate={maxLength200} doValidate={true}/>
+              			        	id="goalStudentClass" labelClassName="gradient-color" rows="3" validate={maxLength400} doValidate={true}/>
 		                
 	                        	<FormSubmit 
             						error={error} invalid={pristine}
