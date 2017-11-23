@@ -2,7 +2,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import {decorateTitle} from '../../lib/Helper';
 
-export const MetaTitle = ({location, message}) => {
+export const MetaTitle = ({location}) => {
 	return (
 		<Helmet>
             <title>{`${decorateTitle(location.pathname)} | Pencil's Ink`}</title>

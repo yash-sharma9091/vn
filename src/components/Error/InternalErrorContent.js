@@ -11,13 +11,14 @@ class ErrorContent extends Component {
                     <div className="text-center">
                         <strong className="num404">
                             <span>500</span>
-                            <small>Internal server error</small>
+                            <small>{errorMsg || 'Internal server error'}</small>
                         </strong>
                     </div>
                     <div className="text-center">
                         <div className="error404">
                             <h2>Oops.</h2>
-                            <p>{errorMsg || 'There is some error loading page right now, please try refresh your page again.'}</p>
+                            <p>The server encountered an internal error and was unable to compelete your request</p>
+                            
                         </div>  
                     </div>
                 </div>
