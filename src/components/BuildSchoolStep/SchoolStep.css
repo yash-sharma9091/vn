@@ -1,0 +1,167 @@
+/*dashboard-header*/
+.dashboard-header {
+    background-color: #0a4ba9;
+    min-height: 50px;
+    border-bottom: 1px solid #0d3c7f;
+    position: relative;
+}
+.dashboard-header .navbar .navbar-brand img{
+    width:20px;
+}
+.dashboard-header .navbar{
+    padding: 0 10px;
+    min-height: 50px;
+}
+.dashboard-header .navbar .navbar-brand {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.dashboard-header .navbar .school-name {
+	color: #ffffff;
+	font-size: 20px; 
+	font-weight: 600;
+	min-width: 200px;
+	padding-top: 4px;
+}
+.dashboard-header .navbar .navbar-collapse .navbar-nav li.nav-item a{color:#ffffff; font-size: 16px; padding-left: 20px; padding-right: 20px;}
+.dashboard-header .navbar .navbar-collapse .navbar-nav li.nav-item a img{width: 20px;}
+.dashboard-header .navbar .navbar-collapse .navbar-nav li.nav-item a .notification-image {
+    width: 20px;
+    display: inline-block;
+    position: relative;
+}
+.dashboard-header .navbar .navbar-collapse .navbar-nav li.nav-item a .notification-image .notification-number {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	background-color: #ed1c24;
+	border-radius: 100%;
+	text-align: center;
+	font-size: 13px;
+	line-height: 20px;
+	right: -12px;
+	top: -4px;
+}
+
+.dashboard-header .navbar .navbar-collapse .navbar-nav li.dropdown a{
+    color:#ffffff; font-size: 16px; display: inline-block;  margin-top:8px;
+    margin-bottom: 8px;}
+.dashboard-header .navbar .navbar-collapse .navbar-nav li.dropdown a img{width: 20px;}
+.dashboard-header .navbar .navbar-collapse .navbar-nav li.dropdown a .user-image{width: 20px;display: inline-block;margin-right: 8px;}
+
+/*school-tabs*/
+.school-tabs{padding-bottom: 40px;}
+.school-tabs .nav-tabs .nav-link {
+    border: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    color:#ffffff;
+    font-size: 15px;
+    padding: 10px 15px;
+    position: relative;
+}
+.school-tabs .nav-tabs .nav-link.active{
+    background-color: transparent;
+    font-weight: 600;
+}
+.school-tabs .nav-tabs .nav-link::after {
+	position: absolute;
+	content: '';
+	border-top: 8px solid transparent;
+	border-right: 8px solid transparent;
+	border-bottom: 8px solid #ffffff;
+	border-left: 8px solid transparent;
+	left: 0;
+	right: 0;
+	width: 10px;
+	margin: auto;
+    bottom: 0;
+    display: none;
+}
+.school-tabs .nav-tabs .nav-link.active::after{
+    display: block;
+}
+.school-tabs .tab-content{
+    background-color: #ffffff;
+    border: 1px solid #dfdfdf;
+    border-top: none;
+}
+
+/*tabs-heading*/
+.tabs-heading {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.camera-image{
+    width: 150px !important;
+    height: 150px; border: 1px solid #d9d9d9;
+    position: relative; border-radius: 3px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.camera-icon {
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: auto;
+	top: 0;
+	width: 100px;
+	height: 100px;
+	bottom: 0;
+	text-align: center;
+}
+.camera-icon img{width:100px;}
+.camera-upload-content{display: inline-block;color:#292b2c; padding-left: 15px;}
+.camera-upload-content h3{ font-size: 18px;}
+.camera-upload-content span{ font-size: 14px;}
+
+.delete-button-image{
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    background-color: #0a4cab;
+    left: 34px;
+    bottom: -15px;
+    text-align: center;
+    line-height: 32px;
+    border: 1px solid #0a4cab; cursor: pointer;
+}
+.delete-button-image img{width:18px;}
+
+.edit-button-image{
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    background-color: #ffffff;
+    right: 34px;
+    bottom: -15px;
+    text-align: center;
+    line-height: 30px;
+    border: 1px solid #0a4cab;
+    line-height: 32px; cursor: pointer;
+}
+.edit-button-image img{width:18px;}
+#upload-photo {
+	position: absolute;
+	height: 35px;
+	width: 35px;
+	left: 0;
+	top: 0;
+	opacity: 0;
+	cursor: pointer;
+	overflow: hidden;
+}
+
+.both-button .btn-info,
+.both-button .btn-info:active, 
+.both-button .btn-info.active 
+{color: #0a4cab;background-color: transparent;border-color: #0a4cab;}
+
+.both-button .btn-info:focus, 
+.both-button .btn-info.focus{-webkit-box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);}
+
+.input-group-addon img{width: 8px;}
