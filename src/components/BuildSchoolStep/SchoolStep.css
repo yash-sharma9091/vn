@@ -165,3 +165,9 @@
     box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);}
 
 .input-group-addon img{width: 8px;}
+.group-box{border-bottom:1px solid #dfdfdf; margin-bottom: 20px; padding-bottom: 20px;}
+.remove-link{position: absolute; right:0; bottom: -3px; color:#0a4cab; font-size: 12px; text-decoration: underline; padding: 0;}
+.addMore-link{color:#0a4cab; font-size: 14px;text-decoration: underline; padding: 0;}
+.remove-link-onbox{position: absolute; right:10px; top: 10px; color:#0a4cab; font-size: 12px; text-decoration: underline; padding: 0;}
+.delete-link{position: absolute; right:5px; top:5px; color:#0a4cab; font-size: 13px; text-decoration: underline; padding: 0;display: none;}
+.code-box:hover .delete-link{display: block;}
