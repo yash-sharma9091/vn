@@ -1,5 +1,6 @@
 /* global IMAGE_PATH */
 import React, { Component } from 'react';
+import {loadImage} from '../../lib/Helper';
 import './HomePage.css';
 
 class HomeBanner extends Component {
@@ -9,20 +10,12 @@ class HomeBanner extends Component {
 			bannerImg: {}
 		}
 	}
-	loadImage(src) {
-		return new Promise((resolve, reject) => {
-			const image = new Image();
-			image.onload = () => resolve(src);
-			image.onerror = err => reject(err);
-			image.src = src;
-		});
-	}
 	componentWillReceiveProps() {
 		const {banner_img} = this.props; let bannerImg = {};
 		
 		if ( banner_img ) {
-			let url = (IMAGE_PATH + '/' + banner_img[0].path);
-			this.loadImage(url)
+			let url = (IMAGE_PATH + '/' + banner_img.path);
+			loadImage(url)
 			.then(res => {
 				bannerImg = {
 					backgroundImage: 'url(' + res + ')',

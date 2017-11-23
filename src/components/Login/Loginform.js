@@ -5,15 +5,13 @@ import FormSubmit from "../Common/FormSubmit";
 import { Field, SubmissionError,reduxForm } from 'redux-form';
 import {Required, UAN} from '../../lib/Validate';
 import Logo from  '../Logo/Logo';
-import './Login.css';
-import {CopyRightText} from '../partials/CopyRightText';
 import Alert from '../Common/Alert';
 import { AUTH_REQUEST } from '../../constant';
 import {connect} from 'react-redux';
 import {LinkContainer} from 'react-router-bootstrap';
-import {join, forgotPassword} from '../../lib/SiteLinks';
+import {join, forgotPassword, schoolstep} from '../../lib/SiteLinks';
 import {push} from 'react-router-redux';
-
+import CopyRightText from '../partials/CopyRightText';
 class Loginform extends Component {
 	constructor(props) {
       	super(props);
@@ -93,7 +91,7 @@ class Loginform extends Component {
             		reject(new SubmissionError({_error: error}));
           		},
           		callbackSuccess: () => {
-            		dispatch(push('/dashboard'));
+            		dispatch(push(schoolstep));
             		resolve();
           		}
         	})

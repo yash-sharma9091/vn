@@ -5,7 +5,6 @@ import FormSubmit from "../Common/FormSubmit";
 import { Field, SubmissionError,reduxForm } from 'redux-form';
 import {Required, Email, Number} from '../../lib/Validate';
 import Logo from  '../Logo/Logo';
-import './Change.css';
 
 class ChangePassForm extends Component {
 	constructor(props) {

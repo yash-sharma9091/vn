@@ -1,4 +1,8 @@
-.login-side{background: url('../../assets/images/login-bg.png');background-size: cover;width: 100%;height: 100vh;display: table;padding: 15px;position: relative;}
+.login-side{
+	background: url('../../assets/images/login-bg-resize.png');
+	background-color: rgba(6, 41, 90, 0.83); 
+	background-size: cover;width: 100%;height: 100vh;display: table;padding: 15px;position: relative;
+}
 .login-tags{display: table-cell;vertical-align: middle;}
 .login-tags h2{font-size: 26px;margin-bottom: 10px;}
 .login-tags .tag-line{font-size: 21px;line-height: 26px;}

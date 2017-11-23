@@ -7,21 +7,20 @@ import BecomePilotSchool from './BecomeAPilotSchool';
 import './HomePage.css';
 import {connect} from 'react-redux';
 import { FETCH_SITE_SETTINGS } from '../../constant';
-import InternalServerError from '../Error/InternalServerError'
+import InternalServerError from '../Error/InternalServerError';
 
 class HomePage extends Component {
 	constructor() {
 		super();
 		this.state = {
-			isLoading: true,
 			errorMsg: ''
 		}
 	}
 	componentDidMount()  {
 		this.props.dispatch({
 			type: FETCH_SITE_SETTINGS,
-			callbackError: ({message}) => this.setState({errorMsg:message, isLoading: false}) ,
-      		callbackSuccess: () => this.setState({isLoading: false})
+			callbackError: ({message}) => this.setState({errorMsg:message}) ,
+      		callbackSuccess: () => this.setState({errorMsg: ''})
 		});
 	}
   	render() {

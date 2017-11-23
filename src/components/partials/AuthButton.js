@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
 import { Nav, NavItem, NavLink } from 'reactstrap';
-import {join, login, dashboard} from '../../lib/SiteLinks';
+import {join, login} from '../../lib/SiteLinks';
 import {LinkContainer} from 'react-router-bootstrap';
-import {connect} from 'react-redux';
-import {AUTH_LOGOUT_REQUEST} from '../../constant';
-import {push} from 'react-router-redux';
+//import {connect} from 'react-redux';
+//import {AUTH_LOGOUT_REQUEST} from '../../constant';
+//import {push} from 'react-router-redux';
 
 class AuthButton extends Component {
 	render() {
-		const {token} = this.props;
+		/*const {token} = this.props;
 		if( token ) {
 			return (
 				<Nav className="mr-auto" navbar>
@@ -22,7 +22,7 @@ class AuthButton extends Component {
 				    </NavItem>
 				</Nav>
 			)
-		} else {
+		} else {*/
 			return (
 				<Nav className="mr-auto" navbar>
 				    <NavItem>
@@ -37,9 +37,9 @@ class AuthButton extends Component {
 				    </NavItem>
 				</Nav>
 			)
-		}	
+		//}	
 	}
-	logout() {
+	/*logout() {
 		const { dispatch } = this.props;
 	  	return new Promise((resolve, reject) => {
 	    	dispatch({
@@ -50,12 +50,13 @@ class AuthButton extends Component {
 	      		}
 	    	})
 	  	});
-	}
+	}*/
 }
 
-const mapStateToProps = (state) => {
+/*const mapStateToProps = (state) => {
 	return ({
 		token: state.auth.token
 	})
 }
-export default connect(mapStateToProps)(AuthButton);
+export default connect(mapStateToProps)(AuthButton);*/
+export default AuthButton;

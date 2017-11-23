@@ -8,9 +8,11 @@ import FormField from "../Common/FormField";
 import FormSelect from "../Common/FormSelect";
 import FormSubmit from "../Common/FormSubmit";
 import { Field, SubmissionError,reduxForm } from 'redux-form';
-import {Required, Email, Number, maxLength4,maxLength200,maxLength400} from '../../lib/Validate';
+import {Required, Email, Number, Phone, maxLength4,maxLength200,maxLength400} from '../../lib/Validate';
 import {Http} from '../../lib/Http';
 import Alert from '../Common/Alert';
+import {flattenObject, isJson} from '../../lib/Helper';
+import {connect} from 'react-redux';
 
 class SchoolInfoForm extends Component {
 	constructor(props) {
@@ -22,7 +24,8 @@ class SchoolInfoForm extends Component {
     }
 
   	render() {
-  		const { error, handleSubmit, pristine, submitting} = this.props;
+  		const { error, handleSubmit, pristine, submitting, initialValues} = this.props;
+  		
   		const options = [
 			{abbreviation: 'P', name: 'Public School'},
 			{abbreviation: 'R', name: 'Private School'},
@@ -45,7 +48,7 @@ class SchoolInfoForm extends Component {
                     <div className="form-row">
                         <Field 
                             component={FormField} type="text" formGroupClassName="col-md-6"
-                            name="school name" label="School Name"
+                            name="school_name" label="School Name"
                             id="schoolname" placeholder="Enter school name" validate={[Required, maxLength200]} doValidate={true}/>
                         <Field 
                             component={FormSelect} formGroupClassName="col-md-6"
@@ -62,7 +65,7 @@ class SchoolInfoForm extends Component {
                         <Field 
                             component={FormSelect} formGroupClassName="col-md-6"
                             name="School Levels" type="select" emptyText="Select levels"
-                            label="School Levels" className="input_both" options={options}
+                            label="School Levels" className="input_both" options={levels}
                             displayKey={null} displayLabel={"name"} empty={true} />
                     </div>
 
@@ -132,7 +135,7 @@ class SchoolInfoForm extends Component {
                             component={FormField} type="text" formGroupClassName="col-md-6"
                             name="contact_telephoneno" label="Contact Telephone Number"
                             id="ContactTelephoneNumber" placeholder="Enter contact telephone number"
-                            doValidate={true} maskInput={true} inputAddOn={true} inputAddOnText="+1"/>
+                            doValidate={true} maskInput={true} inputAddOn={true} validate={[Required, Phone]} inputAddOnText="+1"/>
                         <Field 
                             component={FormField} type="text" formGroupClassName="col-md-6"
                             name="school_telephoneno" label="School Telephone Number"
@@ -153,14 +156,7 @@ class SchoolInfoForm extends Component {
             </div>
     	);
   	}
-  	isJson(str) {
-	    try {
-	        JSON.parse(str);
-	    } catch (e) {
-	        return false;
-	    }
-	    return true;
-	}
+  	
   	formSubmit(values) {
   		const {dispatch, reset, showThanks} = this.props;
   		if( _.has(values, 'contact_telephoneno') ) {
@@ -170,7 +166,7 @@ class SchoolInfoForm extends Component {
   			values.school_telephoneno = _.replace(values.school_telephoneno, /-|\s|\+1/g, "");
   		}
   		if( _.has(values, 'school_type') ) {
-  			values.school_type = this.isJson(values.school_type) ? JSON.parse(values.school_type) : values.school_type;
+  			values.school_type = isJson(values.school_type) ? JSON.parse(values.school_type) : values.school_type;
   		}
   		return new Promise((resolve, reject) => {
   			Http.post('signupSchool', values)
@@ -192,25 +188,8 @@ class SchoolInfoForm extends Component {
   	}
 }
 
-const flattenObject = (c, d = '.') => {
-  const r = {};
-  (function f(o, p) {
-      Object.keys(o).forEach(k => (o[k] && typeof o[k] === 'object' ? f(o[k], p ? `${p}${d}${k}` : k) : (r[p ? `${p}${d}${k}` : k] = o[k])));
-  }(c));
-  return r;
-};
-
-const _SchoolInfoForm = reduxForm({
-  	form: 'signupForm',
-  	validate: (values) => {
-    	const errors = {};
-    	if(!values.contact_telephoneno) {
-      		errors.contact_telephoneno = 'Contact number is required';
-    	}  else if(!/^([0|[1-9][0-9]{9})$/i.test(_.replace(values.contact_telephoneno, /-|\s|\+1/g, ""))) {
-    		errors.contact_telephoneno = 'Enter valid number';
-    	}
-    	return errors;
-    },
+let _SchoolInfoForm = reduxForm({
+  	form: 'SchoolInfoForm',
     onSubmitFail: (errors) => {
     	// https://github.com/erikras/redux-form/issues/2365
     	const errorEl = document.querySelector(
@@ -225,5 +204,12 @@ const _SchoolInfoForm = reduxForm({
   		}
     }
 })(SchoolInfoForm);
+
+// You have to connect() to any reducers that you wish to connect to yourself
+_SchoolInfoForm = connect(
+  state => ({
+    initialValues: state.auth.user // pull initial values from account reducer
+  }),
+)(_SchoolInfoForm)
 
 export default _SchoolInfoForm;

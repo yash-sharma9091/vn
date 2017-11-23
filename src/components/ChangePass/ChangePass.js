@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ChangeSide from  './ChangeSide';
 import ChangeForm from  './ChangePassForm';
-import './Change.css';
 
 class ChangePass extends Component {
   	render() {
