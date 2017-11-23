@@ -43,64 +43,211 @@ class SchoolGradeCodes extends Component {
                 <Form onSubmit={handleSubmit(this.formSubmit)} className="col-sm-12">
                     <Alert alertVisible={error} alertMsg={error} className={error ? "danger":"success"}/>
 
-                    <div className="form-row">
-                        <Field 
-                            component={FormSelect} formGroupClassName="col-md-4"
-                            name="How many marking periods in a year?" type="select" emptyText="How many marking periods in a year?"
-                            label="How many marking periods in a year?" className="input_both" options={options}
-                            displayKey={null} displayLabel={"name"} empty={true} />
-                    </div>
+					<div className="group-box">
+						<div className="form-row relative">
+							<Field 
+								component={FormSelect} formGroupClassName="col-md-4"
+								name="How many marking periods in a year?" type="select" emptyText="2"
+								label="How many marking periods in a year?" className="input_both" options={options}
+								displayKey={null} displayLabel={"name"} empty={true} />
+						</div>
 
-                    <div className="form-row">
-                        <Field 
-                            component={FormField} type="text" formGroupClassName="col-md-4"
-                            name="Add Name" label="Add Name" disabled={true}
-                            id="Add_Name"
-                            placeholder="Marking Period 1" validate={[Required, maxLength200]} doValidate={true}/>
-                        
-                        <div className="form-group col-md-4">
-                            <FormGroup>
-                                <Label for="exampleDate">Start Date</Label>
-                                <Input type="date" name="date" id="exampleDate" placeholder="date placeholder" />
-                            </FormGroup>
-                        </div>
+						<div className="form-row relative">
+								<Field 
+								component={FormField} type="text" formGroupClassName="col-md-4"
+								name="Add Name" label="Add Name" disabled={true}
+								id="Add_Name"
+								placeholder="Marking Period 1" validate={[Required, maxLength200]} doValidate={true}/>
+							
+								<FormGroup className="col-md-4">
+									<Label for="exampleDate">Start Date</Label>
+									<Input type="date" name="date" id="exampleDate" placeholder="date placeholder" />
+								</FormGroup>
 
-                        <div class="form-group col-md-4">
-                            <FormGroup>
-                                <Label for="exampleDate">End Date</Label>
-                                <Input type="date" name="date" id="exampleDate" placeholder="End placeholder" />
-                            </FormGroup>
-                        </div>
-                        <div><button type="button" class="btn btn-link click-link pointer">Remove</button></div>
-                    </div>
+								<FormGroup className="col-md-4">
+									<Label for="exampleDate">End Date</Label>
+									<Input type="date" name="date" id="exampleDate" placeholder="End placeholder" />
+								</FormGroup>
 
-                    <div className="form-row">
-                        <Field 
-                            component={FormField} type="text" formGroupClassName="col-md-4"
-                            name="Add Name" label="Add Name" disabled={true}
-                            id="Add_Name" placeholder="Marking Period 1" validate={[Required, maxLength200]} doValidate={true}/>
-                        
-                        <div className="form-group col-md-4">
-                            <FormGroup>
-                                <Label for="exampleDate">Start Date</Label>
-                                <Input type="date" name="date" id="exampleDate" placeholder="date placeholder" />
-                            </FormGroup>
-                        </div>
+							    <button type="button" class="btn btn-link remove-link pointer">Remove</button>
+						</div>
 
-                        <div class="form-group col-md-4">
-                            <FormGroup>
-                                <Label for="exampleDate">End Date</Label>
-                                <Input type="date" name="date" id="exampleDate" placeholder="End placeholder" />
-                            </FormGroup>
-                        </div>
-                    </div>
+						<div className="form-row relative">
+							<Field 
+								component={FormField} type="text" formGroupClassName="col-md-4"
+								name="Add Name" label="Add Name" disabled={true}
+								id="Add_Name"
+								placeholder="Marking Period 1" validate={[Required, maxLength200]} doValidate={true}/>
+							
+								<FormGroup className="col-md-4">
+									<Label for="exampleDate">Start Date</Label>
+									<Input type="date" name="date" id="exampleDate" placeholder="date placeholder" />
+								</FormGroup>
 
-                   
+								<FormGroup className="col-md-4">
+									<Label for="exampleDate">End Date</Label>
+									<Input type="date" name="date" id="exampleDate" placeholder="End placeholder" />
+								</FormGroup>
 
-                    
-                    
-                    
-                    <div className="tabs-heading font-weight-bold">Contact Information</div>
+							    <button type="button" class="btn btn-link remove-link pointer">Remove</button>
+						</div>
+						<button type="button" class="btn btn-link addMore-link pointer">+ Add More Marking Period</button>
+					</div>
+
+                    <div className="tabs-heading font-weight-bold">Add Classes</div>
+
+					<div className="group-box">
+						<div className="form-row">
+							<Field 
+								component={FormSelect} formGroupClassName="col-md-4"
+								name="How many classes you have in your school?" type="select" emptyText="2"
+								label="How many classes you have in your school?" className="input_both" options={options}
+								displayKey={null} displayLabel={"name"} empty={true} />
+						</div>
+
+						<div className="p-3 light-bg relative">
+							<div className="form-row">
+								<Field 
+									component={FormField} type="text" formGroupClassName="col-md-6"
+									name="Add Classes" label="Add Classes" disabled={true}
+									id="Add Classes" placeholder="Enter classes" validate={[Required, maxLength200]} doValidate={true}/>
+								
+								<button type="button" class="btn btn-link addMore-link pointer">+ Add Code</button>
+							</div>
+							<div className="form-row">
+								<div class="form-group col-md-3 code-box relative">
+									<label>Code 1</label>
+									<div class="input-group">
+										<input type="text" className="form-control" placeholder="Enter code" />
+										<span class="input-group-addon" id="basic-addon2"><img src={CrossImage} /></span>
+									</div>
+									<button type="button" class="btn btn-link delete-link pointer">Delete</button>
+								</div>
+
+								<div class="form-group col-md-3 code-box relative">
+									<label>Code 2</label>
+									<div class="input-group">
+										<input type="text" className="form-control" placeholder="Enter code" />
+										<span class="input-group-addon" id="basic-addon2"><img src={CrossImage} /></span>
+									</div>
+									<button type="button" class="btn btn-link delete-link pointer">Delete</button>
+								</div>
+
+								<div class="form-group col-md-3 code-box relative">
+									<label>Code 3</label>
+									<div class="input-group">
+										<input type="text" className="form-control" placeholder="Enter code" />
+										<span class="input-group-addon" id="basic-addon2"><img src={CrossImage} /></span>
+									</div>
+									<button type="button" class="btn btn-link delete-link pointer">Delete</button>
+								</div>
+
+								<div class="form-group col-md-3 code-box relative">
+									<label>Code 4</label>
+									<div class="input-group">
+										<input type="text" className="form-control" placeholder="Enter code" />
+										<span class="input-group-addon" id="basic-addon2"><img src={CrossImage} /></span>
+									</div>
+									<button type="button" class="btn btn-link delete-link pointer">Delete</button>
+								</div>
+								
+								<div class="form-group col-md-3 code-box relative">
+									<label>Code 5</label>
+									<div class="input-group">
+										<input type="text" className="form-control" placeholder="Enter code" />
+										<span class="input-group-addon" id="basic-addon2"><img src={CrossImage} /></span>
+									</div>
+									<button type="button" class="btn btn-link delete-link pointer">Delete</button>
+								</div>
+
+								<div class="form-group col-md-3 code-box relative">
+									<label>Code 6</label>
+									<div class="input-group">
+										<input type="text" className="form-control" placeholder="Enter code" />
+										<span class="input-group-addon" id="basic-addon2"><img src={CrossImage} /></span>
+									</div>
+								</div>
+
+								<div class="form-group col-md-3 code-box relative">
+									<label>Code 7</label>
+									<div class="input-group">
+										<input type="text" className="form-control" placeholder="Enter code" />
+										<span class="input-group-addon" id="basic-addon2"><img src={CrossImage} /></span>
+									</div>
+									<button type="button" class="btn btn-link delete-link pointer">Delete</button>
+								</div>
+							</div>
+							<button type="button" class="btn btn-link remove-link-onbox pointer">Remove</button>
+						</div>
+
+						<button type="button" class="btn btn-link addMore-link pointer">+ Add More Classes</button>
+					</div>
+
+					<div className="tabs-heading font-weight-bold">Add Subjects</div>
+
+					<div className="group-box">
+						<div className="form-row relative">
+							<Field 
+								component={FormField} type="text" formGroupClassName="col-md-6"
+								name="Add Subject" label="Add Subject" disabled={true}
+								id="Add Subject" placeholder="Enter subject name" validate={[Required, maxLength200]} doValidate={true}/>
+								
+							<Field 
+								component={FormSelect} formGroupClassName="col-md-6"
+								name="How many classes will be teaching the subject?" type="select" emptyText="2"
+								label="How many classes will be teaching the subject?" className="input_both" options={options}
+								displayKey={null} displayLabel={"name"} empty={true} />
+							
+							<button type="button" class="btn btn-link remove-link pointer">Remove</button>
+						</div>
+
+						<div className="p-3 light-bg relative mt-3">
+						 	<div className="form-row relative">
+								<Field 
+									component={FormField} type="text" formGroupClassName="col-md-6"
+									name="Subject Code" label="Subject Code" disabled={true}
+									id="Subject_Code" placeholder="Enter subject code" validate={[Required, maxLength200]} doValidate={true}/>
+								
+								<Field 
+									component={FormField} type="text" formGroupClassName="col-md-6"
+									name="Class Code" label="Class Code" disabled={true}
+									id="Class Code" placeholder="Enter class code" validate={[Required, maxLength200]} doValidate={true}/>
+								<button type="button" class="btn btn-link remove-link pointer">Remove</button>
+							</div>
+
+							<div className="form-row relative">
+								<Field 
+									component={FormField} type="text" formGroupClassName="col-md-6"
+									name="Subject Code" label="Subject Code" disabled={true}
+									id="Subject_Code" placeholder="Enter subject code" validate={[Required, maxLength200]} doValidate={true}/>
+								
+								<Field 
+									component={FormField} type="text" formGroupClassName="col-md-6"
+									name="Class Code" label="Class Code" disabled={true}
+									id="Class Code" placeholder="Enter class code" validate={[Required, maxLength200]} doValidate={true}/>
+								<button type="button" class="btn btn-link remove-link pointer">Remove</button>
+							</div>
+						</div>
+					</div>
+
+					<div className="group-box">
+						<div className="form-row relative">
+							<Field 
+								component={FormField} type="text" formGroupClassName="col-md-6"
+								name="Add Subject" label="Add Subject" disabled={true}
+								id="Add Subject" placeholder="Enter subject name" validate={[Required, maxLength200]} doValidate={true}/>
+								
+							<Field 
+								component={FormSelect} formGroupClassName="col-md-6"
+								name="How many classes will be teaching the subject?" type="select" emptyText="2"
+								label="How many classes will be teaching the subject?" className="input_both" options={options}
+								displayKey={null} displayLabel={"name"} empty={true} />
+							
+							<button type="button" class="btn btn-link remove-link pointer">Remove</button>
+						</div>
+					</div>
+					<button type="button" class="btn btn-link addMore-link pointer">+ Add More Subject</button>
+
                     <div className="row justify-content-center both-button">
                         <button type="button" className="btn btn-info mr-1">Cancel</button>
                         
@@ -109,7 +256,6 @@ class SchoolGradeCodes extends Component {
                             submitting={submitting} className="btn-primary ml-1"
                             buttonSaveLoading="Processing..." buttonSave="Save"/>
                     </div>
-
                 </Form>
             </div>
     	);
