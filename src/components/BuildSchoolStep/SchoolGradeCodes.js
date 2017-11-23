@@ -65,13 +65,13 @@ class SchoolGradeCodes extends Component {
                             </FormGroup>
                         </div>
 
-                        <div class="form-group col-md-4">
+                        <div className="form-group col-md-4">
                             <FormGroup>
                                 <Label for="exampleDate">End Date</Label>
                                 <Input type="date" name="date" id="exampleDate" placeholder="End placeholder" />
                             </FormGroup>
                         </div>
-                        <div><button type="button" class="btn btn-link click-link pointer">Remove</button></div>
+                        <div><button type="button" className="btn btn-link click-link pointer">Remove</button></div>
                     </div>
 
                     <div className="form-row">
@@ -87,18 +87,13 @@ class SchoolGradeCodes extends Component {
                             </FormGroup>
                         </div>
 
-                        <div class="form-group col-md-4">
+                        <div className="form-group col-md-4">
                             <FormGroup>
                                 <Label for="exampleDate">End Date</Label>
                                 <Input type="date" name="date" id="exampleDate" placeholder="End placeholder" />
                             </FormGroup>
                         </div>
                     </div>
-
-                   
-
-                    
-                    
                     
                     <div className="tabs-heading font-weight-bold">Contact Information</div>
                     <div className="row justify-content-center both-button">

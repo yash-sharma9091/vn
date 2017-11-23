@@ -18,3 +18,29 @@ export const networkAlert = () => {
 		alert.className = 'alert alert-danger d-none';
 	}, 5000);
 }
+
+export const loadImage = (src) => {
+	return new Promise((resolve, reject) => {
+		const image = new Image();
+		image.onload = () => resolve(src);
+		image.onerror = err => reject(err);
+		image.src = src;
+	});
+}
+
+export const flattenObject = (c, d = '.') => {
+  const r = {};
+  (function f(o, p) {
+      Object.keys(o).forEach(k => (o[k] && typeof o[k] === 'object' ? f(o[k], p ? `${p}${d}${k}` : k) : (r[p ? `${p}${d}${k}` : k] = o[k])));
+  }(c));
+  return r;
+}
+
+export const isJson = (str) => {
+    try {
+        JSON.parse(str);
+    } catch (e) {
+        return false;
+    }
+    return true;
+}

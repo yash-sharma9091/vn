@@ -7,10 +7,10 @@ import {Required, Password} from '../../lib/Validate';
 import {login} from '../../lib/SiteLinks';
 import Logo from  '../Logo/Logo';
 import {LinkContainer} from 'react-router-bootstrap';
-import {CopyRightText} from '../partials/CopyRightText';
 import {Http} from '../../lib/Http';
 import {connect} from 'react-redux';
 import Alert from '../Common/Alert';
+import CopyRightText from '../partials/CopyRightText';
 
 class ResetPasswordForm extends Component {
 	constructor(props) {
@@ -28,7 +28,9 @@ class ResetPasswordForm extends Component {
      		<div className="login-box light-sm-bg">
 				<div className="login-header"> <Logo /> </div>
 				<div className="home-copy-right">
-					<div className="text-center"> <div className="copyright-tag text-uppercase"><CopyRightText/></div> </div>
+					<div className="text-center">
+						<div className="copyright-tag text-uppercase"><CopyRightText/></div>
+					</div>
 				</div>
 				<div className="login-form" >
 					<div className="d-flex flex-row justify-content-center">

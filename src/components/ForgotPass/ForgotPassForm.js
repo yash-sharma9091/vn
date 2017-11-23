@@ -8,6 +8,7 @@ import {LinkContainer} from 'react-router-bootstrap';
 import {login} from '../../lib/SiteLinks';
 import {UAN} from '../../lib/Validate';
 import {Http} from '../../lib/Http';
+import CopyRightText from '../partials/CopyRightText';
 import Alert from '../Common/Alert';
 
 class ForgotPassForm extends Component {
@@ -29,9 +30,9 @@ class ForgotPassForm extends Component {
 				 </div>
 				 <div className="home-copy-right">
 					<div className="text-center">
-						<div className="copyright-tag text-uppercase">© 2017 COPYRIGHT pencilink</div>
+						<div className="copyright-tag text-uppercase"><CopyRightText/></div>
 					</div>
-				 </div>
+				</div>
 				 <div className="login-form" >
 					<div className="d-flex flex-row justify-content-center">
 					 <Form onSubmit={handleSubmit(this.formSubmit)}  className="col-6">

@@ -1,3 +1,4 @@
+/* global _ */
 import {decorateNameField} from './Helper';
 
 const Required = (value, allValues, props, name) => {
@@ -18,6 +19,9 @@ const Password = (value, allValues, props, name) => {
 const Number = (value, allValues, props, name) => {
 	return  (value ? (/^\d+$/.test(value) ? undefined : 'Enter a valid number') : undefined );
 }	
+const Phone = (value, allValues, props, name) => {
+	return  (value ? (/^([0|[1-9][0-9]{9})$/i.test(_.replace(name, /-|\s|\+1/g, "")) ? undefined : 'Enter a valid number') : undefined );
+}	
 const maxLength = max => value =>
   value && value.length > max ? `Must be ${max} characters or less` : undefined
 const maxLength4 = maxLength(4);
@@ -32,5 +36,6 @@ export{
 	maxLength400,
 	UAN,
 	Password,
-	Alphabets
+	Alphabets,
+	Phone
 };
