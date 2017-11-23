@@ -26,7 +26,7 @@ class InkWork extends Component {
 				    <div className="gradient-color text-center md-heading">How Pencil Ink Works</div>
                     <div className="row justify-content-center">
                         <div className="col-sm-8 mt-4">
-							<div className="relative">
+							<div className="vedio-main relative">
 								<img className={showVideo ? "d-none img-block" : "img-block"} src={workVideoImg} alt="playButton" />
 								<a onClick={() => this.showVideo()} className={showVideo ? "d-none vedio-icon" : "vedio-icon"}><img src={workVideoImgIcon} alt="videDummyImage" /></a>
                                 <iframe title="How it works" src={src} frameBorder="0" allowFullScreen />
