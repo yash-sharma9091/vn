@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { FormGroup, Label, Input, FormFeedback, InputGroupAddon, InputGroup } from 'reactstrap';
 import InputMask from 'react-input-mask';
+import PlacesAutocomplete from 'react-places-autocomplete';
+import {placesServiceStatus} from '../../lib/Helper';
 
 class FormField extends Component {
 	render() {
@@ -28,15 +30,18 @@ class FormField extends Component {
     	
 	}
 	FormFeedback() {
-		const {meta, doValidate, maskInput} = this.props;
-		if( (doValidate && maskInput) || doValidate) {
+		const {meta, doValidate, maskInput, placesAutocomplete} = this.props;
+		if( (doValidate && maskInput) || (doValidate && placesAutocomplete) || doValidate) {
 			return (<FormFeedback>{meta.touched && meta.error ? meta.error : null}</FormFeedback>);
 		} else {
 			return null
 		}
 	}
+	receieveError = (x) => {
+		console.log('errr', x);
+	}
 	renderInput() {
-		const {meta, input, type, label, placeholder, className, doValidate, id, maskInput, rows} = this.props;
+		const {meta, input, type, label, placeholder, className, doValidate, id, maskInput, rows, placesAutocomplete} = this.props;
 		if( doValidate && maskInput ) {
 			return ( <InputMask 
 				{...input} 
@@ -44,6 +49,14 @@ class FormField extends Component {
 				placeholder={placeholder || label} type={type} 
 				mask="999-999-9999" maskChar={null} /> 
 			);
+		} else if( doValidate && placesAutocomplete )  {
+			return (
+				<PlacesAutocomplete 
+					onError={this.receieveError}
+					clearItemsOnError={true}
+					classNames={{input:`form-control ${className ? className : ''} ${!meta.touched ? null : (meta.error ? 'is-invalid': null)}`}}
+					inputProps={{...input, placeholder: placeholder}} />
+			)	
 		} else if(doValidate) {
 			return ( <Input 
 				{...input} 

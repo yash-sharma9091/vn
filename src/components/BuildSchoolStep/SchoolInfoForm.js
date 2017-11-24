@@ -6,13 +6,15 @@ import EditImage from '../../assets/images/svg/edit.svg';
 import { Form } from 'reactstrap';
 import FormField from "../Common/FormField";
 import FormSelect from "../Common/FormSelect";
+import FormDropdown from "../Common/FormDropdown";
 import FormSubmit from "../Common/FormSubmit";
 import { Field, SubmissionError,reduxForm } from 'redux-form';
-import {Required, Email, Number, Phone, maxLength4,maxLength200,maxLength400} from '../../lib/Validate';
+import {Required, Email, Number, Phone, maxLength4,maxLength200,maxLength400, Alphabets} from '../../lib/Validate';
 import {Http} from '../../lib/Http';
 import Alert from '../Common/Alert';
-import {flattenObject, isJson} from '../../lib/Helper';
+import {flattenObject, isJson, isEmptyAnyValue} from '../../lib/Helper';
 import {connect} from 'react-redux';
+
 
 class SchoolInfoForm extends Component {
 	constructor(props) {
@@ -22,7 +24,7 @@ class SchoolInfoForm extends Component {
       		success: ''
       	}
     }
-
+    
   	render() {
   		const { error, handleSubmit, pristine, submitting, initialValues} = this.props;
   		
@@ -51,28 +53,28 @@ class SchoolInfoForm extends Component {
                             name="school_name" label="School Name"
                             id="schoolname" placeholder="Enter school name" validate={[Required, maxLength200]} doValidate={true}/>
                         <Field 
-                            component={FormSelect} formGroupClassName="col-md-6"
-                            name="school_type" type="select" emptyText="Select school type"
-                            label="Type of School" className="input_both" options={options}
-                            displayKey={null} displayLabel={"name"} empty={true}/>
+                            component={FormDropdown} formGroupClassName="col-md-6"
+                            name="school_type" empty={true} emptyText="Select school type"
+                            label="Type of School" data={options}
+                            valueField={"abbreviation"} textField={"name"}/>
                     </div>
 
                     <div className="form-row">
                         <Field 
                             component={FormField} type="text" formGroupClassName="col-md-6"
-                            name="Total No. of Students" label="Total No. of Students"
-                            id="Total_Students" placeholder="Enter students" validate={[Required, maxLength200]} doValidate={true}/>
+                            name="no_of_students" label="Total No. of Students"
+                            id="Total_Students" placeholder="Enter students" validate={[Number, maxLength4]} doValidate={true}/>
                         <Field 
-                            component={FormSelect} formGroupClassName="col-md-6"
-                            name="School Levels" type="select" emptyText="Select levels"
-                            label="School Levels" className="input_both" options={levels}
-                            displayKey={null} displayLabel={"name"} empty={true} />
+                            component={FormDropdown} formGroupClassName="col-md-6"
+                            name="school_level" 
+                            label="School Levels" data={levels} placeholder="School levels"
+                            valueField={"key"} textField={"value"} empty={true} emptyText="School levels"/>
                     </div>
 
                     <Field 
-                        component={FormField} type="email"
-                        name="address" label="Address"
-                        id="email" placeholder="Enter Address" validate={[Required,Email]} doValidate={true}/>
+                        component={FormField} type="text"
+                        name="school_address" label="Address" placesAutocomplete={true}
+                        id="schoolAddress" placeholder="Enter Address" validate={[Required, maxLength200]} doValidate={true}/>
                     
                     <div className="form-row">
                         <Field 
@@ -122,12 +124,12 @@ class SchoolInfoForm extends Component {
                     <div className="form-row">
                         <Field 
                             component={FormField} type="text" formGroupClassName="col-md-6"
-                            name="Contact Name" label="Contact Name"
-                            id="Contact_Name" placeholder="Enter Name" validate={[Required, maxLength200]} doValidate={true}/>
+                            name="contact_name" label="Contact Name"
+                            id="Contact_Name" placeholder="Enter Name" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
                         <Field 
                             component={FormField} type="text" formGroupClassName="col-md-6"
-                            name="Email Address" label="Email Address"
-                            id="Email_Address" placeholder="Enter email address" validate={[Required, maxLength200]} doValidate={true}/>
+                            name="email_address" label="Email Address"
+                            id="Email_Address" placeholder="Enter email address" validate={[Required, Email]} doValidate={true}/>
                     </div>
 
                     <div className="form-row">
@@ -158,7 +160,8 @@ class SchoolInfoForm extends Component {
   	}
   	
   	formSubmit(values) {
-  		const {dispatch, reset, showThanks} = this.props;
+  		
+  		//const {dispatch, reset, showThanks} = this.props;
   		if( _.has(values, 'contact_telephoneno') ) {
   			values.contact_telephoneno = _.replace(values.contact_telephoneno, /-|\s|\+1/g, "");
   		}
@@ -166,16 +169,19 @@ class SchoolInfoForm extends Component {
   			values.school_telephoneno = _.replace(values.school_telephoneno, /-|\s|\+1/g, "");
   		}
   		if( _.has(values, 'school_type') ) {
-  			values.school_type = isJson(values.school_type) ? JSON.parse(values.school_type) : values.school_type;
+  			values.school_type = isEmptyAnyValue(values.school_type) ? null : values.school_type
   		}
-  		return new Promise((resolve, reject) => {
+  		if( _.has(values, 'school_level') ) {
+  			values.school_level = isEmptyAnyValue(values.school_level) ? null : values.school_level
+  		}
+  		console.log(values);
+  		/*return new Promise((resolve, reject) => {
   			Http.post('signupSchool', values)
   			.then(({data}) => {
-  				dispatch(reset('signupForm'));
-  				showThanks();
-  				resolve();
+  				console.log(data);
   			})
   			.catch(({errors}) => {
+  				console.log(errors);
   				let _message = {_error: errors.message || 'Internal Server error'};
   				
   				if( errors.hasOwnProperty('email_address') ) {
@@ -184,7 +190,7 @@ class SchoolInfoForm extends Component {
   				
   				reject(new SubmissionError(_message));
   			});
-  		});
+  		});*/
   	}
 }
 

@@ -20,7 +20,7 @@ const Number = (value, allValues, props, name) => {
 	return  (value ? (/^\d+$/.test(value) ? undefined : 'Enter a valid number') : undefined );
 }	
 const Phone = (value, allValues, props, name) => {
-	return  (value ? (/^([0|[1-9][0-9]{9})$/i.test(_.replace(name, /-|\s|\+1/g, "")) ? undefined : 'Enter a valid number') : undefined );
+	return  (value ? ( /^([0|[1-9][0-9]{9})$/i.test(_.replace(value, /-|\s|\+1/g, "")) ? undefined : 'Enter a valid number' ) : undefined );
 }	
 const maxLength = max => value =>
   value && value.length > max ? `Must be ${max} characters or less` : undefined
