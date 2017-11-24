@@ -1,5 +1,6 @@
 /* global _ */
-import {decorateNameField} from './Helper';
+import {decorateNameField, placesServiceStatus} from './Helper';
+import { geocodeByAddress } from 'react-places-autocomplete';
 
 const Required = (value, allValues, props, name) => {
 	return (value ? undefined : `${decorateNameField(name)} is required`);
@@ -22,6 +23,21 @@ const Number = (value, allValues, props, name) => {
 const Phone = (value, allValues, props, name) => {
 	return  (value ? ( /^([0|[1-9][0-9]{9})$/i.test(_.replace(value, /-|\s|\+1/g, "")) ? undefined : 'Enter a valid number' ) : undefined );
 }	
+const isValidAddress = (value, allValues, props, name) => {
+	
+	return geocodeByAddress(value.school_address)  
+	.catch(error => {
+		let _error =  _.find(placesServiceStatus, ['status_code', error]), message = 'The request could not be processed due to a server error';
+		if( _.has(_error, 'message') ) {
+			
+			throw {school_address: _error.message};
+		} else {
+			
+			throw {school_address: message};	
+		}
+		
+	});
+}	
 const maxLength = max => value =>
   value && value.length > max ? `Must be ${max} characters or less` : undefined
 const maxLength4 = maxLength(4);
@@ -37,5 +53,6 @@ export{
 	UAN,
 	Password,
 	Alphabets,
-	Phone
+	Phone,
+	isValidAddress
 };

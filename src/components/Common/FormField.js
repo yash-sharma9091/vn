@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { FormGroup, Label, Input, FormFeedback, InputGroupAddon, InputGroup } from 'reactstrap';
 import InputMask from 'react-input-mask';
 import PlacesAutocomplete from 'react-places-autocomplete';
-import {placesServiceStatus} from '../../lib/Helper';
 
 class FormField extends Component {
 	render() {
@@ -37,9 +36,6 @@ class FormField extends Component {
 			return null
 		}
 	}
-	receieveError = (x) => {
-		console.log('errr', x);
-	}
 	renderInput() {
 		const {meta, input, type, label, placeholder, className, doValidate, id, maskInput, rows, placesAutocomplete} = this.props;
 		if( doValidate && maskInput ) {
@@ -52,7 +48,6 @@ class FormField extends Component {
 		} else if( doValidate && placesAutocomplete )  {
 			return (
 				<PlacesAutocomplete 
-					onError={this.receieveError}
 					clearItemsOnError={true}
 					classNames={{input:`form-control ${className ? className : ''} ${!meta.touched ? null : (meta.error ? 'is-invalid': null)}`}}
 					inputProps={{...input, placeholder: placeholder}} />

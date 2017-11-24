@@ -9,7 +9,7 @@ import FormSelect from "../Common/FormSelect";
 import FormDropdown from "../Common/FormDropdown";
 import FormSubmit from "../Common/FormSubmit";
 import { Field, SubmissionError,reduxForm } from 'redux-form';
-import {Required, Email, Number, Phone, maxLength4,maxLength200,maxLength400, Alphabets} from '../../lib/Validate';
+import {Required, Email, Number, Phone, maxLength4,maxLength200,maxLength400, Alphabets, isValidAddress} from '../../lib/Validate';
 import {Http} from '../../lib/Http';
 import Alert from '../Common/Alert';
 import {flattenObject, isJson, isEmptyAnyValue} from '../../lib/Helper';
@@ -196,6 +196,8 @@ class SchoolInfoForm extends Component {
 
 let _SchoolInfoForm = reduxForm({
   	form: 'SchoolInfoForm',
+  	asyncValidate: isValidAddress,
+  	asyncBlurFields: ['school_address'],
     onSubmitFail: (errors) => {
     	// https://github.com/erikras/redux-form/issues/2365
     	const errorEl = document.querySelector(

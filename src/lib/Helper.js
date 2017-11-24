@@ -47,7 +47,7 @@ export const isJson = (str) => {
 
 export const isEmptyAnyValue = (obj) => Object.values(obj).some(el => el === null);
 
-export const placesServiceStatus = () => [
+export const placesServiceStatus = [
 	{ status_code: "ERROR", message: "There was a problem contacting the Google servers" },
 	{ status_code: "INVALID_REQUEST", message: "This request was invalid" },
 	{ status_code: "OVER_QUERY_LIMIT", message: "The webpage has gone over its request quota" },
