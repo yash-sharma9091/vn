@@ -16,7 +16,7 @@ class FaqTab extends Component {
     componentDidMount() {
         
         const {location} = this.props;
-        if( location ) {
+        if( location ) { 
             let tab = new URLSearchParams(location.search).get('tab'), search = '';
             if( tab === 'contact' ) {
                 search = '1';

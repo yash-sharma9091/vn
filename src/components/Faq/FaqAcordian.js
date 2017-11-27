@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Collapse, CardBody, Card, CardHeader } from 'reactstrap';
+import DownArrow from '../../assets/images/svg/down-arrow.svg';
 import './Faq.css';
     
 class FaqAcordian extends Component {
@@ -18,28 +19,32 @@ class FaqAcordian extends Component {
     	return (
      		<div className="light-sm-bg">
 				  <div className="d-flex flex-row justify-content-center">
-					 <div className="col-4">
+					 <div className="col-5">
 						<h3 className="gradient-color text-center">Frequently Asked Questions</h3>
 						<p className="text-center light-gray">Lorem ipsum dolor sit amet, consectetur adipiscing</p>
-                     </div>
+
+         <div className="accordian-list">
+				 {cards.map(index => {
+              return (
+                <Card key={index}>
+                  <CardHeader className={`acordian-header gradient-color ${collapse === index ? 'active':''}`}
+                      onClick={this.toggle} data-event={index}>
+                      What lorem ipsum dolor sit amet, consectetur adipiscing.
+                      <img className="downArrow" src={DownArrow} alt="" />
+                  </CardHeader>
+                  <Collapse isOpen={collapse === index}>
+                    <CardBody>
+                        Proin non metus feugiat, volutpat purus nec, mollis ligula. Maecenas nec molestie tortor. Phasellus commodo rutrum sapien in tincidunt. Nam eu mi mi. Morbi convallis, tortor et blandit tempor, nulla erat ornare lectus, sit amet imperdiet odio nunc et augue.
+                    </CardBody>
+                  </Collapse>
+                </Card>
+              )
+            })} 
+        </div>
+			</div>
+    </div>
                      
 				 </div>
-				 {cards.map(index => {
-                       return (
-                         <Card style={{ marginBottom: '1rem' }} key={index}>
-                           <CardHeader onClick={this.toggle} data-event={index}>Header</CardHeader>
-                           <Collapse isOpen={collapse === index}>
-                           <CardBody>
-                           Anim pariatur cliche reprehenderit,
-                            enim eiusmod high life accusamus terry richardson ad squid. Nihil
-                            anim keffiyeh helvetica, craft beer labore wes anderson cred
-                            nesciunt sapiente ea proident.
-                           </CardBody>
-                           </Collapse>
-                         </Card>
-                       )
-                     })} 
-			</div>
 		);
 	  }
 }
