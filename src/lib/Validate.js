@@ -31,13 +31,10 @@ const isValidAddress = (value, allValues, props, name) => {
 		.catch(error => {
 			let _error =  _.find(placesServiceStatus, ['status_code', error]), message = 'The request could not be processed due to a server error';
 			if( _.has(_error, 'message') ) {
-				console.log('inside if');
-				throw {school_address: _error.message};
+				reject({school_address: _error.message});
 			} else {
-				console.log('inside else');
-				throw {school_address: message};	
+				reject( {school_address: message});	
 			}
-			reject();
 		});
 	});	
 }	

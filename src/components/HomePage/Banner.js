@@ -32,9 +32,7 @@ class HomeBanner extends Component {
 		}
 	}
   	render() {
-  		const {bannerImg} = this.state;
-  		console.log(bannerImg);
-  		
+  		const {bannerImg} = this.state;  		
     	return (
 			<div className="homeBanner" style={bannerImg}>
 				<div className="homeBanner-tags text-center color-white">
