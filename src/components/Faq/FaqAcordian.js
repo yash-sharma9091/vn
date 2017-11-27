@@ -27,10 +27,10 @@ class FaqAcordian extends Component {
 				 {cards.map(index => {
               return (
                 <Card key={index}>
-                  <CardHeader className="acordian-header gradient-color" 
+                  <CardHeader className={`acordian-header gradient-color ${collapse === index ? 'active':''}`}
                       onClick={this.toggle} data-event={index}>
                       What lorem ipsum dolor sit amet, consectetur adipiscing.
-                      <img className="down-arrow" src={DownArrow} alt="" />
+                      <img className="downArrow" src={DownArrow} alt="" />
                   </CardHeader>
                   <Collapse isOpen={collapse === index}>
                     <CardBody>
