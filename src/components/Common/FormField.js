@@ -37,7 +37,7 @@ class FormField extends Component {
 		}
 	}
 	renderInput() {
-		const {meta, input, type, label, placeholder, className, doValidate, id, maskInput, rows, placesAutocomplete} = this.props;
+		const {meta, input, type, label, placeholder, className, doValidate, id, maskInput, rows, placesAutocomplete, onSelect, readOnly} = this.props;
 		if( doValidate && maskInput ) {
 			return ( <InputMask 
 				{...input} 
@@ -48,8 +48,8 @@ class FormField extends Component {
 		} else if( doValidate && placesAutocomplete )  {
 			return (
 				<PlacesAutocomplete 
-					clearItemsOnError={true}
-					classNames={{input:`form-control ${className ? className : ''} ${!meta.touched ? null : (meta.error ? 'is-invalid': null)}`}}
+					clearItemsOnError={true} onSelect={onSelect}
+					classNames={{autocompleteContainer: 'autocomplete-container', input:`form-control ${className ? className : ''} ${!meta.touched ? null : (meta.error ? 'is-invalid': null)}`}}
 					inputProps={{...input, placeholder: placeholder}} />
 			)	
 		} else if(doValidate) {
@@ -62,7 +62,7 @@ class FormField extends Component {
 		} else {
 			return ( <Input 
 				{...input} 
-				className={className} id={id} 
+				className={className} id={id} readOnly={readOnly}
 				placeholder={placeholder || label} type={type} rows={rows}/>
 			);
 		}

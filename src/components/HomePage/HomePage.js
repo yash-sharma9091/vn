@@ -28,11 +28,11 @@ class HomePage extends Component {
   		if( errorMsg ) {
   			return (<InternalServerError errorMsg={errorMsg}/>)
   		} else {
-  			const {banner_img, how_pencilink_works, what_we_do_steps} = this.props.settings;
+  			const {banner_img, how_pencilink_works, what_we_do_steps, thumb} = this.props.settings;
 	    	return (
 				<div >
 					<MainHeader />
-					<HomeBanner banner_img={banner_img}/>
+					<HomeBanner banner_img={banner_img} thumb={thumb}/>
 					<InkWork how_pencilink_works={how_pencilink_works}/>
 					<WhatWeDo what_we_do_steps={what_we_do_steps}/>
 					<BecomePilotSchool />

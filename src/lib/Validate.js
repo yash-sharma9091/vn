@@ -25,18 +25,21 @@ const Phone = (value, allValues, props, name) => {
 }	
 const isValidAddress = (value, allValues, props, name) => {
 	
-	return geocodeByAddress(value.school_address)  
-	.catch(error => {
-		let _error =  _.find(placesServiceStatus, ['status_code', error]), message = 'The request could not be processed due to a server error';
-		if( _.has(_error, 'message') ) {
-			
-			throw {school_address: _error.message};
-		} else {
-			
-			throw {school_address: message};	
-		}
-		
-	});
+	return new Promise((resolve, reject) => {
+		geocodeByAddress(value.school_address) 
+		.then(result => resolve()) 
+		.catch(error => {
+			let _error =  _.find(placesServiceStatus, ['status_code', error]), message = 'The request could not be processed due to a server error';
+			if( _.has(_error, 'message') ) {
+				console.log('inside if');
+				throw {school_address: _error.message};
+			} else {
+				console.log('inside else');
+				throw {school_address: message};	
+			}
+			reject();
+		});
+	});	
 }	
 const maxLength = max => value =>
   value && value.length > max ? `Must be ${max} characters or less` : undefined

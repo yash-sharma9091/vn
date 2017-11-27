@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import './HomePage.css';
 import workVideoImg from '../../assets/images/video.png';
 import workVideoImgIcon from '../../assets/images/video-icon.png';
+import {Loader} from '../Common/Loader';
 
 class InkWork extends Component {
     constructor() {
         super();
         this.state = {
             showVideo: false,
+            isLoading: false,
             src:"",
             tmpSrc:""
         }
@@ -28,8 +30,11 @@ class InkWork extends Component {
                         <div className="col-sm-8 mt-4">
 							<div className="vedio-main relative">
 								<img className={showVideo ? "d-none img-block" : "img-block"} src={workVideoImg} alt="playButton" />
-								<a onClick={() => this.showVideo()} className={showVideo ? "d-none vedio-icon" : "vedio-icon"}><img src={workVideoImgIcon} alt="videDummyImage" /></a>
+								<a onClick={() => this.showVideo()} className={showVideo ? "d-none vedio-icon" : "vedio-icon"}>
+                                    <img src={workVideoImgIcon} alt="videDummyImage" />
+                                </a>
                                 <iframe title="How it works" src={src} frameBorder="0" allowFullScreen />
+                                
 							</div>
                         </div>
                     </div>

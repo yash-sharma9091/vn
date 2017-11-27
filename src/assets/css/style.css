@@ -114,3 +114,10 @@ footer{background-color: #ffffff;}
 label {
     color: #37393a;
 }
+.autocomplete-container { 
+  position: 'absolute';
+  top: '100%';
+  background-color: 'white';
+  border: '1px solid #555555';
+  width: '100%';
+}

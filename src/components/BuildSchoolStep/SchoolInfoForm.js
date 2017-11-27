@@ -8,25 +8,74 @@ import FormField from "../Common/FormField";
 import FormSelect from "../Common/FormSelect";
 import FormDropdown from "../Common/FormDropdown";
 import FormSubmit from "../Common/FormSubmit";
+import FileInput from "../Common/FileInput";
 import { Field, SubmissionError,reduxForm } from 'redux-form';
 import {Required, Email, Number, Phone, maxLength4,maxLength200,maxLength400, Alphabets, isValidAddress} from '../../lib/Validate';
 import {Http} from '../../lib/Http';
 import Alert from '../Common/Alert';
 import {flattenObject, isJson, isEmptyAnyValue} from '../../lib/Helper';
 import {connect} from 'react-redux';
-
+import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
+import Cropper from 'react-cropper';
+import 'cropperjs/dist/cropper.css';
 
 class SchoolInfoForm extends Component {
 	constructor(props) {
       	super(props);
       	this.formSubmit = this.formSubmit.bind(this);
+      	this.handleSelect = this.handleSelect.bind(this);
+      	this.fillFormFields = this.fillFormFields.bind(this);
+      	this.handleChange = this.handleChange.bind(this);
       	this.state = {
-      		success: ''
+      		success: '',
+      		coordinates : {
+      			lat: '',
+      			lng: ''
+      		}
       	}
     }
-    
+    handleSelect(address) {
+		geocodeByAddress(address)
+		.then(result => {
+			this.fillFormFields(result);
+			return getLatLng(result[0])
+		})
+		.then(({ lat, lng }) => {
+			let request = {
+				coordinates: { lat, lng }
+			}
+			this.setState({coordinates: request});
+		})
+		.catch(err => { throw new SubmissionError(err.message) });
+    }
+    handleChange(e) {
+    	console.log(e);
+    }
+    fillFormFields(address) {
+    	const {change} = this.props;
+    	let componentForm = {
+			street_number: 'short_name',
+			route: 'long_name',
+			locality: 'long_name',
+			administrative_area_level_1: 'short_name',
+			country: 'long_name',
+			postal_code: 'short_name'
+		};
+    	if( address.length > 0 ) {
+    		let address_components = address[0].address_components;
+    		change('school_address', address[0].formatted_address);
+    		for (var i = 0; i < address_components.length; i++) {
+				var addressType = address_components[i].types[0];
+				if (componentForm[addressType]) {
+					var val = address_components[i][componentForm[addressType]];
+					change(addressType, val);
+				}
+			}
+    	}
+    }
   	render() {
-  		const { error, handleSubmit, pristine, submitting, initialValues} = this.props;
+  		const { error, handleSubmit, pristine, submitting, initialValues, change} = this.props;
+  		
   		
   		const options = [
 			{abbreviation: 'P', name: 'Public School'},
@@ -73,35 +122,36 @@ class SchoolInfoForm extends Component {
 
                     <Field 
                         component={FormField} type="text"
-                        name="school_address" label="Address" placesAutocomplete={true}
+                        name="school_address" label="Address" placesAutocomplete={true} onSelect={this.handleSelect}
                         id="schoolAddress" placeholder="Enter Address" validate={[Required, maxLength200]} doValidate={true}/>
                     
                     <div className="form-row">
                         <Field 
-                            component={FormSelect} formGroupClassName="col-md-6"
-                            name="Country" type="select" emptyText="Enter Country"
-                            label="Country" className="input_both" options={options}
-                            displayKey={null} displayLabel={"name"} empty={true} />
+                            component={FormField} formGroupClassName="col-md-6" readOnly={true}
+                            name="country" type="text" id="Country" placeholder="Enter Country"
+                            label="Country"/>
 
                         <Field 
                             component={FormField} type="text" formGroupClassName="col-md-6"
-                            name="State" label="State"
-                            id="State" placeholder="Enter State" validate={[Required, maxLength200]} doValidate={true}/>
+                            name="administrative_area_level_1" label="State" readOnly={true}
+                            id="State" placeholder="Enter State" />
                     </div>
 
                     <div className="form-row">
                         <Field 
-                            component={FormSelect} formGroupClassName="col-md-6"
-                            name="City" type="select" emptyText="Enter City"
-                            label="City" className="input_both" options={options}
-                            displayKey={null} displayLabel={"name"} empty={true} />
+                            component={FormField} formGroupClassName="col-md-6"
+                            name="locality" type="text" id="locality"
+                            label="City" readOnly={true} />
 
                         <Field 
                             component={FormField} type="text" formGroupClassName="col-md-6"
-                            name="School Code" label="School Code"
+                            name="school_code" label="School Code"
                             id="School_Code" placeholder="Enter School Code" validate={[Required, maxLength200]} doValidate={true}/>
                     </div>
-
+                    <Field 
+        				component={FileInput} type="file" onChange={change(this.handleChange)}
+        				label="Profile Image" className="customFileInput" // This class is just for designing purpose
+        				name="image"/>
                     <div className="form-row">
                         <div className="form-group">
                             <div className="camera-image">
@@ -199,6 +249,7 @@ let _SchoolInfoForm = reduxForm({
   	asyncValidate: isValidAddress,
   	asyncBlurFields: ['school_address'],
     onSubmitFail: (errors) => {
+    	console.log(errors);
     	// https://github.com/erikras/redux-form/issues/2365
     	const errorEl = document.querySelector(
     		// flattenObject: https://github.com/hughsk/flat/issues/52

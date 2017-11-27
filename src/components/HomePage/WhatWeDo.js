@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import WorkImg from '../../assets/images/work-1.png';
 import './HomePage.css';
 import {Loader} from '../Common/Loader';
+import {limitTo} from '../../lib/Helper';
+import {Link} from 'react-router-dom';
 
 class WhatWeDo extends Component {
     constructor() {
@@ -33,8 +35,8 @@ class WhatWeDo extends Component {
                                         <div key={index} className="md-whiteframe-1dp p-3 light-white-bg mr-3">
                                             <div className="mb-2"><img src={WorkImg} alt= "" /></div>
                                             <div className="gradient-color heading mb-2">{val.title}</div>
-                                            <p className="para">{val.short_description}</p>
-                                            <a className="see-more-link gradient-color">See More</a>
+                                            <p className="para">{limitTo(val.short_description, 160)}</p>
+                                            <Link to={val.slug} className="see-more-link gradient-color">See More</Link>
                                         </div>
                                     )
                                 })}
