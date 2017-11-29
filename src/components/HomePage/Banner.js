@@ -6,12 +6,17 @@ import './HomePage.css';
 class HomeBanner extends Component {
 	constructor() {
 		super();
+		this.renderImage = this.renderImage.bind(this);
 		this.state = {
 			bannerImg: {}
 		}
 	}
-	componentWillReceiveProps() {
-		const {banner_img, thumb} = this.props; let bannerImg = {};
+	componentDidMount() {
+		this.renderImage(this.props);
+
+	}
+	renderImage(props) {
+		const {banner_img, thumb} = props; let bannerImg = {};
 		
 		if( thumb ) {
 			bannerImg = {
@@ -31,8 +36,11 @@ class HomeBanner extends Component {
 			})
 		}
 	}
+	componentWillReceiveProps(props) {
+		this.renderImage(props);
+	}
   	render() {
-  		const {bannerImg} = this.state;  		
+  		const {bannerImg} = this.state; 
     	return (
 			<div className="homeBanner" style={bannerImg}>
 				<div className="homeBanner-tags text-center color-white">

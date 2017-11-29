@@ -4,6 +4,7 @@ import DownArrow from '../../assets/images/svg/down-arrow.svg';
 import Question from '../../assets/images/svg/question.svg';
 import './Faq.css';
 import {Http} from '../../lib/Http';
+import {Loader} from '../Common/Loader';
 
 class FaqAcordian extends Component {
 	constructor(props) {
@@ -11,45 +12,51 @@ class FaqAcordian extends Component {
       	this.toggle = this.toggle.bind(this);
       	this.state = { 
       		collapse: 0, 
-      		faqs: [] 
+      		faqs: [],
+      		isLoading: false,
+      		errorMsg:''
       	};
     }
     componentDidMount() {
+    	this.setState({isLoading: true});
     	Http.get('getfaq')
-    	.then(({data}) => console.log(data))
-    	.catch(err => console.log(err));
+    	.then(({data}) => this.setState({faqs: data, isLoading: false}))
+    	.catch(({errors}) => this.setState({isLoading: false, errorMsg: errors.message}));
     }
     toggle(e) {
       let event = e.target.dataset.event;
       this.setState({ collapse: this.state.collapse === Number(event) ? 0 : Number(event) });
     }
   	render() {
-  		const {faqs, collapse} = this.state;
+  		const {faqs, collapse, isLoading, errorMsg} = this.state;
     	return (
      		<div className="light-sm-bg">
 				<div className="d-flex flex-row justify-content-center">
 					<div className="col-5">
 						<h3 className="gradient-color text-center">Frequently Asked Questions</h3>
 						<p className="text-center light-gray">Lorem ipsum dolor sit amet, consectetur adipiscing</p>
-						<div className="accordian-list" style={{textAlign: 'center'}}>
-							{faqs.length > 0 
-								? faqs.map(index => {
+						<div className="accordian-list">
+							{isLoading 
+								? <Loader/>
+								:( faqs.length > 0 
+								? faqs.map((val, index) => {
 									return (
-										<Card key={index}>
-											<CardHeader className={`acordian-header gradient-color ${collapse === index ? 'active':''}`}
-												onClick={this.toggle} data-event={index}>
-												What lorem ipsum dolor sit amet, consectetur adipiscing.
+										<Card key={index + 1}>
+											<CardHeader className={`acordian-header gradient-color ${collapse === (index + 1) ? 'active':''}`}
+												onClick={this.toggle} data-event={index + 1}>
+												{val.question}
 												<img className="downArrow" src={DownArrow} alt="" />
 											</CardHeader>
-											<Collapse isOpen={collapse === index}>
-												<CardBody>
-													Proin non metus feugiat, volutpat purus nec, mollis ligula. Maecenas nec molestie tortor. Phasellus commodo rutrum sapien in tincidunt. Nam eu mi mi. Morbi convallis, tortor et blandit tempor, nulla erat ornare lectus, sit amet imperdiet odio nunc et augue.
-												</CardBody>
+											<Collapse isOpen={collapse === (index + 1)}>
+												<CardBody> {val.answer} </CardBody>
 											</Collapse>
 										</Card>
 									)
 								})
-								: <img src={Question} alt="Question" style={{width:'40%'}}/>
+								: (<div className="text-center no-faqs">
+									<img src={Question} alt="Question"/>
+									<h5>No Questions available yet! {errorMsg ? ` due to ${errorMsg}`: ''}</h5>
+									</div>))
 							} 
 						</div>
 					</div>

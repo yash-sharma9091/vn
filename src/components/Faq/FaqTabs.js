@@ -76,7 +76,7 @@ class FaqTab extends Component {
                         <AskQuestion />
                     </TabPane>
                     <TabPane tabId="2">
-                        <FaqAcordian />
+                        {this.state.activeTab === '2' && <FaqAcordian />}
                     </TabPane>
                     <TabPane tabId="3">
                         <JoinPilotStudy />

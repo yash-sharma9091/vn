@@ -7,6 +7,7 @@ import {Loader} from '../Common/Loader';
 class InkWork extends Component {
     constructor() {
         super();
+        this.renderVideoSrc = this.renderVideoSrc.bind(this);
         this.state = {
             showVideo: false,
             isLoading: false,
@@ -14,8 +15,14 @@ class InkWork extends Component {
             tmpSrc:""
         }
     }
-    componentWillReceiveProps() {
-        const {how_pencilink_works} = this.props;
+    componentDidMount() {
+        this.renderVideoSrc(this.props);
+    }
+    componentWillReceiveProps(props) {
+        this.renderVideoSrc(props);
+    }
+    renderVideoSrc(props) {
+        const {how_pencilink_works} = props;
         if(how_pencilink_works) {
             this.setState({tmpSrc: how_pencilink_works.video_url});    
         }

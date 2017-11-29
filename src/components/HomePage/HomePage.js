@@ -8,12 +8,9 @@ import './HomePage.css';
 import {connect} from 'react-redux';
 
 class HomePage extends Component {
-	componentWillReceiveProps() {
-		console.log(this.props.settings);
-	}
+	
   	render() {
   		const {banner_img, how_pencilink_works, what_we_do_steps, thumb} = this.props.settings;
-  		//console.log(this.props.settings);
     	return (
 			<div >
 				<MainHeader />

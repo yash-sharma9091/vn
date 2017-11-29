@@ -11,3 +11,4 @@
 .accordian-list .card .card-header .downArrow{position: absolute;content: '';right: 0;top: 22px;width: 20px;transform: rotate(-90deg);}
 .accordian-list .card .card-header.active .downArrow{transform: rotate(0deg);}
 .accordian-list .card .card-body{padding: 0 0 15px 0;color: #656563;font-size: 14px;}
+.no-faqs img { width: 30%; margin: 15px 0; }
