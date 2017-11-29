@@ -2,7 +2,7 @@ import axios from 'axios';
 import lodash from 'lodash';
 import moment from 'moment';
 import {networkAlert} from './lib/Helper';
-//import {Cookie} from './lib/Cookie';
+import {Cookie} from './lib/Cookie';
 
 /* Global variables */
 window.axios = axios;
@@ -18,7 +18,7 @@ window.IMAGE_PATH = ( process.env.NODE_ENV !== 'production') ? 'http://100.100.7
 // Add a request interceptor
 axios.interceptors.request.use( config => {
   	// Do something before request is sent
-    const token = ''; 
+    const token = Cookie.get('token'); 
     if( token ) {
       	config.headers = {
         	Authorization: `Bearer ${token}`

@@ -8,16 +8,21 @@ class ImageModal extends Component {
 	constructor(props) {
 	    super(props);
 	    this.state = {
-	      cropResult: null
+	      	isCropping: false
 	    };
 	    this.cropImage = this.cropImage.bind(this);
+	    this.onExit = this.onExit.bind(this);
+	}
+	onExit() {
+		console.log('onExit');
+		this.setState({isCropping: false})
 	}
 	cropImage() {
 		const {setDataUrl} = this.props;
     	if (typeof this.cropper.getCroppedCanvas() === 'undefined') {
       		return;
 		}
-		
+		this.setState({isCropping: true})
 		if (!HTMLCanvasElement.prototype.toBlob) {
 			Object.defineProperty(HTMLCanvasElement.prototype, 'toBlob', {
 				value: function (callback, type, quality) {
@@ -43,9 +48,10 @@ class ImageModal extends Component {
   	}
   	render() {
   		const {open, toggle, src} = this.props;
+  		const {isCropping} = this.state;
 	    return (
-	        <Modal isOpen={open} toggle={toggle} className={this.props.className}>
-	          	<ModalHeader toggle={toggle}>Modal title</ModalHeader>
+	        <Modal isOpen={open} toggle={toggle} className={this.props.className} onClosed={this.onExit}>
+	          	<ModalHeader toggle={toggle}>Crop Image</ModalHeader>
 	          	<ModalBody>
 	            	<Cropper
 	                    style={{ height: 400, width: '100%' }}
@@ -58,7 +64,7 @@ class ImageModal extends Component {
                   	/>
 	          	</ModalBody>
 	          	<ModalFooter>
-		            <Button color="primary" onClick={this.cropImage}>Crop</Button>{' '}
+		            <Button color="primary" onClick={this.cropImage} disabled={isCropping}>{isCropping ? 'Cropping ...' :'Crop'}</Button>{' '}
 	            	<Button color="secondary" onClick={toggle}>Cancel</Button>
 	          	</ModalFooter>
 	        </Modal>

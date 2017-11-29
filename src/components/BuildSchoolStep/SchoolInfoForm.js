@@ -32,6 +32,7 @@ class SchoolInfoForm extends Component {
       		success: '',
       		tmpSrc: '',
       		src: '',
+      		invalidFile:false,
       		showImage: false,
       		coordinates : {
       			lat: '',
@@ -50,26 +51,36 @@ class SchoolInfoForm extends Component {
 		})
 		.then(({ lat, lng }) => {
 			let request = {
-				coordinates: { lat, lng }
+				lat, lng
 			}
 			this.setState({coordinates: request});
 		})
 		.catch(err => { throw new SubmissionError(err.message) });
     }
     onChange(e) {
-	    let files;
+	    let files, hasError: false;
 	    if (e.dataTransfer) {
 	      	files = e.dataTransfer.files;
 	    } else if (e.target) {
 	      	files = e.target.files;
 	    }
+	    if(files.length === 0) {
+	    	return;
+	    }
+	    console.log(files);
+	    if(files[0].size > 5242880) {
+	    	hasError = true;
+	    	this.setState({ invalidFile: true });
+	    } else {
+	    	this.setState({ invalidFile: false });	
+	    	const reader = new FileReader();
+	    	reader.onload = (e) => {
+	    		this.setState({ tmpSrc: reader.result, showImage: true});	
+	    	};
+	    	reader.readAsDataURL(files[0]);	
+	    }
+	   
 	    
-	    const reader = new FileReader();
-	    reader.onload = () => {
-	      this.setState({ tmpSrc: reader.result, showImage: true });
-	    };
-
-	    reader.readAsDataURL(files[0]);
     }
     getDataUrl(data) {
     	
@@ -123,7 +134,8 @@ class SchoolInfoForm extends Component {
     }
   	render() {
   		const { error, handleSubmit, pristine, submitting, initialValues, change} = this.props;
-  		const {src, tmpSrc, showImage} = this.state;
+  		
+  		const {src, tmpSrc, showImage, success, invalidFile} = this.state;
   		
   		const options = [
 			{abbreviation: 'P', name: 'Public School'},
@@ -142,7 +154,7 @@ class SchoolInfoForm extends Component {
     		<div>
 	            <div className="row justify-content-between">
 	                <Form onSubmit={handleSubmit(this.formSubmit)} className="col-sm-12">
-	                    <Alert alertVisible={error} alertMsg={error} className={error ? "danger":"success"}/>
+	                    <Alert alertVisible={error || success} alertMsg={error || success} className={error ? "danger":"success"}/>
 
 	                    <div className="tabs-heading font-weight-bold">General Information</div>
 	                    <div className="form-row">
@@ -200,18 +212,18 @@ class SchoolInfoForm extends Component {
 	                    
 	                    <div className="form-row">
 	                        <div className="form-group">
-	                            <div className="camera-image">
+	                            <div className={`camera-image ${invalidFile ? 'invalidFile':''}`}>
 	                                <div className="camera-icon">
 	                                    <img src={src || CameraImage} />
 	                                </div>
 	                                <a className="delete-button-image" onClick={() => this.removeImage()}><img src={DeleteImage} /></a>
 	                                <a className="edit-button-image"><img src={EditImage} />
-	                                    <input type="file" onChange={this.onChange} className="form-control-file" id="upload-photo" />
+	                                    <input type="file" name="image" onChange={this.onChange} className="form-control-file" id="upload-photo" />
 	                                </a>
 	                            </div>
 	                            <div className="camera-upload-content">
 	                                <h3 className="text-uppercase">Upload school logo</h3>
-	                                <span>maximum image size 5 mb.</span>
+	                                <span className={invalidFile ? "invalidText" : ""}>maximum image size 5 mb.</span>
 	                            </div>
 	                        </div>
 	                    </div>
@@ -259,6 +271,7 @@ class SchoolInfoForm extends Component {
   	formSubmit(values) {
   		
   		//const {dispatch, reset, showThanks} = this.props;
+  		const {lat, lng} = this.state.coordinates;
   		if( _.has(values, 'contact_telephoneno') ) {
   			values.contact_telephoneno = _.replace(values.contact_telephoneno, /-|\s|\+1/g, "");
   		}
@@ -271,13 +284,25 @@ class SchoolInfoForm extends Component {
   		if( _.has(values, 'school_level') ) {
   			values.school_level = isEmptyAnyValue(values.school_level) ? null : values.school_level
 		}
-			console.log(this.state.coordinates)
-		values.coordinates = this.state.coordinates;
-  		console.log(values);
-  		/*return new Promise((resolve, reject) => {
-  			Http.post('signupSchool', values)
+		
+		values.lat = lat;
+		values.lng = lng;
+		let formData = new FormData();
+		for( let val in values ) {
+			formData.append(val, values[val]);	
+			if( val === 'image' ) {
+				formData.append('image', values.image);	
+			}
+		}
+		const config = {
+            headers: { 'content-type': 'multipart/form-data' }
+        };
+
+  		return new Promise((resolve, reject) => {
+  			Http.post('profilesetup_step1', formData, config)
   			.then(({data}) => {
   				console.log(data);
+  				this.setState({success: 'Data updated successfully!'});
   			})
   			.catch(({errors}) => {
   				console.log(errors);
@@ -289,7 +314,7 @@ class SchoolInfoForm extends Component {
   				
   				reject(new SubmissionError(_message));
   			});
-  		});*/
+  		});
   	}
 }
 
@@ -298,6 +323,7 @@ let _SchoolInfoForm = reduxForm({
   	asyncValidate: isValidAddress,
   	asyncBlurFields: ['school_address'],
     onSubmitFail: (errors) => {
+    	console.log(errors);
     	// https://github.com/erikras/redux-form/issues/2365
     	const errorEl = document.querySelector(
     		// flattenObject: https://github.com/hughsk/flat/issues/52
