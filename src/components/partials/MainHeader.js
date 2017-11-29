@@ -28,7 +28,7 @@ class MainHeader extends Component {
                             <Nav className="mr-auto" navbar>
                                 <NavItem>
                                     <LinkContainer to={`${faq}?tab=contact`}>
-                                        <NavLink className="text-uppercase">Contact</NavLink>
+                                        <NavLink className="text-uppercase">Contact Us</NavLink>
                                     </LinkContainer>    
                                 </NavItem>
                                 <NavItem>

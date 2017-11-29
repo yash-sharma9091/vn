@@ -11,15 +11,13 @@ class SchoolTabs extends Component {
 
         this.toggle = this.toggle.bind(this);
         this.state = {
-        activeTab: '1'
+            activeTab: '1'
         };
     }
 
     toggle(tab) {
         if (this.state.activeTab !== tab) {
-        this.setState({
-            activeTab: tab
-        });
+            this.setState({activeTab: tab });
         }
     }
   	render() {

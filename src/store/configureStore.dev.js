@@ -30,7 +30,7 @@ if (module.hot) {
 }
 
 // add the redux dev tools
-middleware = compose(middleware, window.devToolsExtension());
+//middleware = compose(middleware, window.devToolsExtension());
 
 // create store
 const store = createStore(reducer, middleware);

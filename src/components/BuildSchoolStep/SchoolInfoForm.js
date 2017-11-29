@@ -105,7 +105,18 @@ class SchoolInfoForm extends Component {
 				var addressType = address_components[i].types[0];
 				if (componentForm[addressType]) {
 					var val = address_components[i][componentForm[addressType]];
-					change(addressType, val);
+					if (addressType === 'administrative_area_level_1' ) {
+						change('state', val);
+					}
+					if (addressType === 'locality') {
+						change('city', val);
+					}
+					if (addressType === 'country') {
+						change('country', val);
+					}
+					if (addressType === 'postal_code') {
+						change('postal_code', val);
+					}					
 				}
 			}
     	}
@@ -171,14 +182,14 @@ class SchoolInfoForm extends Component {
 
 	                        <Field 
 	                            component={FormField} type="text" formGroupClassName="col-md-6"
-	                            name="administrative_area_level_1" label="State" readOnly={true}
+	                            name="state" label="State" readOnly={true}
 	                            id="State" placeholder="Enter State" />
 	                    </div>
 
 	                    <div className="form-row">
 	                        <Field 
 	                            component={FormField} formGroupClassName="col-md-6"
-	                            name="locality" type="text" id="locality"
+	                            name="city" type="text" id="locality"
 	                            label="City" readOnly={true} />
 
 	                        <Field 
@@ -259,7 +270,9 @@ class SchoolInfoForm extends Component {
   		}
   		if( _.has(values, 'school_level') ) {
   			values.school_level = isEmptyAnyValue(values.school_level) ? null : values.school_level
-  		}
+		}
+			console.log(this.state.coordinates)
+		values.coordinates = this.state.coordinates;
   		console.log(values);
   		/*return new Promise((resolve, reject) => {
   			Http.post('signupSchool', values)
