@@ -6,7 +6,7 @@
 
 /*Banner*/
 .homeBanner{
-    background-image: url('../../assets/images/Webp.net-resizeimage.png');
+    /*background-image: url('../../assets/images/Webp.net-resizeimage.png');*/
     background-color: rgba(6, 41, 90, 0.83); 
     width: 100%;
 	background-size: cover;

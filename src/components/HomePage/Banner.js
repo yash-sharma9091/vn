@@ -11,8 +11,14 @@ class HomeBanner extends Component {
 		}
 	}
 	componentWillReceiveProps() {
-		const {banner_img} = this.props; let bannerImg = {};
+		const {banner_img, thumb} = this.props; let bannerImg = {};
 		
+		if( thumb ) {
+			bannerImg = {
+				backgroundImage: 'url(' + (IMAGE_PATH + '/' + thumb.path) + ')'
+			}	
+			this.setState({bannerImg});
+		}
 		if ( banner_img ) {
 			let url = (IMAGE_PATH + '/' + banner_img.path);
 			loadImage(url)
@@ -26,7 +32,7 @@ class HomeBanner extends Component {
 		}
 	}
   	render() {
-  		const {bannerImg} = this.state;
+  		const {bannerImg} = this.state;  		
     	return (
 			<div className="homeBanner" style={bannerImg}>
 				<div className="homeBanner-tags text-center color-white">

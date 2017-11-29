@@ -5,6 +5,8 @@ import {DropdownWithoutActiveProps} from './DropdownWithoutActiveProps';
 import NavBarImage from '../../assets/images/svg/menu.svg';
 import NotificationImage from '../../assets/images/svg/notifications-button.svg';
 import UserImage from '../../assets/images/svg/user.svg';
+import {AUTH_LOGOUT_REQUEST} from '../../constant';
+import {push} from 'react-router-redux';
 
 class DashboardHeader extends Component {
     constructor(props) {
@@ -61,7 +63,7 @@ class DashboardHeader extends Component {
                                         <DropdownItem>Action</DropdownItem>
                                         <DropdownItem>Another Action</DropdownItem>
                                         <DropdownItem divider />
-                                        <DropdownItem>Another Action</DropdownItem>
+                                        <DropdownItem onClick={() => this.logout()} >Logout</DropdownItem>
                                     </DropdownMenu>
                                 </DropdownWithoutActiveProps>
                             </Nav>
@@ -71,7 +73,19 @@ class DashboardHeader extends Component {
             </header>
     	);
   	}
+    logout() {
+        const { dispatch } = this.props;
+        return new Promise((resolve, reject) => {
+            dispatch({
+                type: AUTH_LOGOUT_REQUEST,
+                callbackSuccess: () => {
+                    dispatch(push('/'));
+                    resolve();
+                }
+            })
+        });
+    }
 }
 
 
-export default DashboardHeader;
+export default connect(null)(DashboardHeader);

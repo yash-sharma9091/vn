@@ -69,7 +69,7 @@ class SchoolGradeCodes extends Component {
 									<Input type="date" name="date" id="exampleDate" placeholder="End placeholder" />
 								</FormGroup>
 
-							    <button type="button" class="btn btn-link remove-link pointer">Remove</button>
+							    <button type="button" className="btn btn-link remove-link pointer">Remove</button>
 						</div>
 
 						<div className="form-row relative">
@@ -89,9 +89,9 @@ class SchoolGradeCodes extends Component {
 									<Input type="date" name="date" id="exampleDate" placeholder="End placeholder" />
 								</FormGroup>
 
-							    <button type="button" class="btn btn-link remove-link pointer">Remove</button>
+							    <button type="button" className="btn btn-link remove-link pointer">Remove</button>
 						</div>
-						<button type="button" class="btn btn-link addMore-link pointer">+ Add More Marking Period</button>
+						<button type="button" className="btn btn-link addMore-link pointer">+ Add More Marking Period</button>
 					</div>
 
                     <div className="tabs-heading font-weight-bold">Add Classes</div>
@@ -112,75 +112,75 @@ class SchoolGradeCodes extends Component {
 									name="Add Classes" label="Add Classes" disabled={true}
 									id="Add Classes" placeholder="Enter classes" validate={[Required, maxLength200]} doValidate={true}/>
 								
-								<button type="button" class="btn btn-link addMore-link pointer">+ Add Code</button>
+								<button type="button" className="btn btn-link addMore-link pointer">+ Add Code</button>
 							</div>
 							<div className="form-row">
-								<div class="form-group col-md-3 code-box relative">
+								<div className="form-group col-md-3 code-box relative">
 									<label>Code 1</label>
-									<div class="input-group">
+									<div className="input-group">
 										<input type="text" className="form-control" placeholder="Enter code" />
-										<span class="input-group-addon" id="basic-addon2"><img src={CrossImage} /></span>
+										<span className="input-group-addon" id="basic-addon2"><img src={CrossImage} /></span>
 									</div>
-									<button type="button" class="btn btn-link delete-link pointer">Delete</button>
+									<button type="button" className="btn btn-link delete-link pointer">Delete</button>
 								</div>
 
-								<div class="form-group col-md-3 code-box relative">
+								<div className="form-group col-md-3 code-box relative">
 									<label>Code 2</label>
-									<div class="input-group">
+									<div className="input-group">
 										<input type="text" className="form-control" placeholder="Enter code" />
-										<span class="input-group-addon" id="basic-addon2"><img src={CrossImage} /></span>
+										<span className="input-group-addon" id="basic-addon2"><img src={CrossImage} /></span>
 									</div>
-									<button type="button" class="btn btn-link delete-link pointer">Delete</button>
+									<button type="button" className="btn btn-link delete-link pointer">Delete</button>
 								</div>
 
-								<div class="form-group col-md-3 code-box relative">
+								<div className="form-group col-md-3 code-box relative">
 									<label>Code 3</label>
-									<div class="input-group">
+									<div className="input-group">
 										<input type="text" className="form-control" placeholder="Enter code" />
-										<span class="input-group-addon" id="basic-addon2"><img src={CrossImage} /></span>
+										<span className="input-group-addon" id="basic-addon2"><img src={CrossImage} /></span>
 									</div>
-									<button type="button" class="btn btn-link delete-link pointer">Delete</button>
+									<button type="button" className="btn btn-link delete-link pointer">Delete</button>
 								</div>
 
-								<div class="form-group col-md-3 code-box relative">
+								<div className="form-group col-md-3 code-box relative">
 									<label>Code 4</label>
-									<div class="input-group">
+									<div className="input-group">
 										<input type="text" className="form-control" placeholder="Enter code" />
-										<span class="input-group-addon" id="basic-addon2"><img src={CrossImage} /></span>
+										<span className="input-group-addon" id="basic-addon2"><img src={CrossImage} /></span>
 									</div>
-									<button type="button" class="btn btn-link delete-link pointer">Delete</button>
+									<button type="button" className="btn btn-link delete-link pointer">Delete</button>
 								</div>
 								
-								<div class="form-group col-md-3 code-box relative">
+								<div className="form-group col-md-3 code-box relative">
 									<label>Code 5</label>
-									<div class="input-group">
+									<div className="input-group">
 										<input type="text" className="form-control" placeholder="Enter code" />
-										<span class="input-group-addon" id="basic-addon2"><img src={CrossImage} /></span>
+										<span className="input-group-addon" id="basic-addon2"><img src={CrossImage} /></span>
 									</div>
-									<button type="button" class="btn btn-link delete-link pointer">Delete</button>
+									<button type="button" className="btn btn-link delete-link pointer">Delete</button>
 								</div>
 
-								<div class="form-group col-md-3 code-box relative">
+								<div className="form-group col-md-3 code-box relative">
 									<label>Code 6</label>
-									<div class="input-group">
+									<div className="input-group">
 										<input type="text" className="form-control" placeholder="Enter code" />
-										<span class="input-group-addon" id="basic-addon2"><img src={CrossImage} /></span>
+										<span className="input-group-addon" id="basic-addon2"><img src={CrossImage} /></span>
 									</div>
 								</div>
 
-								<div class="form-group col-md-3 code-box relative">
+								<div className="form-group col-md-3 code-box relative">
 									<label>Code 7</label>
-									<div class="input-group">
+									<div className="input-group">
 										<input type="text" className="form-control" placeholder="Enter code" />
-										<span class="input-group-addon" id="basic-addon2"><img src={CrossImage} /></span>
+										<span className="input-group-addon" id="basic-addon2"><img src={CrossImage} /></span>
 									</div>
-									<button type="button" class="btn btn-link delete-link pointer">Delete</button>
+									<button type="button" className="btn btn-link delete-link pointer">Delete</button>
 								</div>
 							</div>
-							<button type="button" class="btn btn-link remove-link-onbox pointer">Remove</button>
+							<button type="button" className="btn btn-link remove-link-onbox pointer">Remove</button>
 						</div>
 
-						<button type="button" class="btn btn-link addMore-link pointer">+ Add More Classes</button>
+						<button type="button" className="btn btn-link addMore-link pointer">+ Add More Classes</button>
 					</div>
 
 					<div className="tabs-heading font-weight-bold">Add Subjects</div>
@@ -198,7 +198,7 @@ class SchoolGradeCodes extends Component {
 								label="How many classes will be teaching the subject?" className="input_both" options={options}
 								displayKey={null} displayLabel={"name"} empty={true} />
 							
-							<button type="button" class="btn btn-link remove-link pointer">Remove</button>
+							<button type="button" className="btn btn-link remove-link pointer">Remove</button>
 						</div>
 
 						<div className="p-3 light-bg relative mt-3">
@@ -212,7 +212,7 @@ class SchoolGradeCodes extends Component {
 									component={FormField} type="text" formGroupClassName="col-md-6"
 									name="Class Code" label="Class Code" disabled={true}
 									id="Class Code" placeholder="Enter class code" validate={[Required, maxLength200]} doValidate={true}/>
-								<button type="button" class="btn btn-link remove-link pointer">Remove</button>
+								<button type="button" className="btn btn-link remove-link pointer">Remove</button>
 							</div>
 
 							<div className="form-row relative">
@@ -225,7 +225,7 @@ class SchoolGradeCodes extends Component {
 									component={FormField} type="text" formGroupClassName="col-md-6"
 									name="Class Code" label="Class Code" disabled={true}
 									id="Class Code" placeholder="Enter class code" validate={[Required, maxLength200]} doValidate={true}/>
-								<button type="button" class="btn btn-link remove-link pointer">Remove</button>
+								<button type="button" className="btn btn-link remove-link pointer">Remove</button>
 							</div>
 						</div>
 					</div>
@@ -243,10 +243,10 @@ class SchoolGradeCodes extends Component {
 								label="How many classes will be teaching the subject?" className="input_both" options={options}
 								displayKey={null} displayLabel={"name"} empty={true} />
 							
-							<button type="button" class="btn btn-link remove-link pointer">Remove</button>
+							<button type="button" className="btn btn-link remove-link pointer">Remove</button>
 						</div>
 					</div>
-					<button type="button" class="btn btn-link addMore-link pointer">+ Add More Subject</button>
+					<button type="button" className="btn btn-link addMore-link pointer">+ Add More Subject</button>
 
                     <div className="row justify-content-center both-button">
                         <button type="button" className="btn btn-info mr-1">Cancel</button>
