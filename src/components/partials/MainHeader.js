@@ -21,7 +21,6 @@ class MainHeader extends Component {
     	return (
 			<header className="main-header">
 				<Logo />
-
                 <Navbar color="faded" light expand="md">
                     <NavbarToggler onClick={this.toggle} />
                         <Collapse isOpen={this.state.isOpen} navbar className="container">

@@ -120,3 +120,11 @@ label {
   border: '1px solid #555555';
   width: '100%';
 }
+
+/*skip-link*/
+.skip-link{
+    color: #636c72;
+    position: absolute;
+    right: 0;
+    top: 5px;
+}

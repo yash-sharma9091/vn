@@ -53,7 +53,7 @@ class FaqTab extends Component {
                     <NavLink
                     className={classnames({ active: this.state.activeTab === '1' })}
                     onClick={() => { this.toggle('1'); }} >
-                    Ask a Question
+                    Question/Comment
                     </NavLink>
                 </NavItem>
                 <NavItem>
