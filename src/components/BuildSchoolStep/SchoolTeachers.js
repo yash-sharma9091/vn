@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
 import classnames from 'classnames';
+import SchoolAddTeacher from './SchoolAddTeacher';
+import SchoolBulkUpload from './SchoolBulkUpload';
 import './SchoolStep.css';
 
-class SchoolTabs extends Component {
+class SchoolTeachers extends Component {
     constructor(props) {
         super(props);
 
@@ -22,8 +24,10 @@ class SchoolTabs extends Component {
     }
   	render() {
     	return (
+            
         <div className="teacher-tabs">
-            <Nav tabs>
+            <div className="d-flex justify-content-center">
+            <Nav tabs className="col-sm-8 pr-0">
                 <NavItem>
                     <NavLink className={classnames({ active: this.state.activeTab === '1' })}
                     onClick={() => { this.toggle('1'); }}>
@@ -39,12 +43,13 @@ class SchoolTabs extends Component {
                     </NavLink>
                 </NavItem>
             </Nav>
-            <TabContent className="p-3" activeTab={this.state.activeTab}>
+            </div>
+            <TabContent className="pt-3 pb-3" activeTab={this.state.activeTab}>
                 <TabPane tabId="1">
-                    sdfdfdsfds
+                    <SchoolAddTeacher/>
                 </TabPane>
                 <TabPane tabId="2">
-                    fdsfdsf
+                    <SchoolBulkUpload />
                 </TabPane>
             </TabContent>
         </div>
@@ -52,4 +57,4 @@ class SchoolTabs extends Component {
         }
 }
 
-export default SchoolTabs; 
+export default SchoolTeachers;
