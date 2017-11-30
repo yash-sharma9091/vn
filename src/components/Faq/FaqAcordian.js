@@ -52,6 +52,7 @@ class FaqAcordian extends Component {
 								: <img src={Question} alt="Question" style={{width:'40%'}}/>
 							} 
 						</div>
+						<div class="d-flex flex-row justify-content-center p-2"><button type="button" class="btn btn-link forgot-link pointer">Don’t See A Question</button></div>
 					</div>
     			</div> 
 			</div>
