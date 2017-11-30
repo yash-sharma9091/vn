@@ -5,7 +5,6 @@ import CopyRightText from './CopyRightText';
 import {removePartials} from '../../lib/Helper';
 import {CMSLinks} from './CMSLinks';
 import {SocialLinks} from './SocialLinks';
-import { FETCH_SITE_SETTINGS } from '../../constant';
 class Footer extends Component {
   	render() {
   		const {location, settings} = this.props;

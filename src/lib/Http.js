@@ -1,8 +1,8 @@
-/* global axios */
+/* global axios, _ */
 export class Http {
-	static post(url, data, config = null) {
+	static post(url, data) {
 		return new Promise((resolve, reject) => {
-			axios.post(url, data, config)
+			axios.post(url, data)
 			.then(({data, paging}) => {
 				resolve({data: data.records, paging: data.paging });
 			})
@@ -31,5 +31,38 @@ export class Http {
 				reject(_error);
 			});
 		});
+	}
+	static upload(url, data) {
+		let formData = new FormData();
+		for( let val in data ) {
+			if( _.isObject(data[val]) ) {
+				formData.append(val, JSON.stringify(data[val]));	
+			} else {
+				formData.append(val, data[val]);	
+			}
+			
+			if( val === 'image' ) {
+				formData.append('image', data.image);	
+			}
+		}
+		
+		const config = {
+            headers: { 'content-type': 'multipart/form-data' }
+        };
+        return new Promise((resolve, reject) => {
+			axios.post(url, formData, config)
+			.then(({data, paging}) => {
+				resolve({data: data.records, paging: data.paging });
+			})
+			.catch(error => {
+				let _error = (error) ? {errors:{message: error.message}} : {errors:{message: 'Unknown Server Error!!'}};
+				if( error.response ) {
+					_error = error.response.data;
+				}
+				
+				reject(_error);
+			});
+		});
+  		
 	}
 }

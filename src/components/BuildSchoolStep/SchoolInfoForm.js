@@ -17,6 +17,7 @@ import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import {flattenObject, isJson, isEmptyAnyValue} from '../../lib/Helper';
 import {connect} from 'react-redux';
 import ImageModal from '../Common/ImageModal';
+import { FETCH_SCHOOL_INFO } from '../../constant';
 
 class SchoolInfoForm extends Component {
 	constructor(props) {
@@ -33,6 +34,7 @@ class SchoolInfoForm extends Component {
       		tmpSrc: '',
       		src: '',
       		invalidFile:false,
+      		invalidSize:false,
       		showImage: false,
       		coordinates : {
       			lat: '',
@@ -42,6 +44,14 @@ class SchoolInfoForm extends Component {
     }
     toggleModal() {
     	this.setState({showImage: false});
+    }
+    componentDidMount() {
+    	const {initialize} = this.props;
+    	const {_id} = this.props.user;
+    	console.log(_id);
+    	Http.get(`getschoolprofile_step?_id=${_id}`)
+    	.then(({data}) => initialize(data))
+    	.catch(({errors}) => console.log(errors))
     }
     handleSelect(address) {
 		geocodeByAddress(address)
@@ -58,7 +68,7 @@ class SchoolInfoForm extends Component {
 		.catch(err => { throw new SubmissionError(err.message) });
     }
     onChange(e) {
-	    let files, hasError: false;
+	    let files;
 	    if (e.dataTransfer) {
 	      	files = e.dataTransfer.files;
 	    } else if (e.target) {
@@ -67,12 +77,12 @@ class SchoolInfoForm extends Component {
 	    if(files.length === 0) {
 	    	return;
 	    }
-	    console.log(files);
 	    if(files[0].size > 5242880) {
-	    	hasError = true;
+	    	this.setState({ invalidSize: true });
+	    } else if(!['image/jpeg','image/jpg','image/png','image/gif'].includes(files[0].type)) {
 	    	this.setState({ invalidFile: true });
 	    } else {
-	    	this.setState({ invalidFile: false });	
+	    	this.setState({ invalidFile: false, invalidSize: false });	
 	    	const reader = new FileReader();
 	    	reader.onload = (e) => {
 	    		this.setState({ tmpSrc: reader.result, showImage: true});	
@@ -135,7 +145,7 @@ class SchoolInfoForm extends Component {
   	render() {
   		const { error, handleSubmit, pristine, submitting, initialValues, change} = this.props;
   		
-  		const {src, tmpSrc, showImage, success, invalidFile} = this.state;
+  		const {src, tmpSrc, showImage, success, invalidFile, invalidSize} = this.state;
   		
   		const options = [
 			{abbreviation: 'P', name: 'Public School'},
@@ -165,7 +175,7 @@ class SchoolInfoForm extends Component {
 	                        <Field 
 	                            component={FormDropdown} formGroupClassName="col-md-6"
 	                            name="school_type" empty={true} emptyText="Select school type"
-	                            label="Type of School" data={options}
+	                            label="Type of School" data={options} placeholder="Select school type"
 	                            valueField={"abbreviation"} textField={"name"}/>
 	                    </div>
 
@@ -212,7 +222,7 @@ class SchoolInfoForm extends Component {
 	                    
 	                    <div className="form-row">
 	                        <div className="form-group">
-	                            <div className={`camera-image ${invalidFile ? 'invalidFile':''}`}>
+	                            <div className={`camera-image ${invalidSize ? 'invalidFile':''}`}>
 	                                <div className="camera-icon">
 	                                    <img src={src || CameraImage} />
 	                                </div>
@@ -223,7 +233,8 @@ class SchoolInfoForm extends Component {
 	                            </div>
 	                            <div className="camera-upload-content">
 	                                <h3 className="text-uppercase">Upload school logo</h3>
-	                                <span className={invalidFile ? "invalidText" : ""}>maximum image size 5 mb.</span>
+	                                <span className={invalidSize ? "invalidText" : ""}>maximum image size 5 mb.</span>
+	                                {invalidFile && <span className="invalidText">upload image of type jpg, jpeg, png or gif</span>}
 	                            </div>
 	                        </div>
 	                    </div>
@@ -270,7 +281,6 @@ class SchoolInfoForm extends Component {
   	
   	formSubmit(values) {
   		
-  		//const {dispatch, reset, showThanks} = this.props;
   		const {lat, lng} = this.state.coordinates;
   		if( _.has(values, 'contact_telephoneno') ) {
   			values.contact_telephoneno = _.replace(values.contact_telephoneno, /-|\s|\+1/g, "");
@@ -287,25 +297,13 @@ class SchoolInfoForm extends Component {
 		
 		values.lat = lat;
 		values.lng = lng;
-		let formData = new FormData();
-		for( let val in values ) {
-			formData.append(val, values[val]);	
-			if( val === 'image' ) {
-				formData.append('image', values.image);	
-			}
-		}
-		const config = {
-            headers: { 'content-type': 'multipart/form-data' }
-        };
-
-  		return new Promise((resolve, reject) => {
-  			Http.post('profilesetup_step1', formData, config)
+		return new Promise((resolve, reject) => {
+  			Http.upload('profilesetup_step1', values)
   			.then(({data}) => {
-  				console.log(data);
-  				this.setState({success: 'Data updated successfully!'});
+  				this.setState({success: 'School information saved successfully!'});
+  				resolve();
   			})
   			.catch(({errors}) => {
-  				console.log(errors);
   				let _message = {_error: errors.message || 'Internal Server error'};
   				
   				if( errors.hasOwnProperty('email_address') ) {
@@ -338,11 +336,14 @@ let _SchoolInfoForm = reduxForm({
     }
 })(SchoolInfoForm);
 
-// You have to connect() to any reducers that you wish to connect to yourself
-_SchoolInfoForm = connect(
-  state => ({
-    initialValues: state.auth.user // pull initial values from account reducer
-  }),
-)(_SchoolInfoForm)
+/*_SchoolInfoForm = connect(
+  	state => ({
+    	initialValues: state.auth.user // pull initial values from account reducer
+  	})
+)(_SchoolInfoForm)*/
 
-export default _SchoolInfoForm;
+const mapStateToProps = (state) => ({
+	user: state.auth.user
+})
+
+export default connect(mapStateToProps)(_SchoolInfoForm);

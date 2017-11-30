@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink,Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import {DropdownWithoutActiveProps} from './DropdownWithoutActiveProps';
 import NavBarImage from '../../assets/images/svg/menu.svg';
 import NotificationImage from '../../assets/images/svg/notifications-button.svg';
@@ -28,11 +28,11 @@ class DashboardHeader extends Component {
         isOpen: !this.state.isOpen
         });
     }
-    toggle() {
+    /*toggle() {
         this.setState({
         dropdownOpen: !this.state.dropdownOpen
         });
-    }
+    }*/
   	render() {
     	return (
             <header className="dashboard-header">
@@ -47,7 +47,7 @@ class DashboardHeader extends Component {
                                 <NavItem>
                                     <NavLink href="/components/">
                                         <div className="notification-image">
-                                            <img src={NotificationImage} />
+                                            <img src={NotificationImage} alt="Bell Icon" />
                                             <div className="notification-number">5</div>
                                         </div>
                                     </NavLink>
@@ -55,7 +55,7 @@ class DashboardHeader extends Component {
                                 <DropdownWithoutActiveProps tag="li" nav="true" isOpen={this.state.dropdownOpen} toggle={this.toggle}>
                                     <DropdownToggle caret tag="a">
                                         <div className="user-image">
-                                            <img src={UserImage} />
+                                            <img src={UserImage} alt="Avatar"/>
                                         </div> Administrator
                                     </DropdownToggle>
                                     <DropdownMenu>

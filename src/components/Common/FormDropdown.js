@@ -1,6 +1,6 @@
 /* global _ */
 import React, {Component} from 'react';
-import { FormGroup, Label, Input } from 'reactstrap';
+import { FormGroup, Label } from 'reactstrap';
 import DropdownList from 'react-widgets/lib/DropdownList';
 import 'react-widgets/dist/css/react-widgets.css';
 export class FormDropdown extends Component {

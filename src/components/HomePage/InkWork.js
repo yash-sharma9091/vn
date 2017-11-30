@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './HomePage.css';
 import workVideoImg from '../../assets/images/video.png';
 import workVideoImgIcon from '../../assets/images/video-icon.png';
-import {Loader} from '../Common/Loader';
 
 class InkWork extends Component {
     constructor() {

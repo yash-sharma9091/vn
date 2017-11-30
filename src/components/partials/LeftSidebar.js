@@ -4,7 +4,6 @@ import './LeftSidebar.css';
 import { connect } from 'react-redux';
 import {SocialLinks} from './SocialLinks';
 import {CMSLinks} from './CMSLinks';
-import {CopyRightText} from './CopyRightText';
 import {loadImage} from '../../lib/Helper';
 import loginBg from '../../assets/images/login-bg.png';
 
