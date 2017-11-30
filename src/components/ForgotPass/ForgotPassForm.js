@@ -41,9 +41,9 @@ class ForgotPassForm extends Component {
 						<Alert alertVisible={error||success} alertMsg={error||success} className={error ? "danger":"success"}/>
 						<Field 
 							component={FormField} type="text"
-							name="uan" label="Enter Unique Account Number"
-							id="unique_account_number" labelClassName="gradient-color"
-							placeholder="Enter unique account number" validate={UAN} doValidate={true}/>
+							name="uan" label="Email Address"
+							id="Email Address" labelClassName="gradient-color"
+							placeholder="Enter email address" validate={UAN} doValidate={true}/>
 						
 						<FormSubmit 
 							error={error} invalid={pristine}
