@@ -49,7 +49,6 @@ body{
    background: -moz-linear-gradient(right,#070703 35%,#0a4cac);
    background: -webkit-linear-gradient(right,#070703 35%,#0a4cac);
    color: #ffffff;
-   text-decoration: underline;
 }
 .btn.gradient-button:active, .btn.gradient-button.active {
    background: -webkit-linear-gradient(right,#070703 35%,#0a4cac);
