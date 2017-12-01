@@ -25,7 +25,8 @@ class Header extends Component {
       	const {location, token} = this.props;
       	const { errorMsg} = this.state;
       	if( errorMsg ) {
-  			return networkAlert();
+  			networkAlert();
+  			return null;
   		} 
       	return (
         	<div>

@@ -14,7 +14,6 @@ class ImageModal extends Component {
 	    this.onExit = this.onExit.bind(this);
 	}
 	onExit() {
-		console.log('onExit');
 		this.setState({isCropping: false})
 	}
 	cropImage() {

@@ -108,7 +108,7 @@ class SchoolAddTeacher extends Component {
 					</div>
 
 					
-					<button type="button" class="btn btn-link skip-link pointer text-uppercase">Skip</button>
+					<button type="button" className="btn btn-link skip-link pointer text-uppercase">Skip</button>
 
 				</div>
 			</Form>	

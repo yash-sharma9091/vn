@@ -1,4 +1,4 @@
-/* global _ */
+/* global _, IMAGE_PATH */
 import React, { Component } from 'react';
 import CameraImage from '../../assets/images/svg/photo-camera.svg';
 import DeleteImage from '../../assets/images/svg/delete-button.svg';
@@ -33,6 +33,7 @@ class SchoolInfoForm extends Component {
       		success: '',
       		tmpSrc: '',
       		src: '',
+      		school_logo:'',
       		invalidFile:false,
       		invalidSize:false,
       		showImage: false,
@@ -48,9 +49,11 @@ class SchoolInfoForm extends Component {
     componentDidMount() {
     	const {initialize} = this.props;
     	const {_id} = this.props.user;
-    	console.log(_id);
     	Http.get(`getschoolprofile_step?_id=${_id}`)
-    	.then(({data}) => initialize(data))
+    	.then(({data}) => {
+    		initialize(data);
+    		this.setState({school_logo: data.school_logo})
+    	})
     	.catch(({errors}) => console.log(errors))
     }
     handleSelect(address) {
@@ -143,10 +146,13 @@ class SchoolInfoForm extends Component {
     	}
     }
   	render() {
-  		const { error, handleSubmit, pristine, submitting, initialValues, change} = this.props;
+  		const { error, handleSubmit, pristine, submitting, change} = this.props;
+  		const {src, tmpSrc, showImage, success, invalidFile, invalidSize, school_logo} = this.state;
+  		let logo;
   		
-  		const {src, tmpSrc, showImage, success, invalidFile, invalidSize} = this.state;
-  		
+  		if(!_.isEmpty(school_logo))  {
+  			logo = `${IMAGE_PATH}/${school_logo.path}`;
+  		}
   		const options = [
 			{abbreviation: 'P', name: 'Public School'},
 			{abbreviation: 'R', name: 'Private School'},
@@ -224,7 +230,7 @@ class SchoolInfoForm extends Component {
 	                        <div className="form-group">
 	                            <div className={`camera-image ${invalidSize ? 'invalidFile':''}`}>
 	                                <div className="camera-icon">
-	                                    <img src={src || CameraImage} />
+	                                    <img src={src || logo || CameraImage} />
 	                                </div>
 	                                <a className="delete-button-image" onClick={() => this.removeImage()}><img src={DeleteImage} /></a>
 	                                <a className="edit-button-image"><img src={EditImage} />
@@ -335,12 +341,6 @@ let _SchoolInfoForm = reduxForm({
   		}
     }
 })(SchoolInfoForm);
-
-/*_SchoolInfoForm = connect(
-  	state => ({
-    	initialValues: state.auth.user // pull initial values from account reducer
-  	})
-)(_SchoolInfoForm)*/
 
 const mapStateToProps = (state) => ({
 	user: state.auth.user

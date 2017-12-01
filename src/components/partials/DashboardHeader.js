@@ -23,16 +23,16 @@ class DashboardHeader extends Component {
     };
 
     }
-    toggle() {
+    /*toggle() {
         this.setState({
         isOpen: !this.state.isOpen
         });
-    }
-    /*toggle() {
+    }*/
+    toggle() {
         this.setState({
         dropdownOpen: !this.state.dropdownOpen
         });
-    }*/
+    }
   	render() {
     	return (
             <header className="dashboard-header">
@@ -63,7 +63,7 @@ class DashboardHeader extends Component {
                                         <DropdownItem>Action</DropdownItem>
                                         <DropdownItem>Another Action</DropdownItem>
                                         <DropdownItem divider />
-                                        <DropdownItem onClick={() => this.logout()} >Logout</DropdownItem>
+                                        <DropdownItem >Logout</DropdownItem>
                                     </DropdownMenu>
                                 </DropdownWithoutActiveProps>
                             </Nav>

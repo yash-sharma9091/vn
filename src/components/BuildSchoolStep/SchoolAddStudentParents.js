@@ -139,7 +139,7 @@ class SchoolAddStudentParents extends Component {
                         submitting={submitting} className="btn-primary ml-1"
                         buttonSaveLoading="Processing..." buttonSave="Save"/>
                         
-                    <button type="button" class="btn btn-link skip-link pointer text-uppercase">Skip</button>
+                    <button type="button" className="btn btn-link skip-link pointer text-uppercase">Skip</button>
                 </div>
 			</div>
 		</div>
