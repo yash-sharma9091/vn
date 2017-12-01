@@ -25,7 +25,7 @@ class AuthButton extends Component {
 		} else {*/
 			return (
 				<Nav className="mr-auto" navbar>
-				    <NavItem>
+				    <NavItem className="blue-active pr-2">
 				        <LinkContainer to={join}>
 				            <NavLink className="text-uppercase" >Join Pencil Ink</NavLink>
 				        </LinkContainer>

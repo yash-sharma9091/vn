@@ -59,6 +59,9 @@ class FaqAcordian extends Component {
 									</div>))
 							} 
 						</div>
+						<div className="d-flex flex-row justify-content-center p-2">
+							<button type="button" className="btn btn-link forgot-link pointer">Don’t See A Question</button>
+						</div>
 					</div>
     			</div> 
 			</div>

@@ -117,6 +117,8 @@ class RegisterForm extends Component {
               			        	id="no_of_students_laptop" labelClassName="gradient-color"
               			        	placeholder="0" doValidate={true} validate={Number} />
 		                       
+								<div className="gradient-color font-weight-bold mt-4 mb-3">What are your school's challenges as they relate to:</div>
+
 		                        <Field 
               			        	component={FormField} type="textarea"
               			        	name="school_challenges_lesson_planning" label="What are your school's challenges as they relate to online lesson planning?"
@@ -132,10 +134,12 @@ class RegisterForm extends Component {
               			        	name="school_challenges_students_classwork" label="What are your school's challenges as they relate to student's classwork?"
               			        	id="studentClass" labelClassName="gradient-color" rows="3" validate={maxLength400} doValidate={true} />
 
-              			        <Field 
-              			        	component={FormField} type="textarea"
-              			        	name="school_goals_lesson_planning" label="What are your school's goals as they relate to online lesson planning?"
-              			        	id="goalLessonPlanning" labelClassName="gradient-color" rows="3" validate={maxLength400} doValidate={true} />
+								<div className="gradient-color font-weight-bold mt-4 mb-3">What are your school's goals as they relate to:</div>
+								  
+								<Field 
+								component={FormField} type="textarea"
+								name="school_goals_lesson_planning" label="What are your school's goals as they relate to online lesson planning?"
+								id="goalLessonPlanning" labelClassName="gradient-color" rows="3" validate={maxLength400} doValidate={true} />
 
               			        <Field 
               			        	component={FormField} type="textarea"

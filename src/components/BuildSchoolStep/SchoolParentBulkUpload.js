@@ -6,13 +6,12 @@ import downloadImage from '../../assets/images/svg/download.svg';
 import uploadImage from '../../assets/images/svg/upload.svg';
 import './SchoolStep.css';
 
-class SchoolBulkUpload extends Component {
+class SchoolParentBulkUpload extends Component {
   	render() {
     	return (
             <div class="bulk-upload">
                 <div className="d-flex justify-content-center pt-3 pb-3 no-gutters">
                     <div className="col-sm-8">
-
                         <div class="text-center download-CSV">
                             <button type="button" class="btn btn-info mr-1 width-200 relative">Download CSV File Format
                                 <a className="downloadImg"><img src={downloadImage} alt="" /></a>
@@ -45,4 +44,4 @@ class SchoolBulkUpload extends Component {
         }
 }
 
-export default SchoolBulkUpload;
+export default SchoolParentBulkUpload;

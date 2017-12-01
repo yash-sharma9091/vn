@@ -23,31 +23,30 @@ class AskQuestion extends Component {
     	return (
      		<div className="light-sm-bg">
 					<div className="d-flex flex-row justify-content-center">
-					 <Form onSubmit={handleSubmit(this.formSubmit)}  className="col-4">
-						<h3 className="gradient-color text-center">Ask A Question</h3>
+					 <Form onSubmit={handleSubmit(this.formSubmit)}  className="col-5">
+						<h3 className="gradient-color text-center">Ask a Question/Make a Comment</h3>
 						<p className="text-center light-gray">Lorem ipsum dolor sit amet, consectetur adipiscing</p>
 						<Alert alertVisible={error||success} alertMsg={error||success} className={error ? "danger":"success"}/>
 						<Field 
-							component={FormField} type="text"
-							name="question" label="Question*"
-							id="question" labelClassName="gradient-color"
-							placeholder="Enter your question" validate={[Required,maxLength200]} doValidate={true}/>
+							component={FormField} type="textarea"
+							name="Enter your questions" label="Question/Comment"
+							id="goalStudentClass" labelClassName="gradient-color" rows="3"/>
 
                         <Field 
 							component={FormField} type="text"
-							name="name" label="Name*"
+							name="name" label="Name"
 							id="Name" labelClassName="gradient-color"
 							placeholder="Enter your name" validate={[Required,maxLength200]} doValidate={true}/>
 						
 						<Field 
 							component={FormField} type="email"
-							name="email" label="Email*"
+							name="email" label="Email"
 							id="email" labelClassName="gradient-color"
 							placeholder="Enter your email address" validate={[Required,Email]} doValidate={true}/>
 
 						<Field 
 							component={FormField} type="text"
-							name="phone" label="Phone*"
+							name="phone" label="Phone"
 							id="Phone" labelClassName="gradient-color"
 							placeholder="Enter your phone" validate={Required} doValidate={true}  maskInput={true} inputAddOn={true} inputAddOnText="+1"/>
 

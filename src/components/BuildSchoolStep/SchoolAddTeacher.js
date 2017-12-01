@@ -95,14 +95,21 @@ class SchoolAddTeacher extends Component {
 							doValidate={true} maskInput={true} inputAddOn={true} inputAddOnText="+1"/>
 					</div>
 
-					<div className="row justify-content-center both-button">
+
+				<div className="row justify-content-center both-button relative">
+
 					<button type="button" className="btn btn-info mr-1">Cancel</button>
 
 					<FormSubmit 
 						error={error} invalid={pristine}
 						submitting={submitting} className="btn-primary ml-1"
 						buttonSaveLoading="Processing..." buttonSave="Save"/>
+
 					</div>
+
+					
+					<button type="button" class="btn btn-link skip-link pointer text-uppercase">Skip</button>
+
 				</div>
 			</Form>	
 		</div>

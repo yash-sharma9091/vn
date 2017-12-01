@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import SchoolInfoForm from './SchoolInfoForm';
 import SchoolGradeCodes from './SchoolGradeCodes';
 import SchoolTeachers from './SchoolTeachers';
+import SchoolStudentParents from './SchoolStudentParents';
 import './SchoolStep.css';
 
 class SchoolTabs extends Component {
@@ -58,7 +59,7 @@ class SchoolTabs extends Component {
                         <SchoolTeachers />
                     </TabPane>
                     <TabPane tabId="4">
-                        jgdfljgdf
+                        <SchoolStudentParents />
                     </TabPane>
                 </TabContent>
             </div>

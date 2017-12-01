@@ -16,7 +16,7 @@ class JoinPilotStudy extends Component {
                             { _.isEmpty(settings) ? <NoRecords/> : settings.join_pilot_study}
                         </div>
                         <div className="text-center mt-4">
-							<button type="button" className="btn btn-primary btn-block">How Can My School Become A Pilot School ?</button>
+							<button type="button" className="btn btn-primary btn-block">See Pilot Program Process </button>
 						</div>
                      </div>
 				 </div>
