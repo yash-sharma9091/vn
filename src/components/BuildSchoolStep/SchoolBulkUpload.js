@@ -30,14 +30,6 @@ class SchoolBulkUpload extends Component {
                         <div className="para csv-tags text-center pt-4">
                             Browse your csv file (Only CSV and Excel files are allowed) <img className="questionMark pl-1" src={questionImage} alt="" />
                         </div>
-                        <div className="para text-center pt-1 pb-1">
-                        <FormGroup check>
-                            <Label check>
-                                <Input type="checkbox" />{' '}
-                                Publish Automatically <img className="questionMark pl-1" src={questionImage} alt="" />
-                            </Label>
-                        </FormGroup>
-                        </div>
                     </div>
                 </div>
             </div>

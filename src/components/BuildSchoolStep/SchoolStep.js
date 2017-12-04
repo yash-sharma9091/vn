@@ -7,7 +7,7 @@ import './SchoolStep.css';
 class SchoolStep extends Component {
 	render() {
 		return (
-			<SchoolStepTabs />
+			<SchoolStepTabs {...this.props}/>
 		);
 	}
 }

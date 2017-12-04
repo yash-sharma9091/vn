@@ -40,9 +40,12 @@ export class Http {
 			} else {
 				formData.append(val, data[val]);	
 			}
-			
+			//console.log(val);
 			if( val === 'image' ) {
-				formData.append('image', data.image);	
+				if( data.image ) {
+					//console.log(data.image);
+					formData.append('image', data.image);		
+				}
 			}
 		}
 		
