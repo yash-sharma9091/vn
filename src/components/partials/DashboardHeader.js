@@ -4,9 +4,14 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, Dr
 import {DropdownWithoutActiveProps} from './DropdownWithoutActiveProps';
 import NavBarImage from '../../assets/images/svg/menu.svg';
 import NotificationImage from '../../assets/images/svg/notifications-button.svg';
+import EnvelopeImage from '../../assets/images/svg/envelope.svg';
+
 import UserImage from '../../assets/images/svg/user.svg';
 import {AUTH_LOGOUT_REQUEST} from '../../constant';
 import {push} from 'react-router-redux';
+import {dashboard} from '../../lib/SiteLinks';
+import Logo from  '../Logo/Logo';
+import {LinkContainer} from 'react-router-bootstrap';
 
 class DashboardHeader extends Component {
     constructor(props) {
@@ -34,16 +39,29 @@ class DashboardHeader extends Component {
         });
     }
   	render() {
+          
+          const {location} = this.props;
     	return (
-            <header className="dashboard-header">
+            <header className={`dashboard-header ${location.pathname === dashboard ? 'schooladmin':''}`}>
+                {location.pathname === dashboard && <Logo />}
                 <div>
                     <Navbar color="faded" light expand="md">
-                    <NavbarBrand href="/"><img src={NavBarImage} alt="NavBar" />
-                    </NavbarBrand>
+                    <LinkContainer to={dashboard}>
+                        <NavbarBrand><img src={NavBarImage} alt="NavBar" />
+                        </NavbarBrand>
+                    </LinkContainer>    
                     <div className="school-name">Build Your School</div>
                     <NavbarToggler onClick={this.toggle} />
                         <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav className="ml-auto" navbar>
+                                <NavItem>
+                                     <NavLink href="/components/">
+                                        <div className="notification-image">
+                                            <img src={EnvelopeImage} alt="Envelope Icon" />
+                                            <div className="notification-number">3</div>
+                                        </div>
+                                    </NavLink>
+                                </NavItem>
                                 <NavItem>
                                     <NavLink href="/components/">
                                         <div className="notification-image">
@@ -63,7 +81,7 @@ class DashboardHeader extends Component {
                                         <DropdownItem>Action</DropdownItem>
                                         <DropdownItem>Another Action</DropdownItem>
                                         <DropdownItem divider />
-                                        <DropdownItem >Logout</DropdownItem>
+                                        <DropdownItem onClick={() => this.logout()}>Logout</DropdownItem>
                                     </DropdownMenu>
                                 </DropdownWithoutActiveProps>
                             </Nav>

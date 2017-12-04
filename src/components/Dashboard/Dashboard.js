@@ -1,9 +1,77 @@
 import React, {Component} from 'react';
+import dashImg1 from '../../assets/images/dash-1.png';
+import dashImg2 from '../../assets/images/dash-2.png';
+import dashImg3 from '../../assets/images/dash-3.png';
+import dashImg4 from '../../assets/images/dash-4.png';
+import dashImg5 from '../../assets/images/dash-5.png';
+import dashImg6 from '../../assets/images/dash-6.png';
+import dashImg7 from '../../assets/images/dash-7.png';
+import dashImg8 from '../../assets/images/dash-8.png';
+import dashImg9 from '../../assets/images/dash-9.png';
+import dashImg10 from '../../assets/images/dash-10.png';
+import './SchoolAdminDashboard.css';
 
 class Dashboard extends Component {
 	render() {
 		return (
-			<div>Your are loggedIn successfully</div>
+			<div className="school-dashboard d-flex align-items-center">
+					<div className="row justify-content-md-center col-sm-12 no-gutters">
+						<div className="col-sm-8 admin-box pt-5 pb-5 pl-2 pr-2">
+							<div class="d-flex flex-wrap align-content-around no-gutters">
+								<div className="col-2">
+									<div className="dash-box">
+										<a><img src={dashImg1} className="transition" alt="" /><span>Dashboard</span></a>
+									</div>
+								</div>
+								<div className="col-2">
+									<div className="dash-box">
+										<a><img src={dashImg2} className="transition" alt="" /><span>School Profile</span></a>
+									</div>
+								</div>
+								<div className="col-2">
+									<div className="dash-box">
+										<a><img src={dashImg3} className="transition" alt="" /><span>Teachers</span></a>
+									</div>
+								</div>
+								<div className="col-2">
+									<div className="dash-box">
+										<a><img src={dashImg4} className="transition" alt="" /><span>Students</span></a>
+									</div>
+								</div>
+								<div className="col-2">
+									<div className="dash-box">
+										<a><img src={dashImg5} className="transition" alt="" /><span>Class &amp; Subjects</span></a>
+									</div>
+								</div>
+								<div className="col-2">
+									<div className="dash-box">
+										<a><img src={dashImg6} className="transition" alt="" /><span>Message System</span></a>
+									</div>
+								</div>
+								<div className="col-2 pt-4">
+									<div className="dash-box">
+										<a><img src={dashImg7} className="transition" alt="" /><span>Assesment</span></a>
+									</div>
+								</div>
+								<div className="col-2 pt-4">
+									<div className="dash-box">
+										<a><img src={dashImg8} className="transition" alt="" /><span>View Reports</span></a>
+									</div>
+								</div>
+								<div className="col-2 pt-4">
+									<div className="dash-box">
+										<a><img src={dashImg9} className="transition" alt="" /><span>Calendar</span></a>
+									</div>
+								</div>
+								<div className="col-2 pt-4">
+									<div className="dash-box">
+										<a><img src={dashImg10} className="transition" alt="" /><span>Contacts</span></a>
+									</div>
+								</div>
+							</div>
+						</div>
+				</div>
+			</div>
 		) 
 	}
 }

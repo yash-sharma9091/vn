@@ -4,7 +4,7 @@ import Logo from  '../Logo/Logo';
 import AuthButton from './AuthButton';
 import {faq} from '../../lib/SiteLinks';
 import {LinkContainer} from 'react-router-bootstrap';
-
+ 
 class MainHeader extends Component {
     constructor(props) {
         super(props);

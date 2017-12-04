@@ -7,8 +7,8 @@ import {CMSLinks} from './CMSLinks';
 import {SocialLinks} from './SocialLinks';
 class Footer extends Component {
   	render() {
-  		const {location, settings} = this.props;
-  		if(!_.isEmpty(location) && removePartials(location) ) {
+  		const {location, settings, token} = this.props;
+  		if(!_.isEmpty(location) && removePartials(location) && !token) {
 	    	return (
         		<footer className="padding-10">
 					<div className="container">
@@ -34,7 +34,8 @@ class Footer extends Component {
 const mapStateToProps = (state) => {
 	return ({
 		location: state.router.location,
-		settings: state.settings
+		settings: state.settings,
+		token: state.auth.token
 	});
 }	
 export default connect(mapStateToProps)(Footer);

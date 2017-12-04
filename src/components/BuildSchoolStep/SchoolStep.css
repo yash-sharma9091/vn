@@ -5,8 +5,9 @@
     border-bottom: 1px solid #0d3c7f;
     position: relative;
 }
-.dashboard-header .navbar .navbar-brand img{
-    width:20px;
+.dashboard-header .navbar .navbar-brand img {
+    width: 20px;
+    margin-right: 10px;
 }
 .dashboard-header .navbar{
     padding: 0 10px;
@@ -14,7 +15,8 @@
 }
 .dashboard-header .navbar .navbar-brand {
 	padding-top: 10px;
-	padding-bottom: 10px;
+    padding-bottom: 10px;
+    border-right: 1px solid #07387f;
 }
 .dashboard-header .navbar .school-name {
 	color: #ffffff;
@@ -23,7 +25,7 @@
 	min-width: 200px;
 	padding-top: 4px;
 }
-.dashboard-header .navbar .navbar-collapse .navbar-nav li.nav-item a{color:#ffffff; font-size: 16px; padding-left: 20px; padding-right: 20px;}
+.dashboard-header .navbar .navbar-collapse .navbar-nav li.nav-item a{color:#ffffff; font-size: 16px; padding-left: 10px; padding-right: 10px;}
 .dashboard-header .navbar .navbar-collapse .navbar-nav li.nav-item a img{width: 20px;}
 .dashboard-header .navbar .navbar-collapse .navbar-nav li.nav-item a .notification-image {
     width: 20px;
@@ -43,9 +45,16 @@
 	top: -4px;
 }
 
-.dashboard-header .navbar .navbar-collapse .navbar-nav li.dropdown a{
-    color:#ffffff; font-size: 16px; display: inline-block;  margin-top:8px;
-    margin-bottom: 8px;}
+.dashboard-header .navbar .navbar-collapse .navbar-nav li.dropdown a {
+    color: #ffffff;
+    font-size: 16px;
+    display: inline-block;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-weight: 800;
+    cursor: pointer;
+    padding-left: 10px; padding-right: 10px;
+}
 .dashboard-header .navbar .navbar-collapse .navbar-nav li.dropdown a img{width: 20px;}
 .dashboard-header .navbar .navbar-collapse .navbar-nav li.dropdown a .user-image{width: 20px;display: inline-block;margin-right: 8px;}
 
@@ -108,12 +117,22 @@
 	right: 0;
 	margin: auto;
 	top: 0;
-	width: 100px;
-	height: 100px;
+	width: 148px;
+	height: 148px;
 	bottom: 0;
 	text-align: center;
 }
-.camera-icon img{width:100px;}
+.camera-icon img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    margin: auto;
+    max-width: 100%;
+    max-height: 150px;
+}
 .camera-upload-content{display: inline-block;color:#292b2c; padding-left: 15px;}
 .camera-upload-content h3{ font-size: 18px;}
 .camera-upload-content span{ font-size: 14px;}
@@ -254,3 +273,5 @@
     text-align: center;
     cursor: pointer;border-left: 1px solid #0a4ba8;}
 .uploadImg img{width:18px; padding-top: 7px;}
+
+.input-loader{background: url('../../assets/images/loader.gif') no-repeat 98% center;}

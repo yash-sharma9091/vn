@@ -20,7 +20,7 @@ class WhatWeDo extends Component {
                             <div className="d-flex justify-content-between mt-4 align-items-stretch whatweDo">
                                 {what_we_do_steps.map((val, index) => {
                                     return (
-                                        <div key={index} className="md-whiteframe-1dp p-3 light-white-bg mr-3">
+                                        <div key={index} className="md-whiteframe-1dp p-3 light-white-bg mr-3 col-3">
                                             <div className="mb-2"><img src={WorkImg} alt= "" /></div>
                                             <div className="gradient-color heading mb-2">{val.title}</div>
                                             <p className="para">{limitTo(val.short_description, 160)}</p>

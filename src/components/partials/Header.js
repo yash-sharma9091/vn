@@ -35,7 +35,7 @@ class Header extends Component {
         			<strong>Network Failure! Make sure you have an active internet connection</strong> 
         		</div>
         		{token 
-        			? <DashboardHeader /> 
+        			? <DashboardHeader location={location}/> 
         			: (	<header>
           					{!_.isEmpty(location) && removePartials(location) && <Logo />}
         				</header>)
