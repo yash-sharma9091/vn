@@ -1,3 +1,4 @@
+/* global _ */
 import {forgotPassword, login, resetPassword} from './SiteLinks';
 export const exportPath = (pathname) => pathname.split('/')[1];
 
@@ -46,6 +47,21 @@ export const isJson = (str) => {
 }
 
 export const isEmptyAnyValue = (obj) => Object.values(obj).some(el => el === null);
+
+export const getAddress = (obj) => {
+	let address = '';
+	if( _.has(obj, 'country') ) {
+		address += `${obj.country}, `;
+	}if( _.has(obj, 'state') ) {
+		address += `${obj.state}, `;
+	}if( _.has(obj, 'city') ) {
+		address += `${obj.city}, `;
+	}if( _.has(obj, 'postal_code') ) {
+		address += `${obj.postal_code}, `;
+	}
+	
+	return _.replace(address, /,(?=[^,]*$)/, '');
+}
 
 export const placesServiceStatus = [
 	{ status_code: "ERROR", message: "There was a problem contacting the Google servers" },

@@ -91,7 +91,7 @@ class Loginform extends Component {
             		reject(new SubmissionError({_error: error}));
           		},
           		callbackSuccess: () => {
-            		dispatch(push(schoolstep));
+            		dispatch(push(`${schoolstep}?tab=1`));
             		resolve();
           		}
         	})

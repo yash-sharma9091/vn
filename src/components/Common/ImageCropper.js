@@ -1,3 +1,4 @@
+/* global _ */
 import React, {Component} from 'react';
 import CameraImage from '../../assets/images/svg/photo-camera.svg';
 import DeleteImage from '../../assets/images/svg/delete-button.svg';
@@ -58,7 +59,10 @@ class ImaegCropper extends Component {
     }
     removeImage() {
     	this.setState({src: ''});
-    	this.props.removeImage();
+    	if( _.isFunction(this.props.removeImage) ) {
+    		this.props.removeImage();
+		}
+    	
     	const { input: { onChange } } = this.props;
     	onChange(null);
     }

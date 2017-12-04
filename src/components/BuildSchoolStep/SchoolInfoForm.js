@@ -267,7 +267,7 @@ let _SchoolInfoForm = reduxForm({
   	asyncValidate: isValidAddress,
   	asyncBlurFields: ['school_address'],
     onSubmitFail: (errors) => {
-    	console.log(errors);
+    	//console.log(errors);
     	// https://github.com/erikras/redux-form/issues/2365
     	const errorEl = document.querySelector(
     		// flattenObject: https://github.com/hughsk/flat/issues/52

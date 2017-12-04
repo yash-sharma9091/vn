@@ -26,14 +26,18 @@ const Phone = (value, allValues, props, name) => {
 const isValidAddress = (value, allValues, props, name) => {
 	
 	return new Promise((resolve, reject) => {
-		geocodeByAddress(value.school_address) 
+		if( !value || !name ) {
+			resolve();
+			return;
+		}
+		geocodeByAddress(value[name]) 
 		.then(result => resolve()) 
 		.catch(error => {
 			let _error =  _.find(placesServiceStatus, ['status_code', error]), message = 'The request could not be processed due to a server error';
 			if( _.has(_error, 'message') ) {
-				reject({school_address: _error.message});
+				reject({[name]: _error.message});
 			} else {
-				reject( {school_address: message});	
+				reject( {[name]: message});	
 			}
 		});
 	});	
