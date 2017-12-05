@@ -17,7 +17,7 @@ class WhatWeDo extends Component {
                         _.isEmpty(what_we_do_steps)
                         ? <Loader/> 
                         : (
-                            <div className="d-flex justify-content-between mt-4 align-items-stretch whatweDo">
+                            <div className="d-flex justify-content-start mt-4 align-items-stretch whatweDo">
                                 {what_we_do_steps.map((val, index) => {
                                     return (
                                         <div key={index} className="md-whiteframe-1dp p-3 light-white-bg mr-3 col-3">

@@ -10,6 +10,7 @@ import HomePage from '../components/HomePage/HomePage';
 import Login from '../components/Login/Login';
 import Faq from '../components/Faq/Faq';
 import Dashboard from '../components/Dashboard/Dashboard';
+import AddTeachers from '../components/AddTeachers/AddTeachers';
 import SchoolStep from '../components/BuildSchoolStep/SchoolStep';
 import NotFound from '../components/Error/404';
 import Invalid from '../components/Error/Invalid';
@@ -25,7 +26,8 @@ import {
 	resetPassword, 
 	notFound, 
 	invalid, 
-	dashboard, 
+	dashboard,
+	addteachers,
 	faq, 
 	schoolstep
 } from '../lib/SiteLinks';
@@ -43,6 +45,7 @@ export const Router = props => {
 					<BeforeAuthRoute path={forgotPassword} component={ForgotPass} />
 					<BeforeAuthRoute path={resetPassword} component={ResetPassword} />
 					<PrivateRoute path={dashboard} component={Dashboard} />
+					<PrivateRoute path={addteachers} component={AddTeachers} />
 					<Route path={faq} component={Faq} />
 					<PrivateRoute path={schoolstep} component={SchoolStep} />
 					<Route path={invalid} component={Invalid} />

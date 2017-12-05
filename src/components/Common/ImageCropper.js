@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import CameraImage from '../../assets/images/svg/photo-camera.svg';
+import CameraImage from '../../assets/images/photo-camera.png';
 import DeleteImage from '../../assets/images/svg/delete-button.svg';
 import EditImage from '../../assets/images/svg/edit.svg';
 import ImageModal from '../Common/ImageModal';

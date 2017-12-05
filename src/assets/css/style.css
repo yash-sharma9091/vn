@@ -17,6 +17,12 @@
 body{
     font-family: 'gilroylight';
 }
+body{
+    background: url('../../assets/images/bg-white.png') no-repeat center center;
+    background-attachment: fixed;
+    background-size: cover;
+    width: 100%;
+}
 .btn-primary {
     color: #fff;
     background-color: #0a4cab;
@@ -68,6 +74,7 @@ body{
 .light-bg{background-color: #f7f7f9;}
 .light-sm-bg{background-color:#f2f2f2}
 .light-md-bg{background-color:#ececec}
+.light-lg-bg{background-color:#f0f0f4}
 
 
 h1,h2,h3,h4,h5,h6{padding: 0;margin: 0;}
@@ -132,4 +139,7 @@ label {
     right: 0;
     top: 5px;
 }
+
+/*create-teacher*/
+.create-teacher{border-left:1px solid #eaeaec; background-color: #ffffff;}
 
