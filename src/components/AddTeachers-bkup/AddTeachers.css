@@ -16,7 +16,6 @@
 .teacher-box {
     border: 1px solid #d9d9d9;
     border-radius: 5px;
-    width: 295px;
 }
 .teacher-group-box {
     padding-left: 75px;
@@ -80,31 +79,7 @@
     border-bottom:1px solid #eeeeee;
 }
 
-.teachers-row > div {
-    margin: 0 5px 10px;
-}
-
-
 /*Responsive Code*/
-@media(max-width:1900px){
-
-}
-
-@media(max-width:1880px){
-    .teachers-row > div {
-        margin: 0 10px 20px;
-    }
-}
-
-@media(max-width:1599px){
-    .teachers-row > div {
-        margin: 0 5px 10px;
-    }
-    .teacher-box {
-        width: 259px;
-    }
-}
-
 @media(max-width:1399px){
     .teacher-picture {
         width: 50px;
@@ -124,12 +99,6 @@
 @media(max-width:979px){
     .teach-head {
         font-size: 12px;
-    }
-    .teacher-box {
-        width: 350px;
-    }
-    .teachers-row > div {
-        margin: 0 0 10px 0;
     }
 }
 

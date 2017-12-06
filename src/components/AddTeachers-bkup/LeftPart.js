@@ -23,8 +23,8 @@ class LeftPart extends Component {
 	render() {
 		return (
             <div>
-               <div className="d-flex justify-content-center flex-wrap align-items-stretch align-content-around teachers-row">
-                        <div>
+               <div class="row row-eq-height">
+                        <div className="col-6 col-md-6 col-lg-6 col-xl-4 mb-3">
                             <div className="light-white-bg teacher-box p-2 p-lg-3 relative">
                                 <div className="box-settings pointer">
                                     <img src={ThreeDots} alt="" />
@@ -45,7 +45,7 @@ class LeftPart extends Component {
                             </div>
                         </div>
 
-                        <div>
+                        <div className="col-6 col-md-6 col-lg-6 col-xl-4 mb-3">
                             <div className="light-white-bg teacher-box p-2 p-lg-3 relative">
                                 <div className="box-settings pointer">
                                     <img src={ThreeDots} alt="" />
@@ -66,7 +66,7 @@ class LeftPart extends Component {
                             </div>
                         </div>
 
-                        <div>
+                        <div className="col-6 col-md-6 col-lg-6 col-xl-4 mb-3">
                             <div className="light-white-bg teacher-box p-2 p-lg-3 relative">
                                 <div className="box-settings pointer">
                                     <img src={ThreeDots} alt="" />
@@ -87,7 +87,7 @@ class LeftPart extends Component {
                             </div>
                         </div>
 
-                        <div>
+                        <div className="col-6 col-md-6 col-lg-6 col-xl-4 mb-3">
                             <div className="light-white-bg teacher-box p-2 p-lg-3 relative">
                                 <div className="box-settings pointer">
                                     <img src={ThreeDots} alt="" />
@@ -108,7 +108,7 @@ class LeftPart extends Component {
                             </div>
                         </div>
 
-                        <div>
+                        <div className="col-6 col-md-6 col-lg-6 col-xl-4 mb-3">
                             <div className="light-white-bg teacher-box p-2 p-lg-3 relative">
                                 <div className="box-settings pointer">
                                     <img src={ThreeDots} alt="" />
@@ -129,7 +129,7 @@ class LeftPart extends Component {
                             </div>
                         </div>
 
-                        <div>
+                        <div className="col-6 col-md-6 col-lg-6 col-xl-4 mb-3">
                             <div className="light-white-bg teacher-box p-2 p-lg-3 relative">
                                 <div className="box-settings pointer">
                                     <img src={ThreeDots} alt="" />
@@ -150,7 +150,7 @@ class LeftPart extends Component {
                             </div>
                         </div>
 
-                        <div>
+                        <div className="col-6 col-md-6 col-lg-6 col-xl-4 mb-3">
                             <div className="light-white-bg teacher-box p-2 p-lg-3 relative">
                                 <div className="box-settings pointer">
                                     <img src={ThreeDots} alt="" />
@@ -171,7 +171,7 @@ class LeftPart extends Component {
                             </div>
                         </div>
 
-                        <div>
+                        <div className="col-6 col-md-6 col-lg-6 col-xl-4 mb-3">
                             <div className="light-white-bg teacher-box p-2 p-lg-3 relative">
                                 <div className="box-settings pointer">
                                     <img src={ThreeDots} alt="" />
@@ -192,7 +192,7 @@ class LeftPart extends Component {
                             </div>
                         </div>
 
-                        <div>
+                        <div className="col-6 col-md-6 col-lg-6 col-xl-4 mb-3">
                             <div className="light-white-bg teacher-box p-2 p-lg-3 relative">
                                 <div className="box-settings pointer">
                                     <img src={ThreeDots} alt="" />
@@ -213,7 +213,7 @@ class LeftPart extends Component {
                             </div>
                         </div>
 
-                        <div>
+                        <div className="col-6 col-md-6 col-lg-6 col-xl-4 mb-3">
                             <div className="light-white-bg teacher-box p-2 p-lg-3 relative">
                                 <div className="box-settings pointer">
                                     <img src={ThreeDots} alt="" />
@@ -234,7 +234,7 @@ class LeftPart extends Component {
                             </div>
                         </div>
 
-                        <div>
+                        <div className="col-6 col-md-6 col-lg-6 col-xl-4 mb-3">
                             <div className="light-white-bg teacher-box p-2 p-lg-3 relative">
                                 <div className="box-settings pointer">
                                     <img src={ThreeDots} alt="" />
@@ -255,7 +255,7 @@ class LeftPart extends Component {
                             </div>
                         </div>
 
-                        <div>
+                        <div className="col-6 col-md-6 col-lg-6 col-xl-4 mb-3">
                             <div className="light-white-bg teacher-box p-2 p-lg-3 relative">
                                 <div className="box-settings pointer">
                                     <img src={ThreeDots} alt="" />
@@ -276,7 +276,7 @@ class LeftPart extends Component {
                             </div>
                         </div>
 
-                        <div>
+                        <div className="col-6 col-md-6 col-lg-6 col-xl-4 mb-3">
                             <div className="light-white-bg teacher-box p-2 p-lg-3 relative">
                                 <div className="box-settings pointer">
                                     <img src={ThreeDots} alt="" />
@@ -297,7 +297,7 @@ class LeftPart extends Component {
                             </div>
                         </div>
 
-                        <div>
+                        <div className="col-6 col-md-6 col-lg-6 col-xl-4 mb-3">
                             <div className="light-white-bg teacher-box p-2 p-lg-3 relative">
                                 <div className="box-settings pointer">
                                     <img src={ThreeDots} alt="" />
@@ -318,7 +318,7 @@ class LeftPart extends Component {
                             </div>
                         </div>
 
-                        <div>
+                        <div className="col-6 col-md-6 col-lg-6 col-xl-4 mb-3">
                             <div className="light-white-bg teacher-box p-2 p-lg-3 relative">
                                 <div className="box-settings pointer">
                                     <img src={ThreeDots} alt="" />
@@ -339,7 +339,7 @@ class LeftPart extends Component {
                             </div>
                         </div>
 
-                        <div>
+                        <div className="col-6 col-md-6 col-lg-6 col-xl-4 mb-3">
                             <div className="light-white-bg teacher-box p-2 p-lg-3 relative">
                                 <div className="box-settings pointer">
                                     <img src={ThreeDots} alt="" />

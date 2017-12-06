@@ -85,10 +85,10 @@ class AddTeachers extends Component {
 
                 <div className="dashboard-main">
                     <div class="d-flex justify-content-between no-gutters">
-                        <div className="col-7 col-md-7 col-lg-8 col-xl-8 p-3 p-lg-4">
+                        <div className="col-7 col-md-8 col-lg-8 col-xl-8 p-3 p-lg-4">
                             <LeftPart />
                         </div>
-                        <div className="col-5 col-md-5 col-lg-4 col-xl-4 create-teacher">
+                        <div className="col-5 col-md-4 col-lg-4 col-xl-4 create-teacher">
                             <RightPart />
                         </div>
                     </div>
