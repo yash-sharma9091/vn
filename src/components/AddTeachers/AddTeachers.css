@@ -74,7 +74,31 @@
     padding: 10px 5px;
 }
 .box-settings img{width:20px;}
-.teach-head{font-size: 19px;}
+.teach-head{font-size: 19px; text-align: center;}
 .teacher-forms{
     border-bottom:1px solid #eeeeee;
 }
+
+/*Responsive Code*/
+@media(max-width:1399px){
+    .teacher-picture {
+        width: 50px;
+        height: 50px;
+    }
+    .teacher-picture > img {
+        max-width: 48px;
+    }
+    .teacher-group-box {
+        padding-left: 60px;
+    }
+    .teach-head {
+        font-size: 15px;
+    }
+}
+
+@media(max-width:979px){
+    .teach-head {
+        font-size: 12px;
+    }
+}
+

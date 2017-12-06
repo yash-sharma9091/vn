@@ -34,18 +34,18 @@ class RightPart extends Component {
                 <Form>
                     <div className="tabs-heading text-uppercase font-weight-bold">PERSONAL INFORMATION</div>
                     <div className="form-row">
-                        <FormGroup className="col-sm-6">
+                        <FormGroup className="col-md-12 col-lg-6">
                             <Label>First Name</Label>
                             <Input type="text" name="name" placeholder="Enter name" />
                         </FormGroup>
-                        <FormGroup className="col-sm-6">
+                        <FormGroup className="col-md-12 col-lg-6">
                             <Label>Last Name</Label>
                             <Input type="text" name="name" placeholder="Last name" />
                         </FormGroup>
                     </div>
 
                     <div className="form-row">
-                        <FormGroup className="col-sm-6">
+                        <FormGroup className="col-md-12 col-lg-6">
                             <Label for="exampleSelect">Gender</Label>
                             <Input type="select" name="select" id="exampleSelect">
                                 <option>Select gender</option>
@@ -54,7 +54,7 @@ class RightPart extends Component {
                                 <option>Select gender</option>
                             </Input>
                         </FormGroup>
-                        <FormGroup className="col-sm-6">
+                        <FormGroup className="col-md-12 col-lg-6">
                             <Label for="exampleSelect">Grade</Label>
                             <Input type="select" name="select" id="exampleSelect">
                                 <option>Select grade</option>
@@ -66,7 +66,7 @@ class RightPart extends Component {
                     </div>
 
                     <div className="form-row">
-                        <FormGroup className="col-sm-6">
+                        <FormGroup className="col-md-12 col-lg-6">
                             <Label for="exampleSelect">Subjects</Label>
                             <Input type="select" name="select" id="exampleSelect">
                                 <option>Select subject</option>
@@ -75,7 +75,7 @@ class RightPart extends Component {
                                 <option>Select subject</option>
                             </Input>
                         </FormGroup>
-                        <FormGroup className="col-sm-6">
+                        <FormGroup className="col-md-12 col-lg-6">
                             <Label for="exampleSelect">Official Grade</Label>
                             <Input type="select" name="select" id="exampleSelect">
                                 <option>Select official grade</option>
@@ -92,18 +92,18 @@ class RightPart extends Component {
                     </div>
 
                     <div className="form-row">
-                        <FormGroup className="col-sm-6">
+                        <FormGroup className="col-md-12 col-lg-6">
                             <Label>Address</Label>
                             <Input type="text" name="name" placeholder="Enter Address" />
                         </FormGroup>
-                        <FormGroup className="col-sm-6">
+                        <FormGroup className="col-md-12 col-lg-6">
                             <Label>Country</Label>
                             <Input type="text" name="name" placeholder="Enter country" />
                         </FormGroup>
                     </div>
 
                     <div className="form-row">
-                        <FormGroup className="col-sm-6">
+                        <FormGroup className="col-md-12 col-lg-6">
                             <Label for="exampleSelect">State</Label>
                             <Input type="select" name="select" id="exampleSelect">
                                 <option>Select state</option>
@@ -112,18 +112,18 @@ class RightPart extends Component {
                                 <option>Select state</option>
                             </Input>
                         </FormGroup>
-                        <FormGroup className="col-sm-6">
+                        <FormGroup className="col-md-12 col-lg-6">
                             <Label>City</Label>
                             <Input type="text" name="name" placeholder="Enter city" />
                         </FormGroup>
                     </div>
 
                     <div className="form-row">
-                        <FormGroup className="col-sm-6">
+                        <FormGroup className="col-md-12 col-lg-6">
                             <Label>Email</Label>
                             <Input type="text" name="name" placeholder="Enter email" />
                         </FormGroup>
-                        <FormGroup className="col-sm-6">
+                        <FormGroup className="col-md-12 col-lg-6">
                             <Label>Phone</Label>
                             <Input type="text" name="name" placeholder="Enter phone number" />
                         </FormGroup>

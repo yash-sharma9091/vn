@@ -12,14 +12,14 @@ class AddTeachers extends Component {
             <div>
                 <div className="search-bar">
                     <div className="d-flex justify-content-between p-2 no-gutters">
-                        <div className="col-2">
+                        <div className="col-3 col-lg-2 col-xl-2">
                             <div className="d-flex justify-content-start">
                                 <div class="search-head">Teachers</div>
                             </div>
                         </div>
 
 
-                        <div className="col-8">
+                        <div className="col-6 col-lg-8 col-xl-8">
                             <div className="d-flex justify-content-center">
                                 <div class="input-group mr-2">
                                     <input type="text" class="form-control" placeholder="Search by name, email, phone number" aria-label="Recipient's username" aria-describedby="basic-addon2" />
@@ -30,10 +30,10 @@ class AddTeachers extends Component {
                         </div>
 
 
-                        <div className="col-2">
+                        <div className="col-3 col-lg-2 col-xl-2">
                             <div className="imports-button d-flex justify-content-end">
-                                <button type="button" class="btn btn-info ml-2">Import</button>
-                                <button type="button" class="btn btn-info ml-2">Export</button>
+                                <button type="button" class="btn btn-info ml-1 ml-lg-1 ml-xl-2">Import</button>
+                                <button type="button" class="btn btn-info ml-1 ml-lg-1 ml-xl-2">Export</button>
                             </div>
                         </div>
                     </div>
@@ -77,7 +77,7 @@ class AddTeachers extends Component {
                                 </Input>
                             </FormGroup>
                         </div>
-                        <div className="col-1">
+                        <div className="col-1 pl-0 pr-0 pl-lg-1 pr-lg-1">
                             <a className="clear-link">X Clear</a>
                         </div>
                     </div>
@@ -85,10 +85,10 @@ class AddTeachers extends Component {
 
                 <div className="dashboard-main">
                     <div class="d-flex justify-content-between no-gutters">
-                        <div className="col-8 p-4">
+                        <div className="col-7 col-md-8 col-lg-8 col-xl-8 p-3 p-lg-4">
                             <LeftPart />
                         </div>
-                        <div className="col-4 create-teacher">
+                        <div className="col-5 col-md-4 col-lg-4 col-xl-4 create-teacher">
                             <RightPart />
                         </div>
                     </div>

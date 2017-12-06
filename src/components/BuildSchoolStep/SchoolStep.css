@@ -275,3 +275,30 @@
 .uploadImg img{width:18px; padding-top: 7px;}
 
 .input-loader{background: url('../../assets/images/loader.gif') no-repeat 98% center;}
+
+
+
+/*Responsive Code*/
+@media(max-width:1399px){
+    .camera-upload-content span {
+        font-size: 11px;
+    }
+    .camera-upload-content h3 {
+        font-size: 11px;
+    }
+}
+
+@media(max-width:1023px){
+    .camera-upload-content {
+        display: block;
+        color: #292b2c;
+        padding-left: 0;
+        padding-top: 25px;
+    }
+    .camera-upload-content span {
+        font-size: 13px;
+    }
+    .camera-upload-content h3 {
+        font-size: 15px;
+    }
+}
