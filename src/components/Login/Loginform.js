@@ -34,7 +34,7 @@ class Loginform extends Component {
 				</div>
 				<div className="login-form" >
 					<div className="d-flex flex-row justify-content-center">
-					 	<Form onSubmit={handleSubmit(this.formSubmit)} className="col-6">
+					 	<Form onSubmit={handleSubmit(this.formSubmit)} className="col-8 col-lg-8 col-lg-7 col-xl-5">
 					 		<Alert alertVisible={error} alertMsg={error} className={error ? "danger":"success"}/>
 							<Field 
 								component={FormField} type="text"

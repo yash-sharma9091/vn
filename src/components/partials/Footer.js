@@ -10,7 +10,7 @@ class Footer extends Component {
   		const {location, settings, token} = this.props;
   		if(!_.isEmpty(location) && removePartials(location) && !token) {
 	    	return (
-        		<footer className="padding-10">
+        		<footer className="padding-20">
 					<div className="container">
 						<div className="d-flex justify-content-between align-items-center">
 							<div className="footer-links">

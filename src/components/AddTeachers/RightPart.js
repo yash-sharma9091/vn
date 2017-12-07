@@ -13,7 +13,7 @@ import {flattenObject} from '../../lib/Helper';
 class RightPart extends Component {
 	render() {
 		return (
-            <div>
+            <div className="create-teacher">
               <div className="p-3 teacher-forms">
                 <div class="d-flex justify-content-between align-items-center">
                     <div>
@@ -131,7 +131,6 @@ class RightPart extends Component {
 
                 </Form>
               </div>
-
             </div>
 		) 
 	}

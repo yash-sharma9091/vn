@@ -45,7 +45,7 @@ class HomeBanner extends Component {
 			<div className="homeBanner" style={bannerImg}>
 				<div className="homeBanner-tags text-center color-white">
 					<h2 className="text-uppercase">Virtual teaching and <br /> learning in the classroom.</h2>
-					<button type="button" className="btn btn-link text-uppercase color-white link-button pointer">See Pilot Program Process</button>
+					<button type="button" className="btn btn-link text-uppercase color-white link-button see-pilot-link pointer">See Pilot Program Process</button>
 				</div>	
 			</div>
     	);

@@ -35,7 +35,7 @@ class ForgotPassForm extends Component {
 				</div>
 				 <div className="login-form" >
 					<div className="d-flex flex-row justify-content-center">
-					 <Form onSubmit={handleSubmit(this.formSubmit)}  className="col-6">
+					 <Form onSubmit={handleSubmit(this.formSubmit)}  className="col-8 col-lg-8 col-lg-7 col-xl-5">
 						<h3 className="gradient-color text-center">Forgot Your Password</h3>
 						<p className="text-center light-gray">Enter your unique account number below, and we’ll send you the Reset Link</p>
 						<Alert alertVisible={error||success} alertMsg={error||success} className={error ? "danger":"success"}/>

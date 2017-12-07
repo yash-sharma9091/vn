@@ -1,5 +1,5 @@
 .imports-button .btn-info, .imports-button .btn-info:active, .imports-button .btn-info.active{color: #292b2c;background-color: transparent;border-color: #0a4bab;}
-.search-bar{background-color: #ffffff;}
+.search-bar{background-color: #ffffff; margin-top: 51px;}
 .search-bar .search-head{color:#0a4bab;font-size: 22px;}
 .search-bar .filter-icon{width:20px;}
 .search-bar .btn-secondary.filter-btn{color: #fff;background-color: #e9ecef;border-color: rgba(0, 0, 0, 0.15);}
@@ -12,11 +12,14 @@
     width: 100%;
 }
 
+
+
+
 /*teacher-box*/
 .teacher-box {
     border: 1px solid #d9d9d9;
     border-radius: 5px;
-    width: 295px;
+    width: 299px;
 }
 .teacher-group-box {
     padding-left: 75px;
@@ -76,6 +79,8 @@
 }
 .box-settings img{width:20px;}
 .teach-head{font-size: 19px; text-align: center;}
+
+.create-teacher{width:590px;}
 .teacher-forms{
     border-bottom:1px solid #eeeeee;
 }
