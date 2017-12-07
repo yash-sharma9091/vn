@@ -8,10 +8,10 @@ import FormField from "../Common/FormField";
 import FormSelect from "../Common/FormSelect";
 import FileInput from "../Common/FileInput";
 import FormSubmit from "../Common/FormSubmit";
+import FormCalender from '../Common/FormCalender';
 import { Field, SubmissionError,reduxForm } from 'redux-form';
 import {Required, Email, Number, Phone, maxLength4,maxLength200,maxLength400, Alphabets, isValidAddress} from '../../lib/Validate';
 import {flattenObject, isJson, isEmptyAnyValue} from '../../lib/Helper';
-import { FormGroup, Label, Input, FormFeedback, InputGroupAddon, InputGroup } from 'reactstrap';
 
 class SchoolAddStudentParents extends Component {
 	constructor() {
@@ -41,7 +41,7 @@ class SchoolAddStudentParents extends Component {
 
                 <div className="form-row">
 					<Field 
-						component={FormField} type="text" formGroupClassName="col-md-6"
+						component={FormCalender} type="text" formGroupClassName="col-md-6"
 						name="DOB" label="DOB"
 						id="DOB" placeholder="MM/DD/YYYY" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
 					<Field 

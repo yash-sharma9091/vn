@@ -21,7 +21,7 @@ class TeachersList extends Component {
 	list() {
 		this.setState({ isLoadingList: true });
 		const {user} = this.props;
-		Http.get(`getteacher?_id=${user._id}`)
+		Http.get(`getteacher?_id=${user._id}&limit=5`)
 		.then(({data}) => this.setState({teacherList: data, isLoadingList: false}))
 		.catch(({errors}) => this.setState({errorList: errors.message, isLoadingList: false}));		
 	}

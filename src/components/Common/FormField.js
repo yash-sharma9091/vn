@@ -49,7 +49,7 @@ class FormField extends Component {
 			return (
 				<PlacesAutocomplete 
 					clearItemsOnError={true} onSelect={onSelect}
-					classNames={{autocompleteContainer: 'autocomplete-container', input:`form-control ${className ? className : ''} ${!meta.touched ? null : (meta.error ? 'is-invalid': null)}`}}
+					classNames={{autocompleteContainer: 'autocomplete-container', input:`form-control ${className ? className : ''} ${!meta.touched ? null : (meta.error ? 'is-invalid': null)} ${meta.asyncValidating ? 'async-validating' : ''}`}}
 					inputProps={{...input, placeholder: placeholder}} />
 			)	
 		} else if(doValidate) {
