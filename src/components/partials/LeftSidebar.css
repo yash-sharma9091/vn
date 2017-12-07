@@ -14,7 +14,7 @@
 .login-side .login-bottom .share-links ul li a:hover{background-color:#0a4ba8;}
 .login-side .login-bottom .share-links ul li a img{width:15px;}
 
-.login-side .login-bottom .footer-links .btn{color:#ffffff !important;padding:15px 15px 0 0 !important;}
+.login-side .login-bottom .footer-links .btn{color:#ffffff !important;padding:15px 15px 0 0 !important; text-transform: capitalize;}
 .login-side .login-bottom .footer-links .btn:hover{color:#0a4ba8 !important;}
 
 
@@ -27,7 +27,42 @@
 
 /*login-header*/
 .login-header{position: absolute; left: 0; right:0;}
-.login-header .LogoBox > a > img{width: 120px;}
-.login-header .LogoBox > img{width: 175px;}
+.login-header .LogoBox > a{height:120px;}
+.login-header .LogoBox > a > img{width: 187px;}
+.login-header .LogoBox > img{width: 303px;}
 
 .forgot-link{color:#182331;text-decoration:underline !important;}
+
+
+/*Responsive*/
+@media (max-width:1400px){
+	.login-header .LogoBox > a{height:90px;}
+    .login-header .LogoBox > a > img{width: 120px;}
+	.login-header .LogoBox > img{width: 175px;}
+}
+
+@media (max-width:1300px){
+	.login-tags h2 {
+		font-size: 24px;
+		margin-bottom: 10px;
+	}
+	.login-tags .tag-line {
+		font-size: 15px;
+		line-height: 22px;
+	}
+}
+
+@media (max-width:1023px){
+	.login-tags h2 {
+		font-size: 20px;
+	}
+}
+
+@media (max-width:979px){
+	.login-tags h2 {
+		font-size: 15px;
+	}
+	.login-tags .tag-line {
+		font-size: 13px;
+	}
+}

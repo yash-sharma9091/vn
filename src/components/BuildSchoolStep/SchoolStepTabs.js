@@ -32,7 +32,7 @@ class SchoolTabs extends Component {
   	render() {
         const {activeTab} = this.state;
     	return (
-            <div className="school-tabs light-bg">
+            <div className="school-tabs">
                 <div className="container">
                     <Nav tabs className="gradient-color-2">
                     <NavItem>

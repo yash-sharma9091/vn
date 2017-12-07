@@ -29,7 +29,7 @@ class ChangePassForm extends Component {
 				 </div>
 				 <div className="login-form" >
 					<div className="d-flex flex-row justify-content-center">
-					 <Form onSubmit={handleSubmit(this.formSubmit)}  className="col-6">
+					 <Form onSubmit={handleSubmit(this.formSubmit)}  className="col-8 col-lg-8 col-lg-7 col-xl-5">
 						<h3 className="gradient-color text-center">Change Password</h3>
 						<p className="text-center light-gray">Enter a new password for this account</p>
 						<Field 

@@ -161,6 +161,7 @@ class SchoolInfoForm extends Component {
                             component={FormField} type="text" formGroupClassName="col-md-6"
                             name="state" label="State" readOnly={true}
                             id="State" placeholder="Enter State" />
+
                     </div>
 
                     <div className="form-row">
@@ -175,7 +176,7 @@ class SchoolInfoForm extends Component {
                             id="School_Code" placeholder="Enter School Code" validate={[Required, maxLength200]} doValidate={true}/>
                     </div>
                     
-                    <div className="form-row">
+                    <div className="form-row ml-1 mt-3 mb-3">
                         <Field component={ImageCropper} name="image" logo={logo} removeImage={this.removeImage}/>
                     </div>
                     

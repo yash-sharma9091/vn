@@ -9,11 +9,24 @@
 	bottom: 0;
 	cursor: pointer;
 	margin: auto;
-	height: 105px;
+	height: 153px;
 }
 .LogoBox > a > img{
-	width: 170px;
+	width: 223px;
 }
 .LogoBox > img{
-    width: 250px;
+    width: 354px;
+}
+
+/*Responsive*/
+@media (max-width:1400px){
+	.LogoBox > img {
+		width: 250px;
+	}
+	.LogoBox > a > img{
+		width: 170px;
+	}
+	.LogoBox > a {
+		height: 90px;
+	}
 }

@@ -1,0 +1,104 @@
+.imports-button .btn-info, .imports-button .btn-info:active, .imports-button .btn-info.active{color: #292b2c;background-color: transparent;border-color: #0a4bab;}
+.search-bar{background-color: #ffffff;}
+.search-bar .search-head{color:#0a4bab;font-size: 22px;}
+.search-bar .filter-icon{width:20px;}
+.search-bar .btn-secondary.filter-btn{color: #fff;background-color: #e9ecef;border-color: rgba(0, 0, 0, 0.15);}
+.clear-link{font-size:14px; color:#999fa4; cursor:pointer;}
+.grade-bar{border-bottom: 1px solid #dddddf;border-top: 1px solid #dddddf;}
+.grade-bar .grade-box {
+    max-width:950px; margin: auto;
+}
+.grade-bar .grade-box > div {
+    width: 100%;
+}
+
+/*teacher-box*/
+.teacher-box {
+    border: 1px solid #d9d9d9;
+    border-radius: 5px;
+}
+.teacher-group-box {
+    padding-left: 75px;
+}
+.teacher-picture {
+    width: 60px;
+    height: 60px;
+    border: 1px solid #e4e4e4;
+    border-radius: 3px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.teacher-picture > img {
+    position: absolute;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+    width: 100%;
+    height: auto;
+    max-width: 58px;
+    border-radius: 3px;
+}
+
+.teacher-group-box .te-head {
+    color: #292b2c;
+    font-weight: 800;
+    font-size: 16px;
+}
+.teacher-group-box .te-gen{
+    color: #292b2c;
+    font-size: 16px;
+}
+.teacher-group-box .te-sub{
+    font-size: 14px;
+    color: #0a4cab;
+}
+.teacher-group-box .te-code{
+    font-size: 14px;
+    color: #6d6d6d;
+}
+.mesg-btn{font-size:14px;color:#6d6d6d;text-decoration: none !important;}
+.mesg-btn img{width:16px;}
+.mesg-btn:hover{color:#6d6d6d;background-color:#f3f3f3;border-radius: 3px;}
+.view-btn{color:#0a4ba9;font-size:14px;text-decoration: none !important;}
+.view-btn:hover {
+    background-color: #0a4cab;
+    border-radius: 3px;
+    color: #ffffff;
+}
+.box-settings {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 10px 5px;
+}
+.box-settings img{width:20px;}
+.teach-head{font-size: 19px; text-align: center;}
+.teacher-forms{
+    border-bottom:1px solid #eeeeee;
+}
+
+/*Responsive Code*/
+@media(max-width:1399px){
+    .teacher-picture {
+        width: 50px;
+        height: 50px;
+    }
+    .teacher-picture > img {
+        max-width: 48px;
+    }
+    .teacher-group-box {
+        padding-left: 60px;
+    }
+    .teach-head {
+        font-size: 15px;
+    }
+}
+
+@media(max-width:979px){
+    .teach-head {
+        font-size: 12px;
+    }
+}
+

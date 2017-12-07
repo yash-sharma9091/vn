@@ -27,7 +27,7 @@ class AuthButton extends Component {
 				<Nav className="mr-auto" navbar>
 				    <NavItem className="blue-active pr-2">
 				        <LinkContainer to={join}>
-				            <NavLink className="text-uppercase" >Join Pencil Ink</NavLink>
+				            <NavLink className="text-uppercase" >Join Pilot Program Free</NavLink>
 				        </LinkContainer>
 				    </NavItem>
 				    <NavItem className="active">
