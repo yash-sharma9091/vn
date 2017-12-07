@@ -1,19 +1,35 @@
 import React, {Component} from 'react';
-import { FormGroup, Label, Input } from 'reactstrap';
+import { FormGroup, Label, Input, FormFeedback } from 'reactstrap';
 export class FormSelect extends Component {
 	render() {
 		const {labelClassName, id, label, formGroupClassName, input, type} = this.props;
 		return (
 			<FormGroup className={formGroupClassName}>
 	          	<Label className={labelClassName} for={id}>{label}</Label>
-	          	<Input {...input} type={type}>
+	          	<Input {...input} type={type} className={this.isInvalid()}>
 	          		{this.empty()}
 		        	{this.options()}
 		        </Input>	
+		        {this.formFeedback()}
 	        </FormGroup>    
 		);		
-	}	
-
+	}
+	isInvalid() {
+		const {meta, doValidate} = this.props;
+		if( doValidate) {
+			return (!meta.touched ? null : (meta.error ? 'is-invalid': null))
+		} else {
+			return null
+		}
+	}
+	formFeedback() {
+		const {meta, doValidate} = this.props;
+		if( doValidate) {
+			return (<FormFeedback>{meta.touched && meta.error ? meta.error : null}</FormFeedback>);
+		} else {
+			return null
+		}
+	}
 	options() {
 		const { options, displayKey, displayLabel } = this.props;
 		return options ? 

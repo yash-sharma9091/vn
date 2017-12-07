@@ -1,3 +1,4 @@
+/* global _ */
 import React, {Component} from 'react';
 import { Form } from 'reactstrap';
 import CameraImage from '../../assets/images/svg/photo-camera.svg';
@@ -16,6 +17,7 @@ import ImageCropper from '../Common/ImageCropper';
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import {Http} from '../../lib/Http';
 import Alert from '../Common/Alert';
+import {connect} from 'react-redux';
 
 class SchoolAddTeacher extends Component {
 	constructor() {
@@ -25,6 +27,7 @@ class SchoolAddTeacher extends Component {
       	this.fillFormFields = this.fillFormFields.bind(this);
 		this.state = {
 			success: '',
+			reload: false,
       		coordinates : {
       			lat: '',
       			lng: ''
@@ -80,8 +83,8 @@ class SchoolAddTeacher extends Component {
     	}
     }
 	render () {
-		const { error, handleSubmit, pristine, submitting, initialValues, change} = this.props;
-		const { success } = this.state;
+		const { error, handleSubmit, pristine, submitting, initialValues, change, user} = this.props;
+		const { success, reload } = this.state;
         let logo;
   		
   		/*if(!_.isEmpty(profile_image))  {
@@ -93,7 +96,7 @@ class SchoolAddTeacher extends Component {
 		]
 		return (
 			<div>
-				<TeachersList/>
+				<TeachersList user={user} reload={reload}/>
 				<Form onSubmit={handleSubmit(this.formSubmit)}>
 					<Alert alertVisible={error || success} alertMsg={error || success} className={error ? "danger":"success"}/>
 					<div className="p-4 light-bg relative">
@@ -141,12 +144,13 @@ class SchoolAddTeacher extends Component {
 							<Field 
 							    component={FormField} type="text" formGroupClassName="col-md-4"
 							    name="teacher_address" label="Address" placesAutocomplete={true} onSelect={this.handleSelect}
-							    id="Teacher_Address" placeholder="Enter address" validate={[Required, maxLength200]} doValidate={true}/>	
+							    id="Teacher_Address" placeholder="Enter address" validate={[Required]} doValidate={true}/>
+							        
 							<Field 
 								component={FormField} type="text" formGroupClassName="col-md-4"
 								name="contact_telephoneno" label="Contact Number"
 								id="Contact_Number" placeholder="Enter contact number"
-								doValidate={true} maskInput={true} inputAddOn={true} inputAddOnText="+1"/>
+								doValidate={true} maskInput={true} inputAddOn={true} inputAddOnText="+1" validate={[Required]} doValidate={true}/>
 						</div>
 
 
@@ -165,14 +169,24 @@ class SchoolAddTeacher extends Component {
 		)
 	}
 	formSubmit(values) {
-		console.log(values);
+		const {user, dispatch, reset} = this.props;
 		const {lat, lng} = this.state.coordinates;
 		values.lat = lat;
 		values.lng = lng;
+		values._id = user._id;
+		if( _.has(values, 'contact_telephoneno') ) {
+  			values.contact_telephoneno = _.replace(values.contact_telephoneno, /-|\s|\+1/g, "");
+  		}
 		return new Promise((resolve, reject) => {
 			Http.upload('addteacher', values)
-			.then(({data}) => console.log(data))
-			.catch(({errors}) =>{
+			.then(({data}) => {
+				this.setState({success:data.message, reload: true});
+				dispatch(reset('SchoolAddTeacherForm'));
+				setTimeout(() => this.setState({success: '', reload: false}), 5000);
+				window.scrollTo(0, 0);
+				resolve();
+			})
+			.catch(({errors}) => {
 				let _message = {_error: errors.message || 'Internal Server error'};
   				
   				if( errors.hasOwnProperty('email_address') ) {
@@ -187,11 +201,14 @@ class SchoolAddTeacher extends Component {
 
 let _SchoolAddTeacher = reduxForm({
     form: 'SchoolAddTeacherForm',
-  onSubmitFail: (errors) => {
-      // https://github.com/erikras/redux-form/issues/2365
-      const errorEl = document.querySelector(
-          // flattenObject: https://github.com/hughsk/flat/issues/52
-          Object.keys(flattenObject(errors)).map(fieldName => `[name="${fieldName}"]`).join(',')
+    asyncValidate: isValidAddress,
+  	asyncBlurFields: ['teacher_address'],
+  	onSubmitFail: (errors) => {
+  		console.log(errors);
+      	// https://github.com/erikras/redux-form/issues/2365
+      	const errorEl = document.querySelector(
+     		// flattenObject: https://github.com/hughsk/flat/issues/52
+          	Object.keys(flattenObject(errors)).map(fieldName => `[name="${fieldName}"]`).join(',')
         );
         
         if (errorEl && errorEl.focus) {
@@ -201,5 +218,7 @@ let _SchoolAddTeacher = reduxForm({
         }
   }
 })(SchoolAddTeacher);
-
-export default _SchoolAddTeacher;
+const mapStateToProps = (state) => ({
+	user: state.auth.user
+})
+export default connect(mapStateToProps)(_SchoolAddTeacher);

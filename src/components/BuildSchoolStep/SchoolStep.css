@@ -278,7 +278,7 @@
     cursor: pointer;border-left: 1px solid #0a4ba8;}
 .uploadImg img{width:18px; padding-top: 7px;}
 
-.input-loader{background: url('../../assets/images/loader.gif') no-repeat 98% center;}
+.async-validating{background: url('../../assets/images/Spinner.gif') no-repeat 98% center;}
 
 
 
@@ -306,3 +306,6 @@
         font-size: 15px;
     }
 }
+
+
+

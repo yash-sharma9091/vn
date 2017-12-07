@@ -15,7 +15,6 @@ import {flattenObject, isJson, isEmptyAnyValue} from '../../lib/Helper';
 import {connect} from 'react-redux';
 import ImageCropper from '../Common/ImageCropper';
 import { FETCH_SCHOOL_INFO } from '../../constant';
-import loaderIcon from '../../assets/images/loader.gif';
 
 class SchoolInfoForm extends Component {
 	constructor(props) {
@@ -127,7 +126,7 @@ class SchoolInfoForm extends Component {
 	                        <Field 
 	                            component={FormField} type="text" formGroupClassName="col-md-6"
 	                            name="school_name" label="School Name"
-	                            id="schoolname" className="input-loader" placeholder="Enter school name" validate={[Required, maxLength200]} doValidate={true}/>
+	                            id="schoolname" placeholder="Enter school name" validate={[Required, maxLength200]} doValidate={true}/>
 	                        <Field 
 	                            component={FormDropdown} formGroupClassName="col-md-6"
 	                            name="school_type" empty={true} emptyText="Select school type"
@@ -268,7 +267,7 @@ let _SchoolInfoForm = reduxForm({
   	asyncValidate: isValidAddress,
   	asyncBlurFields: ['school_address'],
     onSubmitFail: (errors) => {
-    	console.log(errors);
+    	//console.log(errors);
     	// https://github.com/erikras/redux-form/issues/2365
     	const errorEl = document.querySelector(
     		// flattenObject: https://github.com/hughsk/flat/issues/52

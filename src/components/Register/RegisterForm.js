@@ -9,16 +9,68 @@ import {Required, Email, Number, maxLength4,maxLength200,maxLength400, Alphabets
 import {Http} from '../../lib/Http';
 import Alert from '../Common/Alert';
 import './Register.css';
+import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 
 class RegisterForm extends Component {
 	constructor(props) {
       	super(props);
       	this.formSubmit = this.formSubmit.bind(this);
+      	this.handleSelect = this.handleSelect.bind(this);
       	this.state = {
-      		success: ''
+      		success: '',
+      		coordinates : {
+      			lat: '',
+      			lng: ''
+      		}
       	}
     }
-
+    handleSelect(address) {
+		geocodeByAddress(address)
+		.then(result => {
+			this.fillFormFields(result);
+			return getLatLng(result[0])
+		})
+		.then(({ lat, lng }) => {
+			let request = {
+				lat, lng
+			}
+			this.setState({coordinates: request});
+		})
+		.catch(err => { throw new SubmissionError(err.message) });
+    }
+    fillFormFields(address) {
+    	const {change} = this.props;
+    	let componentForm = {
+			street_number: 'short_name',
+			route: 'long_name',
+			locality: 'long_name',
+			administrative_area_level_1: 'short_name',
+			country: 'long_name',
+			postal_code: 'short_name'
+		};
+    	if( address.length > 0 ) {
+    		let address_components = address[0].address_components;
+    		change('school_address', address[0].formatted_address);
+    		for (var i = 0; i < address_components.length; i++) {
+				var addressType = address_components[i].types[0];
+				if (componentForm[addressType]) {
+					var val = address_components[i][componentForm[addressType]];
+					if (addressType === 'administrative_area_level_1' ) {
+						change('state', val);
+					}
+					if (addressType === 'locality') {
+						change('city', val);
+					}
+					if (addressType === 'country') {
+						change('country', val);
+					}
+					if (addressType === 'postal_code') {
+						change('postal_code', val);
+					}					
+				}
+			}
+    	}
+    }
   	render() {
   		const { error, handleSubmit, pristine, submitting} = this.props;
   		const options = [
@@ -80,7 +132,7 @@ class RegisterForm extends Component {
               			        <Field 
               			        	component={FormField} type="text"
               			        	name="school_address" label="School Address*"
-              			        	id="schoolAddress" labelClassName="gradient-color"
+              			        	id="schoolAddress" labelClassName="gradient-color" placesAutocomplete={true} onSelect={this.handleSelect}
               			        	placeholder="Enter school address" validate={[Required, maxLength200]} doValidate={true}/>
 		                        
 								<Field 
