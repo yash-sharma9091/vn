@@ -9,7 +9,7 @@ import Alert from '../Common/Alert';
 import { AUTH_REQUEST } from '../../constant';
 import {connect} from 'react-redux';
 import {LinkContainer} from 'react-router-bootstrap';
-import {join, forgotPassword, schoolstep} from '../../lib/SiteLinks';
+import {join, forgotPassword, dashboard} from '../../lib/SiteLinks';
 import {push} from 'react-router-redux';
 import CopyRightText from '../partials/CopyRightText';
 class Loginform extends Component {
@@ -38,7 +38,7 @@ class Loginform extends Component {
 					 		<Alert alertVisible={error} alertMsg={error} className={error ? "danger":"success"}/>
 							<Field 
 								component={FormField} type="text"
-								name="uan" label="Unique Account Number*"
+								name="uan" label="Email Or Username*"
 								id="Unique_Account_Number" labelClassName="gradient-color"
 								placeholder="Enter unique account number" validate={UAN} doValidate={true}/>
 							
@@ -91,7 +91,7 @@ class Loginform extends Component {
             		reject(new SubmissionError({_error: error}));
           		},
           		callbackSuccess: () => {
-            		dispatch(push(`${schoolstep}?tab=1`));
+            		dispatch(push(dashboard));
             		resolve();
           		}
         	})
