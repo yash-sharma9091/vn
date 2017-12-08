@@ -51,11 +51,16 @@ class ImaegCropper extends Component {
     	const {blob, dataUrl} = data;
     	const reader = new FileReader();
 	    reader.onload = () => {
-	      this.setState({ src: reader.result, showImage: false});
+	      	this.setState({ src: reader.result, showImage: false});
 	    };
 	    
 	    reader.readAsDataURL(blob);
 	    onChange(blob);
+    }
+    componentWillReceiveProps(newProps) {
+        if(newProps.reset) {
+        	this.removeImage();
+        }
     }
     removeImage() {
     	this.setState({src: ''});

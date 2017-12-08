@@ -41,7 +41,6 @@ class DashboardHeader extends Component {
   	render() {
           
         const {location} = this.props;
-        console.log(location);
     	return (
             <header className={`dashboard-header ${location.pathname === dashboard ? 'schooladmin':''}`}>
                 {location.pathname === dashboard && <Logo />}
