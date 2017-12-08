@@ -32,7 +32,7 @@ class RightPart extends Component {
                         </div>
                     </div>
                     
-                    <div className="p-3 activity-bg">
+                    <div className="p-3">
                         <Form>
                             <div className="tabs-heading text-uppercase font-weight-bold">PERSONAL INFORMATION</div>
                             <div className="form-row">
