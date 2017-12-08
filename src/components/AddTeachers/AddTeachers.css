@@ -78,6 +78,36 @@
     display: block; transition: all .6s ease-in-out;
 }
 
+/*(Search part) For inner page*/
+.dashboard-search-part.inner-sub-page {
+    position: fixed;
+    top: 51px;
+    left: 0;
+    right: 0;
+    height: 56px;
+}
+
+/*(Dashboard) For inner page*/
+.dashboard-main.inner-sub-page{
+    position: absolute;
+    top: 56px;
+    left: 0;
+    width: 100%;
+    bottom: 0;
+}
+.dashboard-main.inner-sub-page .dash-left-box {
+    width: 70%;
+}
+.dashboard-main.inner-sub-page .dash-left-box .left-group {
+    width: 70%;
+}
+.dashboard-main.inner-sub-page .dash-right-box{
+    width: 30%; display: block;
+}
+.dashboard-main.inner-sub-page .dash-right-box .right-group{
+    width: 30%;
+}
+
 
 
 

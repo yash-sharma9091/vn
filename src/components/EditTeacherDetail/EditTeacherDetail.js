@@ -24,7 +24,7 @@ class AddTeachers extends Component {
                 {/*dashboard-part*/}
                 <div className="dashboard-part">
 
-                    <div className="dashboard-search-part">
+                    <div className="dashboard-search-part inner-sub-page">
 
                         {/*Search-Bar*/}
                         <div className="search-bar">
@@ -44,65 +44,17 @@ class AddTeachers extends Component {
 
                                 <div className="col-7 col-md-7 col-lg-8 col-xl-8">
                                     <div className="imports-button d-flex justify-content-end">
-                                        <button type="button" onClick={() => this.toggle()} className="btn btn-primary ml-1 ml-lg-1 ml-xl-2">{toggleClass ? 'Cancel': 'Create'}</button>
                                         <button type="button" className="btn btn-info ml-1 ml-lg-1 ml-xl-2">Update</button>
                                         <button type="button" className="btn btn-info ml-1 ml-lg-1 ml-xl-2">Cancel</button>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
-
-                        {/*Grade-Bar*/}
-                        <div className="grade-bar light-lg-bg" >
-                            <div className="d-flex justify-content-between align-items-center p-2 grade-box">
-                                <div>
-                                    <FormGroup className="mb-0 mr-2">
-                                        <Input type="select" name="Grades" id="exampleSelect">
-                                            <option>Grades</option>
-                                            <option>A</option>
-                                            <option>B</option>
-                                            <option>C</option>
-                                            <option>D</option>
-                                            <option>E</option>
-                                        </Input>
-                                    </FormGroup>
-                                </div>
-                                <div>
-                                    <FormGroup className="mb-0 mr-2">
-                                        <Input type="select" name="Grades" id="exampleSelect">
-                                            <option>Subjects</option>
-                                            <option>English</option>
-                                            <option>Hindi</option>
-                                            <option>Maths</option>
-                                            <option>Science</option>
-                                            <option>Physics</option>
-                                        </Input>
-                                    </FormGroup>
-                                </div>
-                                <div>
-                                    <FormGroup className="mb-0 mr-2">
-                                        <Input type="select" name="Grades" id="exampleSelect">
-                                            <option>Official Grade</option>
-                                            <option>A</option>
-                                            <option>B</option>
-                                            <option>C</option>
-                                            <option>D</option>
-                                            <option>E</option>
-                                        </Input>
-                                    </FormGroup>
-                                </div>
-                                <div className="col-1 pl-0 pr-0 pl-lg-1 pr-lg-1">
-                                    <a className="clear-link">X Clear</a>
-                                </div>
-                            </div>
-                        </div>
-                        
                     </div>
 
                     {/*Dashboard-Main*/}
 
-                    <div className={toggleClass ? "dashboard-main active":"dashboard-main"}>
+                    <div className="dashboard-main inner-sub-page">
                             <div className="dash-left-box">
                                 <TeacherList />
                             </div>
