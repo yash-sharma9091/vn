@@ -110,25 +110,28 @@ class LeftPart extends Component {
                                     <div className="form-row">
                                         <FormGroup className="col-sm-6">
                                             <div className="form-row form-group">
-                                                <Label for="exampleSelect" className="col-sm-3">Address</Label>
-                                                <input type="text" class="form-control" placeholder="Enter address" />
-                                            </div>
-                                            <div className="form-row form-group">
-                                                <Label for="exampleSelect" className="col-sm-3"></Label>
-                                                <input type="text" class="form-control" placeholder="Enter country" />
-                                            </div>
-                                            <div className="form-row form-group">
-                                                <Label for="exampleSelect" className="col-sm-3"></Label>
-                                                <Input type="select" name="select" id="exampleSelect" className="col-sm-9">
-                                                <option>Select state</option>
-                                                <option>Select state</option>
-                                                <option>Select state</option>
-                                                <option>Select state</option>
-                                            </Input>
-                                            </div>
-                                            <div className="form-row form-group">
-                                                <Label for="exampleSelect" className="col-sm-3"></Label>
-                                                <input type="text" class="form-control" placeholder="Enter city" />
+                                                <div className="col-sm-3">
+                                                    <Label for="exampleSelect" >Address</Label>
+                                                </div>
+                                                <div className="col-sm-9">
+                                                    <div className="form-row form-group">
+                                                        <input type="text" class="form-control" placeholder="Enter address" />
+                                                    </div>
+                                                    <div className="form-row form-group">
+                                                        <input type="text" class="form-control" placeholder="Enter country" />
+                                                    </div>
+                                                    <div className="form-row form-group">
+                                                        <Input type="select" name="select" id="exampleSelect" className="col-sm-9">
+                                                        <option>Select state</option>
+                                                        <option>Select state</option>
+                                                        <option>Select state</option>
+                                                        <option>Select state</option>
+                                                        </Input>
+                                                    </div>
+                                                    <div className="form-row form-group">
+                                                        <input type="text" class="form-control" placeholder="Enter city" />
+                                                    </div>
+                                                </div>
                                             </div>
                                         </FormGroup>
 
