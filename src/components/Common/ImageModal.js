@@ -53,12 +53,14 @@ class ImageModal extends Component {
 	          	<ModalHeader toggle={toggle}>Crop Image</ModalHeader>
 	          	<ModalBody>
 	            	<Cropper
-	                    style={{ height: 400, width: '100%' }}
+	                    style={{ height: 500, width: '100%' }}
 	                    aspectRatio={16 / 9}
 	                    autoCropArea={0.5}
 	                    preview=".img-preview"
 	                    guides={false}
 	                    src={src}
+	                    minCanvasWidth={50}
+	                    minCanvasHeight={50}
 	                    ref={cropper => { this.cropper = cropper; }}
                   	/>
 	          	</ModalBody>

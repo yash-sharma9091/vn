@@ -9,15 +9,20 @@ import './AddTeachers.css';
 class AddTeachers extends Component {
     constructor() {
         super();
+        this.refresh = this.refresh.bind(this);
         this.state = {
-            toggleClass: false
+            toggleClass: false,
+            refreshTeacherList: false
         }
     }
     toggle() {
         this.setState({toggleClass: !this.state.toggleClass})
     }
+    refresh() {
+        this.setState({refreshTeacherList: true});
+    }
 	render() {
-        const {toggleClass} = this.state;
+        const {toggleClass, refreshTeacherList} = this.state;
 		return (
             <div>
 
@@ -109,10 +114,10 @@ class AddTeachers extends Component {
 
                     <div className={toggleClass ? "dashboard-main active":"dashboard-main"}>
                             <div className="dash-left-box">
-                                <TeacherList />
+                                <TeacherList refresh={refreshTeacherList}/>
                             </div>
                             <div className="dash-right-box">
-                                <CreateTeacher />
+                                <CreateTeacher refreshTeacherList={this.refresh}/>
                             </div>
                     </div>
                 

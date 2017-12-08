@@ -140,6 +140,7 @@
 .camera-upload-content{display: inline-block;color:#292b2c; padding-left: 15px;}
 .camera-upload-content h3{ font-size: 18px;}
 .camera-upload-content span{ font-size: 14px;}
+.camera-upload-content .invalidText{display:block;}
 
 .delete-button-image{
     position: absolute;
@@ -283,6 +284,13 @@
 
 
 /*Responsive Code*/
+@media(max-width:1600px){
+    .camera-upload-content {
+        padding-left: 15px;
+        padding-top: 25px;
+    }
+}
+
 @media(max-width:1399px){
     .camera-upload-content span {
         font-size: 11px;
@@ -294,9 +302,9 @@
 
 @media(max-width:1023px){
     .camera-upload-content {
-        display: block;
+        display: inline-block;
         color: #292b2c;
-        padding-left: 0;
+        padding-left: 15px;
         padding-top: 25px;
     }
     .camera-upload-content span {
