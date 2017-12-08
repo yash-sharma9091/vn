@@ -1,0 +1,46 @@
+.right-group-content.activity-bg{
+    width: 100%;
+    height: 100%;
+}
+
+
+/*breadcrumb-list*/
+.breadcrumb-list .breadcrumb {
+    padding:0;
+    margin-bottom: 0;
+    list-style: none;
+    background-color: transparent;
+    border-radius: 0;
+}
+.breadcrumb-list .breadcrumb .breadcrumb-item a{
+    color: #0a4bab;
+     font-size: 22px;
+     font-weight: 600;
+}
+.breadcrumb-list .breadcrumb .breadcrumb-item.active {
+    color: #757d82;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+/*edit-group-box*/
+.edit-group-box {
+	border: 1px solid #dfdfdf;
+	border-radius: 2px;
+	background-color: #ffffff;
+}
+.group-tehead {
+    background-color: #f0f0f4;
+    color: #545556;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 10px 15px;
+}
+
+.edit-group-box label{
+    font-weight: 600;
+    font-size: 16px;
+}
+.edit-group-box .form-control{
+    max-width:300px;
+}

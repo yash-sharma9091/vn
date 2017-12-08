@@ -1,17 +1,70 @@
 .transition{transition:all 0.5s ease; -ms-transition:all 0.5s ease; -webkit-transition:all 0.5s ease; -o-transition:all 0.5s ease; -moz-transition:all 0.5s ease;}
-.school-dashboard{height: 100vh;background: url('../../assets/images/dashboard-bg-thumb.png') no-repeat center center;background-size: cover;width: 100%;}
+.school-dashboard{height: 100vh;background: url('../../assets/images/dashboard-bg-thumb.png') no-repeat center center;background-size: cover;width: 100%;position: relative;}
+.school-dashboard .activity-btn {
+	position: absolute;
+	right: 20px;
+	top: 70px;
+	background-color: rgba(255,255,255,0.2);
+	border: none;
+	color: #ffffff;
+	font-size: 17px;
+	padding: 10px 15px;
+	font-weight: 800;
+	border-radius: 2px;
+	z-index: 10;
+    cursor: pointer;
+    outline: none;
+}
+.school-dashboard .activity-btn:hover{ background-color:rgb(183, 195, 87); color:#0a0902;}
 
 
 /*dashboard-header.schooladmin*/
 .dashboard-header.schooladmin .LogoBox{position: absolute;left: 0;right: 0;}
 .dashboard-header.schooladmin {background-color: #0a4ba9;min-height: 50px;border-bottom: 1px solid #0d3c7f;position: absolute;top: 0;left: 0;right: 0;}
-.dashboard-header.schooladmin .LogoBox > img {width: 200px;}
-.dashboard-header.schooladmin .LogoBox > a{height: 85px;}
-.dashboard-header.schooladmin .LogoBox > a > img {width: 140px;}
+.dashboard-header.schooladmin .LogoBox > img {
+    width: 300px;
+}
+.dashboard-header.schooladmin .LogoBox > a {
+    height: 125px;
+}
+.dashboard-header.schooladmin .LogoBox > a > img {
+    width: 200px;
+}
 
 /*admin-box*/
 .admin-box{background-color: rgba(255,255,255,0.1);border-radius: 3px;}
 .dash-box a{display:block; text-align:center; cursor:pointer;}
-.dash-box a img{margin: auto; display: block;}
+.dash-box a .dash-icon{position: relative;}
+.dash-box a .dash-icon img{margin: auto; display: block;}
 .dash-box a span{color:#ffffff; font-size: 14px; cursor: pointer; font-weight:800;}
-.dash-box a img:hover{transform: scale(1.1);}
+.dash-box a .dash-icon > img:hover{transform: scale(1.1);}
+
+/*activity-box*/
+.activity-box{
+    position: fixed;
+    width: 435px;
+    background-color: #e3e3e9;
+    top: 50px;
+    right: 0;
+    bottom: 0;
+    z-index: 15;
+}
+.activity-head {
+	height: 50px;
+	text-align: center;
+	font-size: 18px;
+	font-weight: 600;
+	text-transform: uppercase;
+	color: #292b2c;
+	width: 100%;
+    line-height: 45px;
+    border-bottom: 1px solid #c9c9ce;
+}
+
+
+/*Responsive*/
+@media (max-width:1600px){
+    .dashboard-header.schooladmin .LogoBox > img {width: 200px;}
+    .dashboard-header.schooladmin .LogoBox > a{height: 85px;}
+    .dashboard-header.schooladmin .LogoBox > a > img {width: 140px;}
+}

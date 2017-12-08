@@ -55,6 +55,7 @@
     top: 0;
     bottom: 0;
     background-color: #ffffff;
+    border-left: 1px solid #eaeaec;
 }
 .dashboard-main .dash-right-box .right-group .right-group-content{
     position: absolute;
@@ -349,4 +350,5 @@
         width: 48%;
     }
 }
+
 
