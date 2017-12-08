@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import searcher from '../../assets/images/svg/musica-searcher.svg';
 import filter from '../../assets/images/svg/filter.svg';
 import { Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-import LeftPart from './LeftPart';
-import RightPart from './RightPart';
+import TeacherList from './LeftPart';
+import CreateTeacher from './RightPart';
 import './AddTeachers.css';
 
 class AddTeachers extends Component {
@@ -113,11 +113,10 @@ class AddTeachers extends Component {
 
                     <div className={toggleClass ? "dashboard-main active":"dashboard-main"}>
                             <div className="dash-left-box">
-
-                                <LeftPart />
+                                <TeacherList />
                             </div>
                             <div className="dash-right-box">
-                                <RightPart />
+                                <CreateTeacher />
                             </div>
                     </div>
                 
