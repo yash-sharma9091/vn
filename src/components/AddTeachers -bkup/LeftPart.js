@@ -40,9 +40,9 @@ class LeftPart extends Component {
                                             <div className="te-sub">Subject &amp; Class</div>
                                             <div className="te-code">E 401, M 201, S 501...</div>
                                         </div>
-                                        <div className="d-flex justify-content-between mt-2">
-                                            <button type="button" className="btn btn-link mesg-btn pointer"><img src={EnvelopeGray} alt="" /> Message</button>
-                                            <button type="button" className="btn btn-link view-btn pointer">View Detail</button>
+                                        <div class="d-flex justify-content-between mt-2">
+                                            <button type="button" class="btn btn-link mesg-btn pointer"><img src={EnvelopeGray} alt="" /> Message</button>
+                                            <button type="button" class="btn btn-link view-btn pointer">View Detail</button>
                                         </div>
                                     </div>
                                 </div>
@@ -61,9 +61,9 @@ class LeftPart extends Component {
                                             <div className="te-sub">Subject &amp; Class</div>
                                             <div className="te-code">E 401, M 201, S 501...</div>
                                         </div>
-                                        <div className="d-flex justify-content-between mt-2">
-                                            <button type="button" className="btn btn-link mesg-btn pointer"><img src={EnvelopeGray} alt="" /> Message</button>
-                                            <button type="button" className="btn btn-link view-btn pointer">View Detail</button>
+                                        <div class="d-flex justify-content-between mt-2">
+                                            <button type="button" class="btn btn-link mesg-btn pointer"><img src={EnvelopeGray} alt="" /> Message</button>
+                                            <button type="button" class="btn btn-link view-btn pointer">View Detail</button>
                                         </div>
                                     </div>
                                 </div>
@@ -82,9 +82,9 @@ class LeftPart extends Component {
                                             <div className="te-sub">Subject &amp; Class</div>
                                             <div className="te-code">E 401, M 201, S 501...</div>
                                         </div>
-                                        <div className="d-flex justify-content-between mt-2">
-                                            <button type="button" className="btn btn-link mesg-btn pointer"><img src={EnvelopeGray} alt="" /> Message</button>
-                                            <button type="button" className="btn btn-link view-btn pointer">View Detail</button>
+                                        <div class="d-flex justify-content-between mt-2">
+                                            <button type="button" class="btn btn-link mesg-btn pointer"><img src={EnvelopeGray} alt="" /> Message</button>
+                                            <button type="button" class="btn btn-link view-btn pointer">View Detail</button>
                                         </div>
                                     </div>
                                 </div>
@@ -103,9 +103,9 @@ class LeftPart extends Component {
                                             <div className="te-sub">Subject &amp; Class</div>
                                             <div className="te-code">E 401, M 201, S 501...</div>
                                         </div>
-                                        <div className="d-flex justify-content-between mt-2">
-                                            <button type="button" className="btn btn-link mesg-btn pointer"><img src={EnvelopeGray} alt="" /> Message</button>
-                                            <button type="button" className="btn btn-link view-btn pointer">View Detail</button>
+                                        <div class="d-flex justify-content-between mt-2">
+                                            <button type="button" class="btn btn-link mesg-btn pointer"><img src={EnvelopeGray} alt="" /> Message</button>
+                                            <button type="button" class="btn btn-link view-btn pointer">View Detail</button>
                                         </div>
                                     </div>
                                 </div>
@@ -124,9 +124,9 @@ class LeftPart extends Component {
                                             <div className="te-sub">Subject &amp; Class</div>
                                             <div className="te-code">E 401, M 201, S 501...</div>
                                         </div>
-                                        <div className="d-flex justify-content-between mt-2">
-                                            <button type="button" className="btn btn-link mesg-btn pointer"><img src={EnvelopeGray} alt="" /> Message</button>
-                                            <button type="button" className="btn btn-link view-btn pointer">View Detail</button>
+                                        <div class="d-flex justify-content-between mt-2">
+                                            <button type="button" class="btn btn-link mesg-btn pointer"><img src={EnvelopeGray} alt="" /> Message</button>
+                                            <button type="button" class="btn btn-link view-btn pointer">View Detail</button>
                                         </div>
                                     </div>
                                 </div>
@@ -145,9 +145,9 @@ class LeftPart extends Component {
                                             <div className="te-sub">Subject &amp; Class</div>
                                             <div className="te-code">E 401, M 201, S 501...</div>
                                         </div>
-                                        <div className="d-flex justify-content-between mt-2">
-                                            <button type="button" className="btn btn-link mesg-btn pointer"><img src={EnvelopeGray} alt="" /> Message</button>
-                                            <button type="button" className="btn btn-link view-btn pointer">View Detail</button>
+                                        <div class="d-flex justify-content-between mt-2">
+                                            <button type="button" class="btn btn-link mesg-btn pointer"><img src={EnvelopeGray} alt="" /> Message</button>
+                                            <button type="button" class="btn btn-link view-btn pointer">View Detail</button>
                                         </div>
                                     </div>
                                 </div>
@@ -166,9 +166,9 @@ class LeftPart extends Component {
                                             <div className="te-sub">Subject &amp; Class</div>
                                             <div className="te-code">E 401, M 201, S 501...</div>
                                         </div>
-                                        <div className="d-flex justify-content-between mt-2">
-                                            <button type="button" className="btn btn-link mesg-btn pointer"><img src={EnvelopeGray} alt="" /> Message</button>
-                                            <button type="button" className="btn btn-link view-btn pointer">View Detail</button>
+                                        <div class="d-flex justify-content-between mt-2">
+                                            <button type="button" class="btn btn-link mesg-btn pointer"><img src={EnvelopeGray} alt="" /> Message</button>
+                                            <button type="button" class="btn btn-link view-btn pointer">View Detail</button>
                                         </div>
                                     </div>
                                 </div>
@@ -187,9 +187,9 @@ class LeftPart extends Component {
                                             <div className="te-sub">Subject &amp; Class</div>
                                             <div className="te-code">E 401, M 201, S 501...</div>
                                         </div>
-                                        <div className="d-flex justify-content-between mt-2">
-                                            <button type="button" className="btn btn-link mesg-btn pointer"><img src={EnvelopeGray} alt="" /> Message</button>
-                                            <button type="button" className="btn btn-link view-btn pointer">View Detail</button>
+                                        <div class="d-flex justify-content-between mt-2">
+                                            <button type="button" class="btn btn-link mesg-btn pointer"><img src={EnvelopeGray} alt="" /> Message</button>
+                                            <button type="button" class="btn btn-link view-btn pointer">View Detail</button>
                                         </div>
                                     </div>
                                 </div>
@@ -208,9 +208,9 @@ class LeftPart extends Component {
                                             <div className="te-sub">Subject &amp; Class</div>
                                             <div className="te-code">E 401, M 201, S 501...</div>
                                         </div>
-                                        <div className="d-flex justify-content-between mt-2">
-                                            <button type="button" className="btn btn-link mesg-btn pointer"><img src={EnvelopeGray} alt="" /> Message</button>
-                                            <button type="button" className="btn btn-link view-btn pointer">View Detail</button>
+                                        <div class="d-flex justify-content-between mt-2">
+                                            <button type="button" class="btn btn-link mesg-btn pointer"><img src={EnvelopeGray} alt="" /> Message</button>
+                                            <button type="button" class="btn btn-link view-btn pointer">View Detail</button>
                                         </div>
                                     </div>
                                 </div>
@@ -229,9 +229,9 @@ class LeftPart extends Component {
                                             <div className="te-sub">Subject &amp; Class</div>
                                             <div className="te-code">E 401, M 201, S 501...</div>
                                         </div>
-                                        <div className="d-flex justify-content-between mt-2">
-                                            <button type="button" className="btn btn-link mesg-btn pointer"><img src={EnvelopeGray} alt="" /> Message</button>
-                                            <button type="button" className="btn btn-link view-btn pointer">View Detail</button>
+                                        <div class="d-flex justify-content-between mt-2">
+                                            <button type="button" class="btn btn-link mesg-btn pointer"><img src={EnvelopeGray} alt="" /> Message</button>
+                                            <button type="button" class="btn btn-link view-btn pointer">View Detail</button>
                                         </div>
                                     </div>
                                 </div>
@@ -250,9 +250,9 @@ class LeftPart extends Component {
                                             <div className="te-sub">Subject &amp; Class</div>
                                             <div className="te-code">E 401, M 201, S 501...</div>
                                         </div>
-                                        <div className="d-flex justify-content-between mt-2">
-                                            <button type="button" className="btn btn-link mesg-btn pointer"><img src={EnvelopeGray} alt="" /> Message</button>
-                                            <button type="button" className="btn btn-link view-btn pointer">View Detail</button>
+                                        <div class="d-flex justify-content-between mt-2">
+                                            <button type="button" class="btn btn-link mesg-btn pointer"><img src={EnvelopeGray} alt="" /> Message</button>
+                                            <button type="button" class="btn btn-link view-btn pointer">View Detail</button>
                                         </div>
                                     </div>
                                 </div>
@@ -271,9 +271,9 @@ class LeftPart extends Component {
                                             <div className="te-sub">Subject &amp; Class</div>
                                             <div className="te-code">E 401, M 201, S 501...</div>
                                         </div>
-                                        <div className="d-flex justify-content-between mt-2">
-                                            <button type="button" className="btn btn-link mesg-btn pointer"><img src={EnvelopeGray} alt="" /> Message</button>
-                                            <button type="button" className="btn btn-link view-btn pointer">View Detail</button>
+                                        <div class="d-flex justify-content-between mt-2">
+                                            <button type="button" class="btn btn-link mesg-btn pointer"><img src={EnvelopeGray} alt="" /> Message</button>
+                                            <button type="button" class="btn btn-link view-btn pointer">View Detail</button>
                                         </div>
                                     </div>
                                 </div>
@@ -292,9 +292,9 @@ class LeftPart extends Component {
                                             <div className="te-sub">Subject &amp; Class</div>
                                             <div className="te-code">E 401, M 201, S 501...</div>
                                         </div>
-                                        <div className="d-flex justify-content-between mt-2">
-                                            <button type="button" className="btn btn-link mesg-btn pointer"><img src={EnvelopeGray} alt="" /> Message</button>
-                                            <button type="button" className="btn btn-link view-btn pointer">View Detail</button>
+                                        <div class="d-flex justify-content-between mt-2">
+                                            <button type="button" class="btn btn-link mesg-btn pointer"><img src={EnvelopeGray} alt="" /> Message</button>
+                                            <button type="button" class="btn btn-link view-btn pointer">View Detail</button>
                                         </div>
                                     </div>
                                 </div>
@@ -313,9 +313,9 @@ class LeftPart extends Component {
                                             <div className="te-sub">Subject &amp; Class</div>
                                             <div className="te-code">E 401, M 201, S 501...</div>
                                         </div>
-                                        <div className="d-flex justify-content-between mt-2">
-                                            <button type="button" className="btn btn-link mesg-btn pointer"><img src={EnvelopeGray} alt="" /> Message</button>
-                                            <button type="button" className="btn btn-link view-btn pointer">View Detail</button>
+                                        <div class="d-flex justify-content-between mt-2">
+                                            <button type="button" class="btn btn-link mesg-btn pointer"><img src={EnvelopeGray} alt="" /> Message</button>
+                                            <button type="button" class="btn btn-link view-btn pointer">View Detail</button>
                                         </div>
                                     </div>
                                 </div>
@@ -334,9 +334,9 @@ class LeftPart extends Component {
                                             <div className="te-sub">Subject &amp; Class</div>
                                             <div className="te-code">E 401, M 201, S 501...</div>
                                         </div>
-                                        <div className="d-flex justify-content-between mt-2">
-                                            <button type="button" className="btn btn-link mesg-btn pointer"><img src={EnvelopeGray} alt="" /> Message</button>
-                                            <button type="button" className="btn btn-link view-btn pointer">View Detail</button>
+                                        <div class="d-flex justify-content-between mt-2">
+                                            <button type="button" class="btn btn-link mesg-btn pointer"><img src={EnvelopeGray} alt="" /> Message</button>
+                                            <button type="button" class="btn btn-link view-btn pointer">View Detail</button>
                                         </div>
                                     </div>
                                 </div>
@@ -355,9 +355,9 @@ class LeftPart extends Component {
                                             <div className="te-sub">Subject &amp; Class</div>
                                             <div className="te-code">E 401, M 201, S 501...</div>
                                         </div>
-                                        <div className="d-flex justify-content-between mt-2">
-                                            <button type="button" className="btn btn-link mesg-btn pointer"><img src={EnvelopeGray} alt="" /> Message</button>
-                                            <button type="button" className="btn btn-link view-btn pointer">View Detail</button>
+                                        <div class="d-flex justify-content-between mt-2">
+                                            <button type="button" class="btn btn-link mesg-btn pointer"><img src={EnvelopeGray} alt="" /> Message</button>
+                                            <button type="button" class="btn btn-link view-btn pointer">View Detail</button>
                                         </div>
                                     </div>
                                 </div>

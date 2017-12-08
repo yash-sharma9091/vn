@@ -12,6 +12,8 @@ import dashImg10 from '../../assets/images/dash-10.png';
 import './SchoolAdminDashboard.css';
 import dashboardBg from '../../assets/images/dashboard-bg.png';
 import {loadImage} from '../../lib/Helper';
+import {teacherListing} from '../../lib/SiteLinks';
+import {Link} from 'react-router-dom';
 
 class Dashboard extends Component {
 	constructor() {
@@ -47,7 +49,9 @@ class Dashboard extends Component {
 								</div>
 								<div className="col-2">
 									<div className="dash-box">
-										<a><img src={dashImg3} className="transition" alt="" /><span>Teachers</span></a>
+										<Link to={teacherListing}>
+											<img src={dashImg3} className="transition" alt="Teacher Listing" /><span>Teachers</span>
+										</Link>
 									</div>
 								</div>
 								<div className="col-2">

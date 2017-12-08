@@ -96,76 +96,83 @@ class RightPart extends Component {
             {abbreviation: 'female', name: 'Female'}
         ]
 		return (
-            <div className="create-teacher">
-                <Form onSubmit={handleSubmit(this.formSubmit)}>
-                    <div className="p-3 teacher-forms">
-                        <div className="d-flex justify-content-between align-items-center">
-                            <div>
-                                <div className="imports-button d-flex justify-content-start">
-                                    <button type="button" className="btn btn-info" onClick={this.resetForm}>Reset</button>
+
+            <div className="right-group">
+                <div className="right-group-content">
+                    <div className="create-teacher">
+                        <Form onSubmit={handleSubmit(this.formSubmit)}>
+                            <div className="p-3 teacher-forms">
+                                <div className="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <div className="imports-button d-flex justify-content-start">
+                                            <button type="button" className="btn btn-info" onClick={this.resetForm}>Reset</button>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div className="text-uppercase font-weight-bold teach-head">CREATE TEACHER</div>
+                                    </div>
+                                    <div>
+
+                                        <FormSubmit 
+                                            error={error} invalid={pristine}
+                                            submitting={submitting} className="btn-primary ml-1"
+                                            buttonSaveLoading="Processing..." buttonSave="Save"/>
+                                    </div>
                                 </div>
                             </div>
-                            <div>
-                                <div className="text-uppercase font-weight-bold teach-head">CREATE TEACHER</div>
-                            </div>
-                            <div>
-                                <FormSubmit 
-                                    error={error} invalid={pristine}
-                                    submitting={submitting} className="btn-primary ml-1"
-                                    buttonSaveLoading="Processing..." buttonSave="Save"/>
-                            </div>
-                        </div>
-                    </div>
                 
-                    <div className="p-3">
-                        
-                        <div className="tabs-heading text-uppercase font-weight-bold">PERSONAL INFORMATION</div>
-                        <div className="form-row">
-                            <Field 
-                                component={FormField} type="text" formGroupClassName="col-md-12 col-lg-6"
-                                name="first_name" label="First Name"
-                                id="First_Name" placeholder="Enter first name" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
-                            <Field 
-                                component={FormField} type="text" formGroupClassName="col-md-12 col-lg-6"
-                                name="last_name" label="Last Name"
-                                id="First_Name" placeholder="Enter first name" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
-                        </div>
+                            <div className="p-3">
+                                
+                                <div className="tabs-heading text-uppercase font-weight-bold">PERSONAL INFORMATION</div>
+                                <div className="form-row">
+                                    <Field 
+                                        component={FormField} type="text" formGroupClassName="col-md-12 col-lg-6"
+                                        name="first_name" label="First Name"
+                                        id="First_Name" placeholder="Enter first name" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
+                                    <Field 
+                                        component={FormField} type="text" formGroupClassName="col-md-12 col-lg-6"
+                                        name="last_name" label="Last Name"
+                                        id="First_Name" placeholder="Enter first name" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
+                                </div>
 
-                        <div className="form-row">
-                            <Field 
-                                component={FormSelect} formGroupClassName="col-md-12 col-lg-12" name="gender" type="select" 
-                                emptyText="Select gender" label="Gender" options={options}
-                                displayKey={"value"} displayLabel={"name"} empty={true} validate={[Required]} doValidate={true}/>
-                        </div>
+                                <div className="form-row">
+                                    <Field 
+                                        component={FormSelect} formGroupClassName="col-md-12 col-lg-12" name="gender" type="select" 
+                                        emptyText="Select gender" label="Gender" options={options}
+                                        displayKey={"value"} displayLabel={"name"} empty={true} validate={[Required]} doValidate={true}/>
+                                </div>
 
-                        <div className="tabs-heading text-uppercase font-weight-bold">contact INFORMATION</div>
-                        <div className="form-row ml-1 mb-4">
-                            <Field component={ImageCropper} name="image" reset={reset}/>
-                        </div>
+                                <div className="tabs-heading text-uppercase font-weight-bold">contact INFORMATION</div>
+                                <div className="form-row ml-1 mb-4">
+                                    <Field component={ImageCropper} name="image" reset={reset}/>
+                                </div>
 
-                        <div className="form-row">
-                            <Field 
-                                component={FormField} type="text" formGroupClassName="col-md-12 col-lg-12"
-                                name="teacher_address" label="Address" placesAutocomplete={true} onSelect={this.handleSelect}
-                                id="Teacher_Address" placeholder="Enter address" validate={[Required]} doValidate={true}/>
-                            
-                        </div>
+                                <div className="form-row">
+                                    <Field 
+                                        component={FormField} type="text" formGroupClassName="col-md-12 col-lg-12"
+                                        name="teacher_address" label="Address" placesAutocomplete={true} onSelect={this.handleSelect}
+                                        id="Teacher_Address" placeholder="Enter address" validate={[Required]} doValidate={true}/>
+                                    
+                                </div>
 
-                        <div className="form-row">
-                            <Field 
-                                component={FormField} type="email" formGroupClassName="col-md-12 col-lg-6"
-                                name="email_address" label="Email Address"
-                                id="Email_Address" placeholder="Enter email address" validate={[Required, Email]} doValidate={true}/>
-                            <Field 
-                                component={FormField} type="text" formGroupClassName="col-md-12 col-lg-6"
-                                name="contact_telephoneno" label="Contact Number"
-                                id="Contact_Number" placeholder="Enter contact number"
-                                doValidate={true} maskInput={true} inputAddOn={true} inputAddOnText="+1" validate={[Required]} doValidate={true}/>
-                        </div>
-                        
+                                <div className="form-row">
+                                    <Field 
+                                        component={FormField} type="email" formGroupClassName="col-md-12 col-lg-6"
+                                        name="email_address" label="Email Address"
+                                        id="Email_Address" placeholder="Enter email address" validate={[Required, Email]} doValidate={true}/>
+                                    <Field 
+                                        component={FormField} type="text" formGroupClassName="col-md-12 col-lg-6"
+                                        name="contact_telephoneno" label="Contact Number"
+                                        id="Contact_Number" placeholder="Enter contact number"
+                                        doValidate={true} maskInput={true} inputAddOn={true} inputAddOnText="+1" validate={[Required]} doValidate={true}/>
+                                </div>
+                                
+                            </div>
+                        </Form>
+
                     </div>
-                </Form>
-            </div>
+                </div>
+            </div>        
 		) 
 	}
     formSubmit(values) {
