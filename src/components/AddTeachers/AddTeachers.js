@@ -37,7 +37,6 @@ class AddTeachers extends Component {
                                 </div>
 
 
-
                                 <div className="col-5 col-md-5 col-lg-6 col-xl-6">
                                     <div className="d-flex justify-content-center">
                                         <div className="input-group mr-2">
