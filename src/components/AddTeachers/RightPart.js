@@ -100,6 +100,37 @@ class RightPart extends Component {
             <div className="right-group">
                 <div className="right-group-content">
                     <div className="create-teacher">
+<<<<<<< HEAD
+                    <div className="p-3 teacher-forms">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <div className="imports-button d-flex justify-content-start">
+                                    <button type="button" class="btn btn-info">Cancel</button>
+                                </div>
+                            </div>
+                            <div>
+                                <div className="text-uppercase font-weight-bold teach-head">CREATE TEACHER</div>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-primary">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div className="p-3">
+                        <Form>
+                            <div className="tabs-heading text-uppercase font-weight-bold">PERSONAL INFORMATION</div>
+                            <div className="form-row">
+                                <FormGroup className="col-md-12 col-lg-6">
+                                    <Label>First Name</Label>
+                                    <Input type="text" name="name" placeholder="Enter name" />
+                                </FormGroup>
+                                <FormGroup className="col-md-12 col-lg-6">
+                                    <Label>Last Name</Label>
+                                    <Input type="text" name="name" placeholder="Last name" />
+                                </FormGroup>
+                            </div>
+=======
                         <Form onSubmit={handleSubmit(this.formSubmit)}>
                             <div className="p-3 teacher-forms">
                                 <div className="d-flex justify-content-between align-items-center">
@@ -112,6 +143,7 @@ class RightPart extends Component {
                                         <div className="text-uppercase font-weight-bold teach-head">CREATE TEACHER</div>
                                     </div>
                                     <div>
+>>>>>>> 9e4aaa28fa9f9fd2afb91df0ff32c4b78538a7ce
 
                                         <FormSubmit 
                                             error={error} invalid={pristine}

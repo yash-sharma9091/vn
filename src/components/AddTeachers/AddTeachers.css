@@ -94,7 +94,7 @@
 }
 
 /*activity-bg*/
-.right-group-content.activity-bg{
+.activity-bg{
     background: url('../../assets/images/no-activity.png') no-repeat center center;
     background-size:cover;
     width: 100%;
