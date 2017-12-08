@@ -1,4 +1,4 @@
-/* global _, moment */
+/* global  moment */
 import React, {Component} from 'react';
 import { FormGroup, Label } from 'reactstrap';
 import DateTimePicker from 'react-widgets/lib/DateTimePicker';
@@ -9,7 +9,7 @@ momentLocaliser(moment);
 export class FormCalender extends Component {
 	render() {
 		const {labelClassName, id, label, formGroupClassName, input, placeholder, doValidate} = this.props;
-		const {onChange, value} = this.props.input;
+		const {onChange, value} = input;
 		if( doValidate ){
 			return (
 				<FormGroup className={formGroupClassName}>

@@ -17,26 +17,26 @@ class AddTeachers extends Component {
                         <div className="d-flex justify-content-between p-2 no-gutters">
                             <div className="col-3 col-lg-2 col-xl-2">
                                 <div className="d-flex justify-content-start">
-                                    <div class="search-head">Teachers</div>
+                                    <div className="search-head">Teachers</div>
                                 </div>
                             </div>
 
 
                             <div className="col-6 col-lg-8 col-xl-8">
                                 <div className="d-flex justify-content-center">
-                                    <div class="input-group mr-2">
-                                        <input type="text" class="form-control" placeholder="Search by name, email, phone number" aria-label="Recipient's username" aria-describedby="basic-addon2" />
-                                        <span class="input-group-addon" id="basic-addon2"><img className="filter-icon" src={searcher} alt="" /></span>
+                                    <div className="input-group mr-2">
+                                        <input type="text" className="form-control" placeholder="Search by name, email, phone number" aria-label="Recipient's username" aria-describedby="basic-addon2" />
+                                        <span className="input-group-addon" id="basic-addon2"><img className="filter-icon" src={searcher} alt="" /></span>
                                     </div>
-                                    <button type="button" class="btn btn-secondary filter-btn"><img className="filter-icon" src={filter} alt="" /></button>
+                                    <button type="button" className="btn btn-secondary filter-btn"><img className="filter-icon" src={filter} alt="" /></button>
                                 </div>
                             </div>
 
 
                             <div className="col-3 col-lg-2 col-xl-2">
                                 <div className="imports-button d-flex justify-content-end">
-                                    <button type="button" class="btn btn-info ml-1 ml-lg-1 ml-xl-2">Import</button>
-                                    <button type="button" class="btn btn-info ml-1 ml-lg-1 ml-xl-2">Export</button>
+                                    <button type="button" className="btn btn-info ml-1 ml-lg-1 ml-xl-2">Import</button>
+                                    <button type="button" className="btn btn-info ml-1 ml-lg-1 ml-xl-2">Export</button>
                                 </div>
                             </div>
                         </div>
@@ -89,7 +89,7 @@ class AddTeachers extends Component {
 
                     {/*Dashboard-Main*/}
                     <div className="dashboard-main">
-                        <div class="d-flex justify-content-between">
+                        <div className="d-flex justify-content-between">
                             <div>
                                 <LeftPart />
                             </div>

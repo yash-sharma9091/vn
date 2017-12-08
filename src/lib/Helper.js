@@ -80,4 +80,18 @@ export const limitTo = (text, length = 200) => {
 	return text;
 }
 
+export const handleSubmitFailed = (errors) => {
+	console.log(errors);
+	// https://github.com/erikras/redux-form/issues/2365
+	const errorEl = document.querySelector(
+	    // flattenObject: https://github.com/hughsk/flat/issues/52
+	    Object.keys(flattenObject(errors)).map(fieldName => `[name="${fieldName}"]`).join(',')
+	);
+	
+	if (errorEl && errorEl.focus) {
+	    errorEl.focus();
+	} else {
+	    window.scrollTo(0, 0);
+	}
+}
 //export const formatBytes = (a,b) => {if(0==a)return"0 Bytes";var c=1024,d=b||2,e=["Bytes","KB","MB","GB","TB","PB","EB","ZB","YB"],f=Math.floor(Math.log(a)/Math.log(c));return parseFloat((a/Math.pow(c,f)).toFixed(d))+" "+e[f]}

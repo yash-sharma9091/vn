@@ -10,14 +10,31 @@ import dashImg8 from '../../assets/images/dash-8.png';
 import dashImg9 from '../../assets/images/dash-9.png';
 import dashImg10 from '../../assets/images/dash-10.png';
 import './SchoolAdminDashboard.css';
+import dashboardBg from '../../assets/images/dashboard-bg.png';
+import {loadImage} from '../../lib/Helper';
 
 class Dashboard extends Component {
+	constructor() {
+		super();
+		this.state = {
+			dashboardBg: {}
+		}
+	}
+	componentDidMount()  {
+		loadImage(dashboardBg)
+		.then(res => {
+			let dashboardBg = {backgroundImage: 'url(' + res + ')'}
+			this.setState({dashboardBg});
+		});
+		
+	}
 	render() {
+		const {dashboardBg} = this.state;
 		return (
-			<div className="school-dashboard d-flex align-items-center">
+			<div className="school-dashboard d-flex align-items-center" style={dashboardBg}>
 					<div className="row justify-content-md-center col-sm-12 no-gutters">
 						<div className="col-8 col-md-10 col-lg-8 col-xl-5 admin-box pt-5 pb-5 pl-2 pr-2">
-							<div class="d-flex flex-wrap align-content-around no-gutters">
+							<div className="d-flex flex-wrap align-content-around no-gutters">
 								<div className="col-2">
 									<div className="dash-box">
 										<a><img src={dashImg1} className="transition" alt="" /><span>Dashboard</span></a>
