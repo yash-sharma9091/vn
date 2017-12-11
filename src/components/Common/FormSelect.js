@@ -2,17 +2,32 @@ import React, {Component} from 'react';
 import { FormGroup, Label, Input, FormFeedback } from 'reactstrap';
 export class FormSelect extends Component {
 	render() {
-		const {labelClassName, id, label, formGroupClassName, input, type} = this.props;
-		return (
-			<FormGroup className={formGroupClassName}>
-	          	<Label className={labelClassName} for={id}>{label}</Label>
-	          	<Input {...input} type={type} className={this.isInvalid()}>
-	          		{this.empty()}
-		        	{this.options()}
-		        </Input>	
-		        {this.formFeedback()}
-	        </FormGroup>    
-		);		
+		const {labelClassName, id, label, formGroupClassName, input, type, formRowWrapper} = this.props;
+		if( formRowWrapper ) {
+			return (
+				<FormGroup className={formGroupClassName}>
+					<div className="form-row">
+			          	<Label className={labelClassName} for={id}>{label}</Label>
+			          	<Input {...input} type={type} className={this.isInvalid()}>
+			          		{this.empty()}
+				        	{this.options()}
+				        </Input>	
+				        {this.formFeedback()}
+				    </div>    
+		        </FormGroup>    
+			);
+		} else {
+			return (
+				<FormGroup className={formGroupClassName}>
+		          	<Label className={labelClassName} for={id}>{label}</Label>
+		          	<Input {...input} type={type} className={this.isInvalid()}>
+		          		{this.empty()}
+			        	{this.options()}
+			        </Input>	
+			        {this.formFeedback()}
+		        </FormGroup>    
+			);
+		}	
 	}
 	isInvalid() {
 		const {meta, doValidate} = this.props;

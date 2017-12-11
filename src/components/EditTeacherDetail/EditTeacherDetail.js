@@ -35,6 +35,7 @@ class AddTeachers extends Component {
     }
 	render() {
         const {teacher, errors} = this.state;
+        
 		return (
             <div>
 
@@ -76,7 +77,7 @@ class AddTeachers extends Component {
 
                     <div className="dashboard-main inner-sub-page">
                         <div className="dash-left-box">
-                            {!_.isEmpty(teacherListing) && <EditTeacherInformation initialValues={teacher}/>}
+                            {!_.isEmpty(teacher) && <EditTeacherInformation teacher={teacher} initialValues={teacher}/>}
                         </div>
                         <div className="dash-right-box">
                             <ActivityPanel />

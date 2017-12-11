@@ -5,7 +5,7 @@ import PlacesAutocomplete from 'react-places-autocomplete';
 
 class FormField extends Component {
 	render() {
-		const {labelClassName, id, label, formGroupClassName, inputAddOn, inputAddOnText} = this.props;
+		const {labelClassName, id, label, formGroupClassName, inputAddOn, inputAddOnText, formRowWrapper} = this.props;
 		if( inputAddOn ) {
 			return (
 				<FormGroup className={formGroupClassName}>
@@ -17,6 +17,16 @@ class FormField extends Component {
 		        	{this.FormFeedback()}
 		        </FormGroup>
 			);			
+		} else if( formRowWrapper ) {
+			return (
+				<FormGroup className={formGroupClassName}>
+					<div className="form-row">
+			          	<Label className={labelClassName} for={id}>{label}</Label>
+			          	{this.renderInput()}
+			          	{this.FormFeedback()}
+		          	</div>
+		        </FormGroup>
+			)
 		} else {
 			return (
 				<FormGroup className={formGroupClassName}>

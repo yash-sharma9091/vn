@@ -1,3 +1,4 @@
+/* global IMAGE_PATH */
 import React, {Component} from 'react';
 import TeacherPic from '../../assets/images/teacher-1.png';
 import EnvelopeGray from '../../assets/images/svg/envelope-gray.svg';
@@ -10,6 +11,7 @@ import { Field, SubmissionError,reduxForm } from 'redux-form';
 import {handleSubmitFailed} from '../../lib/Helper';
 import {Required, Email, Number, Phone, maxLength4,maxLength200,maxLength400, Alphabets, isValidAddress} from '../../lib/Validate';
 import FormField from "../Common/FormField";
+import FormSelect from "../Common/FormSelect";
 
 class EditTeacherInformation extends Component {
     constructor() {
@@ -32,7 +34,17 @@ class EditTeacherInformation extends Component {
         console.log(values);
     }
 	render() {
-        const { error, handleSubmit, pristine, submitting} = this.props;
+        const { error, handleSubmit, pristine, submitting, teacher} = this.props;
+        
+        const {profile_image} = teacher;
+        let profileImage;
+        if( profile_image ) {
+            profileImage = `${IMAGE_PATH}/${profile_image.path}`;    
+        }
+        const options = [
+            {value: 'male', name: 'Male'},
+            {abbreviation: 'female', name: 'Female'}
+        ]
 		return (
             <div className="left-group">
                 <div className="left-group-content">
@@ -42,7 +54,7 @@ class EditTeacherInformation extends Component {
                                 <div className="p-3">
                                     <div className="form-row">
                                         <div className="col-sm-2">
-                                            <Field component={ImageCropper} name="image"/>
+                                            <Field component={ImageCropper} name="image" logo={profileImage}/>
                                         </div>
                                         <div className="col-sm-10">
                                             <div className="form-row">
@@ -60,6 +72,53 @@ class EditTeacherInformation extends Component {
                                     </div>
                                 </div>
 
+                                <div className="group-tehead">Personal Information</div>
+                                <div className="p-3">
+                                    <div className="form-row">
+                                        <Field 
+                                            component={FormSelect} formGroupClassName="col-sm-6" name="gender" type="select" 
+                                            emptyText="Select gender" label="Gender" options={options}
+                                            labelClassName="col-sm-3" formRowWrapper={true}
+                                            displayKey={"value"} displayLabel={"name"} empty={true} validate={[Required]} doValidate={true}/>
+
+                                        <FormGroup className="col-sm-6">
+                                            <div className="form-row">
+                                                <Label for="exampleSelect" className="col-sm-3">Subject</Label>
+                                                <Input type="select" name="select" id="exampleSelect" className="col-sm-9">
+                                                <option>Select subject</option>
+                                                <option>Select subject</option>
+                                                <option>Select subject</option>
+                                                <option>Select subject</option>
+                                            </Input>
+                                            </div>
+                                        </FormGroup>
+                                    </div>
+
+                                    <div className="form-row">
+                                        <FormGroup className="col-sm-6">
+                                            <div className="form-row">
+                                                <Label for="exampleSelect" className="col-sm-3">Grade</Label>
+                                                <Input type="select" name="select" id="exampleSelect" className="col-sm-9">
+                                                <option>Select grade</option>
+                                                <option>Select grade</option>
+                                                <option>Select grade</option>
+                                                <option>Select grade</option>
+                                            </Input>
+                                            </div>
+                                        </FormGroup>
+                                        <FormGroup className="col-sm-6">
+                                        <div className="form-row">
+                                            <Label for="exampleSelect" className="col-sm-3">Official Grade</Label>
+                                            <Input type="select" name="select" id="exampleSelect" className="col-sm-9">
+                                            <option>Select grade</option>
+                                            <option>Select grade</option>
+                                            <option>Select grade</option>
+                                            <option>Select grade</option>
+                                        </Input>
+                                        </div>
+                                    </FormGroup>
+                                    </div>
+                                </div>
                                 <div className="group-tehead">Personal Information</div>
                                 <div className="p-3">
                                     <div className="form-row">
