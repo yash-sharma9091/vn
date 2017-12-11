@@ -72,7 +72,7 @@ class ImaegCropper extends Component {
     	onChange(null);
     }
 	render() {
-		const {logo} = this.props;
+		const {logo, displayText} = this.props;
 		const {src, tmpSrc, showImage, invalidFile, invalidSize} = this.state;
 		return (
 			<div>
@@ -87,7 +87,7 @@ class ImaegCropper extends Component {
 				        </a>
 				    </div>
 				    <div className="camera-upload-content">
-				        <h3 className="text-uppercase">Upload school logo</h3>
+				        <h3 className="text-uppercase">{displayText || 'Upload photo'}</h3>
 				        <span className={invalidSize ? "invalidText" : ""}>maximum image size 5 mb.</span>
 				        {invalidFile && <span className="invalidText">upload image of type jpg, jpeg, png or gif</span>}
 				    </div>

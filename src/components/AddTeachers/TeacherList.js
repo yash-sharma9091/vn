@@ -14,7 +14,7 @@ class LeftPart extends Component {
             paging:{},
             errorList: '',
             isLoadingList: false,
-            dropdownToggle: false
+            dropdownToggle: 0
         };
     }
     componentDidMount() {
@@ -27,8 +27,11 @@ class LeftPart extends Component {
         .then(({data, paging}) => this.setState({teacherList: data, paging, isLoadingList: false}))
         .catch(({errors}) => this.setState({errorList: errors.message, isLoadingList: false}));    
     }
-    toggle() {
-        this.setState({dropdownToggle: !this.state.dropdownToggle });
+    toggle(e) {
+        
+        let index = e.target.dataset.index;
+        //this.setState({dropdownToggle: !this.state.dropdownToggle });
+        this.setState({ dropdownToggle: this.state.dropdownToggle === Number(index) ? 0 : Number(index) });
     }
     componentWillReceiveProps(newProps) {
         
@@ -49,7 +52,7 @@ class LeftPart extends Component {
                             :(
                                 <div className="d-flex justify-content-left flex-wrap align-items-stretch align-content-around teachers-row">
                                     {teacherList.length > 0 && teacherList.map((value, index) => {
-                                        return (<TeachersListElements teacher={value} key={index} dropdownToggle={dropdownToggle} toggle={this.toggle}/>)
+                                        return (<TeachersListElements teacher={value} key={index} dataIndex={index + 1} dropdownToggle={dropdownToggle === (index + 1)} toggle={this.toggle}/>)
                                     })}
                                 </div>
                             )

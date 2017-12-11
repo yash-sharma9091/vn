@@ -35,7 +35,7 @@ class Dashboard extends Component {
 		const {dashboardBg} = this.state;
 		return (
 			<div className="school-dashboard d-flex align-items-center" style={dashboardBg}>
-					<button type="button" class="activity-btn">Activity</button>
+					<button type="button" className="activity-btn">Activity</button>
 
 					<div className="activity-box">
 						<div className="activity-head">

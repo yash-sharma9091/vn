@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import searcher from '../../assets/images/svg/musica-searcher.svg';
 import filter from '../../assets/images/svg/filter.svg';
 import { Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-import TeacherList from './LeftPart';
-import CreateTeacher from './RightPart';
+import TeacherList from './TeacherList';
+import CreateTeacher from './CreateTeacher';
 import './AddTeachers.css';
 
 class AddTeachers extends Component {

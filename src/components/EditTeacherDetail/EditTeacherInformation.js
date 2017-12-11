@@ -5,53 +5,63 @@ import ThreeDots from '../../assets/images/svg/three-dots.svg';
 import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import './EditTeacherDetail.css';
+import ImageCropper from '../Common/ImageCropper';
+import { Field, SubmissionError,reduxForm } from 'redux-form';
+import {handleSubmitFailed} from '../../lib/Helper';
+import {Required, Email, Number, Phone, maxLength4,maxLength200,maxLength400, Alphabets, isValidAddress} from '../../lib/Validate';
+import FormField from "../Common/FormField";
 
-class LeftPart extends Component {
-      constructor(props) {
-        super(props);
-    
-        this.toggle = this.toggle.bind(this);
+class EditTeacherInformation extends Component {
+    constructor() {
+        super();
+        this.formSubmit = this.formSubmit.bind(this);
+        //this.handleSelect = this.handleSelect.bind(this);
+        //this.fillFormFields = this.fillFormFields.bind(this);
+        //this.resetForm = this.resetForm.bind(this);
         this.state = {
-          dropdownOpen: false
-        };
-      }
+            success: '',
+            reset: false,
+            coordinates : {
+                lat: '',
+                lng: ''
+            }
+        }
+    }
     
-      toggle() {
-        this.setState({
-          dropdownOpen: !this.state.dropdownOpen
-        });
-      }
+    formSubmit(values) {
+        console.log(values);
+    }
 	render() {
+        const { error, handleSubmit, pristine, submitting} = this.props;
 		return (
             <div className="left-group">
                 <div className="left-group-content">
                     <div className="p-3 p-lg-3">
                         <div className="edit-group-box">
-                        <div className="p-3">
-                                <Form>
+                            <Form onSubmit={handleSubmit(this.formSubmit)}>
+                                <div className="p-3">
                                     <div className="form-row">
                                         <div className="col-sm-2">
-                                            dsa
+                                            <Field component={ImageCropper} name="image"/>
                                         </div>
                                         <div className="col-sm-10">
-                                            <Form className="form-row">
-                                                <FormGroup className="mr-2">
-                                                    <Label>First Name</Label>
-                                                    <Input type="email" name="email" id="exampleEmail" placeholder="Enter first name" />
-                                                </FormGroup>
-                                                <FormGroup>
-                                                    <Label>Last Name</Label>
-                                                    <Input type="password" placeholder="Enter last name " />
-                                                </FormGroup>
-                                            </Form>
+                                            <div className="form-row">
+                                                <Field 
+                                                    component={FormField} type="text" formGroupClassName="mr-2"
+                                                    name="first_name" label="First Name"
+                                                    id="First_Name" placeholder="Enter first name" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
+
+                                                <Field 
+                                                    component={FormField} type="text"
+                                                    name="last_name" label="Last Name"
+                                                    id="Last_Name" placeholder="Enter last name" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>    
+                                            </div>
                                         </div>
                                     </div>
-                                </Form>
-                            </div>
+                                </div>
 
-                            <div className="group-tehead">Personal Information</div>
-                            <div className="p-3">
-                                <Form>
+                                <div className="group-tehead">Personal Information</div>
+                                <div className="p-3">
                                     <div className="form-row">
                                         <FormGroup className="col-sm-6">
                                             <div className="form-row">
@@ -101,12 +111,10 @@ class LeftPart extends Component {
                                         </div>
                                     </FormGroup>
                                     </div>
-                                </Form>
-                            </div>
+                                </div>
 
-                            <div className="group-tehead"> Contact Information</div>
-                            <div className="p-3">
-                                <Form>
+                                <div className="group-tehead"> Contact Information</div>
+                                <div className="p-3">
                                     <div className="form-row">
                                         <FormGroup className="col-sm-6">
                                             <div className="form-row form-group">
@@ -115,10 +123,10 @@ class LeftPart extends Component {
                                                 </div>
                                                 <div className="col-sm-9">
                                                     <div className="form-row form-group">
-                                                        <input type="text" class="form-control" placeholder="Enter address" />
+                                                        <input type="text" className="form-control" placeholder="Enter address" />
                                                     </div>
                                                     <div className="form-row form-group">
-                                                        <input type="text" class="form-control" placeholder="Enter country" />
+                                                        <input type="text" className="form-control" placeholder="Enter country" />
                                                     </div>
                                                     <div className="form-row form-group">
                                                         <Input type="select" name="select" id="exampleSelect" className="col-sm-9">
@@ -129,7 +137,7 @@ class LeftPart extends Component {
                                                         </Input>
                                                     </div>
                                                     <div className="form-row form-group">
-                                                        <input type="text" class="form-control" placeholder="Enter city" />
+                                                        <input type="text" className="form-control" placeholder="Enter city" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -138,16 +146,16 @@ class LeftPart extends Component {
                                         <FormGroup className="col-sm-6">
                                             <div className="form-row form-group">
                                                 <Label for="exampleSelect" className="col-sm-3">Email</Label>
-                                                <input type="text" class="form-control" placeholder="Enter email" />
+                                                <input type="text" className="form-control" placeholder="Enter email" />
                                             </div>
                                             <div className="form-row form-group">
                                                 <Label for="exampleSelect" className="col-sm-3">Phone</Label>
-                                                <input type="text" class="form-control" placeholder="Enter phone" />
+                                                <input type="text" className="form-control" placeholder="Enter phone" />
                                             </div>
                                         </FormGroup>
                                     </div>
-                                </Form>
-                            </div>
+                                </div>
+                            </Form>        
                         </div>
                     </div>
                 </div>
@@ -155,5 +163,9 @@ class LeftPart extends Component {
 		) 
 	}
 }
+let _EditTeacherInformation = reduxForm({
+    form: 'EditTeacherInformationForm',
+    onSubmitFail: handleSubmitFailed
+})(EditTeacherInformation);
 
-export default LeftPart;
+export default _EditTeacherInformation;
