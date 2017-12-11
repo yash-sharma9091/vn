@@ -75,10 +75,12 @@ export const placesServiceStatus = [
 
 export const limitTo = (text, length = 200) => {
 	if( text && typeof(text) === 'string' ) {
-		return text.length < length ? text : text.substr(1, length) + '...';	
+		return text.length < length ? text : text.substr(0, length) + '...';	
 	}
 	return text;
 }
+
+export const fullName = (first, last) => `${first} ${last}`;
 
 export const handleSubmitFailed = (errors) => {
 	console.log(errors);

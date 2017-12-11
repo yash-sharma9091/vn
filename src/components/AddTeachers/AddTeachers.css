@@ -153,14 +153,13 @@
 }
 .teacher-picture > img {
     position: absolute;
-    left: auto;
-    right: auto;
-    top: auto;
-    bottom: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
     width: 100%;
-    height: auto;
-    max-width: 58px;
     border-radius: 3px;
+    margin: auto;
 }
 
 .teacher-group-box .te-head {
@@ -228,7 +227,7 @@
 .no-loaded .teacher-picture::after {
     position: absolute;
     content: '';
-    background-color: #b7b7b7;
+    background-color: #e4e4e4;
     width: 100%;
     height: 100%;
     top: 0;
@@ -242,7 +241,7 @@
     left: 0;
     top: 0;
     bottom: 0;
-    background-color: #b7b7b7;
+    background-color: #e4e4e4;
     width: 60%;
     height: 19px;
 }
@@ -252,7 +251,7 @@
     left: 0;
     top: 0;
     bottom: 0;
-    background-color: #b7b7b7;
+    background-color: #e4e4e4;
     width: 75%;
     height: 18px;
 }
@@ -262,7 +261,7 @@
     left: 0;
     top: 0;
     bottom: 0;
-    background-color: #b7b7b7;
+    background-color: #e4e4e4;
     width: 85%;
     height: 18px;
 }
@@ -272,7 +271,7 @@
     left: 0;
     top: 0;
     bottom: 0;
-    background-color: #b7b7b7;
+    background-color: #e4e4e4;
     width: 100%;
     height: 18px;
 }

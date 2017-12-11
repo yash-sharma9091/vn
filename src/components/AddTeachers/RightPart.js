@@ -25,7 +25,6 @@ class RightPart extends Component {
         this.resetForm = this.resetForm.bind(this);
         this.state = {
             success: '',
-            reload: false,
             reset: false,
             coordinates : {
                 lat: '',
@@ -89,7 +88,7 @@ class RightPart extends Component {
     }
 	render() {
         const { error, handleSubmit, pristine, submitting, initialValues, change, user} = this.props;
-        const { success, reload, reset } = this.state;
+        const { success, reset } = this.state;
         
         const options = [
             {value: 'male', name: 'Male'},
@@ -176,7 +175,7 @@ class RightPart extends Component {
 		) 
 	}
     formSubmit(values) {
-        const {user, dispatch, reset} = this.props;
+        const {user, dispatch, reset, refreshTeacherList} = this.props;
         const {lat, lng} = this.state.coordinates;
         values.lat = lat;
         values.lng = lng;
@@ -187,10 +186,11 @@ class RightPart extends Component {
         return new Promise((resolve, reject) => {
             Http.upload('addteacher', values)
             .then(({data}) => {
-                this.setState({success:data.message, reload: true, reset: true});
+                this.setState({success:data.message, reset: true});
                 dispatch(reset('RightPartForm'));
                 setTimeout(() => this.setState({success: ''}), 5000);
                 window.scrollTo(0, 0);
+                refreshTeacherList();
                 resolve();
             })
             .catch(({errors}) => {
