@@ -7,6 +7,7 @@ resetPassword 	= '/reset-password/:token',
 invalid 		= '/invalid',
 dashboard 		= '/dashboard',
 teacherListing 	= '/teachers',
+editteacherDetail 	= '/edit-teacher',
 faq 	        = '/faq',
 schoolstep 	    = '/school-step',
 notFound 		= '*';
