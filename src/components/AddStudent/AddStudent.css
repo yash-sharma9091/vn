@@ -54,6 +54,8 @@
     right: 0%;
     top: 0;
     bottom: 0;
+    background-color: #ffffff;
+    border-left: 1px solid #eaeaec;
 }
 .dashboard-main .dash-right-box .right-group .right-group-content{
     position: absolute;
@@ -76,6 +78,36 @@
     display: block; transition: all .6s ease-in-out;
 }
 
+/*(Search part) For inner page*/
+.dashboard-search-part.inner-sub-page {
+    position: fixed;
+    top: 51px;
+    left: 0;
+    right: 0;
+    height: 56px;
+}
+
+/*(Dashboard) For inner page*/
+.dashboard-main.inner-sub-page{
+    position: absolute;
+    top: 56px;
+    left: 0;
+    width: 100%;
+    bottom: 0;
+}
+.dashboard-main.inner-sub-page .dash-left-box {
+    width: 70%;
+}
+.dashboard-main.inner-sub-page .dash-left-box .left-group {
+    width: 70%;
+}
+.dashboard-main.inner-sub-page .dash-right-box{
+    width: 30%; display: block;
+}
+.dashboard-main.inner-sub-page .dash-right-box .right-group{
+    width: 30%;
+}
+
 
 
 
@@ -93,8 +125,9 @@
     width: 100%;
 }
 
+
 /*activity-bg*/
-.right-group-content.activity-bg{
+.activity-bg{
     background: url('../../assets/images/no-activity.png') no-repeat center center;
     background-size:cover;
     width: 100%;
@@ -120,37 +153,53 @@
 }
 .teacher-picture > img {
     position: absolute;
-    left: auto;
-    right: auto;
-    top: auto;
-    bottom: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
     width: 100%;
-    height: auto;
-    max-width: 58px;
     border-radius: 3px;
+    margin: auto;
 }
 
-.teacher-group-box .te-head {
+.teacher-group-box .te-heading {
     color: #292b2c;
-    font-weight: 800;
     font-size: 16px;
+    position: relative;
 }
 .teacher-group-box .te-gen{
     color: #292b2c;
     font-size: 16px;
+    position: relative;
 }
 .teacher-group-box .te-sub{
     font-size: 14px;
     color: #0a4cab;
+    position: relative;
 }
 .teacher-group-box .te-code{
     font-size: 14px;
     color: #6d6d6d;
+    position: relative;
 }
-.mesg-btn{font-size:14px;color:#6d6d6d;text-decoration: none !important;}
-.mesg-btn img{width:16px;}
-.mesg-btn:hover{color:#6d6d6d;background-color:#f3f3f3;border-radius: 3px;}
-.view-btn{color:#0a4ba9;font-size:14px;text-decoration: none !important;}
+.mesg-btn{
+    font-size:14px;
+    color:#6d6d6d;
+    text-decoration: none !important;
+}
+.mesg-btn img{
+    width:16px;
+}
+.mesg-btn:hover{
+    color:#6d6d6d;
+    background-color:#f3f3f3;
+    border-radius: 3px;
+}
+.view-btn{
+    color:#0a4ba9;
+    font-size:14px;
+    text-decoration: none !important;
+}
 .view-btn:hover {
     background-color: #0a4cab;
     border-radius: 3px;
@@ -173,6 +222,58 @@
     margin:5px;
 }
 
+/*no-loaded*/
+.no-loaded .teacher-picture::after {
+    position: absolute;
+    content: '';
+    background-color: #e4e4e4;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.no-loaded .teacher-group-box .te-head::after {
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #e4e4e4;
+    width: 60%;
+    height: 19px;
+}
+.no-loaded .teacher-group-box .te-gen::after{
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #e4e4e4;
+    width: 75%;
+    height: 18px;
+}
+.no-loaded .teacher-group-box .te-sub::after{
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #e4e4e4;
+    width: 85%;
+    height: 18px;
+}
+.no-loaded .teacher-group-box .te-code::after{
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #e4e4e4;
+    width: 100%;
+    height: 18px;
+}
 
 /*Responsive Code*/
 @media(max-width:1911px){
@@ -277,4 +378,5 @@
         width: 48%;
     }
 }
+
 

@@ -12,6 +12,8 @@ import Faq from '../components/Faq/Faq';
 import Dashboard from '../components/Dashboard/Dashboard';
 import AddTeachers from '../components/AddTeachers/AddTeachers';
 import EditTeacherDetail from '../components/EditTeacherDetail/EditTeacherDetail';
+import TeacherDetail from '../components/TeacherDetail/TeacherDetail';
+import AddStudent from '../components/AddStudent/AddStudent';
 import SchoolStep from '../components/BuildSchoolStep/SchoolStep';
 import NotFound from '../components/Error/404';
 import Invalid from '../components/Error/Invalid';
@@ -29,6 +31,8 @@ import {
 	invalid, 
 	dashboard,
 	teacherListing,
+	addStudent,
+	teacherDetail,
 	editTeacher,
 	faq, 
 	//schoolstep
@@ -48,6 +52,8 @@ export const Router = props => {
 					<BeforeAuthRoute path={resetPassword} component={ResetPassword} />
 					<PrivateRoute path={dashboard} component={Dashboard} />
 					<PrivateRoute path={teacherListing} component={AddTeachers} />
+					<PrivateRoute path={teacherDetail} component={TeacherDetail} />
+					<PrivateRoute path={addStudent} component={AddStudent} />
 					<PrivateRoute path={editTeacher} component={EditTeacherDetail} />
 					<Route path={faq} component={Faq} />
 					{/*<PrivateRoute path={schoolstep} component={SchoolStep} />*/}
