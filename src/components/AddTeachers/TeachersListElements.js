@@ -6,7 +6,7 @@ import ThreeDots from '../../assets/images/svg/three-dots.svg';
 import { DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import {DropdownWithoutActiveProps} from '../partials/DropdownWithoutActiveProps';
 import {fullName, limitTo, decorateLink} from '../../lib/Helper';
-import {editTeacher} from '../../lib/SiteLinks';
+import {editTeacher, teacherDetail} from '../../lib/SiteLinks';
 import {LinkContainer} from 'react-router-bootstrap';
 
 class TeachersListElements extends Component {
@@ -42,7 +42,9 @@ class TeachersListElements extends Component {
 			    </div>
 			    <div className="d-flex justify-content-between mt-2">
 			        <button type="button" className="btn btn-link mesg-btn pointer"><img src={EnvelopeGray} alt="" /> Message</button>
-			        <button type="button" className="btn btn-link view-btn pointer">View Detail</button>
+			        <LinkContainer to={`${decorateLink(teacherDetail)}/${teacher._id}`}>
+			        	<button type="button" className="btn btn-link view-btn pointer">View Detail</button>
+			        </LinkContainer>	
 			    </div>
 			</div>
 		);

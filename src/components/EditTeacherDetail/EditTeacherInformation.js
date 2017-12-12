@@ -272,7 +272,7 @@ class EditTeacherInformation extends Component {
                                         <Field 
                                             component={FormField} type="text" formGroupClassName="col-sm-6" formRowWrapper={true} labelClassName="col-sm-3"
                                             name="contact_telephoneno" label="Phone" placesAutocomplete={true} onSelect={this.handleSelect}
-                                            id="contact_telephoneno" placeholder="Enter phone" validate={[Required]} doValidate={true}/>        
+                                            id="contact_telephoneno" placeholder="Enter phone" maskInput={true} inputAddOn={true} inputAddOnText="+1" validate={[Required]} doValidate={true}/>        
                                         {/*<FormGroup className="col-sm-6">
                                             <div className="form-row form-group">
                                                 <Label for="exampleSelect" className="col-sm-3">Email</Label>

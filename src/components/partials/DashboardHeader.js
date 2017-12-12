@@ -78,9 +78,8 @@ class DashboardHeader extends Component {
                                         </div> Administrator
                                     </DropdownToggle>
                                     <DropdownMenu>
-                                        <DropdownItem header>Header</DropdownItem>
-                                        <DropdownItem>Action</DropdownItem>
-                                        <DropdownItem>Another Action</DropdownItem>
+                                        <DropdownItem header>My Profile</DropdownItem>
+                                        
                                         <DropdownItem divider />
                                         <DropdownItem onClick={() => this.logout()}>Logout</DropdownItem>
                                     </DropdownMenu>

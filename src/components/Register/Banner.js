@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Register.css';
 import {loadImage} from '../../lib/Helper';
-import loginBg from '../../assets/images/home-bg.png';
+import loginBg from '../../assets/images/profile-banner.png';
 
 class Banner extends Component {
 	constructor() {

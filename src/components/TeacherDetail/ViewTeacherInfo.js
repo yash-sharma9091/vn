@@ -2,23 +2,11 @@ import React, {Component} from 'react';
 import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import './TeacherDetail.css';
+import {fullName} from '../../lib/Helper';
 
-class LeftPart extends Component {
-      constructor(props) {
-        super(props);
-    
-        this.toggle = this.toggle.bind(this);
-        this.state = {
-          dropdownOpen: false
-        };
-      }
-    
-      toggle() {
-        this.setState({
-          dropdownOpen: !this.state.dropdownOpen
-        });
-      }
+class ViewTeacherInfo extends Component {
 	render() {
+        const {teacher} = this.props;
 		return (
             <div className="left-group">
                 <div className="left-group-content">
@@ -30,7 +18,7 @@ class LeftPart extends Component {
                                         <div className="col-sm-12">
                                             <div className="profiles-mains">
                                                 <div className="teacher-profiles"></div>
-                                                <span>Antoine Langlais</span>
+                                                <span>{fullName(teacher.first_name, teacher.last_name)}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -44,7 +32,7 @@ class LeftPart extends Component {
                                         <FormGroup className="col-sm-6">
                                             <div className="form-row">
                                                 <Label className="col-sm-3">Gender</Label>
-                                                <span className="col-sm-9 word-text">Male</span>
+                                                <span className="col-sm-9 word-text">{teacher.gender}</span>
                                             </div>
                                         </FormGroup>
                                         <FormGroup className="col-sm-6">
@@ -85,17 +73,17 @@ class LeftPart extends Component {
                                         <FormGroup className="col-sm-6">
                                             <div className="form-row">
                                                 <Label className="col-sm-3">Address</Label>
-                                                <span className="col-sm-9 word-text">542 W. 27th Street, 4th Floor, New York, NY 10001</span>
+                                                <span className="col-sm-9 word-text">{teacher.teacher_address}</span>
                                             </div>
                                         </FormGroup>
                                         <FormGroup className="col-sm-6">
                                             <div className="form-row">
                                                 <Label className="col-sm-3">Email</Label>
-                                                <span className="col-sm-9 word-text email-text">antol@yahoo.com</span>
+                                                <span className="col-sm-9 word-text email-text">{teacher.email_address}</span>
                                             </div>
                                             <div className="form-row">
                                                 <Label className="col-sm-3">Phone</Label>
-                                                <span className="col-sm-9 word-text">212-564-4253</span>
+                                                <span className="col-sm-9 word-text">{teacher.contact_telephoneno}</span>
                                             </div>
                                          </FormGroup>
                                     </div>
@@ -110,4 +98,4 @@ class LeftPart extends Component {
 	}
 }
 
-export default LeftPart;
+export default ViewTeacherInfo;
