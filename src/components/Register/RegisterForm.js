@@ -90,7 +90,7 @@ class RegisterForm extends Component {
         		<div className="light-bg padding-50">
                     <div className="container">
                       	<div className="row justify-content-center">
-                      		<Form onSubmit={handleSubmit(this.formSubmit)} className="col-sm-6">
+                      		<Form onSubmit={handleSubmit(this.formSubmit)} className="col-md-10 col-lg-8 col-xl-7">
                       			<Alert alertVisible={error} alertMsg={error} className={error ? "danger":"success"}/>
 								<span className="float-right d-inline-block mandatory-tag">All fields mark as * are mandatory</span>
 		                        <Field 

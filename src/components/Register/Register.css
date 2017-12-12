@@ -5,11 +5,30 @@
     background-size: cover;
 }
 .Banner-tags{
-    padding: 200px 0 70px;
+    padding: 300px 0 120px;
 }
 .Banner-tags h2{
-    font-size: 28px;
+    font-size: 40px;
 }
 .Banner-tags span{
-    font-size: 16px;
+    font-size: 22px;
+}
+
+/*Responsive*/
+@media(max-width:1600px){
+    .Banner-tags{
+        padding: 200px 0 70px;
+    }
+    .Banner-tags h2{
+        font-size: 28px;
+    }
+    .Banner-tags span{
+        font-size: 16px;
+    }
+}
+
+@media(max-width:1023px){
+    .Banner-tags {
+        padding: 150px 0 45px;
+    }
 }
