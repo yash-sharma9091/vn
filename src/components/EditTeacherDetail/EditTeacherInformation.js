@@ -106,7 +106,7 @@ class EditTeacherInformation extends Component {
                             <Form onSubmit={handleSubmit}>
                                 <Alert alertVisible={error || success} alertMsg={error || success} className={error ? "danger alert-box":"success"}/>
                                 <div className="p-3">
-                                    <div className="form-row">
+                                    <div className="row align-items-center">
                                         <div className="col-sm-2">
                                             <Field component={ImageCropper} name="image" logo={profileImage}/>
                                         </div>

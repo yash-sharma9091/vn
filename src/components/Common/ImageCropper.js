@@ -79,7 +79,7 @@ class ImaegCropper extends Component {
 				<div className="form-group">
 				    <div className={`camera-image ${invalidSize ? 'invalidFile':''}`}>
 				        <div className="camera-icon">
-				            <img src={src || logo || CameraImage} />
+				            {/* <img src={src || logo || CameraImage} /> */}
 				        </div>
 				        <a className="delete-button-image" onClick={this.removeImage}><img src={DeleteImage} /></a>
 				        <a className="edit-button-image"><img src={EditImage} />

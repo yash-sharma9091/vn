@@ -69,7 +69,7 @@ class AddTeachers extends Component {
 
                                 <div className="col-7 col-md-7 col-lg-8 col-xl-8">
                                     <div className="imports-button d-flex justify-content-end">
-                                        <button type="button" onClick={() => dispatch(submit('EditTeacherInformationForm'))} className="btn btn-info ml-1 ml-lg-1 ml-xl-2">Update</button>
+                                        <button type="button" onClick={() => dispatch(submit('EditTeacherInformationForm'))} className="btn btn-primary ml-1 ml-lg-1 ml-xl-2">Update</button>
                                         <LinkContainer to={teacherListing}>
                                             <button type="button" className="btn btn-info ml-1 ml-lg-1 ml-xl-2">Cancel</button>
                                         </LinkContainer>    

@@ -150,8 +150,10 @@
     position: absolute;
     left: 0;
     top: 0;
+    background: url('../../assets/images/teacher-1.png') no-repeat center center;
+    background-size: cover;
 }
-.teacher-picture > img {
+/* .teacher-picture > img {
     position: absolute;
     left: 0;
     right: 0;
@@ -160,7 +162,7 @@
     width: 100%;
     border-radius: 3px;
     margin: auto;
-}
+} */
 
 .teacher-group-box .te-head {
     color: #292b2c;

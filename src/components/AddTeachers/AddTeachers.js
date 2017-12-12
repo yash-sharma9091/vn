@@ -129,7 +129,7 @@ class AddTeachers extends Component {
 
                     {/*Dashboard-Main*/}
 
-                    <div className={toggleClass ? "dashboard-main active":"dashboard-main"}>
+                    <div className={(toggleClass && !toggleFilter) ? "dashboard-main active toggleFilter" : (toggleClass ? "dashboard-main active": ((!toggleFilter) ? "dashboard-main toggleFilter" : "dashboard-main"))}>
                             <div className="dash-left-box">
                                 <TeacherList refresh={refreshTeacherList} refreshTeacherList={this.refresh}/>
                             </div>

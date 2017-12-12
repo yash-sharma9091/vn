@@ -51,7 +51,7 @@ class TeachersListElements extends Component {
 				    </div>
 				    <div className="teacher-group-box relative">
 				        <div className="teacher-picture">
-				            <img src={`${IMAGE_PATH}/${teacher.profile_image.path}`} alt={teacher.first_name} />
+				            {/* <img src={`${IMAGE_PATH}/${teacher.profile_image.path}`} alt={teacher.first_name} /> */}
 				        </div>
 				        <div className="te-head text-capitalize">{limitTo(fullName(teacher.first_name, teacher.last_name),50)}</div>
 				        <div className="te-gen mb-1 text-capitalize">{teacher.gender}</div>

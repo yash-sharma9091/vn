@@ -124,9 +124,11 @@
 	width: 148px;
 	height: 148px;
 	bottom: 0;
-	text-align: center;
+    text-align: center;
+    background: url('../../assets/images/photo-camera.png') no-repeat center center;
+    background-size: cover;
 }
-.camera-icon img {
+/* .camera-icon img {
     position: absolute;
     left: 0;
     top: 0;
@@ -136,7 +138,7 @@
     margin: auto;
     max-width: 100%;
     max-height: 150px;
-}
+} */
 .camera-upload-content{display: inline-block;color:#292b2c; padding-left: 15px;}
 .camera-upload-content h3{ font-size: 18px;}
 .camera-upload-content span{ font-size: 14px;}
