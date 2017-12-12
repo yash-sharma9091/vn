@@ -19,6 +19,18 @@
 }
 
 /*Responsive*/
+@media (max-width:1600px){
+	.LogoBox > img {
+		width: 250px;
+	}
+	.LogoBox > a > img{
+		width: 170px;
+	}
+	.LogoBox > a {
+		height: 90px;
+	}
+}
+
 @media (max-width:1400px){
 	.LogoBox > img {
 		width: 250px;

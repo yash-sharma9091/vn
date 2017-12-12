@@ -147,6 +147,11 @@ label {
 
 
 /*Responsive*/
+@media (max-width:1600px){
+    .md-heading{font-size: 28px;}
+    footer.padding-20{padding: 10px 0;}
+}
+
 @media (max-width:1400px){
     .md-heading{font-size: 28px;}
     footer.padding-20{padding: 10px 0;}

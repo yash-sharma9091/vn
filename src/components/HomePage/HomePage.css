@@ -88,6 +88,22 @@ background-size: cover;}
 
 
 /*Responsive*/
+@media (max-width:1600px){
+	.main-header .navbar-nav .nav-link{
+		font-size: 15px;
+	}
+	.BecomePilotSchool .btn{font-size: 18px;}
+	.homeBanner-tags {
+		padding: 285px 0 130px;
+	}
+	.homeBanner-tags h2 {
+		font-size: 35px;
+	}
+	.homeBanner-tags .see-pilot-link {
+		font-size: 18px;
+	}
+}
+
 @media (max-width:1400px){
 	.main-header .navbar-nav .nav-link{
 		font-size: 15px;

@@ -35,6 +35,12 @@
 
 
 /*Responsive*/
+@media (max-width:1600px){
+	.login-header .LogoBox > a{height:90px;}
+    .login-header .LogoBox > a > img{width: 120px;}
+	.login-header .LogoBox > img{width: 175px;}
+}
+
 @media (max-width:1400px){
 	.login-header .LogoBox > a{height:90px;}
     .login-header .LogoBox > a > img{width: 120px;}
