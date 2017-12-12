@@ -5,6 +5,7 @@ import { Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import TeacherList from './TeacherList';
 import CreateTeacher from './CreateTeacher';
 import './AddTeachers.css';
+import URLSearchParams from 'url-search-params';
 
 class AddTeachers extends Component {
     constructor() {
@@ -14,6 +15,15 @@ class AddTeachers extends Component {
             toggleClass: false,
             refreshTeacherList: false
         }
+    }
+    componentDidMount() {
+        const {location} = this.props;
+        if( location ) { 
+            let isToogle = new URLSearchParams(location.search).get('toggleClass');
+            if( isToogle === 'active' ) {
+                this.setState({toggleClass: true});
+            }
+        }    
     }
     toggle() {
         this.setState({toggleClass: !this.state.toggleClass})
@@ -114,7 +124,7 @@ class AddTeachers extends Component {
 
                     <div className={toggleClass ? "dashboard-main active":"dashboard-main"}>
                             <div className="dash-left-box">
-                                <TeacherList refresh={refreshTeacherList}/>
+                                <TeacherList refresh={refreshTeacherList} refreshTeacherList={this.refresh}/>
                             </div>
                             <div className="dash-right-box">
                                 <CreateTeacher refreshTeacherList={this.refresh}/>

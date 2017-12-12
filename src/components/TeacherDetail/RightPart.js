@@ -112,10 +112,10 @@ class RightPart extends Component {
                     </div>
                     <div className="p-2 activity-date">November 14, 2017 </div>
                     <div className="now-activity-list p-3">
-                        <div class="media">
-                            <img class="mr-3" src={activeImg1} alt="activeImg1" />
-                            <div class="media-body">
-                                <h5 class="mt-0 activity-heading"><black>James B</black> has answered the question for <blue>Do now activity</blue> on Oct 10th of Lesson Tuesday</h5>
+                        <div className="media">
+                            <img className="mr-3" src={activeImg1} alt="activeImg1" />
+                            <div className="media-body">
+                                <h5 className="mt-0 activity-heading"><black>James B</black> has answered the question for <blue>Do now activity</blue> on Oct 10th of Lesson Tuesday</h5>
                                 <div className="activity-questiobox">
                                     <h3>Question 1 : What is the full form of WHO?</h3>
                                     <h4>Full form WHO is________</h4>
@@ -126,10 +126,10 @@ class RightPart extends Component {
                         </div>
                     </div>
                     <div className="now-activity-list p-3">
-                        <div class="media">
-                            <img class="mr-3" src={activeImg2} alt="activeImg1" />
-                            <div class="media-body">
-                                <h5 class="mt-0 activity-heading"><black>Mark C</black> has answered the question for <blue>Do now activity</blue> on Oct 10th of Lesson Tuesday</h5>
+                        <div className="media">
+                            <img className="mr-3" src={activeImg2} alt="activeImg1" />
+                            <div className="media-body">
+                                <h5 className="mt-0 activity-heading"><black>Mark C</black> has answered the question for <blue>Do now activity</blue> on Oct 10th of Lesson Tuesday</h5>
                                 <div className="activity-questiobox">
                                     <h3>Question 1 : Select Apple Picture</h3>
                                     <h4>A Option</h4>
@@ -141,10 +141,10 @@ class RightPart extends Component {
                         </div>
                     </div>
                     <div className="now-activity-list p-3">
-                        <div class="media">
-                            <img class="mr-3" src={activeImg1} alt="activeImg1" />
-                            <div class="media-body">
-                                <h5 class="mt-0 activity-heading"><black>James B</black> has answered the question for <blue>Do now activity</blue> on Oct 10th of Lesson Tuesday</h5>
+                        <div className="media">
+                            <img className="mr-3" src={activeImg1} alt="activeImg1" />
+                            <div className="media-body">
+                                <h5 className="mt-0 activity-heading"><black>James B</black> has answered the question for <blue>Do now activity</blue> on Oct 10th of Lesson Tuesday</h5>
                                 <div className="activity-questiobox">
                                     <h3>Question 1 : What is the full form of WHO?</h3>
                                     <h4>Full form WHO is________</h4>
@@ -155,10 +155,10 @@ class RightPart extends Component {
                         </div>
                     </div>
                     <div className="now-activity-list p-3">
-                        <div class="media">
-                            <img class="mr-3" src={activeImg2} alt="activeImg1" />
-                            <div class="media-body">
-                                <h5 class="mt-0 activity-heading"><black>Mark C</black> has answered the question for <blue>Do now activity</blue> on Oct 10th of Lesson Tuesday</h5>
+                        <div className="media">
+                            <img className="mr-3" src={activeImg2} alt="activeImg1" />
+                            <div className="media-body">
+                                <h5 className="mt-0 activity-heading"><black>Mark C</black> has answered the question for <blue>Do now activity</blue> on Oct 10th of Lesson Tuesday</h5>
                                 <div className="activity-questiobox">
                                     <h3>Question 1 : Select Apple Picture</h3>
                                     <h4>A Option</h4>

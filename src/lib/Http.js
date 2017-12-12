@@ -32,6 +32,22 @@ export class Http {
 			});
 		});
 	}
+	static delete(url) {
+		return new Promise((resolve, reject) => {
+			axios.delete(url)
+			.then(({data}) => {
+				resolve({data: data.records });
+			})
+			.catch(error => {
+				let _error = (error) ? {errors:{message: error.message}} : {errors:{message: 'Unknown Server Error!!'}};
+				if( error.response ) {
+					_error = error.response.data;
+				}
+				
+				reject(_error);
+			});
+		});
+	}
 	static upload(url, data) {
 		let formData = new FormData();
 		for( let val in data ) {

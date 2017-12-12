@@ -52,7 +52,7 @@ class AddTeachers extends Component {
                                 <div className="col-5 col-md-5 col-lg-4 col-xl-4">
                                     <div className="d-flex justify-content-start">
                                         <div className="breadcrumb-list">
-                                            <ol class="breadcrumb">
+                                            <ol className="breadcrumb">
                                                 <li className="breadcrumb-item"><Link to={teacherListing}>Teachers</Link></li>
                                                 <li className="breadcrumb-item active text-capitalize">{teacher.first_name ? limitTo(fullName(teacher.first_name, teacher.last_name),50) : 'Loading ...'}</li>
                                             </ol>
@@ -66,7 +66,9 @@ class AddTeachers extends Component {
                                         <LinkContainer to={`${decorateLink(editTeacher)}/${teacher._id}`}>
                                             <button type="button" className="btn btn-primary ml-1 ml-lg-1 ml-xl-2">Edit</button>
                                         </LinkContainer>    
-                                        <button type="button" className="btn btn-info ml-1 ml-lg-1 ml-xl-2">Create</button>
+                                        <LinkContainer to={`${teacherListing}?toggleClass=active`}>
+                                            <button type="button" className="btn btn-info ml-1 ml-lg-1 ml-xl-2">Create</button>
+                                         </LinkContainer>       
                                     </div>
                                 </div>
                             </div>

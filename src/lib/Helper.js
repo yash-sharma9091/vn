@@ -12,7 +12,7 @@ export const removePartials = (location) =>
 
 export const decorateTitle = (pathname)	=> decorateNameField(exportPath(pathname) === '' ? 'home': exportPath(pathname));
 
-export const decorateLink = (pathname)	=> exportPath(pathname) === '' ? 'home': exportPath(pathname);
+export const decorateLink = (pathname)	=> exportPath(pathname) === '' ? '/home': `/${exportPath(pathname)}`;
 
 export const networkAlert = () => {
 	const alert = document.getElementById("alert");

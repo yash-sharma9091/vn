@@ -1,3 +1,4 @@
+/* global IMAGE_PATH */
 import React, {Component} from 'react';
 import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
@@ -7,6 +8,9 @@ import {fullName} from '../../lib/Helper';
 class ViewTeacherInfo extends Component {
 	render() {
         const {teacher} = this.props;
+        const style = {
+            backgroundImage: 'url(' + (IMAGE_PATH + '/' + teacher.profile_image.path) + ')'
+        }
 		return (
             <div className="left-group">
                 <div className="left-group-content">
@@ -17,7 +21,7 @@ class ViewTeacherInfo extends Component {
                                     <div className="form-row">
                                         <div className="col-sm-12">
                                             <div className="profiles-mains">
-                                                <div className="teacher-profiles"></div>
+                                                <div className="teacher-profiles" style={style}></div>
                                                 <span>{fullName(teacher.first_name, teacher.last_name)}</span>
                                             </div>
                                         </div>

@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import TeachersListElements from './TeachersListElements';
 import {Loader} from '../Common/Loader';
 
-class LeftPart extends Component {
+class TeacherList extends Component {
     constructor(props) {
         super(props);
         this.toggle = this.toggle.bind(this);
@@ -41,6 +41,7 @@ class LeftPart extends Component {
     }
 	render() {
         const { teacherList, paging, dropdownToggle, isLoadingList } = this.state;
+        const {refreshTeacherList} = this.props;
         /*console.log(teacherList);
         console.log(paging);*/
 		return (
@@ -52,7 +53,7 @@ class LeftPart extends Component {
                             :(
                                 <div className="d-flex justify-content-left flex-wrap align-items-stretch align-content-around teachers-row">
                                     {teacherList.length > 0 && teacherList.map((value, index) => {
-                                        return (<TeachersListElements teacher={value} key={index} dataIndex={index + 1} dropdownToggle={dropdownToggle === (index + 1)} toggle={this.toggle}/>)
+                                        return (<TeachersListElements refreshTeacherList={refreshTeacherList} teacher={value} key={index} dataIndex={index + 1} dropdownToggle={dropdownToggle === (index + 1)} toggle={this.toggle}/>)
                                     })}
                                 </div>
                             )
@@ -67,4 +68,4 @@ class LeftPart extends Component {
 const mapStateToProps = (state) => ({
     user: state.auth.user
 })
-export default connect(mapStateToProps)(LeftPart);
+export default connect(mapStateToProps)(TeacherList);
