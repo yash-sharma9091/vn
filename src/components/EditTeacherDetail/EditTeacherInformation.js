@@ -128,162 +128,96 @@ class EditTeacherInformation extends Component {
 
                                 <div className="group-tehead">Personal Information</div>
                                 <div className="p-3">
-                                    <div className="form-row">
-                                        <Field 
-                                            component={FormSelect} formGroupClassName="col-sm-6" name="gender" type="select" 
-                                            emptyText="Select gender" label="Gender" options={options}
-                                            labelClassName="col-sm-3" formRowWrapper={true}
-                                            displayKey={"value"} displayLabel={"name"} empty={true} validate={[Required]} doValidate={true}/>
-
-                                        <FormGroup className="col-sm-6">
-                                            <div className="form-row">
-                                                <Label for="exampleSelect" className="col-sm-3">Subject</Label>
-                                                <Input type="select" name="select_subject" id="exampleSelect" className="col-sm-9">
-                                                <option>Select grade</option>
-                                                <option>Select grade</option>
-                                                <option>Select grade</option>
-                                                <option>Select grade</option>
-                                            </Input>
+                                    <div class="form-row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group row">
+                                                <label for="inputEmail3" class="col-sm-3 col-form-label">Gender</label>
+                                                <div class="col-sm-9">
+                                                    <select id="inputState" class="form-control">
+                                                        <option selected>Select gender</option>
+                                                        <option>...</option>
+                                                    </select>
+                                                </div>
                                             </div>
-                                        </FormGroup>
-                                        
+                                        </div>
+                                        <div class="col-sm-6">
+                                             <div class="form-group row">
+                                                <label for="inputEmail3" class="col-sm-3 col-form-label">Subject</label>
+                                                <div class="col-sm-9">
+                                                    <select id="inputState" class="form-control">
+                                                        <option selected>Select Subject</option>
+                                                        <option>...</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
 
-                                    <div className="form-row">
-                                        <FormGroup className="col-sm-6">
-                                            <div className="form-row">
-                                                <Label for="exampleSelect" className="col-sm-3">Grade</Label>
-                                                <Input type="select" name="select_grade" id="exampleSelect" className="col-sm-9">
-                                                <option>Select grade</option>
-                                                <option>Select grade</option>
-                                                <option>Select grade</option>
-                                                <option>Select grade</option>
-                                            </Input>
+                                    <div class="form-row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group row">
+                                                <label for="inputEmail3" class="col-sm-3 col-form-label">Grade</label>
+                                                <div class="col-sm-9">
+                                                    <select id="inputState" class="form-control">
+                                                        <option selected>Select grade</option>
+                                                        <option>...</option>
+                                                    </select>
+                                                </div>
                                             </div>
-                                        </FormGroup>
-                                        <FormGroup className="col-sm-6">
-                                        <div className="form-row">
-                                            <Label for="exampleSelect" className="col-sm-3">Official Grade</Label>
-                                            <Input type="select" name="official_grade" id="exampleSelect" className="col-sm-9">
-                                            <option>Select grade</option>
-                                            <option>Select grade</option>
-                                            <option>Select grade</option>
-                                            <option>Select grade</option>
-                                        </Input>
                                         </div>
-                                    </FormGroup>
+                                        <div class="col-sm-6">
+                                             <div class="form-group row">
+                                                <label for="inputEmail3" class="col-sm-3 col-form-label">Official Grade</label>
+                                                <div class="col-sm-9">
+                                                    <select id="inputState" class="form-control">
+                                                        <option selected>Select Grade</option>
+                                                        <option>...</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                {/*<div className="group-tehead">Personal Information</div>
-                                <div className="p-3">
-                                    <div className="form-row">
-                                        <FormGroup className="col-sm-6">
-                                            <div className="form-row">
-                                                <Label for="exampleSelect" className="col-sm-3">Gender</Label>
-                                                <Input type="select" name="select" id="exampleSelect">
-                                                <option>Select gender</option>
-                                                <option>Select gender</option>
-                                                <option>Select gender</option>
-                                                <option>Select gender</option>
-                                            </Input>
-                                            </div>
-                                        </FormGroup>
-                                        <FormGroup className="col-sm-6">
-                                        <div className="form-row">
-                                            <Label for="exampleSelect" className="col-sm-3">Subject</Label>
-                                            <Input type="select" name="select" id="exampleSelect">
-                                            <option>Select subject</option>
-                                            <option>Select subject</option>
-                                            <option>Select subject</option>
-                                            <option>Select subject</option>
-                                        </Input>
-                                        </div>
-                                    </FormGroup>
-                                    </div>
-
-                                    <div className="form-row">
-                                        <FormGroup className="col-sm-6">
-                                            <div className="form-row">
-                                                <Label for="exampleSelect" className="col-sm-3">Grade</Label>
-                                                <Input type="select" name="select" id="exampleSelect">
-                                                <option>Select grade</option>
-                                                <option>Select grade</option>
-                                                <option>Select grade</option>
-                                                <option>Select grade</option>
-                                            </Input>
-                                            </div>
-                                        </FormGroup>
-                                        <FormGroup className="col-sm-6">
-                                        <div className="form-row">
-                                            <Label for="exampleSelect" className="col-sm-3">Official Grade</Label>
-                                            <Input type="select" name="select" id="exampleSelect">
-                                            <option>Select grade</option>
-                                            <option>Select grade</option>
-                                            <option>Select grade</option>
-                                            <option>Select grade</option>
-                                        </Input>
-                                        </div>
-                                    </FormGroup>
-                                    </div>
-                                </div>*/}
+                                
 
                                 <div className="group-tehead"> Contact Information</div>
                                 <div className="p-3">
-                                    <div className="form-row">
-                                        {/*<FormGroup className="col-sm-6">
-                                            <div className="form-row form-group">
-                                                <div className="col-sm-3">
-                                                    <Label for="exampleSelect" >Address</Label>
+                                    <div class="form-row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group row">
+                                                <label for="inputEmail3" class="col-sm-3 col-form-label">Address</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control is-invalid" id="validationServer03" placeholder="Enter Email" required />
+                                                    <div class="invalid-feedback">
+                                                        Please provide a valid email.
+                                                    </div>
                                                 </div>
-                                                <div className="col-sm-9">
-                                                    <div className="form-row form-group">
-                                                        <input type="text" className="form-control" placeholder="Enter address" />
-<<<<<<< HEAD
-                                                    </div>
-                                                    <div className="form-row form-group">
-                                                        <input type="text" className="form-control" placeholder="Enter country" />
-                                                    </div>
-                                                    <div className="form-row form-group">
-                                                        <Input type="select" name="select" id="exampleSelect">
-                                                        <option>Select state</option>
-                                                        <option>Select state</option>
-                                                        <option>Select state</option>
-                                                        <option>Select state</option>
-                                                        </Input>
-                                                    </div>
-                                                    <div className="form-row form-group">
-                                                        <input type="text" className="form-control" placeholder="Enter city" />
-                                                    </div>
-=======
-                                                    </div>                                                    
->>>>>>> e71d908d3865606f25d2d309e7492a3148aa8adf
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group row">
+                                                <label for="inputEmail3" class="col-sm-3 col-form-label">Email</label>
+                                                <div class="col-sm-9">
+                                                    <input type="email" class="form-control" id="inputEmail3" placeholder="Enter Email" />
                                                 </div>
-                                                
                                             </div>
-                                        </FormGroup>*/}
-                                        <Field 
-                                            component={FormField} type="text" formGroupClassName="col-sm-6" formRowWrapper={true} labelClassName="col-sm-3"
-                                            name="teacher_address" label="Address" placesAutocomplete={true} onSelect={this.handleSelect}
-                                            id="Teacher_Address" placeholder="Enter address" validate={[Required]} doValidate={true}/>
-                                        <Field 
-                                            component={FormField} type="text" formGroupClassName="col-sm-6" formRowWrapper={true} labelClassName="col-sm-3"
-                                            name="email_address" label="Email" placesAutocomplete={true} onSelect={this.handleSelect}
-                                            id="Email_Address" placeholder="Enter email" validate={[Required, Email]} doValidate={true}/>    
-                                        <Field 
-                                            component={FormField} type="text" formGroupClassName="col-sm-6" formRowWrapper={true} labelClassName="col-sm-3"
-                                            name="contact_telephoneno" label="Phone" placesAutocomplete={true} onSelect={this.handleSelect}
-                                            id="contact_telephoneno" placeholder="Enter phone" maskInput={true} inputAddOn={true} inputAddOnText="+1" validate={[Required]} doValidate={true}/>        
-                                        {/*<FormGroup className="col-sm-6">
-                                            <div className="form-row form-group">
-                                                <Label for="exampleSelect" className="col-sm-3">Email</Label>
-                                                <input type="text" className="form-control" placeholder="Enter email" />
-                                            </div>
-                                            <div className="form-row form-group">
-                                                <Label for="exampleSelect" className="col-sm-3">Phone</Label>
-                                                <input type="text" className="form-control" placeholder="Enter phone" />
-                                            </div>
-                                        </FormGroup>*/}
+                                        </div>
                                     </div>
+
+                                    <div class="form-row">
+                                        <div class="col-sm-6">
+                                                
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group row">
+                                                <label for="inputEmail3" class="col-sm-3 col-form-label">Phone</label>
+                                                <div class="col-sm-9">
+                                                    <input type="email" class="form-control" id="inputEmail3" placeholder="Enter Phone" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </Form>        
                         </div>

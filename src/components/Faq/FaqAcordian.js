@@ -32,7 +32,7 @@ class FaqAcordian extends Component {
     	return (
      		<div className="light-sm-bg">
 				<div className="d-flex flex-row justify-content-center">
-					<div className="col-5">
+					<div className="col-8 col-md-8 col-lg-5 col-xl-5">
 						<h3 className="gradient-color text-center">Frequently Asked Questions</h3>
 						<p className="text-center light-gray">Lorem ipsum dolor sit amet, consectetur adipiscing</p>
 						<div className="accordian-list">

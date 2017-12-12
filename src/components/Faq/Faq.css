@@ -1,7 +1,7 @@
 /*Banner*/
 .faq-banner{background: url('../../assets/images/faq-banner-resize.png') no-repeat center center;width: 100%;background-size: cover;min-height: 400px;}
 .faq-tab{position: relative;margin-top:-75px;}
-.faq-tab .nav-tabs .nav-link{color: #ffffff;background-color: rgba(8,24,44,0.5);border-radius: 0;border: none;margin: 0 1px;padding: 25px 35px;font-size: 17px;}
+.faq-tab .nav-tabs .nav-link{color: #ffffff;background-color: rgba(8,24,44,0.5);border-radius: 0;border: none;margin: 0 1px;padding: 25px 35px;font-size: 17px; cursor: pointer;}
 .faq-tab .nav-tabs .nav-link:hover{color: #ffffff;}
 .faq-tab .nav-tabs .nav-link.active{background-color: #f2f2f2;color:#081423;}
 
@@ -12,3 +12,8 @@
 .accordian-list .card .card-header.active .downArrow{transform: rotate(0deg);}
 .accordian-list .card .card-body{padding: 0 0 15px 0;color: #656563;font-size: 14px;}
 .no-faqs img { width: 30%; margin: 15px 0; }
+
+/*Responsive*/
+@media(max-width:1023px){
+    .faq-banner{min-height: 260px;}
+}
