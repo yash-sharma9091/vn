@@ -11,6 +11,8 @@ import {fullName, limitTo} from '../../lib/Helper';
 import Alert from '../Common/Alert';
 import {Link} from 'react-router-dom';
 import {teacherListing} from '../../lib/SiteLinks';
+import { connect } from 'react-redux'
+import { submit } from 'redux-form'
 
 class AddTeachers extends Component {
     constructor() {
@@ -35,6 +37,7 @@ class AddTeachers extends Component {
     }
 	render() {
         const {teacher, errors} = this.state;
+        const {dispatch} = this.props;
         
 		return (
             <div>
@@ -65,7 +68,7 @@ class AddTeachers extends Component {
 
                                 <div className="col-7 col-md-7 col-lg-8 col-xl-8">
                                     <div className="imports-button d-flex justify-content-end">
-                                        <button type="button" className="btn btn-info ml-1 ml-lg-1 ml-xl-2">Update</button>
+                                        <button type="button" onClick={() => dispatch(submit('EditTeacherInformationForm'))} className="btn btn-info ml-1 ml-lg-1 ml-xl-2">Update</button>
                                         <button type="button" className="btn btn-info ml-1 ml-lg-1 ml-xl-2">Cancel</button>
                                     </div>
                                 </div>
@@ -91,4 +94,4 @@ class AddTeachers extends Component {
 	}
 }
 
-export default AddTeachers;
+export default connect()(AddTeachers);

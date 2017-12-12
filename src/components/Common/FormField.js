@@ -20,7 +20,7 @@ class FormField extends Component {
 		} else if( formRowWrapper ) {
 			return (
 				<FormGroup className={formGroupClassName}>
-					<div className="form-row">
+					<div className="form-row form-group">
 			          	<Label className={labelClassName} for={id}>{label}</Label>
 			          	{this.renderInput()}
 			          	{this.FormFeedback()}
