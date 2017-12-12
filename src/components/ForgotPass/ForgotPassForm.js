@@ -37,11 +37,11 @@ class ForgotPassForm extends Component {
 					<div className="d-flex flex-row justify-content-center">
 					 <Form onSubmit={handleSubmit(this.formSubmit)}  className="col-8 col-lg-8 col-lg-7 col-xl-5">
 						<h3 className="gradient-color text-center">Forgot Your Password</h3>
-						<p className="text-center light-gray">Enter your unique account number below, and we’ll send you the Reset Link</p>
+						<p className="text-center light-gray">Enter your email address below, and we’ll send you the Reset Link</p>
 						<Alert alertVisible={error||success} alertMsg={error||success} className={error ? "danger":"success"}/>
 						<Field 
 							component={FormField} type="text"
-							name="uan" label="Email Address"
+							name="email_address" label="Email Address"
 							id="Email Address" labelClassName="gradient-color"
 							placeholder="Enter email address" validate={UAN} doValidate={true}/>
 						

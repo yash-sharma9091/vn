@@ -207,6 +207,8 @@ class RightPart extends Component {
 }
 let RightPartForm = reduxForm({
     form: 'RightPartForm',
+    asyncValidate: isValidAddress,
+    asyncBlurFields: ['teacher_address'],
     onSubmitFail: handleSubmitFailed
 })(RightPart);
 

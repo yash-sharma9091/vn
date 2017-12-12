@@ -31,9 +31,9 @@ import {
 	invalid, 
 	dashboard,
 	teacherListing,
-	editteacherDetail,
 	addStudent,
 	teacherDetail,
+	editTeacher,
 	faq, 
 	//schoolstep
 } from '../lib/SiteLinks';
@@ -52,9 +52,9 @@ export const Router = props => {
 					<BeforeAuthRoute path={resetPassword} component={ResetPassword} />
 					<PrivateRoute path={dashboard} component={Dashboard} />
 					<PrivateRoute path={teacherListing} component={AddTeachers} />
-					<PrivateRoute path={editteacherDetail} component={EditTeacherDetail} />
 					<PrivateRoute path={teacherDetail} component={TeacherDetail} />
 					<PrivateRoute path={addStudent} component={AddStudent} />
+					<PrivateRoute path={editTeacher} component={EditTeacherDetail} />
 					<Route path={faq} component={Faq} />
 					{/*<PrivateRoute path={schoolstep} component={SchoolStep} />*/}
 					<Route path={invalid} component={Invalid} />

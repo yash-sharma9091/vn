@@ -44,4 +44,10 @@
 .edit-group-box .form-control{
     max-width:300px;
 }
-
+.alert-box{
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 10;
+}

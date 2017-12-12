@@ -5,11 +5,14 @@ import FormField from "../Common/FormField";
 import FormSelect from "../Common/FormSelect";
 import FormSubmit from "../Common/FormSubmit";
 import { Field, SubmissionError,reduxForm } from 'redux-form';
-import {Required, Email, Number, maxLength4,maxLength200,maxLength400, Alphabets} from '../../lib/Validate';
+import {Required, Email, Number, maxLength4,maxLength200,maxLength400, Alphabets, isValidAddress} from '../../lib/Validate';
 import {Http} from '../../lib/Http';
 import Alert from '../Common/Alert';
 import './Register.css';
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
+import {isJson, flattenObject, handleSubmitFailed} from '../../lib/Helper';
+import {getMasterData} from '../../api/getMasterData';
+import FormDropdown from "../Common/FormDropdown";
 
 class RegisterForm extends Component {
 	constructor(props) {
@@ -18,11 +21,18 @@ class RegisterForm extends Component {
       	this.handleSelect = this.handleSelect.bind(this);
       	this.state = {
       		success: '',
+      		options:[],
+      		levels:[],
       		coordinates : {
       			lat: '',
       			lng: ''
       		}
       	}
+    }
+    componentDidMount() {
+    	getMasterData()
+    	.then(({school_level, school_type}) => this.setState({school_level, school_type}))
+    	.catch(error => { throw new SubmissionError(error.message) });
     }
     handleSelect(address) {
 		geocodeByAddress(address)
@@ -72,20 +82,9 @@ class RegisterForm extends Component {
     	}
     }
   	render() {
-  		const { error, handleSubmit, pristine, submitting} = this.props;
-  		const options = [
-			{abbreviation: 'P', name: 'Public School'},
-			{abbreviation: 'R', name: 'Private School'},
-			{abbreviation: 'C', name: 'Charter School'},
-			{abbreviation: 'A', name: 'Parochia School'},
-			{abbreviation: 'other', name: 'Other'}
-		], levels = [
-			{key: 'k5', value: 'K-5'},
-			{key: 'k6', value: 'K-6'},
-			{key: 'k8', value: 'K-8'},
-			{key: 'k9', value: 'K-9'},
-			{key: 'k12', value: 'K-12'}
-		];
+  		const { error, handleSubmit, pristine, submitting, fetchError} = this.props;
+  		const {school_type, school_level} = this.state;
+  		
     	return (
      		<div className="App">
         		<div className="light-bg padding-50">
@@ -143,18 +142,28 @@ class RegisterForm extends Component {
 		                            placeholder="Enter Total No. of Students"/>
 									
 		                        <div className="form-row">
-		                            <Field 
+		                            {/*<Field 
 		                            	component={FormSelect} formGroupClassName="col-md-6"
 		                            	name="school_type" type="select" emptyText="Select school"
-		                            	label="Type of School" className="input_both" options={options}
-		                            	displayKey={null} displayLabel={"name"} empty={true}
-		                            	labelClassName="gradient-color"/>
+		                            	label="Type of School" className="input_both" options={school_type}
+		                            	displayKey={"_id"} displayLabel={"name"} empty={true}
+		                            	labelClassName="gradient-color"/>*/}
 		                            <Field 
+		                                component={FormDropdown} formGroupClassName="col-md-6"
+		                                name="school_type" empty={true} emptyText="Select type"
+		                                label="Type of School" data={school_type} placeholder="Select type"
+		                                valueField={"abbreviation"} textField={"name"} labelClassName="gradient-color"/>	
+		                            {/*<Field 
 		                            	component={FormSelect} formGroupClassName="col-md-6"
 		                            	name="school_level" type="select" emptyText="Select levels"
-		                            	label="School Levels" className="input_both" options={levels}
-		                            	displayKey={"key"} displayLabel={"value"} empty={true}
-		                            	labelClassName="gradient-color"/>
+		                            	label="School Levels" className="input_both" options={school_level}
+		                            	displayKey={"_id"} displayLabel={"value"} empty={true}
+		                            	labelClassName="gradient-color"/>*/}
+	                            	<Field 
+	                            	    component={FormDropdown} formGroupClassName="col-md-6"
+	                            	    name="school_level" data={school_level} labelClassName="gradient-color"
+	                            	    label="School Levels" placeholder="School level"
+	                            	    valueField={"key"} textField={"value"} empty={true} emptyText="School level"/>
 		                        </div>
 		                        
 		                        <Field 
@@ -214,15 +223,9 @@ class RegisterForm extends Component {
       		</div>
     	);
   	}
-  	isJson(str) {
-	    try {
-	        JSON.parse(str);
-	    } catch (e) {
-	        return false;
-	    }
-	    return true;
-	}
+  
   	formSubmit(values) {
+  		
   		const {dispatch, reset, showThanks} = this.props;
   		if( _.has(values, 'contact_telephoneno') ) {
   			values.contact_telephoneno = _.replace(values.contact_telephoneno, /-|\s|\+1/g, "");
@@ -230,9 +233,9 @@ class RegisterForm extends Component {
   		if( _.has(values, 'school_telephoneno') ) {
   			values.school_telephoneno = _.replace(values.school_telephoneno, /-|\s|\+1/g, "");
   		}
-  		if( _.has(values, 'school_type') ) {
-  			values.school_type = this.isJson(values.school_type) ? JSON.parse(values.school_type) : values.school_type;
-  		}
+  		/*if( _.has(values, 'school_type') ) {
+  			values.school_type = isJson(values.school_type) ? JSON.parse(values.school_type) : values.school_type;
+  		}*/
   		return new Promise((resolve, reject) => {
   			Http.post('signupSchool', values)
   			.then(({data}) => {
@@ -253,16 +256,10 @@ class RegisterForm extends Component {
   	}
 }
 
-const flattenObject = (c, d = '.') => {
-  const r = {};
-  (function f(o, p) {
-      Object.keys(o).forEach(k => (o[k] && typeof o[k] === 'object' ? f(o[k], p ? `${p}${d}${k}` : k) : (r[p ? `${p}${d}${k}` : k] = o[k])));
-  }(c));
-  return r;
-};
-
 const _RegisterForm = reduxForm({
   	form: 'signupForm',
+  	asyncValidate: isValidAddress,
+    asyncBlurFields: ['school_address'],
   	validate: (values) => {
     	const errors = {};
     	if(!values.contact_telephoneno) {
@@ -272,19 +269,7 @@ const _RegisterForm = reduxForm({
     	}
     	return errors;
     },
-    onSubmitFail: (errors) => {
-    	// https://github.com/erikras/redux-form/issues/2365
-    	const errorEl = document.querySelector(
-    		// flattenObject: https://github.com/hughsk/flat/issues/52
-    		Object.keys(flattenObject(errors)).map(fieldName => `[name="${fieldName}"]`).join(',')
-  		);
-  		
-  		if (errorEl && errorEl.focus) {
-  			errorEl.focus();
-  		} else {
-  			window.scrollTo(0, 0);
-  		}
-    }
+    onSubmitFail: handleSubmitFailed
 })(RegisterForm);
 
 export default _RegisterForm;

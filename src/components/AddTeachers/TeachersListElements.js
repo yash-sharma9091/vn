@@ -5,26 +5,29 @@ import EnvelopeGray from '../../assets/images/svg/envelope-gray.svg';
 import ThreeDots from '../../assets/images/svg/three-dots.svg';
 import { DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import {DropdownWithoutActiveProps} from '../partials/DropdownWithoutActiveProps';
-import {fullName, limitTo} from '../../lib/Helper';
+import {fullName, limitTo, decorateLink} from '../../lib/Helper';
+import {editTeacher} from '../../lib/SiteLinks';
+import {LinkContainer} from 'react-router-bootstrap';
 
 class TeachersListElements extends Component {
 	render() {
-		const {dropdownToggle, toggle, teacher} = this.props;
+		const {dropdownToggle, toggle, teacher, dataIndex} = this.props;
 		return (
 			<div className="light-white-bg teacher-box p-2 p-lg-3 relative">
 			    <div className="box-settings pointer">
 			        <DropdownWithoutActiveProps tag="li" nav="true" isOpen={dropdownToggle} toggle={toggle}>
 			            <DropdownToggle tag="a">
 			                <div className="user-image">
-			                    <img src={ThreeDots} alt="" />
+			                    <img src={ThreeDots} alt="action" data-index={dataIndex} />
 			                </div> 
 			            </DropdownToggle>
 			            <DropdownMenu>
-			                <DropdownItem header>Header</DropdownItem>
-			                <DropdownItem>Action</DropdownItem>
-			                <DropdownItem>Another Action</DropdownItem>
-			                <DropdownItem divider />
-			                <DropdownItem >Logout</DropdownItem>
+			            	<LinkContainer to={`${decorateLink(editTeacher)}/${teacher._id}`}>
+			                	<DropdownItem>Edit</DropdownItem>
+			                </LinkContainer>	
+			                <DropdownItem>Delete</DropdownItem>
+			                <DropdownItem>Assign Subject</DropdownItem>
+			                <DropdownItem>View Lesson Plans</DropdownItem>
 			            </DropdownMenu>
 			        </DropdownWithoutActiveProps>
 			    </div>
