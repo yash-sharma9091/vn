@@ -74,11 +74,16 @@ class ImaegCropper extends Component {
 	render() {
 		const {logo, displayText} = this.props;
 		const {src, tmpSrc, showImage, invalidFile, invalidSize} = this.state;
+		const imageStyle = {
+			backgroundImage: 'url(' + ( src || logo || CameraImage ) + ')',
+			backgroundRepeat  : 'no-repeat',
+       		backgroundPosition: 'center',
+		}
 		return (
 			<div>
 				<div className="form-group">
 				    <div className={`camera-image ${invalidSize ? 'invalidFile':''}`}>
-				        <div className="camera-icon">
+				        <div className="camera-icon" style={imageStyle}>
 				            {/* <img src={src || logo || CameraImage} /> */}
 				        </div>
 				        <a className="delete-button-image" onClick={this.removeImage}><img src={DeleteImage} /></a>

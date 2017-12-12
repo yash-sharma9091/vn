@@ -29,6 +29,12 @@ class TeachersListElements extends Component {
 	render() {
 		const {dropdownToggle, toggle, teacher, dataIndex, refreshTeacherList} = this.props;
 		const {show, _teacher} = this.state;
+		const imageStyle = {
+			backgroundImage: 'url(' + ( `${IMAGE_PATH}/${teacher.profile_image.path}` ) + ')',
+			backgroundRepeat  : 'no-repeat',
+       		backgroundPosition: 'center',
+		}
+		console.log(imageStyle);
 		return (
 			<div>
 				<div className="light-white-bg teacher-box p-2 p-lg-3 relative">
@@ -50,7 +56,7 @@ class TeachersListElements extends Component {
 				        </DropdownWithoutActiveProps>
 				    </div>
 				    <div className="teacher-group-box relative">
-				        <div className="teacher-picture">
+				        <div className="teacher-picture" style={imageStyle}>
 				            {/* <img src={`${IMAGE_PATH}/${teacher.profile_image.path}`} alt={teacher.first_name} /> */}
 				        </div>
 				        <div className="te-head text-capitalize">{limitTo(fullName(teacher.first_name, teacher.last_name),50)}</div>

@@ -10,7 +10,7 @@ import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import ImageCropper from '../Common/ImageCropper';
 import './AddTeachers.css';
 import {handleSubmitFailed} from '../../lib/Helper';
-import {Required, Email, Number, Phone, maxLength4,maxLength200,maxLength400, Alphabets, isValidAddress} from '../../lib/Validate';
+import {Required, Email, Number, Phone, maxLength4,maxLength200,maxLength400, Alphabets, isValidAddress, ConatctNumber} from '../../lib/Validate';
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import {Http} from '../../lib/Http';
 import Alert from '../Common/Alert';
@@ -108,7 +108,7 @@ class RightPart extends Component {
                                         </div>
                                     </div>
                                     <div>
-                                        <div className="text-uppercase font-weight-bold teach-head">CREATE TEACHER</div>
+                                        <div className="text-uppercase font-weight-bold teach-head">Add TEACHER</div>
                                     </div>
                                     <div>
 
@@ -131,7 +131,7 @@ class RightPart extends Component {
                                     <Field 
                                         component={FormField} type="text" formGroupClassName="col-md-12 col-lg-6"
                                         name="last_name" label="Last Name"
-                                        id="First_Name" placeholder="Enter first name" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
+                                        id="First_Name" placeholder="Enter last name" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
                                 </div>
 
                                 <div className="form-row">
@@ -163,7 +163,7 @@ class RightPart extends Component {
                                         component={FormField} type="text" formGroupClassName="col-md-12 col-lg-6"
                                         name="contact_telephoneno" label="Contact Number"
                                         id="Contact_Number" placeholder="Enter contact number"
-                                        doValidate={true} maskInput={true} inputAddOn={true} inputAddOnText="+1" validate={[Required]} doValidate={true}/>
+                                        doValidate={true} maskInput={true} inputAddOn={true} inputAddOnText="+1" validate={[ConatctNumber]} doValidate={true}/>
                                 </div>
                                 
                             </div>
