@@ -3,7 +3,7 @@ import { Form } from 'reactstrap';
 import FormField from "../Common/FormField";
 import FormSubmit from "../Common/FormSubmit";
 import { Field, SubmissionError,reduxForm } from 'redux-form';
-import {Required, Email, maxLength200} from '../../lib/Validate';
+import {Required, Email, maxLength200, maxLength400} from '../../lib/Validate';
 import {Http} from '../../lib/Http';
 import './Faq.css';
 import Alert from '../Common/Alert';
@@ -29,8 +29,8 @@ class AskQuestion extends Component {
 						<Alert alertVisible={error||success} alertMsg={error||success} className={error ? "danger":"success"}/>
 						<Field 
 							component={FormField} type="textarea"
-							name="Enter your questions" label="Question/Comment"
-							id="goalStudentClass" labelClassName="gradient-color" rows="3"/>
+							name="question" label="Question/Comment"
+							id="goalStudentClass" labelClassName="gradient-color" rows="3" validate={[Required,maxLength400]} doValidate={true}/>
 
                         <Field 
 							component={FormField} type="text"

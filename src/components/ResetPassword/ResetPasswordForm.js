@@ -11,6 +11,7 @@ import {Http} from '../../lib/Http';
 import {connect} from 'react-redux';
 import Alert from '../Common/Alert';
 import CopyRightText from '../partials/CopyRightText';
+import {push} from 'react-router-redux';
 
 class ResetPasswordForm extends Component {
 	constructor(props) {
@@ -76,6 +77,7 @@ class ResetPasswordForm extends Component {
 				dispatch(reset('reset_password')); // Reset the form
 				setTimeout( () => {
 					this.setState({success: ''});
+					dispatch(push(login));
 				},5000);
 				resolve();
 			})

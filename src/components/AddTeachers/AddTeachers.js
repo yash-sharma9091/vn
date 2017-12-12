@@ -11,8 +11,10 @@ class AddTeachers extends Component {
     constructor() {
         super();
         this.refresh = this.refresh.bind(this);
+        this.toggleFilter = this.toggleFilter.bind(this);
         this.state = {
             toggleClass: false,
+            toggleFilter: true,
             refreshTeacherList: false
         }
     }
@@ -25,14 +27,17 @@ class AddTeachers extends Component {
             }
         }    
     }
+    toggleFilter() {
+        this.setState({toggleFilter: !this.state.toggleFilter});
+    }
     toggle() {
-        this.setState({toggleClass: !this.state.toggleClass})
+        this.setState({toggleClass: !this.state.toggleClass});
     }
     refresh() {
         this.setState({refreshTeacherList: true});
     }
 	render() {
-        const {toggleClass, refreshTeacherList} = this.state;
+        const {toggleClass, refreshTeacherList, toggleFilter} = this.state;
 		return (
             <div>
 
@@ -57,7 +62,9 @@ class AddTeachers extends Component {
                                             <input type="text" className="form-control" placeholder="Search by name, email, phone number" aria-label="Recipient's username" aria-describedby="basic-addon2" />
                                             <span className="input-group-addon" id="basic-addon2"><img className="filter-icon" src={searcher} alt="" /></span>
                                         </div>
-                                        <button type="button" className="btn btn-secondary filter-btn"><img className="filter-icon" src={filter} alt="" /></button>
+                                        <button type="button" className="btn btn-secondary filter-btn" onClick={this.toggleFilter}>
+                                            <img className="filter-icon" src={filter} alt="" />
+                                        </button>
                                     </div>
 
                                 </div>
@@ -74,7 +81,7 @@ class AddTeachers extends Component {
                         </div>
 
                         {/*Grade-Bar*/}
-                        <div className="grade-bar light-lg-bg" >
+                        <div className={`grade-bar light-lg-bg ${toggleFilter ? 'd-none':''}`}>
                             <div className="d-flex justify-content-between align-items-center p-2 grade-box">
                                 <div>
                                     <FormGroup className="mb-0 mr-2">
