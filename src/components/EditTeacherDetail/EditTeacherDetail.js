@@ -14,13 +14,15 @@ import {teacherListing, teacherDetail} from '../../lib/SiteLinks';
 import { connect } from 'react-redux';
 import { submit } from 'redux-form';
 import {LinkContainer} from 'react-router-bootstrap';
+import {Loader} from '../Common/Loader';
 
 class AddTeachers extends Component {
     constructor() {
         super();
         this.state = {
             teacher: {},
-            errors:''
+            errors:'',
+            isLoading: false
         }
     }
     componentDidMount() {
@@ -28,16 +30,17 @@ class AddTeachers extends Component {
         const {match} = this.props;
         const {id} = match.params;
         if( id ) {
+            this.setState({isLoading: true});
             Http.get(`view_teacher?_id=${id}`)
-            .then(({data}) => this.setState({teacher: data}))
+            .then(({data}) => this.setState({teacher: data, isLoading: false}))
             .catch(({errors}) => {
-                this.setState({errors: errors.message});
+                this.setState({errors: errors.message, isLoading: true});
                 setTimeout(() => this.setState({errors: ''}), 5000);
             });
         }
     }
 	render() {
-        const {teacher, errors} = this.state;
+        const {teacher, errors, isLoading} = this.state;
         const {dispatch} = this.props;
         
 		return (
@@ -83,7 +86,8 @@ class AddTeachers extends Component {
 
                     <div className="dashboard-main inner-sub-page">
                         <div className="dash-left-box">
-                            {!_.isEmpty(teacher) && <EditTeacherInformation teacher={teacher} initialValues={teacher}/>}
+                            { isLoading && <Loader /> }
+                            {!isLoading && !_.isEmpty(teacher) && <EditTeacherInformation teacher={teacher} initialValues={teacher}/>}
                         </div>
                         <div className="dash-right-box">
                             <ActivityPanel />

@@ -1,12 +1,27 @@
 import React, { Component } from 'react';
-import { FormGroup, Label, Input, FormFeedback, InputGroupAddon, InputGroup } from 'reactstrap';
+import { FormGroup, Label, Input, FormFeedback, InputGroupAddon, InputGroup, Col } from 'reactstrap';
 import InputMask from 'react-input-mask';
 import PlacesAutocomplete from 'react-places-autocomplete';
 
 class FormField extends Component {
 	render() {
-		const {labelClassName, id, label, formGroupClassName, inputAddOn, inputAddOnText, formRowWrapper} = this.props;
-		if( inputAddOn ) {
+		const {labelClassName, id, label, formGroupClassName, inputAddOn, inputAddOnText, colWrapper, col} = this.props;
+		
+		if(  inputAddOn && colWrapper ) {
+					
+			return (
+				<FormGroup className={formGroupClassName}>
+					<Label className={labelClassName} for={id}>{label}</Label>
+					<Col sm={col}>
+						<InputGroup>
+				          	<InputGroupAddon>{inputAddOnText}</InputGroupAddon>
+				          	{this.renderInput()}
+			        	</InputGroup>
+			        	{this.FormFeedback()}
+			        </Col>	
+		        </FormGroup>
+			);		
+		}else if( inputAddOn ) {
 			return (
 				<FormGroup className={formGroupClassName}>
 					<Label className={labelClassName} for={id}>{label}</Label>
@@ -16,15 +31,15 @@ class FormField extends Component {
 		        	</InputGroup>
 		        	{this.FormFeedback()}
 		        </FormGroup>
-			);			
-		} else if( formRowWrapper ) {
+			);
+		} else if( colWrapper ) {
 			return (
 				<FormGroup className={formGroupClassName}>
-					<div className="form-row form-group">
-			          	<Label className={labelClassName} for={id}>{label}</Label>
+		          	<Label className={labelClassName} for={id}>{label}</Label>
+		          	<Col sm={col}>
 			          	{this.renderInput()}
 			          	{this.FormFeedback()}
-		          	</div>
+			        </Col>
 		        </FormGroup>
 			)
 		} else {

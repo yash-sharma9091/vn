@@ -5,7 +5,7 @@ import { geocodeByAddress } from 'react-places-autocomplete';
 const Required = (value, allValues, props, name) => {
 	return (value ? undefined : `${decorateNameField(name)} is required`);
 }
-const ConatctNumber = (value, allValues, props, name) => {
+const ContactNumber = (value, allValues, props, name) => {
 	return (value ? undefined : 'Contact number is required');
 }
 const UAN = (value, allValues, props, name) => {
@@ -62,5 +62,5 @@ export{
 	Alphabets,
 	Phone,
 	isValidAddress,
-	ConatctNumber
+	ContactNumber
 };

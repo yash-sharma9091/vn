@@ -1,19 +1,19 @@
 import React, {Component} from 'react';
-import { FormGroup, Label, Input, FormFeedback } from 'reactstrap';
+import { FormGroup, Label, Input, FormFeedback, Col } from 'reactstrap';
 export class FormSelect extends Component {
 	render() {
-		const {labelClassName, id, label, formGroupClassName, input, type, formRowWrapper} = this.props;
-		if( formRowWrapper ) {
+		const {labelClassName, id, label, formGroupClassName, input, type, colWrapper, col} = this.props;
+		if( colWrapper ) {
 			return (
 				<FormGroup className={formGroupClassName}>
-					<div className="form-row">
-			          	<Label className={labelClassName} for={id}>{label}</Label>
+		          	<Label className={labelClassName} for={id}>{label}</Label>
+		          	<Col sm={col}>
 			          	<Input {...input} type={type} className={this.isInvalid()}>
 			          		{this.empty()}
 				        	{this.options()}
 				        </Input>	
 				        {this.formFeedback()}
-				    </div>    
+			        </Col>
 		        </FormGroup>    
 			);
 		} else {
