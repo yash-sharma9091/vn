@@ -125,7 +125,7 @@ class EditTeacherInformation extends Component {
                                         <FormGroup className="col-sm-6">
                                             <div className="form-row">
                                                 <Label for="exampleSelect" className="col-sm-3">Gender</Label>
-                                                <Input type="select" name="select" id="exampleSelect" className="col-sm-9">
+                                                <Input type="select" name="select" id="exampleSelect">
                                                 <option>Select gender</option>
                                                 <option>Select gender</option>
                                                 <option>Select gender</option>
@@ -136,7 +136,7 @@ class EditTeacherInformation extends Component {
                                         <FormGroup className="col-sm-6">
                                         <div className="form-row">
                                             <Label for="exampleSelect" className="col-sm-3">Subject</Label>
-                                            <Input type="select" name="select" id="exampleSelect" className="col-sm-9">
+                                            <Input type="select" name="select" id="exampleSelect">
                                             <option>Select subject</option>
                                             <option>Select subject</option>
                                             <option>Select subject</option>
@@ -150,7 +150,7 @@ class EditTeacherInformation extends Component {
                                         <FormGroup className="col-sm-6">
                                             <div className="form-row">
                                                 <Label for="exampleSelect" className="col-sm-3">Grade</Label>
-                                                <Input type="select" name="select" id="exampleSelect" className="col-sm-9">
+                                                <Input type="select" name="select" id="exampleSelect">
                                                 <option>Select grade</option>
                                                 <option>Select grade</option>
                                                 <option>Select grade</option>
@@ -161,7 +161,7 @@ class EditTeacherInformation extends Component {
                                         <FormGroup className="col-sm-6">
                                         <div className="form-row">
                                             <Label for="exampleSelect" className="col-sm-3">Official Grade</Label>
-                                            <Input type="select" name="select" id="exampleSelect" className="col-sm-9">
+                                            <Input type="select" name="select" id="exampleSelect">
                                             <option>Select grade</option>
                                             <option>Select grade</option>
                                             <option>Select grade</option>
@@ -188,7 +188,7 @@ class EditTeacherInformation extends Component {
                                                         <input type="text" className="form-control" placeholder="Enter country" />
                                                     </div>
                                                     <div className="form-row form-group">
-                                                        <Input type="select" name="select" id="exampleSelect" className="col-sm-9">
+                                                        <Input type="select" name="select" id="exampleSelect">
                                                         <option>Select state</option>
                                                         <option>Select state</option>
                                                         <option>Select state</option>
