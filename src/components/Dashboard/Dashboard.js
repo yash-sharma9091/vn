@@ -37,11 +37,11 @@ class Dashboard extends Component {
 			<div className="school-dashboard d-flex align-items-center" style={dashboardBg}>
 					<button type="button" class="activity-btn">Activity</button>
 
-					<div className="activity-box">
+					{/* <div className="activity-box">
 						<div className="activity-head">
 							Activity
 						</div>
-					</div>
+					</div> */}
 
 					<div className="row justify-content-md-center col-sm-12 no-gutters">
 						<div className="col-8 col-md-10 col-lg-8 col-xl-5 admin-box pt-5 pb-5 pl-2 pr-2">

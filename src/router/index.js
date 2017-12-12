@@ -12,6 +12,8 @@ import Faq from '../components/Faq/Faq';
 import Dashboard from '../components/Dashboard/Dashboard';
 import AddTeachers from '../components/AddTeachers/AddTeachers';
 import EditTeacherDetail from '../components/EditTeacherDetail/EditTeacherDetail';
+import TeacherDetail from '../components/TeacherDetail/TeacherDetail';
+import AddStudent from '../components/AddStudent/AddStudent';
 import SchoolStep from '../components/BuildSchoolStep/SchoolStep';
 import NotFound from '../components/Error/404';
 import Invalid from '../components/Error/Invalid';
@@ -30,6 +32,8 @@ import {
 	dashboard,
 	teacherListing,
 	editteacherDetail,
+	addStudent,
+	teacherDetail,
 	faq, 
 	//schoolstep
 } from '../lib/SiteLinks';
@@ -49,6 +53,8 @@ export const Router = props => {
 					<PrivateRoute path={dashboard} component={Dashboard} />
 					<PrivateRoute path={teacherListing} component={AddTeachers} />
 					<PrivateRoute path={editteacherDetail} component={EditTeacherDetail} />
+					<PrivateRoute path={teacherDetail} component={TeacherDetail} />
+					<PrivateRoute path={addStudent} component={AddStudent} />
 					<Route path={faq} component={Faq} />
 					{/*<PrivateRoute path={schoolstep} component={SchoolStep} />*/}
 					<Route path={invalid} component={Invalid} />
