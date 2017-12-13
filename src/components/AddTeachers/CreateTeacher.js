@@ -175,7 +175,7 @@ class RightPart extends Component {
 		) 
 	}
     formSubmit(values) {
-        const {user, dispatch, reset, refreshTeacherList} = this.props;
+        const {user, dispatch, reset, refreshList} = this.props;
         const {lat, lng} = this.state.coordinates;
         values.lat = lat;
         values.lng = lng;
@@ -190,7 +190,7 @@ class RightPart extends Component {
                 dispatch(reset('RightPartForm'));
                 setTimeout(() => this.setState({success: ''}), 5000);
                 window.scrollTo(0, 0);
-                refreshTeacherList();
+                refreshList();
                 resolve();
             })
             .catch(({errors}) => {

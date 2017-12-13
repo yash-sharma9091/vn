@@ -12,7 +12,6 @@ class StudentListElements extends Component {
 	render() {
 		const {dropdownToggle, toggle, teacher} = this.props;
 		return (
-			
 			<div className="light-white-bg teacher-box p-2 p-lg-3 relative">
 			    <div className="box-settings pointer">
 			        <DropdownWithoutActiveProps tag="li" nav="true" isOpen={dropdownToggle} toggle={toggle}>
@@ -45,10 +44,6 @@ class StudentListElements extends Component {
 			        <button type="button" className="btn btn-link view-btn pointer">View Detail</button>
 			    </div>
 			</div>
-
-
-
-			
 		);
 	}
 }

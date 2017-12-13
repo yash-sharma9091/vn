@@ -27,7 +27,7 @@ class TeachersListElements extends Component {
 		this.setState({_teacher});
 	}
 	render() {
-		const {dropdownToggle, toggle, teacher, dataIndex, refreshTeacherList} = this.props;
+		const {dropdownToggle, toggle, teacher, dataIndex, refreshList} = this.props;
 		const {show, _teacher} = this.state;
 		const imageStyle = {
 			backgroundImage: 'url(' + ( `${IMAGE_PATH}/${teacher.profile_image.path}` ) + ')',
@@ -71,7 +71,7 @@ class TeachersListElements extends Component {
 				        </LinkContainer>	
 				    </div>
 				</div>
-				{show && <DeleteTeacher show={show} refreshTeacherList={refreshTeacherList} toggle={this.toggle} teacher={_teacher}/>}
+				{show && <DeleteTeacher show={show} refreshList={refreshList} toggle={this.toggle} teacher={_teacher}/>}
 			</div>	
 		);
 	}

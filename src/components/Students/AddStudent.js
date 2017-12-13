@@ -109,7 +109,7 @@ class RightPart extends Component {
                                         </div>
                                     </div>
                                     <div>
-                                        <div className="text-uppercase font-weight-bold teach-head">CREATE Student</div>
+                                        <div className="text-uppercase font-weight-bold teach-head">Add Student</div>
                                     </div>
                                     <div>
 
@@ -148,7 +148,7 @@ class RightPart extends Component {
 
                                 <div className="form-row">
                                     <Field 
-                                        component={FormSelect} formGroupClassName="col-md-6 col-lg-6" name="Additional Health Info" type="select" 
+                                        component={FormSelect} formGroupClassName="col-md-6 col-lg-12" name="Additional Health Info" type="select" 
                                         emptyText="Additional Health Info" label="Additional Health Info " options={options}
                                         displayKey={"value"} displayLabel={"name"} empty={true} validate={[Required]} doValidate={true}/>         
                                 </div>
@@ -172,25 +172,9 @@ class RightPart extends Component {
 
                                 <div className="form-row">
                                     <Field 
-                                        component={FormField} type="text" formGroupClassName="col-md-12 col-lg-6"
+                                        component={FormField} type="text" formGroupClassName="col-md-12 col-lg-12"
                                         name="Address" label="Address"
                                         id="Address" placeholder="Enter address" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
-                                    <Field 
-                                        component={FormField} type="text" formGroupClassName="col-md-12 col-lg-6"
-                                        name="Country" label="Country"
-                                        id="Country" placeholder="Enter Country" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
-                                </div>
-
-                                <div className="form-row">
-                                    <Field 
-                                        component={FormSelect} formGroupClassName="col-md-6 col-lg-6" name="gender" type="select" 
-                                        emptyText="Select State" label="State" options={options}
-                                        displayKey={"value"} displayLabel={"name"} empty={true} validate={[Required]} doValidate={true}/>
-
-                                    <Field 
-                                        component={FormField} type="text" formGroupClassName="col-md-12 col-lg-6"
-                                        name="City" label="City"
-                                        id="City" placeholder="Enter city" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>      
                                 </div>
 
                                 <div className="form-row">

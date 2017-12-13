@@ -10,7 +10,7 @@ import HomePage from '../components/HomePage/HomePage';
 import Login from '../components/Login/Login';
 import Faq from '../components/Faq/Faq';
 import Dashboard from '../components/Dashboard/Dashboard';
-import AddTeachers from '../components/AddTeachers/AddTeachers';
+import AddTeachers from '../components/Wrapper/Wrapper';
 import EditTeacherDetail from '../components/EditTeacherDetail/EditTeacherDetail';
 import TeacherDetail from '../components/TeacherDetail/TeacherDetail';
 import AddStudent from '../components/AddStudent/AddStudent';

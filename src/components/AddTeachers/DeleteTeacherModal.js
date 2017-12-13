@@ -15,7 +15,7 @@ class DeleteTeacher extends Component {
 		}
 	}
 	delete() {
-		const {teacher, refreshTeacherList, toggle} = this.props;
+		const {teacher, refreshList, toggle} = this.props;
 		this.setState({isDeleting: true});
 		Http.delete(`delete_teacher?_id=${teacher._id}`)
 		.then(({data}) => {
@@ -23,7 +23,7 @@ class DeleteTeacher extends Component {
 			setTimeout(() => {
 				this.setState({success: ''});
 				toggle();
-				refreshTeacherList();
+				refreshList();
 			}, 3000);
 		})
 		.catch(({errors}) => this.setState({error: errors.message, isDeleting: false}));
