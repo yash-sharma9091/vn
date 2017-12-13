@@ -35,14 +35,15 @@ axios.interceptors.response.use( response => {
 	if(!error.response && error.message === 'Network Error'){
 		networkAlert();
 	}
-	/*if( error.response ) {
+	if( error.response ) {
 		if( error.response.data ) {
 			const {errors} = error.response.data;
-			if( errors.code === 'invalid_token' ) {
-				LogoutTimeout();
+			console.log(errors);
+			if( errors.code === 'invalid_token' || errors.source.code === "credentials_required") {
+				window.location.reload();
 			}
 		}
-	}*/
+	}
 	
   	// Do something with response error
   	return Promise.reject(error);

@@ -14,6 +14,7 @@ import {Required, Email, Number, Phone, maxLength4,maxLength200,maxLength400, Al
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import {Http} from '../../lib/Http';
 import Alert from '../Common/Alert';
+import FormCalender from '../Common/FormCalender';
 import {connect} from 'react-redux';
 
 class RightPart extends Component {
@@ -136,37 +137,13 @@ class RightPart extends Component {
 
                                 <div className="form-row">
                                     <Field 
-                                        component={FormField} type="text" formGroupClassName="col-md-12 col-lg-6"
+                                        component={FormCalender} type="text" formGroupClassName="col-md-12 col-lg-6"
                                         name="DOB" label="DOB"
                                         id="DOB" placeholder="MM/DD/YYYY" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
-                                    <Field 
-                                        component={FormField} type="text" formGroupClassName="col-md-12 col-lg-6"
-                                        name="Subject" label="Subject"
-                                        id="subject" placeholder="Enter subject" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
-                                </div>
-
-                                <div className="form-row">
-                                    <Field 
-                                        component={FormSelect} formGroupClassName="col-md-6 col-lg-6" name="gender" type="select" 
-                                        emptyText="Select Grade" label="Gender" options={options}
-                                        displayKey={"value"} displayLabel={"name"} empty={true} validate={[Required]} doValidate={true}/>
-
-                                    <Field 
-                                        component={FormSelect} formGroupClassName="col-md-6 col-lg-6" name="gender" type="select" 
-                                        emptyText="Student Code" label="Gender" options={options}
-                                        displayKey={"value"} displayLabel={"name"} empty={true} validate={[Required]} doValidate={true}/>           
-                                </div>
-
-                                <div className="form-row">
-                                    <Field 
+                                   <Field 
                                         component={FormSelect} formGroupClassName="col-md-6 col-lg-6" name="gender" type="select" 
                                         emptyText="Select Gender" label="Gender" options={options}
                                         displayKey={"value"} displayLabel={"name"} empty={true} validate={[Required]} doValidate={true}/>
-
-                                    <Field 
-                                        component={FormSelect} formGroupClassName="col-md-6 col-lg-6" name="Official Class " type="select" 
-                                        emptyText="Official Class" label="Official Class" options={options}
-                                        displayKey={"value"} displayLabel={"name"} empty={true} validate={[Required]} doValidate={true}/>           
                                 </div>
 
                                 <div className="form-row">
