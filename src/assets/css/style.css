@@ -156,3 +156,23 @@ label {
     .md-heading{font-size: 28px;}
     footer.padding-20{padding: 10px 0;}
 }
+
+
+/*Responsive by Height*/
+@media (max-height:1080px) {
+    .tab-content{
+        min-height: 490px;
+    }
+}
+
+@media (max-height:900px) {
+    .tab-content {
+        min-height: 444px;
+    }
+}
+
+@media (max-height:768px) {
+    .tab-content {
+        min-height: 312px;
+    }
+}

@@ -6,7 +6,7 @@ import './404.css';
 class ErrorContent extends Component {
   	render() {
     	return (
-            <div className="light-sm-bg padding-40">
+            <div className="error-box-show light-sm-bg padding-40">
               <div className="container">
                 <div className="d-flex justify-content-around">
                     <div className="text-center">

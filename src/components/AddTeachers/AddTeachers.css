@@ -283,6 +283,10 @@
     height: 18px;
 }
 
+.no-records-available{
+    height: 100%;
+}
+
 /*Responsive Code*/
 @media(max-width:1911px){
     .teacher-box {

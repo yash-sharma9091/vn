@@ -4,6 +4,7 @@ import RegisterForm from  './RegisterForm';
 import './Register.css';
 import ThankYou from '../ThankYou/ThankYou';
 import ScrollToTopOnMount from '../Common/ScrollToTopOnMount';
+import MainHeader from  '../partials/MainHeader.js';
 
 class Register extends Component {
 	constructor() {
@@ -17,6 +18,7 @@ class Register extends Component {
   		const {showThankYou} = this.state;
     	return (
      		<div>
+				<MainHeader />
         		{!showThankYou && <Banner />}
 				{!showThankYou && <RegisterForm showThanks={this.showThankYouPage}/>}
 				{showThankYou && <div><ScrollToTopOnMount /><ThankYou /></div>}
