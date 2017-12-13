@@ -4,7 +4,7 @@ import searcher from '../../assets/images/svg/musica-searcher.svg';
 import filter from '../../assets/images/svg/filter.svg';
 import { Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import EditTeacherInformation from './EditTeacherInformation';
-import ActivityPanel from './ActivityPanel';
+import ActivityPanel from '../Activity/ActivityPanel';
 import './EditTeacherDetail.css';
 import {Http} from '../../lib/Http';
 import {fullName, limitTo, decorateLink} from '../../lib/Helper';

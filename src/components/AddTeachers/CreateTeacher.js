@@ -87,7 +87,7 @@ class RightPart extends Component {
         }
     }
 	render() {
-        const { error, handleSubmit, pristine, submitting, initialValues, change, user} = this.props;
+        const { error, handleSubmit, pristine, submitting, initialValues, change, user, toggleForm} = this.props;
         const { success, reset } = this.state;
         
         const options = [
@@ -104,7 +104,7 @@ class RightPart extends Component {
                                 <div className="d-flex justify-content-between align-items-center">
                                     <div>
                                         <div className="imports-button d-flex justify-content-start">
-                                            <button type="button" className="btn btn-info" onClick={this.resetForm}>Reset</button>
+                                            <button type="button" className="btn btn-info" onClick={toggleForm}>Cancel</button>
                                         </div>
                                     </div>
                                     <div>
@@ -149,7 +149,7 @@ class RightPart extends Component {
                                 <div className="form-row">
                                     <Field 
                                         component={FormField} type="text" formGroupClassName="col-md-12 col-lg-12"
-                                        name="teacher_address" label="Address" placesAutocomplete={true} onSelect={this.handleSelect}
+                                        name="teacher_address" label="Teacher Address" placesAutocomplete={true} onSelect={this.handleSelect}
                                         id="Teacher_Address" placeholder="Enter address" validate={[Required]} doValidate={true}/>
                                     
                                 </div>

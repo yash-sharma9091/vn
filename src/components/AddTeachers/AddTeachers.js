@@ -12,6 +12,7 @@ class AddTeachers extends Component {
         super();
         this.refresh = this.refresh.bind(this);
         this.toggleFilter = this.toggleFilter.bind(this);
+        this.toggle = this.toggle.bind(this);
         this.state = {
             toggleClass: false,
             toggleFilter: true,
@@ -71,7 +72,7 @@ class AddTeachers extends Component {
 
                                 <div className="col-4 col-md-4 col-lg-3 col-xl-3">
                                     <div className="imports-button d-flex justify-content-end">
-                                        <button type="button" onClick={() => this.toggle()} className="btn btn-primary ml-1 ml-lg-1 ml-xl-2">{toggleClass ? 'Cancel': 'Create'}</button>
+                                        <button type="button" onClick={this.toggle} className="btn btn-primary ml-1 ml-lg-1 ml-xl-2">{toggleClass ? 'Cancel': 'Create'}</button>
                                         <button type="button" className="btn btn-info ml-1 ml-lg-1 ml-xl-2">Import</button>
                                         <button type="button" className="btn btn-info ml-1 ml-lg-1 ml-xl-2">Export</button>
                                     </div>
@@ -134,7 +135,7 @@ class AddTeachers extends Component {
                                 <TeacherList refresh={refreshTeacherList} refreshTeacherList={this.refresh}/>
                             </div>
                             <div className="dash-right-box">
-                                <CreateTeacher refreshTeacherList={this.refresh}/>
+                                <CreateTeacher toggleForm={this.toggle} refreshTeacherList={this.refresh}/>
                             </div>
                     </div>
                 

@@ -1,0 +1,51 @@
+/*activity-date*/
+.activity-date{border-bottom:1px solid #eaeaec;}
+.now-activity-list .media img{
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+}
+.now-activity-list .activity-heading{
+    font-size: 16px;
+    color: #6d6d6d;
+    line-height: 22px;
+    margin-bottom: 15px;
+}
+.now-activity-list .activity-heading black{
+    color:#292b2c; 
+    font-weight: 600;
+}
+.now-activity-list .activity-heading blue{
+    color:#0a4ba9; 
+    font-weight: 600;
+}
+.activity-questiobox{
+    background-color: #f7f7f9;
+    padding: 15px;
+}
+.activity-questiobox h3{
+    color: #6a6a68;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.activity-questiobox h4{
+    color: #0a4ba9;
+    font-size: 16px;
+}
+.activity-questiobox h5{
+    color: #6a6a68;
+    font-size: 13px;
+    text-align: right;
+}
+.write-comment a{
+    display: block;
+    font-size: 13px;
+    color: #0a4ba9 !important;
+    text-decoration: underline !important;
+    text-align: right;
+    cursor: pointer;
+    padding: 10px 0 0 0;
+}
+.now-activity-list{
+    border-bottom: 1px solid #eeeeee;
+}

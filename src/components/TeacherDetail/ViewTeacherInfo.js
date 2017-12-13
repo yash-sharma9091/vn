@@ -39,22 +39,24 @@ class ViewTeacherInfo extends Component {
                                         </FormGroup>
                                         <FormGroup className="col-sm-6">
                                                 <Label className="col-sm-3 col-md-4">Official Class</Label>
-                                                <span className="col-sm-9 col-md-8 word-text">E204</span>
+                                                {/*<span className="col-sm-9 col-md-8 word-text">E204</span>*/}
+                                                <span className="col-sm-9 col-md-8 word-text">N/A</span>
                                          </FormGroup>
                                     </div>
 
                                     <div className="form-row">
                                         <FormGroup className="col-sm-6">
                                                 <Label className="col-sm-3 col-md-4">Grade</Label>
-                                                <span className="col-sm-9 col-md-8 word-text">E 201</span>
+                                                {/*<span className="col-sm-9 col-md-8 word-text">E 201</span>*/}
+                                                <span className="col-sm-9 col-md-8 word-text">N/A</span>
                                         </FormGroup>
                                         <FormGroup className="col-sm-6">
                                                 <Label className="col-sm-3 col-md-4">Subjects</Label>
                                                 <span className="col-sm-9 col-md-8">
                                                     <ul className="code-list">
-                                                        <li>E 401</li>
-                                                        <li>M 201</li>
-                                                        <li>S 501</li>
+                                                        <li>N/A</li>
+                                                        {/*<li>M 201</li>
+                                                        <li>S 501</li>*/}
                                                     </ul>
                                                 </span>
                                         </FormGroup>
