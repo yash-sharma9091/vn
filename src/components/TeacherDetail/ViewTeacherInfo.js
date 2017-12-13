@@ -34,37 +34,29 @@ class ViewTeacherInfo extends Component {
                                 <Form>
                                     <div className="form-row">
                                         <FormGroup className="col-sm-6">
-                                            <div className="form-row">
-                                                <Label className="col-sm-3">Gender</Label>
-                                                <span className="col-sm-9 word-text">{teacher.gender}</span>
-                                            </div>
+                                                <Label className="col-sm-3 col-md-4">Gender</Label>
+                                                <span className="col-sm-9 col-md-8 word-text">{teacher.gender}</span>
                                         </FormGroup>
                                         <FormGroup className="col-sm-6">
-                                            <div className="form-row">
-                                                <Label className="col-sm-3">Official Class</Label>
-                                                <span className="col-sm-9 word-text">E204</span>
-                                            </div>
+                                                <Label className="col-sm-3 col-md-4">Official Class</Label>
+                                                <span className="col-sm-9 col-md-8 word-text">E204</span>
                                          </FormGroup>
                                     </div>
 
                                     <div className="form-row">
                                         <FormGroup className="col-sm-6">
-                                            <div className="form-row">
-                                                <Label className="col-sm-3">Grade</Label>
-                                                <span className="col-sm-9 word-text">E 201</span>
-                                            </div>
+                                                <Label className="col-sm-3 col-md-4">Grade</Label>
+                                                <span className="col-sm-9 col-md-8 word-text">E 201</span>
                                         </FormGroup>
                                         <FormGroup className="col-sm-6">
-                                            <div className="form-row">
-                                                <Label className="col-sm-3">Subjects</Label>
-                                                <span className="col-sm-9">
+                                                <Label className="col-sm-3 col-md-4">Subjects</Label>
+                                                <span className="col-sm-9 col-md-8">
                                                     <ul className="code-list">
                                                         <li>E 401</li>
                                                         <li>M 201</li>
                                                         <li>S 501</li>
                                                     </ul>
                                                 </span>
-                                            </div>
                                         </FormGroup>
                                     </div>
                                 </Form>
@@ -75,22 +67,24 @@ class ViewTeacherInfo extends Component {
                                 <Form>
                                     <div className="form-row">
                                         <FormGroup className="col-sm-6">
-                                            <div className="form-row">
-                                                <Label className="col-sm-3">Address</Label>
-                                                <span className="col-sm-9 word-text">{teacher.teacher_address}</span>
-                                            </div>
+                                                <Label className="col-sm-3 col-md-4">Address</Label>
+                                                <span className="col-sm-9 col-md-8 word-text">{teacher.teacher_address}</span>
                                         </FormGroup>
                                         <FormGroup className="col-sm-6">
-                                            <div className="form-row">
-                                                <Label className="col-sm-3">Email</Label>
-                                                <span className="col-sm-9 word-text email-text">{teacher.email_address}</span>
-                                            </div>
-                                            <div className="form-row">
-                                                <Label className="col-sm-3">Phone</Label>
-                                                <span className="col-sm-9 word-text">{teacher.contact_telephoneno}</span>
-                                            </div>
+                                                <Label className="col-sm-3 col-md-4">Email</Label>
+                                                <span className="col-sm-9 col-md-8 word-text email-text">{teacher.email_address}</span>
                                          </FormGroup>
                                     </div>
+
+                                    <div className="form-row">
+                                        <div className="col-sm-6">
+                                        </div>
+                                        <FormGroup className="col-sm-6">
+                                            <Label className="col-sm-3 col-md-4">Phone</Label>
+                                            <span className="col-sm-9 col-md-8 word-text">{teacher.contact_telephoneno}</span>
+                                        </FormGroup>
+                                    </div>
+
                                 </Form>
                             </div>
 

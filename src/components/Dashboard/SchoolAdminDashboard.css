@@ -33,7 +33,7 @@
 
 /*admin-box*/
 .admin-box{background-color: rgba(255,255,255,0.1);border-radius: 3px;}
-.dash-box a{display:block; text-align:center; cursor:pointer;}
+.dash-box a{display:block; text-align:center; cursor:pointer; text-decoration: none;}
 .dash-box a .dash-icon{position: relative;}
 .dash-box a .dash-icon img{margin: auto; display: block;}
 .dash-box a span{color:#ffffff; font-size: 14px; cursor: pointer; font-weight:800;}

@@ -11,14 +11,19 @@
     top: 51px;
     left: 0;
     right: 0;
-    height: 112px;
+    height: auto;
 }
 .dashboard-main {
     position: absolute;
-    top: 112px;
+    top: 57px;
     left: 0;
     width: 100%;
     bottom: 0;
+    transition: all .6s ease-in-out;
+}
+.dashboard-main.toggleFilter{
+    top: 113px;
+    transition: all .6s ease-in-out;
 }
 .dashboard-main .dash-left-box{
     width:100%;
@@ -84,7 +89,7 @@
     top: 51px;
     left: 0;
     right: 0;
-    height: 56px;
+    height: auto;
 }
 
 /*(Dashboard) For inner page*/
@@ -112,12 +117,12 @@
 
 
 .imports-button .btn-info, .imports-button .btn-info:active, .imports-button .btn-info.active{color: #292b2c;background-color: transparent;border-color: #0a4bab;}
-.search-bar{background-color: #ffffff;}
+.search-bar{background-color: #ffffff;border-bottom:1px solid #dddddf;}
 .search-bar .search-head{color:#0a4bab;font-size: 22px;}
 .search-bar .filter-icon{width:20px;}
 .search-bar .btn-secondary.filter-btn{color: #fff;background-color: #e9ecef;border-color: rgba(0, 0, 0, 0.15);}
 .clear-link{font-size:14px; color:#999fa4; cursor:pointer;}
-.grade-bar{border-bottom: 1px solid #dddddf;border-top: 1px solid #dddddf;}
+.grade-bar{border-bottom: 1px solid #dddddf;}
 .grade-bar .grade-box {
     max-width:950px; margin: auto;
 }
@@ -338,6 +343,58 @@
     }
     .teach-head {
         font-size: 15px;
+    }
+}
+
+@media(max-width:1365px){
+    .dashboard-main.inner-sub-page .dash-left-box{
+        width: 100%;
+    }
+    .dashboard-main.inner-sub-page .dash-left-box .left-group{
+        width: 100%;
+    }
+    .dashboard-main.inner-sub-page .dash-right-box{
+        width: 100%;
+    }
+    .dashboard-main.inner-sub-page .dash-right-box .right-group{
+        width: 100%;
+    }
+    .dashboard-main.inner-sub-page .dash-left-box .left-group {
+        position: relative;
+        width: 100%;
+        left: auto;
+        top: auto;
+        bottom: auto;
+    }
+    .dashboard-main.inner-sub-page .dash-left-box .left-group .left-group-content {
+        position: relative;
+        left: auto;
+        top: auto;
+        right: auto;
+        bottom: auto;
+        width: 100%;
+        overflow: unset;
+    }
+    .dashboard-main.inner-sub-page .dash-right-box .right-group {
+        position: relative;
+        width: 100%;
+        right: auto;
+        top: auto;
+        bottom: auto;
+        background-color: #ffffff;
+        border-left: none;
+    }
+    .dashboard-main.inner-sub-page .dash-right-box .right-group .right-group-content {
+        position: relative;
+        left: auto;
+        top: auto;
+        right: auto;
+        bottom: auto;
+        width: 100%;
+        overflow: unset;
+    }
+    .dashboard-main.inner-sub-page{
+        overflow: auto;
     }
 }
 
