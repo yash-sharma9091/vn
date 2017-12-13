@@ -6,7 +6,7 @@ export class Cookie {
 			_value = JSON.stringify(cvalue);
 		}
 	    let d = new Date();
-	    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+	    d.setTime(d.getTime() + (1000));
 	    let expires = `expires=${d.toUTCString()}`;
 	    document.cookie = `VirtualNotebook.${cname}=${encodeURIComponent(_value)};${expires};path=/`;
 	}

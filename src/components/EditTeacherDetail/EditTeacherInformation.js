@@ -15,6 +15,8 @@ import FormField from "../Common/FormField";
 import FormSelect from "../Common/FormSelect";
 import {Http} from '../../lib/Http';
 import Alert from '../Common/Alert';
+import {teacherListing} from '../../lib/SiteLinks';
+import {push} from 'react-router-redux';
 let success='';
 
 class EditTeacherInformation extends Component {
@@ -232,7 +234,8 @@ let _EditTeacherInformation = reduxForm({
             Http.upload('edit_teacher', values)
             .then(({data}) => {
                 success = data.message;
-                setTimeout(() => {success=''},3000);
+                setTimeout(() => {success=''; dispatch(push(teacherListing));},3000);
+                
                 resolve();
             })
             .catch(({errors}) => {
