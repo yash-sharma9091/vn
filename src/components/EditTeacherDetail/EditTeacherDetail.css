@@ -51,3 +51,22 @@
     width: 100%;
     z-index: 10;
 }
+
+
+/*inner-cropper*/
+.inner-cropper .camera-upload-content {
+    padding-left: 0;
+    padding-top: 25px;
+}
+
+/*Responsive*/
+@media(max-width:1023px){
+    .breadcrumb-list .breadcrumb .breadcrumb-item a{
+        font-size: 18px;
+        line-height: 35px;
+    }
+    .breadcrumb-list .breadcrumb .breadcrumb-item.active {
+        font-size: 18px;
+        line-height: 35px;
+    }
+}

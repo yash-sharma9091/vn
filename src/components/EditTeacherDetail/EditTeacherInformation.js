@@ -107,11 +107,11 @@ class EditTeacherInformation extends Component {
                                 <Alert alertVisible={error || success} alertMsg={error || success} className={error ? "danger alert-box":"success"}/>
                                 <div className="p-3">
                                     <div className="row align-items-center">
-                                        <div className="col-sm-2">
+                                        <div className="col-md-3 col-lg-2 inner-cropper">
                                             <Field component={ImageCropper} name="image" logo={profileImage}/>
                                         </div>
-                                        <div className="col-sm-10">
-                                            <div className="form-row">
+                                        <div className="col-md-9 col-lg-10">
+                                            <div className="form-row pl-3">
                                                 <Field 
                                                     component={FormField} type="text" formGroupClassName="mr-2"
                                                     name="first_name" label="First Name"
