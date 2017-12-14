@@ -12,6 +12,7 @@ import Faq from '../components/Faq/Faq';
 import Dashboard from '../components/Dashboard/Dashboard';
 import AddTeachers from '../components/AddTeachers/AddTeachers';
 import EditTeacherDetail from '../components/EditTeacherDetail/EditTeacherDetail';
+import EditStudentDetail from '../components/EditStudentDetail/EditStudentDetail';
 import TeacherDetail from '../components/TeacherDetail/TeacherDetail';
 import AddStudent from '../components/AddStudent/AddStudent';
 import SchoolStep from '../components/BuildSchoolStep/SchoolStep';
@@ -34,6 +35,7 @@ import {
 	addStudent,
 	teacherDetail,
 	editTeacher,
+	editStudent,
 	faq, 
 	//schoolstep
 } from '../lib/SiteLinks';
@@ -55,6 +57,7 @@ export const Router = props => {
 					<PrivateRoute path={teacherDetail} component={TeacherDetail} />
 					<PrivateRoute path={addStudent} component={AddStudent} />
 					<PrivateRoute path={editTeacher} component={EditTeacherDetail} />
+					<PrivateRoute path={editStudent} component={EditStudentDetail} />
 					<Route path={faq} component={Faq} />
 					{/*<PrivateRoute path={schoolstep} component={SchoolStep} />*/}
 					<Route path={invalid} component={Invalid} />

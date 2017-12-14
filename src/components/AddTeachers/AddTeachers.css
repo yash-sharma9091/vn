@@ -287,6 +287,28 @@
     height: 100%;
 }
 
+/*confirmation-modal*/
+.confirmation-modal .media img {
+    width: 45px;
+    height: 45px;
+    border: 1px solid #dad9da;
+     border-radius: 3px;
+}
+.confirmation-modal .media .media-body h5{
+    color: #0a4ba9;
+    font-size: 18px;
+    padding-top: 10px;
+}
+.confirmation-modal .modal-body h3{
+    color: #6d6d6d;
+    font-size: 20px;
+    margin-bottom: 17px;
+}
+.confirmation-modal .modal-header .modal-title h2{
+    font-size: 18px;
+    color: #292b2c;
+}
+
 /*Responsive Code*/
 @media(max-width:1911px){
     .teacher-box {
