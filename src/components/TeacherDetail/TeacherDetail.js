@@ -66,9 +66,9 @@ class AddTeachers extends Component {
                                         <LinkContainer to={`${decorateLink(editTeacher)}/${teacher._id}`}>
                                             <button type="button" className="btn btn-primary ml-1 ml-lg-1 ml-xl-2">Edit</button>
                                         </LinkContainer>    
-                                        <LinkContainer to={`${teacherListing}?toggleClass=active`}>
+                                        {/*<LinkContainer to={`${teacherListing}?toggleClass=active`}>
                                             <button type="button" className="btn btn-info ml-1 ml-lg-1 ml-xl-2">Create</button>
-                                         </LinkContainer>       
+                                         </LinkContainer>*/}       
                                     </div>
                                 </div>
                             </div>

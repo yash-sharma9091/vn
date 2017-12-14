@@ -11,6 +11,7 @@ class DeleteTeacher extends Component {
 		this.delete = this.delete.bind(this);
 		this.state = {
 			isDeleting: false,
+			isDeleted: false,
 			success:'',
 			error:''
 		}
@@ -20,7 +21,7 @@ class DeleteTeacher extends Component {
 		this.setState({isDeleting: true});
 		Http.delete(`delete_teacher?_id=${teacher._id}`)
 		.then(({data}) => {
-			this.setState({success: data.message, isDeleting: false});
+			this.setState({success: data.message, isDeleting: false, isDeleted: true});
 			setTimeout(() => {
 				this.setState({success: ''});
 				toggle();
@@ -31,29 +32,30 @@ class DeleteTeacher extends Component {
 	}
 	render() {
 		const {show, toggle, className, teacher} = this.props;
-		const {isDeleting, error, success} = this.state;
+		const {isDeleting, error, success, isDeleted} = this.state;
 		const imageStyle = {
 			backgroundImage: 'url(' + ( `${IMAGE_PATH}/${teacher.profile_image.path}` ) + ')',
 			backgroundRepeat  : 'no-repeat',
        		backgroundPosition: 'center',
 		}
+		
 		return (
 			<Modal isOpen={show} toggle={toggle} className={className} className="confirmation-modal">
-				<ModalHeader toggle={toggle}><h2>Confirmation</h2> </ModalHeader>
+				<ModalHeader toggle={toggle}>Confirmation </ModalHeader>
 			    <ModalBody>
 			    	<Alert alertVisible={error || success} alertMsg={error || success} className={error ? "danger alert-box":"success"}/>
 					<h3>Are you sure to want to delete ?</h3>
 					<div className="media">
-						<img class="align-self-center mr-3" src={confImg} alt="Generic placeholder image" />
+						<img className="align-self-center mr-3" src={confImg} alt="Generic placeholder image" />
 						<div className="media-body">
-							<h5 class="mt-0">Antoine Langlais</h5>
+							<h5 className="mt-0">{limitTo(fullName(teacher.first_name, teacher.last_name),50)}</h5>
 						</div>
 					</div>
-					<div className="te-head text-capitalize">{limitTo(fullName(teacher.first_name, teacher.last_name),50)}</div> */}
+					{/*<div className="te-head text-capitalize">{limitTo(fullName(teacher.first_name, teacher.last_name),50)}</div> */}
 				</ModalBody>
 				<ModalFooter className="imports-button">
-					<Button color="info" disabled={isDeleting} onClick={this.delete}>{isDeleting ? 'Processing ...':'No'}</Button>{' '}
-					<Button color="primary" onClick={toggle}>Yes</Button>
+					<Button color="primary" disabled={isDeleting || isDeleted} onClick={this.delete}>{isDeleting ? 'Processing ...':'Yes'}</Button>{' '}
+					<Button color="info" onClick={toggle}>No</Button>
 				</ModalFooter>
 			</Modal>
 		)

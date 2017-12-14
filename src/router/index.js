@@ -10,7 +10,7 @@ import HomePage from '../components/HomePage/HomePage';
 import Login from '../components/Login/Login';
 import Faq from '../components/Faq/Faq';
 import Dashboard from '../components/Dashboard/Dashboard';
-import AddTeachers from '../components/Wrapper/Wrapper';
+import Wrapper from '../components/Wrapper/Wrapper';
 import EditTeacherDetail from '../components/EditTeacherDetail/EditTeacherDetail';
 import EditStudentDetail from '../components/EditStudentDetail/EditStudentDetail';
 import TeacherDetail from '../components/TeacherDetail/TeacherDetail';
@@ -53,9 +53,9 @@ export const Router = props => {
 					<BeforeAuthRoute path={forgotPassword} component={ForgotPass} />
 					<BeforeAuthRoute path={resetPassword} component={ResetPassword} />
 					<PrivateRoute path={dashboard} component={Dashboard} />
-					<PrivateRoute path={teacherListing} component={AddTeachers} />
+					<PrivateRoute path={teacherListing} component={Wrapper} />
 					<PrivateRoute path={teacherDetail} component={TeacherDetail} />
-					<PrivateRoute path={addStudent} component={AddStudent} />
+					<PrivateRoute path={addStudent} component={Wrapper} />
 					<PrivateRoute path={editTeacher} component={EditTeacherDetail} />
 					<PrivateRoute path={editStudent} component={EditStudentDetail} />
 					<Route path={faq} component={Faq} />

@@ -100,6 +100,7 @@ class RightPart extends Component {
                 <div className="right-group-content">
                     <div className="create-teacher">
                         <Form onSubmit={handleSubmit(this.formSubmit)}>
+                        <Alert alertVisible={error || success} alertMsg={error || success} className={error ? "danger":"success"}/>
                             <div className="p-3 teacher-forms">
                                 <div className="d-flex justify-content-between align-items-center">
                                     <div>
@@ -177,6 +178,10 @@ class RightPart extends Component {
     formSubmit(values) {
         const {user, dispatch, reset, refreshList} = this.props;
         const {lat, lng} = this.state.coordinates;
+        if( !lat && !lng ) {
+            throw new SubmissionError({student_address:'Invalid address'});
+            return;
+        }
         values.lat = lat;
         values.lng = lng;
         values._id = user._id;

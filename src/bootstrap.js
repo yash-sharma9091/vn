@@ -35,13 +35,12 @@ axios.interceptors.response.use( response => {
 	if(!error.response && error.message === 'Network Error'){
 		networkAlert();
 	}
-	if( error.response ) {
-		if( error.response.data ) {
-			const {errors} = error.response.data;
-			console.log(errors);
-			if( errors.code === 'invalid_token' || errors.source.code === "credentials_required") {
-				window.location.reload();
-			}
+	if( error.response && error.response.data ) {
+		const {errors} = error.response.data;
+		if( (errors.code === 'invalid_token') ||  (errors.source && errors.source.code === "credentials_required") ) {
+			Cookie.delete('token');
+			Cookie.delete('user');
+			setTimeout(() => window.location.reload());
 		}
 	}
 	

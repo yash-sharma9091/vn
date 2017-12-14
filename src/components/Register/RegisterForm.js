@@ -13,6 +13,7 @@ import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import {isJson, flattenObject, handleSubmitFailed} from '../../lib/Helper';
 import {getMasterData} from '../../api/getMasterData';
 import FormDropdown from "../Common/FormDropdown";
+import {connect} from 'react-redux';
 
 class RegisterForm extends Component {
 	constructor(props) {
@@ -29,11 +30,11 @@ class RegisterForm extends Component {
       		}
       	}
     }
-    componentDidMount() {
+    /*componentDidMount() {
     	getMasterData()
     	.then(({school_level, school_type}) => this.setState({school_level, school_type}))
     	.catch(error => { throw new SubmissionError(error.message) });
-    }
+    }*/
     handleSelect(address) {
 		geocodeByAddress(address)
 		.then(result => {
@@ -83,7 +84,7 @@ class RegisterForm extends Component {
     }
   	render() {
   		const { error, handleSubmit, pristine, submitting, fetchError} = this.props;
-  		const {school_type, school_level} = this.state;
+  		const {school_type, school_level} = this.props.masterdata;
   		
     	return (
      		<div className="App">
@@ -102,7 +103,7 @@ class RegisterForm extends Component {
               			        	component={FormField} type="text"
               			        	name="contact_title" label="Contact Title*"
               			        	id="contactTitle" labelClassName="gradient-color"
-              			        	placeholder="Enter Contact title" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
+              			        	placeholder="Enter contact title" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
               			        	
               			        <Field 
               			        	component={FormField} type="email"
@@ -227,6 +228,13 @@ class RegisterForm extends Component {
   	formSubmit(values) {
   		
   		const {dispatch, reset, showThanks} = this.props;
+  		const {lat, lng} = this.state.coordinates;
+        if( !lat && !lng ) {
+            throw new SubmissionError({student_address:'Invalid address'});
+            return;
+        }
+        values.lat = lat;
+        values.lng = lng;
   		if( _.has(values, 'contact_telephoneno') ) {
   			values.contact_telephoneno = _.replace(values.contact_telephoneno, /-|\s|\+1/g, "");
   		}
@@ -272,4 +280,7 @@ const _RegisterForm = reduxForm({
     onSubmitFail: handleSubmitFailed
 })(RegisterForm);
 
-export default _RegisterForm;
+const mapStateToProps = (state) => ({
+	masterdata: state.masterdb
+})
+export default connect(mapStateToProps)(_RegisterForm);

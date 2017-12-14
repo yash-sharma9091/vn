@@ -22,30 +22,26 @@ let success='';
 class EditTeacherInformation extends Component {
     constructor() {
         super();
-        this.formSubmit = this.formSubmit.bind(this);
+        //this.formSubmit = this.formSubmit.bind(this);
         this.handleSelect = this.handleSelect.bind(this);
         this.fillFormFields = this.fillFormFields.bind(this);
         //this.resetForm = this.resetForm.bind(this);
         this.state = {
             success: '',
             reset: false,
-            coordinates : {
-                lat: '',
-                lng: ''
-            }
+            profileImage:''
         }
     }
     handleSelect(address) {
+        const {change} = this.props;
         geocodeByAddress(address)
         .then(result => {
             this.fillFormFields(result);
             return getLatLng(result[0])
         })
         .then(({ lat, lng }) => {
-            let request = {
-                lat, lng
-            }
-            this.setState({coordinates: request});
+            change('lat', lat);
+            change('lng', lng);
         })
         .catch(err => { throw new SubmissionError(err.message) });
     }
@@ -84,9 +80,7 @@ class EditTeacherInformation extends Component {
         }
     }
     
-    formSubmit(values) {
-        console.log(values);
-    }
+    
 	render() {
         const { error, handleSubmit, teacher} = this.props;
         
@@ -99,7 +93,6 @@ class EditTeacherInformation extends Component {
             {value: 'male', name: 'Male'},
             {abbreviation: 'female', name: 'Female'}
         ]
-        console.log(success);
 		return (
             <div className="left-group">
                 <div className="left-group-content">
@@ -230,12 +223,19 @@ let _EditTeacherInformation = reduxForm({
     asyncBlurFields: ['teacher_address'],
     onSubmitFail: handleSubmitFailed,
     onSubmit: (values, dispatch, props) => {
+        //console.log(values);return;
+        const {lat, lng} = values;
+        if( !lat && !lng ) {
+            throw new SubmissionError({teacher_address:'Invalid address'});
+            return;
+        }
+        
         return new Promise((resolve, reject) => {
             Http.upload('edit_teacher', values)
             .then(({data}) => {
                 success = data.message;
                 setTimeout(() => {success=''; dispatch(push(teacherListing));},3000);
-                
+                window.scrollTo(0, 0);
                 resolve();
             })
             .catch(({errors}) => {

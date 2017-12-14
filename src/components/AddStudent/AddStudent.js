@@ -10,14 +10,14 @@ import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import ImageCropper from '../Common/ImageCropper';
 import './AddStudent.css';
 import {handleSubmitFailed} from '../../lib/Helper';
-import {Required, Email, Number, Phone, maxLength4,maxLength200,maxLength400, Alphabets, isValidAddress} from '../../lib/Validate';
+import {Required, Email, ContactNumber,maxLength200,maxLength400, Alphabets, isValidAddress} from '../../lib/Validate';
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import {Http} from '../../lib/Http';
 import Alert from '../Common/Alert';
 import FormCalender from '../Common/FormCalender';
 import {connect} from 'react-redux';
 
-class RightPart extends Component {
+class AddStudent extends Component {
     constructor() {
         super();
         this.formSubmit = this.formSubmit.bind(this);
@@ -35,7 +35,7 @@ class RightPart extends Component {
     }
     resetForm() {
         const {dispatch, reset} = this.props;
-        dispatch(reset('RightPartForm'));
+        dispatch(reset('AddStudentForm'));
         this.setState({reset: true});
     }
 
@@ -66,7 +66,7 @@ class RightPart extends Component {
         };
         if( address.length > 0 ) {
             let address_components = address[0].address_components;
-            change('teacher_address', address[0].formatted_address);
+            change('student_address', address[0].formatted_address);
             for (var i = 0; i < address_components.length; i++) {
                 var addressType = address_components[i].types[0];
                 if (componentForm[addressType]) {
@@ -90,17 +90,20 @@ class RightPart extends Component {
 	render() {
         const { error, handleSubmit, pristine, submitting, initialValues, change, user} = this.props;
         const { success, reset } = this.state;
+        const {additional_health_info} = this.props.masterdata;
         
         const options = [
             {value: 'male', name: 'Male'},
             {abbreviation: 'female', name: 'Female'}
         ]
+
 		return (
 
             <div className="right-group">
                 <div className="right-group-content">
                     <div className="create-teacher">
                         <Form onSubmit={handleSubmit(this.formSubmit)}>
+                            <Alert alertVisible={error || success} alertMsg={error || success} className={error ? "danger":"success"}/>
                             <div className="p-3 teacher-forms">
                                 <div className="d-flex justify-content-between align-items-center">
                                     <div>
@@ -132,14 +135,14 @@ class RightPart extends Component {
                                     <Field 
                                         component={FormField} type="text" formGroupClassName="col-md-12 col-lg-6"
                                         name="last_name" label="Last Name"
-                                        id="First_Name" placeholder="Enter first name" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
+                                        id="First_Name" placeholder="Enter last name" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
                                 </div>
 
                                 <div className="form-row">
                                     <Field 
                                         component={FormCalender} type="text" formGroupClassName="col-md-12 col-lg-6"
-                                        name="DOB" label="DOB"
-                                        id="DOB" placeholder="MM/DD/YYYY" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
+                                        name="dob" label="DOB"
+                                        id="DOB" placeholder="MM/DD/YYYY" validate={[Required]} doValidate={true}/>
                                    <Field 
                                         component={FormSelect} formGroupClassName="col-md-6 col-lg-6" name="gender" type="select" 
                                         emptyText="Select Gender" label="Gender" options={options}
@@ -148,9 +151,9 @@ class RightPart extends Component {
 
                                 <div className="form-row">
                                     <Field 
-                                        component={FormSelect} formGroupClassName="col-md-6 col-lg-12" name="Additional Health Info" type="select" 
-                                        emptyText="Additional Health Info" label="Additional Health Info " options={options}
-                                        displayKey={"value"} displayLabel={"name"} empty={true} validate={[Required]} doValidate={true}/>         
+                                        component={FormDropdown} formGroupClassName="col-md-6 col-lg-12" name="additional_health_info" type="select" 
+                                        label="Additional Health Info " data={additional_health_info} placeholder="Select health info"
+                                        valueField={"_id"} textField={"name"} empty={true} emptyText="Select health info"/>       
                                 </div>
 
                                 <div className="form-row ml-1 mb-4 mt-3">
@@ -162,30 +165,30 @@ class RightPart extends Component {
                                 <div className="form-row">
                                     <Field 
                                         component={FormField} type="text" formGroupClassName="col-md-12 col-lg-6"
-                                        name="name" label=" Name"
+                                        name="parent_name" label=" Name"
                                         id="Name" placeholder="Enter name" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
                                     <Field 
                                         component={FormField} type="text" formGroupClassName="col-md-12 col-lg-6"
-                                        name="Relation" label="Relation"
+                                        name="parent_relation" label="Relation"
                                         id="Relation" placeholder="Enter relation" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
                                 </div>
 
                                 <div className="form-row">
                                     <Field 
                                         component={FormField} type="text" formGroupClassName="col-md-12 col-lg-12"
-                                        name="Address" label="Address"
-                                        id="Address" placeholder="Enter address" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
+                                        name="student_address" label="Student Address" placesAutocomplete={true} onSelect={this.handleSelect}
+                                        id="Address" placeholder="Enter address" validate={[Required, maxLength200]} doValidate={true}/>
                                 </div>
 
                                 <div className="form-row">
                                     <Field 
                                         component={FormField} type="text" formGroupClassName="col-md-12 col-lg-6"
-                                        name="Email (Optional)" label="Email (Optional)"
-                                        id="Email (Optional)" placeholder="Enter email" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
+                                        name="email_address" label="Email Address"
+                                        id="Email (Optional)" placeholder="Enter email" validate={[Required, Email]} doValidate={true}/>
                                     <Field 
                                         component={FormField} type="text" formGroupClassName="col-md-12 col-lg-6"
-                                        name="Phone Number (Optional)" label="Phone Number (Optional)"
-                                        id="Phone Number (Optional)" placeholder="Enter phone  number" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
+                                        name="contact_telephoneno" label="Contact Number"  maskInput={true} inputAddOn={true} inputAddOnText="+1"
+                                        id="Contact Number" placeholder="Enter contact number" validate={[ContactNumber]} doValidate={true}/>
                                 </div>
                                 
                             </div>
@@ -197,8 +200,13 @@ class RightPart extends Component {
 		) 
 	}
     formSubmit(values) {
-        const {user, dispatch, reset, refreshTeacherList} = this.props;
+        
+        const {user, dispatch, reset, refreshList} = this.props;
         const {lat, lng} = this.state.coordinates;
+        if( !lat && !lng ) {
+            throw new SubmissionError({student_address:'Invalid address'});
+            return;
+        }
         values.lat = lat;
         values.lng = lng;
         values._id = user._id;
@@ -206,16 +214,18 @@ class RightPart extends Component {
             values.contact_telephoneno = _.replace(values.contact_telephoneno, /-|\s|\+1/g, "");
         }
         return new Promise((resolve, reject) => {
-            Http.upload('addteacher', values)
+            Http.upload('addstudent', values)
             .then(({data}) => {
+                
                 this.setState({success:data.message, reset: true});
-                dispatch(reset('RightPartForm'));
+                dispatch(reset('AddStudentForm'));
                 setTimeout(() => this.setState({success: ''}), 5000);
                 window.scrollTo(0, 0);
-                refreshTeacherList();
+                refreshList();
                 resolve();
             })
             .catch(({errors}) => {
+                console.log(errors);
                 let _message = {_error: errors.message || 'Internal Server error'};
                 
                 if( errors.hasOwnProperty('email_address') ) {
@@ -227,12 +237,15 @@ class RightPart extends Component {
         });
     }
 }
-let RightPartForm = reduxForm({
-    form: 'RightPartForm',
-    onSubmitFail: handleSubmitFailed
-})(RightPart);
+let AddStudentForm = reduxForm({
+    form: 'AddStudentForm',
+    onSubmitFail: handleSubmitFailed,
+    asyncValidate: isValidAddress,
+    asyncBlurFields: ['student_address'],
+})(AddStudent);
 
 const mapStateToProps = (state) => ({
-    user: state.auth.user
+    user: state.auth.user,
+    masterdata: state.masterdb
 })
-export default connect(mapStateToProps)(RightPartForm);
+export default connect(mapStateToProps)(AddStudentForm);

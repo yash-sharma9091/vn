@@ -35,7 +35,7 @@ class ViewTeacherInfo extends Component {
                                     <div className="form-row">
                                         <FormGroup className="col-sm-6">
                                                 <Label className="col-sm-3 col-md-4">Gender</Label>
-                                                <span className="col-sm-9 col-md-8 word-text">{teacher.gender}</span>
+                                                <span className="col-sm-9 col-md-8 word-text text-capitalize">{teacher.gender}</span>
                                         </FormGroup>
                                         <FormGroup className="col-sm-6">
                                                 <Label className="col-sm-3 col-md-4">Official Class</Label>
@@ -52,13 +52,14 @@ class ViewTeacherInfo extends Component {
                                         </FormGroup>
                                         <FormGroup className="col-sm-6">
                                                 <Label className="col-sm-3 col-md-4">Subjects</Label>
-                                                <span className="col-sm-9 col-md-8">
+                                                <span className="col-sm-9 col-md-8 word-text">N/A</span>
+                                                {/*<span className="col-sm-9 col-md-8">
                                                     <ul className="code-list">
                                                         <li>N/A</li>
-                                                        {/*<li>M 201</li>
-                                                        <li>S 501</li>*/}
+                                                        <li>M 201</li>
+                                                        <li>S 501</li>
                                                     </ul>
-                                                </span>
+                                                </span>*/}
                                         </FormGroup>
                                     </div>
                                 </Form>
@@ -69,7 +70,7 @@ class ViewTeacherInfo extends Component {
                                 <Form>
                                     <div className="form-row">
                                         <FormGroup className="col-sm-6">
-                                                <Label className="col-sm-3 col-md-4">Address</Label>
+                                                <Label className="col-sm-3 col-md-4">Teacher Address</Label>
                                                 <span className="col-sm-9 col-md-8 word-text">{teacher.teacher_address}</span>
                                         </FormGroup>
                                         <FormGroup className="col-sm-6">
@@ -82,7 +83,7 @@ class ViewTeacherInfo extends Component {
                                         <div className="col-sm-6">
                                         </div>
                                         <FormGroup className="col-sm-6">
-                                            <Label className="col-sm-3 col-md-4">Phone</Label>
+                                            <Label className="col-sm-3 col-md-4">Contact Number</Label>
                                             <span className="col-sm-9 col-md-8 word-text">{teacher.contact_telephoneno}</span>
                                         </FormGroup>
                                     </div>

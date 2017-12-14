@@ -3,9 +3,13 @@ import searcher from '../../assets/images/svg/musica-searcher.svg';
 import filter from '../../assets/images/svg/filter.svg';
 import { Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import TeacherList from '../AddTeachers/TeacherList';
+import StudentList from '../AddStudent/StudentsList';
 import CreateTeacher from '../AddTeachers/CreateTeacher';
+import AddStudent from '../AddStudent/AddStudent';
 import '../AddTeachers/AddTeachers.css';
 import URLSearchParams from 'url-search-params';
+import {decorateTitle} from '../../lib/Helper';
+import {teacherListing, addStudent} from '../../lib/SiteLinks';
 
 class Wrapper extends Component {
     constructor() {
@@ -39,6 +43,7 @@ class Wrapper extends Component {
     }
 	render() {
         const {toggleClass, refreshList, toggleFilter} = this.state;
+        const {pathname} = this.props.location;
 		return (
             <div>
 
@@ -52,7 +57,7 @@ class Wrapper extends Component {
                             <div className="d-flex justify-content-between p-2 no-gutters">
                                 <div className="col-3 col-md-3 col-lg-3 col-xl-3">
                                     <div className="d-flex justify-content-start">
-                                        <div className="search-head">Teachers</div>
+                                        <div className="search-head">{decorateTitle(pathname)}</div>
                                     </div>
 
                                 </div>
@@ -72,7 +77,7 @@ class Wrapper extends Component {
 
                                 <div className="col-4 col-md-4 col-lg-3 col-xl-3">
                                     <div className="imports-button d-flex justify-content-end">
-                                        <button type="button" onClick={this.toggle} className="btn btn-primary ml-1 ml-lg-1 ml-xl-2">{toggleClass ? 'Cancel': 'Create'}</button>
+                                        <button type="button" onClick={this.toggle} className={`btn btn-primary ml-1 ml-lg-1 ml-xl-2 ${toggleClass ? 'd-none': ''}`}>Add Teacher</button>
                                         <button type="button" className="btn btn-info ml-1 ml-lg-1 ml-xl-2">Import</button>
                                         <button type="button" className="btn btn-info ml-1 ml-lg-1 ml-xl-2">Export</button>
                                     </div>
@@ -132,10 +137,12 @@ class Wrapper extends Component {
 
                     <div className={(toggleClass && !toggleFilter) ? "dashboard-main active toggleFilter" : (toggleClass ? "dashboard-main active": ((!toggleFilter) ? "dashboard-main toggleFilter" : "dashboard-main"))}>
                         <div className="dash-left-box">
-                            <TeacherList refresh={refreshList} refreshList={this.refresh}/>
+                            {pathname === teacherListing && <TeacherList refresh={refreshList} refreshList={this.refresh}/>}
+                            {pathname === addStudent && <StudentList refresh={refreshList} refreshList={this.refresh}/>}
                         </div>
                         <div className="dash-right-box">
-                            <CreateTeacher toggleForm={this.toggle} refreshList={this.refresh}/>
+                            {pathname === teacherListing && <CreateTeacher toggleForm={this.toggle} refreshList={this.refresh}/>}
+                            {pathname === addStudent && <AddStudent toggleForm={this.toggle} refreshList={this.refresh}/>}
                         </div>
                     </div>
                 </div>

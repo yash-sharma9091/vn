@@ -10,7 +10,7 @@ class LeftPart extends Component {
         super(props);
         this.toggle = this.toggle.bind(this);
         this.state = {
-            teacherList: [],
+            studentList: [],
             paging:{},
             errorList: '',
             isLoadingList: false,
@@ -23,8 +23,8 @@ class LeftPart extends Component {
     list() {
         this.setState({isLoadingList: true});
         const {user} = this.props;
-        Http.get(`getteacher?_id=${user._id}&page=1`)
-        .then(({data, paging}) => this.setState({teacherList: data, paging, isLoadingList: false}))
+        Http.get(`getstudent?_id=${user._id}&page=1`)
+        .then(({data, paging}) => this.setState({studentList: data, paging, isLoadingList: false}))
         .catch(({errors}) => this.setState({errorList: errors.message, isLoadingList: false}));    
     }
     toggle() {
@@ -37,8 +37,9 @@ class LeftPart extends Component {
         }
     }
 	render() {
-        const { teacherList, paging, dropdownToggle, isLoadingList } = this.state;
-        /*console.log(teacherList);
+        const { studentList, paging, dropdownToggle, isLoadingList } = this.state;
+        const {refreshList} = this.props;
+        /*console.log(studentList);
         console.log(paging);*/
 		return (
             <div className="left-group">
@@ -48,9 +49,9 @@ class LeftPart extends Component {
                             ? <Loader/>
                             :(
                                 <div className="d-flex justify-content-left flex-wrap align-items-stretch align-content-around teachers-row">
-                                    
-                                        <StudentListElements dropdownToggle={dropdownToggle} toggle={this.toggle}/>
-                                    
+                                    {studentList.length > 0 && studentList.map((value, index) => {
+                                        return (<StudentListElements refreshList={refreshList} student={value} key={index} dataIndex={index + 1} dropdownToggle={dropdownToggle === (index + 1)} toggle={this.toggle}/>)
+                                    })}
                                 </div>
                             )
                         }    
