@@ -3,6 +3,7 @@ import './AddTeachers.css';
 import {Http} from '../../lib/Http';
 import {connect} from 'react-redux';
 import TeachersListElements from './TeachersListElements';
+import norecordImg from '../../assets/images/no-record.png';
 import {Loader} from '../Common/Loader';
 
 class TeacherList extends Component {
@@ -47,6 +48,12 @@ class TeacherList extends Component {
 		return (
             <div className="left-group">
                 <div className="left-group-content">
+                    {/* <div className="no-records-available d-flex justify-content-center align-items-center">
+                            <div className="no-records-content text-center">
+                                    <img src={norecordImg} alt="" /><br />
+                                    <button type="button" class="btn btn-primary">Create New</button>
+                            </div>
+                    </div> */}
                     <div className="p-3 p-lg-3">
                         {isLoadingList 
                             ? <Loader/>

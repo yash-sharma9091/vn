@@ -21,7 +21,6 @@ class StudentListElements extends Component {
 			                </div> 
 			            </DropdownToggle>
 			            <DropdownMenu>
-			                <DropdownItem>Action</DropdownItem>
 							<DropdownItem>Edit</DropdownItem>
 							<DropdownItem>Delete</DropdownItem>
 							<DropdownItem>Assign Subject</DropdownItem>

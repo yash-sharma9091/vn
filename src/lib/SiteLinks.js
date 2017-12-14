@@ -10,6 +10,7 @@ teacherListing 	= '/teachers',
 teacherDetail 	= '/teacher-detail/:id',
 addStudent      = '/add-student',
 editTeacher 	= '/edit-teacher/:id',
+editStudent 	= '/edit-student',
 faq 	        = '/faq',
 schoolstep 	    = '/school-step',
 notFound 		= '*';

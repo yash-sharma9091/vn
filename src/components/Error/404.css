@@ -16,3 +16,22 @@
 .error404 a{max-width:300px;margin: auto;display: block;background-color: #0a4cab;padding: 10px;color: white;margin-top: 10px;}
 .error404 a:hover{text-decoration: none;}
 .error-page{min-height:400px;}
+
+/*Responsive by Height*/
+@media (max-height:1080px) {
+    .error-box-show{
+        min-height: 590px;
+    }
+}
+
+@media (max-height:900px) {
+    .error-box-show {
+        min-height: 545px;
+    }
+}
+
+@media (max-height:768px) {
+    .error-box-show {
+        min-height: 412px;
+    }
+}
