@@ -25,6 +25,7 @@ class EditTeacherInformation extends Component {
         //this.formSubmit = this.formSubmit.bind(this);
         this.handleSelect = this.handleSelect.bind(this);
         this.fillFormFields = this.fillFormFields.bind(this);
+        this.removeImage = this.removeImage.bind(this);
         //this.resetForm = this.resetForm.bind(this);
         this.state = {
             success: '',
@@ -80,15 +81,25 @@ class EditTeacherInformation extends Component {
         }
     }
     
-    
+    componentDidMount(newProps) {
+        const {teacher} = this.props;
+        if(teacher) {
+            const {profile_image} = teacher;
+            if( profile_image ) {
+                let profileImage = `${IMAGE_PATH}/${profile_image.path}`; 
+
+                this.setState({profileImage});
+            }
+        }
+    }
+    removeImage() {
+        this.setState({profileImage:''});
+        this.props.change('profile_image',null);
+    }
 	render() {
         const { error, handleSubmit, teacher} = this.props;
+        const {profileImage} = this.state;
         
-        const {profile_image} = teacher;
-        let profileImage;
-        if( profile_image ) {
-            profileImage = `${IMAGE_PATH}/${profile_image.path}`;    
-        }
         const options = [
             {value: 'male', name: 'Male'},
             {abbreviation: 'female', name: 'Female'}
@@ -103,7 +114,7 @@ class EditTeacherInformation extends Component {
                                 <div className="p-3">
                                     <div className="row align-items-center">
                                         <div className="col-md-3 col-lg-2 inner-cropper">
-                                            <Field component={ImageCropper} name="image" logo={profileImage}/>
+                                            <Field component={ImageCropper} name="image" logo={profileImage} removeImage={this.removeImage}/>
                                         </div>
                                         <div className="col-md-9 col-lg-10">
                                             <div className="form-row pl-3">
@@ -224,11 +235,11 @@ let _EditTeacherInformation = reduxForm({
     onSubmitFail: handleSubmitFailed,
     onSubmit: (values, dispatch, props) => {
         //console.log(values);return;
-        const {lat, lng} = values;
-        if( !lat && !lng ) {
-            throw new SubmissionError({teacher_address:'Invalid address'});
-            return;
-        }
+        // const {lat, lng} = values;
+        // if( !lat && !lng ) {
+        //     throw new SubmissionError({teacher_address:'Invalid address'});
+        //     return;
+        // }
         
         return new Promise((resolve, reject) => {
             Http.upload('edit_teacher', values)

@@ -73,6 +73,7 @@ class ImaegCropper extends Component {
 		}
     	
     	const { input: { onChange } } = this.props;
+    	console.log('removeImage');
     	onChange(null);
     }
 	render() {
