@@ -22,6 +22,9 @@ class ImaegCropper extends Component {
 	}
 	toggleModal() {
     	this.setState({showImage: false});
+    	if( this.state.tmpSrc ) {
+    		document.getElementById("upload-photo").value = "";
+    	}
     }
 	onChange(e) {
 	    let files;
@@ -55,6 +58,7 @@ class ImaegCropper extends Component {
 	    };
 	    
 	    reader.readAsDataURL(blob);
+	    document.getElementById("upload-photo").value = "";
 	    onChange(blob);
     }
     componentWillReceiveProps(newProps) {
@@ -72,13 +76,15 @@ class ImaegCropper extends Component {
     	onChange(null);
     }
 	render() {
-		const {logo, displayText} = this.props;
+		const {logo, displayText, input} = this.props;
 		const {src, tmpSrc, showImage, invalidFile, invalidSize} = this.state;
+		
 		const imageStyle = {
 			backgroundImage: 'url(' + ( src || logo || CameraImage ) + ')',
 			backgroundRepeat  : 'no-repeat',
        		backgroundPosition: 'center',
 		}
+		const fileInputKey = input.value ? input.value.name : +new Date();
 		return (
 			<div>
 				<div className="form-group">
@@ -86,9 +92,15 @@ class ImaegCropper extends Component {
 				        <div className="camera-icon" style={imageStyle}>
 				            {/* <img src={src || logo || CameraImage} /> */}
 				        </div>
-				        <a className="delete-button-image" onClick={this.removeImage}><img src={DeleteImage} /></a>
+				        {(src || logo) && <a className="delete-button-image" onClick={this.removeImage}><img src={DeleteImage} /></a>}
 				        <a className="edit-button-image"><img src={EditImage} />
-				            <input type="file" onChange={this.onChange} className="form-control-file" id="upload-photo" />
+				            <input 
+				            	type="file" 
+				            	key={fileInputKey} 
+				            	onChange={this.onChange} 
+				            	className="form-control-file" 
+				            	accept="image/*"
+				            	id="upload-photo" />
 				        </a>
 				    </div>
 				    <div className="camera-upload-content">
