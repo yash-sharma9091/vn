@@ -4,7 +4,7 @@ import searcher from '../../assets/images/svg/musica-searcher.svg';
 import filter from '../../assets/images/svg/filter.svg';
 import { Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import ViewTeacherInfo from './ViewTeacherInfo';
-import CreateTeacher from './RightPart';
+import ActivityPanel from '../Activity/ActivityPanel.js';
 import './TeacherDetail.css';
 import {Http} from '../../lib/Http';
 import {fullName, limitTo, decorateLink} from '../../lib/Helper';
@@ -83,7 +83,7 @@ class AddTeachers extends Component {
                                 { !isLoading && !_.isEmpty(teacher) && <ViewTeacherInfo teacher={teacher}/> }
                             </div>
                             <div className="dash-right-box">
-                                <CreateTeacher />
+                                <ActivityPanel />
                             </div>
                     </div>
                 

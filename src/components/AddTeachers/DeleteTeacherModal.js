@@ -32,6 +32,11 @@ class DeleteTeacher extends Component {
 	render() {
 		const {show, toggle, className, teacher} = this.props;
 		const {isDeleting, error, success} = this.state;
+		const imageStyle = {
+			backgroundImage: 'url(' + ( `${IMAGE_PATH}/${teacher.profile_image.path}` ) + ')',
+			backgroundRepeat  : 'no-repeat',
+       		backgroundPosition: 'center',
+		}
 		return (
 			<Modal isOpen={show} toggle={toggle} className={className} className="confirmation-modal">
 				<ModalHeader toggle={toggle}><h2>Confirmation</h2> </ModalHeader>
@@ -43,9 +48,6 @@ class DeleteTeacher extends Component {
 						<div className="media-body">
 							<h5 class="mt-0">Antoine Langlais</h5>
 						</div>
-					</div>
-					{/* <div className="">
-					    <img src={`${IMAGE_PATH}/${teacher.profile_image.path}`} alt={teacher.first_name} />
 					</div>
 					<div className="te-head text-capitalize">{limitTo(fullName(teacher.first_name, teacher.last_name),50)}</div> */}
 				</ModalBody>

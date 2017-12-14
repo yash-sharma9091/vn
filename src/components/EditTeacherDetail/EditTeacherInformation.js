@@ -205,7 +205,7 @@ class EditTeacherInformation extends Component {
                                             <Field 
                                                 component={FormField} type="text" 
                                                 formGroupClassName="row" colWrapper={true} 
-                                                labelClassName="col-sm-3" col={9}
+                                                labelClassName="col-sm-3" col={8}
                                                 name="contact_telephoneno" label="Contact Number" 
                                                 id="contact_telephoneno" placeholder="Enter contact number"
                                                 maskInput={true} inputAddOn={true} inputAddOnText="+1" 

@@ -8,7 +8,7 @@ import FileInput from "../Common/FileInput";
 import { Field, SubmissionError,reduxForm } from 'redux-form';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import ImageCropper from '../Common/ImageCropper';
-import './EditTeacherDetail.css';
+import '../EditTeacherDetail/EditTeacherDetail.css';
 import {handleSubmitFailed} from '../../lib/Helper';
 import {Required, Email, Number, Phone, maxLength4,maxLength200,maxLength400, Alphabets, isValidAddress} from '../../lib/Validate';
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
