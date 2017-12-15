@@ -85,7 +85,7 @@ class Dashboard extends Component {
 											<div className="marked-completed">
 												Smith has sent a message to you
 											</div>
-											<textarea class="form-control mb-2" placeholder="Write your comment here" rows="3"></textarea>
+											<textarea className="form-control mb-2" placeholder="Write your comment here" rows="3"></textarea>
                                 			<button type="button" className="btn btn-primary">Send</button>
 										</div>
 									</div>
@@ -128,7 +128,7 @@ class Dashboard extends Component {
 											<div className="marked-completed">
 												Smith has sent a message to you
 											</div>
-											<textarea class="form-control mb-2" placeholder="Write your comment here" rows="3"></textarea>
+											<textarea className="form-control mb-2" placeholder="Write your comment here" rows="3"></textarea>
                                 			<button type="button" className="btn btn-primary">Send</button>
 										</div>
 									</div>

@@ -28,6 +28,7 @@ class StudentListElements extends Component {
 	}
 	render() {
 		const {dropdownToggle, toggle, student, dataIndex, refreshList} = this.props;
+		
 		const {show, _student} = this.state;
 		const imageStyle = {
 			backgroundImage: 'url(' + ( `${IMAGE_PATH}/${student.profile_image.path}` ) + ')',

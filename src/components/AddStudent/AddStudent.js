@@ -88,7 +88,7 @@ class AddStudent extends Component {
         }
     }
 	render() {
-        const { error, handleSubmit, pristine, submitting, initialValues, change, user} = this.props;
+        const { error, handleSubmit, pristine, submitting, initialValues, change, user, toggleForm} = this.props;
         const { success, reset } = this.state;
         const {additional_health_info} = this.props.masterdata;
         
@@ -108,7 +108,7 @@ class AddStudent extends Component {
                                 <div className="d-flex justify-content-between align-items-center">
                                     <div>
                                         <div className="imports-button d-flex justify-content-start">
-                                            <button type="button" className="btn btn-info" onClick={this.resetForm}>Cancel</button>
+                                            <button type="button" className="btn btn-info" onClick={toggleForm}>Cancel</button>
                                         </div>
                                     </div>
                                     <div>

@@ -15,7 +15,10 @@ class FaqTab extends Component {
     }
     componentDidMount() {
         
-        const {location} = this.props;
+        this.switchTabs(this.props);
+    }
+    switchTabs(props) {
+        const {location} = props;
         if( location ) { 
             let tab = new URLSearchParams(location.search).get('tab'), search = '';
             if( tab === 'contact' ) {
@@ -26,6 +29,11 @@ class FaqTab extends Component {
                 search = '3';
             }
             this.setState({ activeTab: search })
+        }
+    }
+    componentWillReceiveProps(newProps) {
+        if(newProps.location) {
+            this.switchTabs(newProps);
         }
     }
 

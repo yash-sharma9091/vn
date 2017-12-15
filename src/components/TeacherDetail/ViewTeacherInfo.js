@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import './TeacherDetail.css';
-import {fullName} from '../../lib/Helper';
+import {fullName, decorateNameField} from '../../lib/Helper';
 
 class ViewTeacherInfo extends Component {
 	render() {
@@ -35,7 +35,7 @@ class ViewTeacherInfo extends Component {
                                     <div className="form-row">
                                         <FormGroup className="col-sm-6">
                                                 <Label className="col-sm-3 col-md-4">Gender</Label>
-                                                <span className="col-sm-9 col-md-8 word-text text-capitalize">{teacher.gender}</span>
+                                                <span className="col-sm-9 col-md-8 word-text">{decorateNameField(teacher.gender)}</span>
                                         </FormGroup>
                                         <FormGroup className="col-sm-6">
                                                 <Label className="col-sm-3 col-md-4">Official Class</Label>

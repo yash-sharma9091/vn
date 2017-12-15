@@ -4,6 +4,7 @@ import {Http} from '../../lib/Http';
 import {connect} from 'react-redux';
 import StudentListElements from './StudentListElements';
 import {Loader} from '../Common/Loader';
+import NoList from '../Common/NoList';
 
 class LeftPart extends Component {
     constructor(props) {
@@ -14,7 +15,7 @@ class LeftPart extends Component {
             paging:{},
             errorList: '',
             isLoadingList: false,
-            dropdownToggle: false
+            dropdownToggle: 0
         };
     }
     componentDidMount() {
@@ -27,8 +28,9 @@ class LeftPart extends Component {
         .then(({data, paging}) => this.setState({studentList: data, paging, isLoadingList: false}))
         .catch(({errors}) => this.setState({errorList: errors.message, isLoadingList: false}));    
     }
-    toggle() {
-        this.setState({dropdownToggle: !this.state.dropdownToggle });
+    toggle(e) {
+        let index = e.target.dataset.index;
+        this.setState({ dropdownToggle: this.state.dropdownToggle === Number(index) ? 0 : Number(index) });
     }
     componentWillReceiveProps(newProps) {
         
@@ -38,24 +40,35 @@ class LeftPart extends Component {
     }
 	render() {
         const { studentList, paging, dropdownToggle, isLoadingList } = this.state;
-        const {refreshList} = this.props;
+        const {refreshList, open, toggle} = this.props;
         /*console.log(studentList);
         console.log(paging);*/
 		return (
             <div className="left-group">
                 <div className="left-group-content">
-                    <div className="p-3 p-lg-3">
+                    
                         {isLoadingList 
                             ? <Loader/>
-                            :(
-                                <div className="d-flex justify-content-left flex-wrap align-items-stretch align-content-around teachers-row">
-                                    {studentList.length > 0 && studentList.map((value, index) => {
-                                        return (<StudentListElements refreshList={refreshList} student={value} key={index} dataIndex={index + 1} dropdownToggle={dropdownToggle === (index + 1)} toggle={this.toggle}/>)
-                                    })}
-                                </div>
+                            :(studentList.length > 0 
+                                ? (<div className="p-3 p-lg-3">
+                                    <div className="d-flex justify-content-left flex-wrap align-items-stretch align-content-around teachers-row">
+                                        {studentList.map((value, index) => {
+                                            return (
+                                                <StudentListElements 
+                                                    refreshList={refreshList} 
+                                                    student={value} 
+                                                    key={index} 
+                                                    dataIndex={index + 1} 
+                                                    dropdownToggle={dropdownToggle === (index + 1)} 
+                                                    toggle={this.toggle}/>
+                                                )
+                                        })}
+                                    </div>
+                                </div>) 
+                                : (<NoList open={open} toggle={toggle} text="Add Student" />)   
                             )
                         }    
-                    </div>
+                    
                 </div>
             </div>
 		) 
