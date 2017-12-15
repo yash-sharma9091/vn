@@ -310,11 +310,13 @@
 }
 
 /*confirmation-modal*/
-.confirmation-modal .media img {
+.confirmation-modal .media .align-self-center {
     width: 45px;
     height: 45px;
     border: 1px solid #dad9da;
-     border-radius: 3px;
+    border-radius: 3px;
+    background: url('../../assets/images/conf-img.png') no-repeat center center;
+    background-size: cover;
 }
 .confirmation-modal .media .media-body h5{
     color: #0a4ba9;
