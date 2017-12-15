@@ -86,7 +86,7 @@ class AddTeachers extends Component {
 
                     <div className="dashboard-main inner-sub-page">
                         <div className="dash-left-box">
-                             <EditStudentInformation teacher={teacher} />
+                            <EditStudentInformation teacher={teacher} />
                         </div>
                         <div className="dash-right-box">
                             <ActivityPanel />

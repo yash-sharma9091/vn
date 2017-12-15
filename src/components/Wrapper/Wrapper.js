@@ -1,3 +1,4 @@
+/* global _ */
 import React, {Component} from 'react';
 import searcher from '../../assets/images/svg/musica-searcher.svg';
 import filter from '../../assets/images/svg/filter.svg';
@@ -77,7 +78,7 @@ class Wrapper extends Component {
 
                                 <div className="col-4 col-md-4 col-lg-3 col-xl-3">
                                     <div className="imports-button d-flex justify-content-end">
-                                        <button type="button" onClick={this.toggle} className={`btn btn-primary ml-1 ml-lg-1 ml-xl-2 ${toggleClass ? 'd-none': ''}`}>Add Teacher</button>
+                                        <button type="button" onClick={this.toggle} className={`btn btn-primary ml-1 ml-lg-1 ml-xl-2 ${toggleClass ? 'd-none': ''}`}>Add {_.trimEnd(decorateTitle(pathname),'s')}</button>
                                         <button type="button" className="btn btn-info ml-1 ml-lg-1 ml-xl-2">Import</button>
                                         <button type="button" className="btn btn-info ml-1 ml-lg-1 ml-xl-2">Export</button>
                                     </div>
@@ -137,8 +138,8 @@ class Wrapper extends Component {
 
                     <div className={(toggleClass && !toggleFilter) ? "dashboard-main active toggleFilter" : (toggleClass ? "dashboard-main active": ((!toggleFilter) ? "dashboard-main toggleFilter" : "dashboard-main"))}>
                         <div className="dash-left-box">
-                            {pathname === teacherListing && <TeacherList refresh={refreshList} refreshList={this.refresh}/>}
-                            {pathname === addStudent && <StudentList refresh={refreshList} refreshList={this.refresh}/>}
+                            {pathname === teacherListing && <TeacherList refresh={refreshList} toggle={toggleClass} open={this.toggle} refreshList={this.refresh}/>}
+                            {pathname === addStudent && <StudentList refresh={refreshList} toggle={toggleClass} open={this.toggle} refreshList={this.refresh}/>}
                         </div>
                         <div className="dash-right-box">
                             {pathname === teacherListing && <CreateTeacher toggleForm={this.toggle} refreshList={this.refresh}/>}

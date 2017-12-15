@@ -56,7 +56,7 @@ class DashboardHeader extends Component {
                         <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav className="ml-auto" navbar>
                                 <NavItem>
-                                     <NavLink href="/components/">
+                                     <NavLink>
                                         <div className="notification-image">
                                             <img src={EnvelopeImage} alt="Envelope Icon" />
                                             <div className="notification-number">3</div>
@@ -64,7 +64,7 @@ class DashboardHeader extends Component {
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink href="/components/">
+                                    <NavLink>
                                         <div className="notification-image">
                                             <img src={NotificationImage} alt="Bell Icon" />
                                             <div className="notification-number">5</div>
