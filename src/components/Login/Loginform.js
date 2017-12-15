@@ -39,13 +39,12 @@ class Loginform extends Component {
 							<Field 
 								component={FormField} type="text"
 								name="uan" label="Email Or Username*"
-								id="emailOrUsename" labelClassName="gradient-color"
-								placeholder="Enter email or username" validate={UAN} doValidate={true}/>
-							
+								id="Unique_Account_Number" labelClassName="gradient-color white-space-nowrap"
+								placeholder="Enter unique account number" validate={UAN} doValidate={true}/>
 							<Field 
 								component={FormField} type="password"
 								name="password" label="Password*"
-								id="Password" labelClassName="gradient-color"
+								id="Password" labelClassName="gradient-color white-space-nowrap"
 								placeholder="Enter password" validate={Required} doValidate={true}/>
 
 							<div className="form-group row col-sm-12">
