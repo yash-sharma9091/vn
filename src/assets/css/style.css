@@ -29,7 +29,9 @@ body{
     border-color: #0a4cab;
 }
 
-
+.white-space-nowrap{
+    white-space: nowrap;
+}
 /*gradient-color*/
 .gradient-color{
    background: -webkit-linear-gradient(right,#070703 14%,#0a4cac);

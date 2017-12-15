@@ -12,6 +12,7 @@ studentDetail 	= '/student-detail',
 addStudent      = '/students',
 editTeacher 	= '/edit-teacher/:id',
 editStudent 	= '/edit-student',
+schoolProfile 	= '/school-profile',
 faq 	        = '/faq',
 schoolstep 	    = '/school-step',
 notFound 		= '*';
