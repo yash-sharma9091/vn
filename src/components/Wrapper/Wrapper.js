@@ -2,7 +2,7 @@
 import React, {Component} from 'react';
 import searcher from '../../assets/images/svg/musica-searcher.svg';
 import filter from '../../assets/images/svg/filter.svg';
-import { Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { FormGroup, Input } from 'reactstrap';
 import TeacherList from '../AddTeachers/TeacherList';
 import StudentList from '../AddStudent/StudentsList';
 import CreateTeacher from '../AddTeachers/CreateTeacher';

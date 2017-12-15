@@ -21,7 +21,7 @@ import StudentDetail from '../components/StudentDetail/StudentDetail';
 
 import SchoolProfile from '../components/SchoolProfile/SchoolProfile';
 
-import SchoolStep from '../components/BuildSchoolStep/SchoolStep';
+// import SchoolStep from '../components/BuildSchoolStep/SchoolStep';
 import NotFound from '../components/Error/404';
 import Invalid from '../components/Error/Invalid';
 import Header from '../components/partials/Header';

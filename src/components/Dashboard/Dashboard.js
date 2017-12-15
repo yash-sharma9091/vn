@@ -16,6 +16,7 @@ import dashboardBg from '../../assets/images/dashboard-bg.png';
 import {loadImage} from '../../lib/Helper';
 import {teacherListing, addStudent} from '../../lib/SiteLinks';
 import {Link} from 'react-router-dom';
+import '../BuildSchoolStep/SchoolStep.css';
 
 class Dashboard extends Component {
 	constructor() {

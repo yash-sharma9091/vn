@@ -2,7 +2,7 @@
 import React, {Component} from 'react';
 import {fullName, limitTo} from '../../lib/Helper';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import confImg from '../../assets/images/conf-img.png';
+//import confImg from '../../assets/images/conf-img.png';
 import {Http} from '../../lib/Http';
 import Alert from '../Common/Alert';
 class DeleteTeacher extends Component {
@@ -31,16 +31,17 @@ class DeleteTeacher extends Component {
 		.catch(({errors}) => this.setState({error: errors.message, isDeleting: false}));
 	}
 	render() {
-		const {show, toggle, className, teacher} = this.props;
+		const {show, toggle, teacher} = this.props;
 		const {isDeleting, error, success, isDeleted} = this.state;
+		let profilImage = `${IMAGE_PATH}/${teacher.profile_image.path}`;
 		const imageStyle = {
-			backgroundImage: 'url(' + ( `${IMAGE_PATH}/${teacher.profile_image.path}` ) + ')',
+			backgroundImage: 'url(' + ( profilImage ) + ')',
 			backgroundRepeat  : 'no-repeat',
        		backgroundPosition: 'center',
 		}
 		
 		return (
-			<Modal isOpen={show} toggle={toggle} className={className} onExit={this.onClosed} className="confirmation-modal">
+			<Modal isOpen={show} toggle={toggle} className="confirmation-modal">
 				<ModalHeader toggle={toggle}>Confirmation </ModalHeader>
 			    <ModalBody>
 			    	<Alert alertVisible={error || success} alertMsg={error || success} className={error ? "danger alert-box":"success"}/>

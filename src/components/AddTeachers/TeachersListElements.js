@@ -1,4 +1,3 @@
-/* global IMAGE_PATH */
 import React, {Component} from 'react';
 //import TeacherPic from '../../assets/images/teacher-1.png';
 import EnvelopeGray from '../../assets/images/svg/envelope-gray.svg';
@@ -30,11 +29,12 @@ class TeachersListElements extends Component {
 	render() {
 		const {dropdownToggle, toggle, teacher, dataIndex, refreshList} = this.props;
 		const {show, _teacher} = this.state;
+		/*let profileImg = `${IMAGE_PATH}/${teacher.profile_image.path}`;
 		const imageStyle = {
-			backgroundImage: 'url(' + ( `${IMAGE_PATH}/${teacher.profile_image.path}` ) + ')',
+			backgroundImage: 'url(' + ( profileImg ) + ')',
 			backgroundRepeat  : 'no-repeat',
        		backgroundPosition: 'center',
-		}
+		}*/
 		return (
 			<div>
 				<div className="light-white-bg teacher-box p-2 p-lg-3 relative">
@@ -56,10 +56,10 @@ class TeachersListElements extends Component {
 				        </DropdownWithoutActiveProps>
 				    </div>
 				    <div className="teacher-group-box relative">
-				    	{/*<ProgressiveImage className="teacher-picture" style={teacher.profile_image.path}>*/}
-				        <div className="teacher-picture" style={imageStyle}>
-				            {/* <img src={`${IMAGE_PATH}/${teacher.profile_image.path}`} alt={teacher.first_name} /> */}
-				        </div>
+				    	<ProgressiveImage className="teacher-picture" backgroundSrc={teacher.profile_image.path} />
+				        {/*<div className="teacher-picture" style={imageStyle}>
+				            <img src={`${IMAGE_PATH}/${teacher.profile_image.path}`} alt={teacher.first_name} />
+				        </div>*/}
 				        <div className="te-head text-capitalize">{limitTo(fullName(teacher.first_name, teacher.last_name),50)}</div>
 				        <div className="te-gen mb-1 text-capitalize">{teacher.gender}</div>
 				        <div className="te-sub">Subject &amp; Class</div>

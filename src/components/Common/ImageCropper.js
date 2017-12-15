@@ -51,7 +51,7 @@ class ImaegCropper extends Component {
     }
     getDataUrl(data) {
     	const { input: { onChange } } = this.props;
-    	const {blob, dataUrl} = data;
+    	const {blob} = data;
     	const reader = new FileReader();
 	    reader.onload = () => {
 	      	this.setState({ src: reader.result, showImage: false});
@@ -92,8 +92,8 @@ class ImaegCropper extends Component {
 				        <div className="camera-icon" style={imageStyle}>
 				            {/* <img src={src || logo || CameraImage} /> */}
 				        </div>
-				        {(src || logo) && <a className="delete-button-image" onClick={this.removeImage}><img src={DeleteImage} /></a>}
-				        <a className="edit-button-image"><img src={EditImage} />
+				        {(src || logo) && <a className="delete-button-image" onClick={this.removeImage}><img src={DeleteImage} alt="Delete"/></a>}
+				        <a className="edit-button-image"><img src={EditImage} alt="Edit"/>
 				            <input 
 				            	type="file" 
 				            	key={fileInputKey} 
@@ -106,7 +106,7 @@ class ImaegCropper extends Component {
 				    <div className="camera-upload-content">
 				        <h3 className="text-uppercase">{displayText || 'Upload photo'}</h3>
 				        <span className={invalidSize ? "invalidText" : ""}>maximum image size 5 mb.</span>
-				        {invalidFile && <span className="invalidText">upload image of type jpg, jpeg, png or gif</span>}
+				        {invalidFile && <span className="invalidText">select image of type jpg, jpeg, png or gif</span>}
 				    </div>
 				</div>
 				<ImageModal open={showImage} src={tmpSrc} toggle={this.toggleModal} setDataUrl={this.getDataUrl}/>

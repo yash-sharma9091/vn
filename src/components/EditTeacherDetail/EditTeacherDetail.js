@@ -1,8 +1,8 @@
 /* global _ */
 import React, {Component} from 'react';
-import searcher from '../../assets/images/svg/musica-searcher.svg';
-import filter from '../../assets/images/svg/filter.svg';
-import { Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+//import searcher from '../../assets/images/svg/musica-searcher.svg';
+//import filter from '../../assets/images/svg/filter.svg';
+//import { Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import EditTeacherInformation from './EditTeacherInformation';
 import ActivityPanel from '../Activity/ActivityPanel';
 import './EditTeacherDetail.css';
@@ -19,11 +19,16 @@ import {Loader} from '../Common/Loader';
 class AddTeachers extends Component {
     constructor() {
         super();
+        this.triggerSubmit = this.triggerSubmit.bind(this);
         this.state = {
             teacher: {},
             errors:'',
-            isLoading: false
+            isLoading: false,
+            submitting: false
         }
+    }
+    triggerSubmit() {
+        this.setState({submitting: !this.state.submitting});
     }
     componentDidMount() {
         
@@ -40,7 +45,7 @@ class AddTeachers extends Component {
         }
     }
 	render() {
-        const {teacher, errors, isLoading} = this.state;
+        const {teacher, errors, isLoading, submitting} = this.state;
         const {dispatch} = this.props;
         
 		return (
@@ -72,7 +77,12 @@ class AddTeachers extends Component {
 
                                 <div className="col-7 col-md-7 col-lg-8 col-xl-8">
                                     <div className="imports-button d-flex justify-content-end">
-                                        <button type="button" onClick={() => dispatch(submit('EditTeacherInformationForm'))} className="btn btn-primary ml-1 ml-lg-1 ml-xl-2">Update</button>
+                                        <button 
+                                            type="button" 
+                                            disabled={submitting}
+                                            onClick={() => dispatch(submit('EditTeacherInformationForm'))} 
+                                            className="btn btn-primary ml-1 ml-lg-1 ml-xl-2">{submitting ? 'Processing ...' : 'Update'}
+                                        </button>
                                         <LinkContainer to={teacherListing}>
                                             <button type="button" className="btn btn-info ml-1 ml-lg-1 ml-xl-2">Cancel</button>
                                         </LinkContainer>    
@@ -87,7 +97,7 @@ class AddTeachers extends Component {
                     <div className="dashboard-main inner-sub-page">
                         <div className="dash-left-box">
                             { isLoading && <Loader /> }
-                            {!isLoading && !_.isEmpty(teacher) && <EditTeacherInformation teacher={teacher} initialValues={teacher}/>}
+                            {!isLoading && !_.isEmpty(teacher) && <EditTeacherInformation _triggerSubmit={this.triggerSubmit} teacher={teacher} initialValues={teacher}/>}
                         </div>
                         <div className="dash-right-box">
                             <ActivityPanel />

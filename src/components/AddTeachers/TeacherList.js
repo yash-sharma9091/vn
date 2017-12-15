@@ -41,7 +41,7 @@ class TeacherList extends Component {
         }
     }
 	render() {
-        const { teacherList, paging, dropdownToggle, isLoadingList } = this.state;
+        const { teacherList, dropdownToggle, isLoadingList } = this.state;
         const {refreshList, open, toggle} = this.props;
         /*console.log(teacherList);
         console.log(paging);*/

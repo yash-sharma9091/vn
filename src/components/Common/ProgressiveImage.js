@@ -1,7 +1,7 @@
 /* global IMAGE_PATH */
 import React, { Component } from 'react';
 import {loadImage} from '../../lib/Helper';
-import {Loader} from './Loader';
+//import {Loader} from './Loader';
 
 class ProgressiveImage extends Component {
 	constructor() {
@@ -30,8 +30,9 @@ class ProgressiveImage extends Component {
 			.then(res => this.setState({loadSrc: src, isLoading: false}) )
 			
 		} else if( backgroundSrc ) {
+			let pic = `${IMAGE_PATH}/${backgroundSrc}`;
 			url = {
-				backgroundImage: 'url(' + ( `${IMAGE_PATH}/${backgroundSrc}` ) + ')',
+				backgroundImage: 'url(' + ( pic ) + ')',
 				backgroundRepeat  : 'no-repeat',
 	       		backgroundPosition: 'center',
 			}
@@ -43,13 +44,12 @@ class ProgressiveImage extends Component {
   		const {loadSrc, isLoading, loadBackgoundSrc} = this.state;
   		const {alt, className, backgroundSrc, src} = this.props;
   		if( isLoading ) {
-  			return <div>Loaing ...</div>
+  			return <div className={className}></div>
   		} else if( src ) {
   			return (
 				<img src={loadSrc} className={className} alt={alt || 'Progressive Image'} />
     		);
   		} else if( backgroundSrc ) {
-  			console.log(loadBackgoundSrc);
   			return (
 				<div className={className} style={loadBackgoundSrc}></div>
     		);

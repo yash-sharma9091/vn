@@ -1,37 +1,36 @@
 /* global IMAGE_PATH */
 import React, {Component} from 'react';
-import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { FormGroup, Label, Input } from 'reactstrap';
 import './TeacherDetail.css';
 import {fullName, decorateNameField} from '../../lib/Helper';
+import ProgressiveImage from '../Common/ProgressiveImage';
 
 class ViewTeacherInfo extends Component {
 	render() {
         const {teacher} = this.props;
-        const style = {
+        /*const style = {
             backgroundImage: 'url(' + (IMAGE_PATH + '/' + teacher.profile_image.path) + ')'
-        }
+        }*/
 		return (
             <div className="left-group">
                 <div className="left-group-content">
                     <div className="p-3 p-lg-3">
                         <div className="teacher-profile-boxes">
                         <div className="p-3">
-                                <Form>
-                                    <div className="form-row">
-                                        <div className="col-sm-12">
-                                            <div className="profiles-mains">
-                                                <div className="teacher-profiles" style={style}></div>
-                                                <span>{fullName(teacher.first_name, teacher.last_name)}</span>
-                                            </div>
+                                <div className="form-row">
+                                    <div className="col-sm-12">
+                                        <div className="profiles-mains">
+                                            {/*<div className="teacher-profiles" style={style}></div>*/}
+                                            <ProgressiveImage className="teacher-profiles" backgroundSrc={teacher.profile_image.path} />
+                                            <span>{fullName(teacher.first_name, teacher.last_name)}</span>
                                         </div>
                                     </div>
-                                </Form>
+                                </div>
+                                
                             </div>
 
                             <div className="group-tehead">Personal Information</div>
                             <div className="p-3">
-                                <Form>
                                     <div className="form-row">
                                         <FormGroup className="col-sm-6">
                                                 <Label className="col-sm-3 col-md-4">Gender</Label>
@@ -62,19 +61,18 @@ class ViewTeacherInfo extends Component {
                                                 </span>*/}
                                         </FormGroup>
                                     </div>
-                                </Form>
+                                
                             </div>
 
                             <div className="group-tehead"> Contact Information</div>
                             <div className="p-3">
-                                <Form>
                                     <div className="form-row">
                                         <FormGroup className="col-sm-6">
                                                 <Label className="col-sm-3 col-md-4">Teacher Address</Label>
                                                 <span className="col-sm-9 col-md-8 word-text">{teacher.teacher_address}</span>
                                         </FormGroup>
                                         <FormGroup className="col-sm-6">
-                                                <Label className="col-sm-3 col-md-4">Email</Label>
+                                                <Label className="col-sm-3 col-md-4">Email Address</Label>
                                                 <span className="col-sm-9 col-md-8 word-text email-text">{teacher.email_address}</span>
                                          </FormGroup>
                                     </div>
@@ -88,7 +86,7 @@ class ViewTeacherInfo extends Component {
                                         </FormGroup>
                                     </div>
 
-                                </Form>
+                                
                             </div>
 
                         </div>
