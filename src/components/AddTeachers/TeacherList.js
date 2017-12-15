@@ -35,8 +35,8 @@ class TeacherList extends Component {
         this.setState({ dropdownToggle: this.state.dropdownToggle === Number(index) ? 0 : Number(index) });
     }
     componentWillReceiveProps(newProps) {
-        
         if( newProps.refresh ) {
+            console.log('List refresh');
             this.list();
         }
     }

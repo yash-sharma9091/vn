@@ -41,6 +41,7 @@ class Wrapper extends Component {
     }
     refresh() {
         this.setState({refreshList: true});
+        setTimeout(() => this.setState({refreshList: false}), 1500);
     }
 	render() {
         const {toggleClass, refreshList, toggleFilter} = this.state;
