@@ -6,7 +6,7 @@ import { Field, SubmissionError,reduxForm } from 'redux-form';
 import Logo from  '../Logo/Logo';
 import {LinkContainer} from 'react-router-bootstrap';
 import {login} from '../../lib/SiteLinks';
-import {UAN} from '../../lib/Validate';
+import {Required} from '../../lib/Validate';
 import {Http} from '../../lib/Http';
 import CopyRightText from '../partials/CopyRightText';
 import Alert from '../Common/Alert';
@@ -43,7 +43,7 @@ class ForgotPassForm extends Component {
 							component={FormField} type="text"
 							name="email_address" label="Email Address"
 							id="Email Address" labelClassName="gradient-color"
-							placeholder="Enter email address" validate={UAN} doValidate={true}/>
+							placeholder="Enter email address" validate={Required} doValidate={true}/>
 						
 						<FormSubmit 
 							error={error} invalid={pristine}

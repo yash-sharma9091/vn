@@ -47,7 +47,7 @@ class DeleteTeacher extends Component {
 					<div className={success ? 'd-none':''}>
 						<h3>Are you sure to want to delete ?</h3>
 						<div className="media">
-							<div className="align-self-center mr-3"></div>
+							<div className="align-self-center mr-3" style={imageStyle}></div>
 							{/* <img className="" src={`${IMAGE_PATH}/${teacher.profile_image.path}`} alt="Generic placeholder image" /> */}
 							<div className="media-body">
 								<h5 className="mt-0">{limitTo(fullName(teacher.first_name, teacher.last_name),50)}</h5>
