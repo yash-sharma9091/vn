@@ -25,7 +25,7 @@ class DeleteTeacher extends Component {
 			setTimeout(() => {
 				this.setState({success: ''});
 				toggle();
-				refreshList();
+				refreshList();		
 			}, 2000);
 		})
 		.catch(({errors}) => this.setState({error: errors.message, isDeleting: false}));
@@ -40,7 +40,7 @@ class DeleteTeacher extends Component {
 		}
 		
 		return (
-			<Modal isOpen={show} toggle={toggle} className={className} className="confirmation-modal">
+			<Modal isOpen={show} toggle={toggle} className={className} onExit={this.onClosed} className="confirmation-modal">
 				<ModalHeader toggle={toggle}>Confirmation </ModalHeader>
 			    <ModalBody>
 			    	<Alert alertVisible={error || success} alertMsg={error || success} className={error ? "danger alert-box":"success"}/>

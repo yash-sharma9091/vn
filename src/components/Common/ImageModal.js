@@ -49,7 +49,7 @@ class ImageModal extends Component {
   		const {open, toggle, src} = this.props;
   		const {isCropping} = this.state;
 	    return (
-	        <Modal isOpen={open} toggle={toggle} className={this.props.className} onClosed={this.onExit}>
+	        <Modal isOpen={open} toggle={toggle} className={this.props.className} onClosed={this.onExit} backdrop="static">
 	          	<ModalHeader toggle={toggle}>Crop Image</ModalHeader>
 	          	<ModalBody>
 	            	<Cropper

@@ -179,7 +179,7 @@ class RightPart extends Component {
         const {user, dispatch, reset, refreshList} = this.props;
         const {lat, lng} = this.state.coordinates;
         if( !lat && !lng ) {
-            throw new SubmissionError({student_address:'Invalid address'});
+            throw new SubmissionError({teacher_address:'Invalid address'});
             return;
         }
         values.lat = lat;
