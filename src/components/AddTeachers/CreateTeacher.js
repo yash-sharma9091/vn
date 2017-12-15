@@ -188,6 +188,7 @@ class RightPart extends Component {
         if( _.has(values, 'contact_telephoneno') ) {
             values.contact_telephoneno = _.replace(values.contact_telephoneno, /-|\s|\+1/g, "");
         }
+        console.log(values);
         return new Promise((resolve, reject) => {
             Http.upload('addteacher', values)
             .then(({data}) => {

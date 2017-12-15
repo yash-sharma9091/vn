@@ -9,7 +9,7 @@ const ContactNumber = (value, allValues, props, name) => {
 	return (value ? undefined : 'Contact number is required');
 }
 const UAN = (value, allValues, props, name) => {
-	return (value ? undefined : 'Unique account number is required');
+	return (value ? undefined : 'Email or username is required');
 }
 const Email = (value, allValues, props, name) => {
 	return (value ? (/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ? undefined : 'Invalid email address') : undefined );

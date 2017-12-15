@@ -40,7 +40,7 @@ class Loginform extends Component {
 								component={FormField} type="text"
 								name="uan" label="Email Or Username*"
 								id="Unique_Account_Number" labelClassName="gradient-color white-space-nowrap"
-								placeholder="Enter unique account number" validate={UAN} doValidate={true}/>
+								placeholder="Enter email or username" validate={UAN} doValidate={true}/>
 							<Field 
 								component={FormField} type="password"
 								name="password" label="Password*"
