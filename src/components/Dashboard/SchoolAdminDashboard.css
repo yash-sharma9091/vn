@@ -15,7 +15,6 @@
     cursor: pointer;
     outline: none;
 }
-.school-dashboard .activity-btn:hover{ background-color:rgb(183, 195, 87); color:#0a0902;}
 
 
 /*dashboard-header.schooladmin*/
@@ -41,24 +40,97 @@
 
 /*activity-box*/
 .activity-box{
-    position: fixed;
-    width: 435px;
-    background-color: #e3e3e9;
-    top: 50px;
-    right: 0;
-    bottom: 0;
-    z-index: 15;
+	position: fixed;
+	width: 467px;
+	background-color: #e3e3e9;
+	top: 50px;
+	right: -100%;
+	bottom: 0;
+	transition: all 0.5s ease-in-out;
+	z-index: 1;
+}
+.activity-box.active{
+	right: 0;
+	transition: all 0.5s ease-in-out;
 }
 .activity-head {
-	height: 50px;
 	text-align: center;
-	font-size: 18px;
-	font-weight: 600;
+	font-size: 20px;
+	font-weight: 800;
 	text-transform: uppercase;
 	color: #292b2c;
 	width: 100%;
-    line-height: 45px;
-    border-bottom: 1px solid #c9c9ce;
+	border-bottom: 1px solid #c9c9ce;
+	padding: 25px 0;
+	height: 81px;
+	position: absolute;
+	right: 0;
+	left: 0;
+	top: 0;
+}
+.activity-head .cross-out {
+    display: block;
+    float: right;
+    padding: 2px 15px;
+    cursor: pointer;
+}
+.activity-head .cross-out img{width:18px;}
+.activity-listing-main{
+	position: absolute;
+	top: 81px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	overflow: auto;
+}
+.activity-listing-main ul li{
+	display: block;
+}
+.activity-listing-main .activity-process{
+	padding: 20px 20px 20px 65px;
+	position: relative;
+	border-bottom: 1px solid #c9c9ce;
+}
+.activity-listing-main .activity-process .activity-person-img-box{
+	width: 36px;
+	height: 36px;
+	border-radius: 100%;
+	box-shadow: 0 0 2px 2px #b7b7ba;
+	background: url('../../assets/images/act-img-2.png') no-repeat center center; background-size: cover;
+	position: absolute;
+	left: 20px;
+	top: 20px;
+}
+.activity-listing-main .activity-process .activity-person-box h2{
+	font-size:16px;
+	color: #292b2c;
+	margin-bottom: 5px;
+}
+.activity-listing-main .activity-process .activity-person-box h3{
+	font-size:14px;
+	color: #6d6d6d;
+	margin-bottom: 10px;
+}
+.activity-listing-main .activity-process .activity-person-box .marked-completed {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    color: #6a6a68;
+	font-size: 16px;
+	box-shadow: 4px 4px 4px -2px #dfdfe4;
+}
+.activity-listing-main .activity-process .activity-person-box .marked-completed span{
+	color: #0a4ba9;
+}
+.activity-listing-main .activity-process .activity-person-box .write-comment a{
+	display: block;
+	font-size: 13px;
+	color: #0a4ba9 !important;
+	text-decoration: underline !important;
+	text-align: right;
+	cursor: pointer;
+	padding: 0;
 }
 
 

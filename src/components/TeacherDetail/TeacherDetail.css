@@ -8,6 +8,9 @@
     font-size: 16px;
 }
 
+.profiles-mains{
+    position: relative;
+}
 .profiles-mains .teacher-profiles {
     border: 1px solid #cececf;
     width: 100px;
@@ -29,6 +32,7 @@
 .teacher-profile-boxes .word-text {
     color: #636c72;
     font-size: 16px;
+    text-transform: capitalize;
 }
 .teacher-profile-boxes .email-text{
     color: #0a4ba9;
@@ -43,4 +47,34 @@
     padding: 1px 15px;
     color: #0a4ba9;
     font-size: 13px;
+}
+
+.teacher-profile-boxes .activity-action-list{
+    text-align: right;
+    margin-bottom: 5px;
+}
+.teacher-profile-boxes .activity-action-list ul li{
+    display: inline-block;
+    list-style: none;
+}
+.teacher-profile-boxes .activity-action-list ul li{
+    display: inline-block;
+    list-style: none;
+    position: relative;
+}
+.teacher-profile-boxes .activity-action-list ul li::after{
+    position: absolute;
+    content: '';
+    background-color: #636c72;
+    right: 0;
+    top: 3px;
+    width: 1px;
+    height: 75%;
+}
+.teacher-profile-boxes .activity-action-list ul li a {
+    color: #636c72;
+    font-size: 13px;
+    padding: 0 10px;
+    display: block;
+    cursor: pointer;
 }

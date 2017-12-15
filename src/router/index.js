@@ -10,11 +10,16 @@ import HomePage from '../components/HomePage/HomePage';
 import Login from '../components/Login/Login';
 import Faq from '../components/Faq/Faq';
 import Dashboard from '../components/Dashboard/Dashboard';
+
 import AddTeachers from '../components/AddTeachers/AddTeachers';
+import AddStudent from '../components/AddStudent/AddStudent';
+
 import EditTeacherDetail from '../components/EditTeacherDetail/EditTeacherDetail';
 import EditStudentDetail from '../components/EditStudentDetail/EditStudentDetail';
+
 import TeacherDetail from '../components/TeacherDetail/TeacherDetail';
-import AddStudent from '../components/AddStudent/AddStudent';
+import StudentDetail from '../components/StudentDetail/StudentDetail';
+
 import SchoolStep from '../components/BuildSchoolStep/SchoolStep';
 import NotFound from '../components/Error/404';
 import Invalid from '../components/Error/Invalid';
@@ -34,6 +39,7 @@ import {
 	teacherListing,
 	addStudent,
 	teacherDetail,
+	studentDetail,
 	editTeacher,
 	editStudent,
 	faq, 
@@ -55,6 +61,7 @@ export const Router = props => {
 					<PrivateRoute path={dashboard} component={Dashboard} />
 					<PrivateRoute path={teacherListing} component={AddTeachers} />
 					<PrivateRoute path={teacherDetail} component={TeacherDetail} />
+					<PrivateRoute path={studentDetail} component={StudentDetail} />
 					<PrivateRoute path={addStudent} component={AddStudent} />
 					<PrivateRoute path={editTeacher} component={EditTeacherDetail} />
 					<PrivateRoute path={editStudent} component={EditStudentDetail} />
