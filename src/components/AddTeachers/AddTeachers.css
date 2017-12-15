@@ -326,9 +326,10 @@
     font-size: 20px;
     margin-bottom: 17px;
 }
-.confirmation-modal .modal-header .modal-title h2{
+.confirmation-modal .modal-header .modal-title{
     font-size: 18px;
     color: #292b2c;
+    font-weight: 600;
 }
 
 /*Responsive Code*/

@@ -14,7 +14,7 @@ import paid from '../../assets/images/paid.png';
 import './SchoolAdminDashboard.css';
 import dashboardBg from '../../assets/images/dashboard-bg.png';
 import {loadImage} from '../../lib/Helper';
-import {teacherListing} from '../../lib/SiteLinks';
+import {teacherListing, addStudent} from '../../lib/SiteLinks';
 import {Link} from 'react-router-dom';
 
 class Dashboard extends Component {
@@ -170,7 +170,9 @@ class Dashboard extends Component {
 								</div>
 								<div className="col-2">
 									<div className="dash-box">
-										<a><div className="dash-icon"><img src={dashImg4} className="transition" alt="" /></div><span>Students</span></a>
+										<Link to={addStudent}>
+											<div className="dash-icon"><img src={dashImg4} className="transition" alt="" /></div><span>Students</span>
+										</Link>
 									</div>
 								</div>
 								<div className="col-2">

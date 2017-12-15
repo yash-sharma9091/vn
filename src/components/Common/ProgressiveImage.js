@@ -1,12 +1,15 @@
 /* global IMAGE_PATH */
 import React, { Component } from 'react';
 import {loadImage} from '../../lib/Helper';
+import {Loader} from './Loader';
 
 class ProgressiveImage extends Component {
 	constructor() {
 		super();
 		this.state = {
-			src: ''
+			loadSrc: '',
+			loadBackgoundSrc:{},
+			isLoading: false
 		}
 	}
 	loadImage(src) {
@@ -18,20 +21,42 @@ class ProgressiveImage extends Component {
 		});
 	}
 	componentDidMount() {
-		const {src, tmpSrc} = this.props;
-		this.setState({src: tmpSrc});
+		const {src, backgroundSrc} = this.props;
+		this.setState({isLoading: true});
+		let url;
 		if ( src ) {
-			let url = (IMAGE_PATH + '/' + src);
+			url = (IMAGE_PATH + '/' + src);
 			loadImage(url)
-			.then(res => this.setState({src}) )
-		}
+			.then(res => this.setState({loadSrc: src, isLoading: false}) )
+			
+		} else if( backgroundSrc ) {
+			url = {
+				backgroundImage: 'url(' + ( `${IMAGE_PATH}/${backgroundSrc}` ) + ')',
+				backgroundRepeat  : 'no-repeat',
+	       		backgroundPosition: 'center',
+			}
+			loadImage(`${IMAGE_PATH}/${backgroundSrc}`)
+			.then(res => this.setState({loadBackgoundSrc: url, isLoading: false}) )
+		}		
 	}
   	render() {
-  		const {src} = this.state;
-  		const {alt, className} = this.props;
-    	return (
-			<img src={src} alt={alt || 'Progressive Image'}>
-    	);
+  		const {loadSrc, isLoading, loadBackgoundSrc} = this.state;
+  		const {alt, className, backgroundSrc, src} = this.props;
+  		if( isLoading ) {
+  			return <div>Loaing ...</div>
+  		} else if( src ) {
+  			return (
+				<img src={loadSrc} className={className} alt={alt || 'Progressive Image'} />
+    		);
+  		} else if( backgroundSrc ) {
+  			console.log(loadBackgoundSrc);
+  			return (
+				<div className={className} style={loadBackgoundSrc}></div>
+    		);
+  		} else {
+  			return null;
+  		}
+    	
   	}
 }
 

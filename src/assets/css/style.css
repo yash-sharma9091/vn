@@ -123,11 +123,14 @@ label {
     color: #37393a;
 }
 .autocomplete-container { 
-  position: 'absolute';
-  top: '100%';
-  background-color: 'white';
-  border: '1px solid #555555';
-  width: '100%';
+  position: absolute;
+  width: 100%;
+  top: 40px;
+  left: 0;
+  right: 0;
+  border: 1px solid #d9d9d9;
+  background-color: #ffffff;
+  z-index: 100;
 }
 
 .invalidFile { border-color: #dc3545!important; }

@@ -15,35 +15,34 @@ import FormField from "../Common/FormField";
 import FormSelect from "../Common/FormSelect";
 import {Http} from '../../lib/Http';
 import Alert from '../Common/Alert';
+import {teacherListing} from '../../lib/SiteLinks';
+import {push} from 'react-router-redux';
 let success='';
 
 class EditTeacherInformation extends Component {
     constructor() {
         super();
-        this.formSubmit = this.formSubmit.bind(this);
+        //this.formSubmit = this.formSubmit.bind(this);
         this.handleSelect = this.handleSelect.bind(this);
         this.fillFormFields = this.fillFormFields.bind(this);
+        this.removeImage = this.removeImage.bind(this);
         //this.resetForm = this.resetForm.bind(this);
         this.state = {
             success: '',
             reset: false,
-            coordinates : {
-                lat: '',
-                lng: ''
-            }
+            profileImage:''
         }
     }
     handleSelect(address) {
+        const {change} = this.props;
         geocodeByAddress(address)
         .then(result => {
             this.fillFormFields(result);
             return getLatLng(result[0])
         })
         .then(({ lat, lng }) => {
-            let request = {
-                lat, lng
-            }
-            this.setState({coordinates: request});
+            change('lat', lat);
+            change('lng', lng);
         })
         .catch(err => { throw new SubmissionError(err.message) });
     }
@@ -82,22 +81,29 @@ class EditTeacherInformation extends Component {
         }
     }
     
-    formSubmit(values) {
-        console.log(values);
+    componentDidMount(newProps) {
+        const {teacher} = this.props;
+        if(teacher) {
+            const {profile_image} = teacher;
+            if( profile_image ) {
+                let profileImage = `${IMAGE_PATH}/${profile_image.path}`; 
+
+                this.setState({profileImage});
+            }
+        }
+    }
+    removeImage() {
+        this.setState({profileImage:''});
+        this.props.change('profile_image',null);
     }
 	render() {
         const { error, handleSubmit, teacher} = this.props;
+        const {profileImage} = this.state;
         
-        const {profile_image} = teacher;
-        let profileImage;
-        if( profile_image ) {
-            profileImage = `${IMAGE_PATH}/${profile_image.path}`;    
-        }
         const options = [
             {value: 'male', name: 'Male'},
             {abbreviation: 'female', name: 'Female'}
         ]
-        console.log(success);
 		return (
             <div className="left-group">
                 <div className="left-group-content">
@@ -108,7 +114,7 @@ class EditTeacherInformation extends Component {
                                 <div className="p-3">
                                     <div className="row align-items-center">
                                         <div className="col-md-3 col-lg-2 inner-cropper">
-                                            <Field component={ImageCropper} name="image" logo={profileImage}/>
+                                            <Field component={ImageCropper} name="image" logo={profileImage} removeImage={this.removeImage}/>
                                         </div>
                                         <div className="col-md-9 col-lg-10">
                                             <div className="form-row pl-3">
@@ -228,11 +234,19 @@ let _EditTeacherInformation = reduxForm({
     asyncBlurFields: ['teacher_address'],
     onSubmitFail: handleSubmitFailed,
     onSubmit: (values, dispatch, props) => {
+        //console.log(values);return;
+        // const {lat, lng} = values;
+        // if( !lat && !lng ) {
+        //     throw new SubmissionError({teacher_address:'Invalid address'});
+        //     return;
+        // }
+        
         return new Promise((resolve, reject) => {
             Http.upload('edit_teacher', values)
             .then(({data}) => {
                 success = data.message;
-                setTimeout(() => {success=''},3000);
+                setTimeout(() => {success=''; dispatch(push(teacherListing));},3000);
+                window.scrollTo(0, 0);
                 resolve();
             })
             .catch(({errors}) => {

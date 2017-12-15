@@ -63,7 +63,7 @@ class FormField extends Component {
 	}
 	renderInput() {
 		const {meta, input, type, label, placeholder, className, doValidate, id, maskInput, rows, placesAutocomplete, onSelect, readOnly} = this.props;
-		if( doValidate && maskInput ) {
+		if( maskInput ) {
 			return ( <InputMask 
 				{...input} 
 				className={`form-control ${!meta.touched ? null : (meta.error ? 'is-invalid': null)}`} id={id} 

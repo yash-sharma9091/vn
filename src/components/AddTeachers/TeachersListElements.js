@@ -9,6 +9,7 @@ import {fullName, limitTo, decorateLink} from '../../lib/Helper';
 import {editTeacher, teacherDetail} from '../../lib/SiteLinks';
 import {LinkContainer} from 'react-router-bootstrap';
 import DeleteTeacher from './DeleteTeacherModal';
+import ProgressiveImage from '../Common/ProgressiveImage';
 
 class TeachersListElements extends Component {
 	constructor() {
@@ -27,7 +28,7 @@ class TeachersListElements extends Component {
 		this.setState({_teacher});
 	}
 	render() {
-		const {dropdownToggle, toggle, teacher, dataIndex, refreshTeacherList} = this.props;
+		const {dropdownToggle, toggle, teacher, dataIndex, refreshList} = this.props;
 		const {show, _teacher} = this.state;
 		const imageStyle = {
 			backgroundImage: 'url(' + ( `${IMAGE_PATH}/${teacher.profile_image.path}` ) + ')',
@@ -55,6 +56,7 @@ class TeachersListElements extends Component {
 				        </DropdownWithoutActiveProps>
 				    </div>
 				    <div className="teacher-group-box relative">
+				    	{/*<ProgressiveImage className="teacher-picture" style={teacher.profile_image.path}>*/}
 				        <div className="teacher-picture" style={imageStyle}>
 				            {/* <img src={`${IMAGE_PATH}/${teacher.profile_image.path}`} alt={teacher.first_name} /> */}
 				        </div>
@@ -71,7 +73,7 @@ class TeachersListElements extends Component {
 				        </LinkContainer>	
 				    </div>
 				</div>
-				{show && <DeleteTeacher show={show} refreshTeacherList={refreshTeacherList} toggle={this.toggle} teacher={_teacher}/>}
+				{show && <DeleteTeacher show={show} refreshList={refreshList} toggle={this.toggle} teacher={_teacher}/>}
 			</div>	
 		);
 	}

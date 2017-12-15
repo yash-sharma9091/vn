@@ -5,7 +5,7 @@ import Logo from  '../Logo/Logo';
 import {removePartials, networkAlert} from '../../lib/Helper';
 import {MetaTitle} from '../Common/MetaTitle';
 import DashboardHeader from '../partials/DashboardHeader';
-import { FETCH_SITE_SETTINGS } from '../../constant';
+import { FETCH_SITE_SETTINGS, FETCH_MASTER_DATA } from '../../constant';
 
 class Header extends Component {
 	constructor() {
@@ -17,6 +17,11 @@ class Header extends Component {
 	componentDidMount()  {
 		this.props.dispatch({
 			type: FETCH_SITE_SETTINGS,
+			callbackError: ({message}) => this.setState({errorMsg:message}),
+      		callbackSuccess: () => this.setState({errorMsg: ''})
+		});
+		this.props.dispatch({
+			type: FETCH_MASTER_DATA,
 			callbackError: ({message}) => this.setState({errorMsg:message}),
       		callbackSuccess: () => this.setState({errorMsg: ''})
 		});

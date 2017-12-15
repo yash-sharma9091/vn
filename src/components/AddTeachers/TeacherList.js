@@ -42,7 +42,7 @@ class TeacherList extends Component {
     }
 	render() {
         const { teacherList, paging, dropdownToggle, isLoadingList } = this.state;
-        const {refreshTeacherList} = this.props;
+        const {refreshList} = this.props;
         /*console.log(teacherList);
         console.log(paging);*/
 		return (
@@ -60,7 +60,7 @@ class TeacherList extends Component {
                             :(
                                 <div className="d-flex justify-content-left flex-wrap align-items-stretch align-content-around teachers-row">
                                     {teacherList.length > 0 && teacherList.map((value, index) => {
-                                        return (<TeachersListElements refreshTeacherList={refreshTeacherList} teacher={value} key={index} dataIndex={index + 1} dropdownToggle={dropdownToggle === (index + 1)} toggle={this.toggle}/>)
+                                        return (<TeachersListElements refreshList={refreshList} teacher={value} key={index} dataIndex={index + 1} dropdownToggle={dropdownToggle === (index + 1)} toggle={this.toggle}/>)
                                     })}
                                 </div>
                             )
