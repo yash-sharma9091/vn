@@ -8,7 +8,7 @@ import { Form } from 'reactstrap';
 import ImageCropper from '../Common/ImageCropper';
 import './AddTeachers.css';
 import {handleSubmitFailed, gender} from '../../lib/Helper';
-import {Required, Email, Number, Phone, maxLength4,maxLength200,maxLength400, Alphabets, isValidAddress, ContactNumber} from '../../lib/Validate';
+import {Required, Email,maxLength200, Alphabets, isValidAddress, ContactNumber} from '../../lib/Validate';
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import {Http} from '../../lib/Http';
 import Alert from '../Common/Alert';
@@ -159,7 +159,7 @@ class RightPart extends Component {
                                         component={FormField} type="text" formGroupClassName="col-md-12 col-lg-6"
                                         name="contact_telephoneno" label="Contact Number"
                                         id="Contact_Number" placeholder="Enter contact number"
-                                        doValidate={true} maskInput={true} inputAddOn={true} inputAddOnText="+1" validate={[ContactNumber]} doValidate={true}/>
+                                        doValidate={true} maskInput={true} inputAddOn={true} inputAddOnText="+1" validate={[ContactNumber]}/>
                                 </div>
                                 
                             </div>
@@ -183,7 +183,7 @@ class RightPart extends Component {
         if( _.has(values, 'contact_telephoneno') ) {
             values.contact_telephoneno = _.replace(values.contact_telephoneno, /-|\s|\+1/g, "");
         }
-        console.log(values);
+        //console.log(values);
         return new Promise((resolve, reject) => {
             Http.upload('addteacher', values)
             .then(({data}) => {

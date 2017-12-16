@@ -219,7 +219,7 @@ class AddStudent extends Component {
                 
                 this.setState({success:data.message, reset: true});
                 dispatch(reset('AddStudentForm'));
-                setTimeout(() => this.setState({success: ''}), 5000);
+                setTimeout(() => this.setState({success: '', reset: true}), 5000);
                 window.scrollTo(0, 0);
                 refreshList();
                 resolve();

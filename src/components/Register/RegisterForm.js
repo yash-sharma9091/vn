@@ -11,7 +11,6 @@ import Alert from '../Common/Alert';
 import './Register.css';
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import { handleSubmitFailed} from '../../lib/Helper';
-import {getMasterData} from '../../api/getMasterData';
 import FormDropdown from "../Common/FormDropdown";
 import {connect} from 'react-redux';
 
@@ -83,7 +82,7 @@ class RegisterForm extends Component {
     	}
     }
   	render() {
-  		const { error, handleSubmit, pristine, submitting, fetchError} = this.props;
+  		const { error, handleSubmit, pristine, submitting} = this.props;
   		const {school_type, school_level} = this.props.masterdata;
   		
     	return (

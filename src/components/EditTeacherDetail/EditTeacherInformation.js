@@ -5,7 +5,7 @@ import './EditTeacherDetail.css';
 import ImageCropper from '../Common/ImageCropper';
 import { Field, SubmissionError,reduxForm } from 'redux-form';
 import {handleSubmitFailed, gender} from '../../lib/Helper';
-import {Required, Email, Number, Phone, maxLength4,maxLength200,maxLength400, Alphabets, isValidAddress, ContactNumber} from '../../lib/Validate';
+import {Required, Email,maxLength200, Alphabets, isValidAddress, ContactNumber} from '../../lib/Validate';
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import FormField from "../Common/FormField";
 import FormSelect from "../Common/FormSelect";
@@ -93,7 +93,7 @@ class EditTeacherInformation extends Component {
         this.props.change('profile_image',null);
     }
 	render() {
-        const { error, handleSubmit, teacher} = this.props;
+        const { error, handleSubmit} = this.props;
         const {profileImage} = this.state;
 		return (
             <div className="left-group">

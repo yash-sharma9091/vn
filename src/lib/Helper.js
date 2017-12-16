@@ -1,4 +1,4 @@
-/* global _ */
+/* global _, moment */
 import {forgotPassword, login, resetPassword} from './SiteLinks';
 export const exportPath = (pathname) => pathname.split('/')[1];
 
@@ -103,4 +103,6 @@ export const gender =  [
     {value: 'male', name: 'Male'},
     {value: 'female', name: 'Female'}
 ];
+
+export const formatDate = (date, format = 'DD/MM/YYYY') => moment(date).format(format);
 //export const formatBytes = (a,b) => {if(0==a)return"0 Bytes";var c=1024,d=b||2,e=["Bytes","KB","MB","GB","TB","PB","EB","ZB","YB"],f=Math.floor(Math.log(a)/Math.log(c));return parseFloat((a/Math.pow(c,f)).toFixed(d))+" "+e[f]}

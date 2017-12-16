@@ -1,8 +1,8 @@
-/* global IMAGE_PATH */
+/* global _ */
 import React, {Component} from 'react';
-import { FormGroup, Label, Input } from 'reactstrap';
+import { FormGroup, Label } from 'reactstrap';
 import './TeacherDetail.css';
-import {fullName, decorateNameField} from '../../lib/Helper';
+import {fullName} from '../../lib/Helper';
 import ProgressiveImage from '../Common/ProgressiveImage';
 
 class ViewTeacherInfo extends Component {
@@ -22,7 +22,7 @@ class ViewTeacherInfo extends Component {
                                         <div className="profiles-mains">
                                             {/*<div className="teacher-profiles" style={style}></div>*/}
                                             <ProgressiveImage className="teacher-profiles" backgroundSrc={teacher.profile_image.path} />
-                                            <span>{fullName(teacher.first_name, teacher.last_name)}</span>
+                                            <span className="text-capitalize">{fullName(teacher.first_name, teacher.last_name)}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -34,7 +34,7 @@ class ViewTeacherInfo extends Component {
                                     <div className="form-row">
                                         <FormGroup className="col-sm-6">
                                                 <Label className="col-sm-3 col-md-4">Gender</Label>
-                                                <span className="col-sm-9 col-md-8 word-text">{decorateNameField(teacher.gender)}</span>
+                                                <span className="col-sm-9 col-md-8 word-text">{_.capitalize(teacher.gender)}</span>
                                         </FormGroup>
                                         <FormGroup className="col-sm-6">
                                                 <Label className="col-sm-3 col-md-4">Official Class</Label>

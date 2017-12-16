@@ -64,7 +64,7 @@ class TeachersListElements extends Component {
 				        <div className="te-gen mb-1 text-capitalize">{teacher.gender}</div>
 				        <div className="te-sub">Subject &amp; Class</div>
 				        {/*<div className="te-code text-capitalize">E 401, M 201, S 501...</div>*/}
-				        <div className="te-code text-capitalize">N/A</div>
+				        <div className="te-code text-capitalize">NA</div>
 				    </div>
 				    <div className="d-flex justify-content-between mt-2">
 				        <button type="button" className="btn btn-link mesg-btn pointer"><img src={EnvelopeGray} alt="" /> Message</button>

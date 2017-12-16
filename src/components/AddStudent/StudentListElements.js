@@ -1,4 +1,4 @@
-/* global IMAGE_PATH */
+
 import React, {Component} from 'react';
 import TeacherPic from '../../assets/images/teacher-1.png';
 import EnvelopeGray from '../../assets/images/svg/envelope-gray.svg';
@@ -7,8 +7,9 @@ import { DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import {DropdownWithoutActiveProps} from '../partials/DropdownWithoutActiveProps';
 import {fullName, limitTo, decorateLink} from '../../lib/Helper';
 import './AddStudent.css';
-import {editStudent, teacherDetail} from '../../lib/SiteLinks';
+import {editStudent, studentDetail} from '../../lib/SiteLinks';
 import {LinkContainer} from 'react-router-bootstrap';
+import ProgressiveImage from '../Common/ProgressiveImage';
 
 class StudentListElements extends Component {
 	constructor() {
@@ -30,11 +31,11 @@ class StudentListElements extends Component {
 		const {dropdownToggle, toggle, student, dataIndex, refreshList} = this.props;
 		
 		const {show, _student} = this.state;
-		const imageStyle = {
+		/*const imageStyle = {
 			backgroundImage: 'url(' + ( `${IMAGE_PATH}/${student.profile_image.path}` ) + ')',
 			backgroundRepeat  : 'no-repeat',
        		backgroundPosition: 'center',
-		}
+		}*/
 		return (
 			<div className="light-white-bg teacher-box p-2 p-lg-3 relative">
 			    <div className="box-settings pointer">
@@ -55,8 +56,8 @@ class StudentListElements extends Component {
 			        </DropdownWithoutActiveProps>
 			    </div>
 			    <div className="teacher-group-box relative">
-			        <div className="teacher-picture"  style={imageStyle}>
-			        </div>
+			    	<ProgressiveImage className="teacher-picture" backgroundSrc={student.profile_image.path} />
+			        {/*<div className="teacher-picture"  style={imageStyle}> </div>*/}
 			        <div className="te-heading text-capitalize"><b>{limitTo(fullName(student.first_name, student.last_name),50)}</b>, {student.gender}</div>
 			        <div className="te-gen mb-1 text-capitalize">N/A</div>
 			        <div className="te-sub">Parent Contact:</div>
@@ -64,7 +65,9 @@ class StudentListElements extends Component {
 			    </div>
 			    <div className="d-flex justify-content-between mt-2">
 			        <button type="button" className="btn btn-link mesg-btn pointer"><img src={EnvelopeGray} alt="" /> Message</button>
-			        <button type="button" className="btn btn-link view-btn pointer">View Detail</button>
+			        <LinkContainer to={`${decorateLink(studentDetail)}/${student._id}`}>
+			        	<button type="button" className="btn btn-link view-btn pointer">View Detail</button>
+			        </LinkContainer>	
 			    </div>
 			</div>
 		);

@@ -16,7 +16,8 @@
     width: 100px;
     height: 100px;
     border-radius: 3px;
-    background: url('../../assets/images/person-img.png') no-repeat center center;
+    /*background: url('../../assets/images/person-img.png') no-repeat center center;*/
+    background-color: #6d87c8;
     background-size: cover;
     display: inline-block;
     vertical-align: middle;
