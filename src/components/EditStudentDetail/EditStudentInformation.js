@@ -1,6 +1,6 @@
 /* global IMAGE_PATH */
 import React, {Component} from 'react';
-import TeacherPic from '../../assets/images/teacher-1.png';
+//import TeacherPic from '../../assets/images/student-1.png';
 import EnvelopeGray from '../../assets/images/svg/envelope-gray.svg';
 import ThreeDots from '../../assets/images/svg/three-dots.svg';
 import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
@@ -8,42 +8,44 @@ import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import './EditStudentDetail.css';
 import ImageCropper from '../Common/ImageCropper';
 import { Field, SubmissionError,reduxForm } from 'redux-form';
-import {handleSubmitFailed} from '../../lib/Helper';
-import {Required, Email, Number, Phone, maxLength4,maxLength200,maxLength400, Alphabets, isValidAddress, ContactNumber} from '../../lib/Validate';
+import {handleSubmitFailed, gender} from '../../lib/Helper';
+import {Required, Email, maxLength200, Alphabets, isValidAddress, ContactNumber, OSIS} from '../../lib/Validate';
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import FormField from "../Common/FormField";
 import FormSelect from "../Common/FormSelect";
 import {Http} from '../../lib/Http';
 import Alert from '../Common/Alert';
+import {studentListing} from '../../lib/SiteLinks';
+import FormCalender from '../Common/FormCalender';
+import {connect} from 'react-redux';
+import FormDropdown from "../Common/FormDropdown";
+import {push} from 'react-router-redux';
 let success='';
 
 class EditTeacherInformation extends Component {
     constructor() {
         super();
-        this.formSubmit = this.formSubmit.bind(this);
+        //this.formSubmit = this.formSubmit.bind(this);
         this.handleSelect = this.handleSelect.bind(this);
         this.fillFormFields = this.fillFormFields.bind(this);
+        this.removeImage = this.removeImage.bind(this);
         //this.resetForm = this.resetForm.bind(this);
         this.state = {
             success: '',
             reset: false,
-            coordinates : {
-                lat: '',
-                lng: ''
-            }
+            profileImage:''
         }
     }
     handleSelect(address) {
+        const {change} = this.props;
         geocodeByAddress(address)
         .then(result => {
             this.fillFormFields(result);
             return getLatLng(result[0])
         })
         .then(({ lat, lng }) => {
-            let request = {
-                lat, lng
-            }
-            this.setState({coordinates: request});
+            change('lat', lat);
+            change('lng', lng);
         })
         .catch(err => { throw new SubmissionError(err.message) });
     }
@@ -60,7 +62,7 @@ class EditTeacherInformation extends Component {
         };
         if( address.length > 0 ) {
             let address_components = address[0].address_components;
-            change('teacher_address', address[0].formatted_address);
+            change('student_address', address[0].formatted_address);
             for (var i = 0; i < address_components.length; i++) {
                 var addressType = address_components[i].types[0];
                 if (componentForm[addressType]) {
@@ -85,19 +87,26 @@ class EditTeacherInformation extends Component {
     formSubmit(values) {
         console.log(values);
     }
-	render() {
-        const { error, handleSubmit, teacher} = this.props;
-        
-        const {profile_image} = teacher;
-        let profileImage;
-        if( profile_image ) {
-            profileImage = `${IMAGE_PATH}/${profile_image.path}`;    
+    componentDidMount(newProps) {
+        const {student} = this.props;
+        if(student) {
+            const {profile_image} = student;
+            if( profile_image ) {
+                let profileImage = `${IMAGE_PATH}/${profile_image.path}`; 
+
+                this.setState({profileImage});
+            }
         }
-        const options = [
-            {value: 'male', name: 'Male'},
-            {abbreviation: 'female', name: 'Female'}
-        ]
-        console.log(success);
+    }
+    removeImage() {
+        this.setState({profileImage:''});
+        this.props.change('profile_image',null);
+    }
+	render() {
+        const { error, handleSubmit} = this.props;
+        const {additional_health_info} = this.props.masterdata;
+        const {profileImage} = this.state;
+        
 		return (
             <div className="left-group">
                 <div className="left-group-content">
@@ -108,7 +117,7 @@ class EditTeacherInformation extends Component {
                                 <div className="p-3">
                                     <div className="row align-items-center">
                                         <div className="col-md-3 col-lg-2 inner-cropper">
-                                            <Field component={ImageCropper} name="image" logo={profileImage}/>
+                                            <Field component={ImageCropper} name="image" logo={profileImage} removeImage={this.removeImage}/>
                                         </div>
                                         <div className="col-md-9 col-lg-10">
                                             <div className="form-row pl-3">
@@ -130,12 +139,12 @@ class EditTeacherInformation extends Component {
                                 <div className="p-3">
                                     <div className="form-row">
                                         <div className="col-sm-6">
+
                                             <Field 
-                                                component={FormField} type="text" formGroupClassName="row" 
-                                                colWrapper={true} col={9}
+                                                component={FormCalender} type="text" formGroupClassName="row" 
+                                                name="dob" label="DOB" colWrapper={true} col={9}
                                                 labelClassName="col-sm-3"
-                                                name="DOB" label="DOB" placesAutocomplete={true} onSelect={this.handleSelect}
-                                                id="DOB" placeholder="MM/DD/YYYY" validate={[Required]} doValidate={true}/>
+                                                id="DOB" placeholder="DD/MM/YYYY" validate={[Required]} doValidate={true}/>
                                         </div>
                                         <div className="col-sm-6">
                                             <div className="form-group row">
@@ -152,11 +161,29 @@ class EditTeacherInformation extends Component {
 
                                     <div className="form-row">
                                         <div className="col-sm-6">
+                                            <Field 
+                                                component={FormSelect} formGroupClassName="row" name="gender" type="select" 
+                                                emptyText="Select gender" label="Gender" options={gender}
+                                                labelClassName="col-sm-3" colWrapper={true} col={9}
+                                                displayKey={"value"} displayLabel={"name"} empty={true} validate={[Required]} doValidate={true}/>
+                                        </div>
+                                        <div className="col-sm-6">
+                                            <Field 
+                                                component={FormField} type="text" formGroupClassName="row" 
+                                                colWrapper={true} col={9}
+                                                labelClassName="col-sm-3"
+                                                name="osis_number" label="Student Code"
+                                                id="Student Code" placeholder="Enter code (osis number)" validate={[OSIS]} doValidate={true}/>
+                                         </div>
+                                    </div>
+
+                                    <div className="form-row">
+                                        <div className="col-sm-6">
                                             <div className="form-group row">
-                                                <label className="col-sm-3 col-form-label">Gender</label>
+                                                <label className="col-sm-3 col-form-label">Class</label>
                                                 <div className="col-sm-9">
                                                     <select id="inputState" className="form-control">
-                                                        <option selected>Select gender</option>
+                                                        <option selected>Select class</option>
                                                         <option>...</option>
                                                     </select>
                                                 </div>
@@ -164,36 +191,12 @@ class EditTeacherInformation extends Component {
                                         </div>
                                         <div className="col-sm-6">
                                             <Field 
-                                                component={FormField} type="text" formGroupClassName="row" 
-                                                colWrapper={true} col={9}
-                                                labelClassName="col-sm-3"
-                                                name="Student Code" label="Student Code" placesAutocomplete={true} onSelect={this.handleSelect}
-                                                id="Student Code" placeholder="Enter code (oss number)" validate={[Required]} doValidate={true}/>
-                                         </div>
-                                    </div>
-
-                                    <div className="form-row">
-                                        <div className="col-sm-6">
-                                            <div className="form-group row">
-                                                <label className="col-sm-3 col-form-label">Grade</label>
-                                                <div className="col-sm-9">
-                                                    <select id="inputState" className="form-control">
-                                                        <option selected>Select Grade</option>
-                                                        <option>...</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="col-sm-6">
-                                            <div className="form-group row">
-                                                <label className="col-sm-3 col-form-label">Official Class</label>
-                                                <div className="col-sm-9">
-                                                    <select id="inputState" className="form-control">
-                                                        <option selected>Select grade</option>
-                                                        <option>...</option>
-                                                    </select>
-                                                </div>
-                                            </div>
+                                                component={FormDropdown} 
+                                                formGroupClassName="row" name="additional_health_info"
+                                                label="Additional Health Info "  colWrapper={true} col={9}
+                                                data={additional_health_info} placeholder="Select health info"
+                                                valueField={"_id"} textField={"name"} empty={true} emptyText="Select health info" 
+                                                labelClassName="col-sm-3"/>       
                                          </div>
                                     </div>
                                 </div>
@@ -204,19 +207,21 @@ class EditTeacherInformation extends Component {
                                     <div className="form-row">
                                         <div className="col-sm-6">
                                             <Field 
-                                                component={FormField} type="text" formGroupClassName="row" 
-                                                colWrapper={true} col={9}
-                                                labelClassName="col-sm-3"
-                                                name="Name" label="Name" placesAutocomplete={true} onSelect={this.handleSelect}
-                                                id="Name" placeholder="Enter name" validate={[Required]} doValidate={true}/>
+                                                component={FormField} type="text" 
+                                                formGroupClassName="row" colWrapper={true} 
+                                                labelClassName="col-sm-3" col={8}
+                                                name="contact_telephoneno" label="Contact Number" 
+                                                id="contact_telephoneno" placeholder="Enter contact number"
+                                                maskInput={true} inputAddOn={true} inputAddOnText="+1" 
+                                                validate={[ContactNumber]} doValidate={true}/>  
                                         </div>
                                         <div className="col-sm-6">
                                             <Field 
                                                 component={FormField} 
                                                 type="text" formGroupClassName="row" 
                                                 colWrapper={true} col={9} labelClassName="col-sm-3"
-                                                name="Email" label="Email" placesAutocomplete={true} onSelect={this.handleSelect}
-                                                id="Email" placeholder="Enter email" validate={[Required, Email]} doValidate={true}/>    
+                                                name="email_address" label="Email Address"
+                                                id="Email_Address" placeholder="Enter email address" validate={[Required, Email]} doValidate={true}/>    
                                         </div>
                                     </div>
 
@@ -226,27 +231,8 @@ class EditTeacherInformation extends Component {
                                                 component={FormField} type="text" formGroupClassName="row" 
                                                 colWrapper={true} col={9}
                                                 labelClassName="col-sm-3"
-                                                name="Relation" label="Relation" placesAutocomplete={true} onSelect={this.handleSelect}
-                                                id="Relation" placeholder="Enter Relation" validate={[Required]} doValidate={true}/>
-                                        </div>
-                                        <div className="col-sm-6">
-                                            <Field 
-                                                component={FormField} 
-                                                type="text" formGroupClassName="row" 
-                                                colWrapper={true} col={9} labelClassName="col-sm-3"
-                                                name="Phone" label="Phone" placesAutocomplete={true} onSelect={this.handleSelect}
-                                                id="Phone" placeholder="Enter phone" validate={[Required, Email]} doValidate={true}/>    
-                                        </div>
-                                    </div>
-
-                                    <div className="form-row">
-                                        <div className="col-sm-6">
-                                            <Field 
-                                                component={FormField} type="text" formGroupClassName="row" 
-                                                colWrapper={true} col={9}
-                                                labelClassName="col-sm-3"
-                                                name="Address" label="Address" placesAutocomplete={true} onSelect={this.handleSelect}
-                                                id="Address" placeholder="Enter Address" validate={[Required]} doValidate={true}/>
+                                                name="student_address" label="Student Address" placesAutocomplete={true} onSelect={this.handleSelect}
+                                                id="Student_Address" placeholder="Enter address" validate={[Required]} doValidate={true}/>
                                         </div>
                                     </div>
 
@@ -260,16 +246,20 @@ class EditTeacherInformation extends Component {
 	}
 }
 let _EditTeacherInformation = reduxForm({
-    form: 'EditTeacherInformationForm',
+    form: 'EditStudentInformationForm',
     asyncValidate: isValidAddress,
-    asyncBlurFields: ['teacher_address'],
+    asyncBlurFields: ['student_address'],
     onSubmitFail: handleSubmitFailed,
     onSubmit: (values, dispatch, props) => {
+        const {_triggerSubmit} = props;
+        _triggerSubmit();
         return new Promise((resolve, reject) => {
-            Http.upload('edit_teacher', values)
+            Http.upload('edit_student', values)
             .then(({data}) => {
                 success = data.message;
-                setTimeout(() => {success=''},3000);
+                setTimeout(() => {success=''; dispatch(push(studentListing));},3000);
+                _triggerSubmit();
+                
                 resolve();
             })
             .catch(({errors}) => {
@@ -285,4 +275,8 @@ let _EditTeacherInformation = reduxForm({
     }
 })(EditTeacherInformation);
 
-export default _EditTeacherInformation;
+
+const mapStateToProps = (state) => ({
+    masterdata: state.masterdb
+})
+export default connect(mapStateToProps)(_EditTeacherInformation);

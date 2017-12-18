@@ -5,7 +5,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 //import confImg from '../../assets/images/conf-img.png';
 import {Http} from '../../lib/Http';
 import Alert from '../Common/Alert';
-class DeleteTeacher extends Component {
+class DeleteModal extends Component {
 	constructor() {
 		super();
 		this.delete = this.delete.bind(this);
@@ -17,9 +17,9 @@ class DeleteTeacher extends Component {
 		}
 	}
 	delete() {
-		const {teacher, refreshList, toggle} = this.props;
+		const {user, refreshList, toggle, onDelete} = this.props;
 		this.setState({isDeleting: true});
-		Http.delete(`delete_teacher?_id=${teacher._id}`)
+		onDelete(user._id)
 		.then(({data}) => {
 			this.setState({success: data.message, isDeleting: false, isDeleted: true});
 			setTimeout(() => {
@@ -31,9 +31,9 @@ class DeleteTeacher extends Component {
 		.catch(({errors}) => this.setState({error: errors.message, isDeleting: false}));
 	}
 	render() {
-		const {show, toggle, teacher} = this.props;
+		const {show, toggle, user} = this.props;
 		const {isDeleting, error, success, isDeleted} = this.state;
-		let profilImage = `${IMAGE_PATH}/${teacher.profile_image.path}`;
+		let profilImage = `${IMAGE_PATH}/${user.profile_image.path}`;
 		const imageStyle = {
 			backgroundImage: 'url(' + ( profilImage ) + ')',
 			backgroundRepeat  : 'no-repeat',
@@ -49,13 +49,13 @@ class DeleteTeacher extends Component {
 						<h3>Are you sure to want to delete ?</h3>
 						<div className="media">
 							<div className="align-self-center mr-3" style={imageStyle}></div>
-							{/* <img className="" src={`${IMAGE_PATH}/${teacher.profile_image.path}`} alt="Generic placeholder image" /> */}
+							{/* <img className="" src={`${IMAGE_PATH}/${user.profile_image.path}`} alt="Generic placeholder image" /> */}
 							<div className="media-body">
-								<h5 className="mt-0">{limitTo(fullName(teacher.first_name, teacher.last_name),50)}</h5>
+								<h5 className="mt-0">{limitTo(fullName(user.first_name, user.last_name),50)}</h5>
 							</div>
 						</div>
 					</div>
-					{/*<div className="te-head text-capitalize">{limitTo(fullName(teacher.first_name, teacher.last_name),50)}</div> */}
+					{/*<div className="te-head text-capitalize">{limitTo(fullName(user.first_name, user.last_name),50)}</div> */}
 				</ModalBody>
 				<ModalFooter className="imports-button">
 					<Button color="primary" disabled={isDeleting || isDeleted} onClick={this.delete}>{isDeleting ? 'Processing ...':'Yes'}</Button>{' '}
@@ -66,4 +66,4 @@ class DeleteTeacher extends Component {
 	}
 }
 
-export default DeleteTeacher;
+export default DeleteModal;

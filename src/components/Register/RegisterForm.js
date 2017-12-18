@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { Form } from 'reactstrap';
 import FormField from "../Common/FormField";
-import FormSelect from "../Common/FormSelect";
+//import FormSelect from "../Common/FormSelect";
 import FormSubmit from "../Common/FormSubmit";
 import { Field, SubmissionError,reduxForm } from 'redux-form';
 import {Required, Email, Number, maxLength4,maxLength200,maxLength400, Alphabets, isValidAddress} from '../../lib/Validate';
@@ -10,8 +10,7 @@ import {Http} from '../../lib/Http';
 import Alert from '../Common/Alert';
 import './Register.css';
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
-import {isJson, flattenObject, handleSubmitFailed} from '../../lib/Helper';
-import {getMasterData} from '../../api/getMasterData';
+import { handleSubmitFailed} from '../../lib/Helper';
 import FormDropdown from "../Common/FormDropdown";
 import {connect} from 'react-redux';
 
@@ -83,7 +82,7 @@ class RegisterForm extends Component {
     	}
     }
   	render() {
-  		const { error, handleSubmit, pristine, submitting, fetchError} = this.props;
+  		const { error, handleSubmit, pristine, submitting} = this.props;
   		const {school_type, school_level} = this.props.masterdata;
   		
     	return (

@@ -1,8 +1,5 @@
 /* global _ */
 import React, {Component} from 'react';
-import searcher from '../../assets/images/svg/musica-searcher.svg';
-import filter from '../../assets/images/svg/filter.svg';
-import { Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import ViewStudentInfo from './ViewStudentInfo';
 import ActivityPanel from '../Activity/ActivityPanel.js';
 import './StudentDetail.css';
@@ -10,14 +7,14 @@ import {Http} from '../../lib/Http';
 import {fullName, limitTo, decorateLink} from '../../lib/Helper';
 import Alert from '../Common/Alert';
 import {Link} from 'react-router-dom';
-import {teacherListing, editTeacher} from '../../lib/SiteLinks';
+import {studentListing, editStudent} from '../../lib/SiteLinks';
 import {Loader} from '../Common/Loader';
 import {LinkContainer} from 'react-router-bootstrap';
 class AddTeachers extends Component {
     constructor() {
         super();
         this.state = {
-            teacher: {},
+            student: {},
             errors:'',
             isLoading: false
         }
@@ -28,8 +25,8 @@ class AddTeachers extends Component {
         const {id} = match.params;
         if( id ) {
             this.setState({isLoading: true});
-            Http.get(`view_teacher?_id=${id}`)
-            .then(({data}) => this.setState({teacher: data, isLoading: false}))
+            Http.get(`view_student?_id=${id}`)
+            .then(({data}) => this.setState({student: data, isLoading: false}))
             .catch(({errors}) => {
                 this.setState({errors: errors.message, isLoading: false});
                 setTimeout(() => this.setState({errors: ''}), 5000);
@@ -37,7 +34,7 @@ class AddTeachers extends Component {
         }
     }
 	render() {
-        const {teacher, errors, isLoading} = this.state;
+        const {student, errors, isLoading} = this.state;
 		return (
             <div>
 
@@ -53,8 +50,8 @@ class AddTeachers extends Component {
                                     <div className="d-flex justify-content-start">
                                         <div className="breadcrumb-list">
                                             <ol className="breadcrumb">
-                                                <li className="breadcrumb-item"><Link to={teacherListing}>Teachers</Link></li>
-                                                <li className="breadcrumb-item active text-capitalize">{teacher.first_name ? limitTo(fullName(teacher.first_name, teacher.last_name),50) : 'Loading ...'}</li>
+                                                <li className="breadcrumb-item"><Link to={studentListing}>Students</Link></li>
+                                                <li className="breadcrumb-item active text-capitalize">{student.first_name ? limitTo(fullName(student.first_name, student.last_name),50) : 'Loading ...'}</li>
                                             </ol>
                                         </div>
                                     </div>
@@ -63,12 +60,12 @@ class AddTeachers extends Component {
 
                                 <div className="col-7 col-md-7 col-lg-8 col-xl-8">
                                     <div className="imports-button d-flex justify-content-end">
-                                        <LinkContainer to={`${decorateLink(editTeacher)}/${teacher._id}`}>
+                                        <LinkContainer to={`${decorateLink(editStudent)}/${student._id}`}>
                                             <button type="button" className="btn btn-primary ml-1 ml-lg-1 ml-xl-2">Edit</button>
                                         </LinkContainer>    
-                                        <LinkContainer to={`${teacherListing}?toggleClass=active`}>
+                                        {/*<LinkContainer to={`${studentListing}?toggleClass=active`}>
                                             <button type="button" className="btn btn-info ml-1 ml-lg-1 ml-xl-2">Create</button>
-                                         </LinkContainer>       
+                                         </LinkContainer>      */} 
                                     </div>
                                 </div>
                             </div>
@@ -80,7 +77,9 @@ class AddTeachers extends Component {
                     <div className="dashboard-main inner-sub-page">
                             <div className="dash-left-box">
                                 
-                                 <ViewStudentInfo teacher={teacher}/> 
+                                 
+                                { isLoading && <Loader /> }
+                                { !isLoading && !_.isEmpty(student) && <ViewStudentInfo student={student}/>  }
                             </div>
                             <div className="dash-right-box">
                                 <ActivityPanel />

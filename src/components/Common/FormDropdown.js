@@ -1,24 +1,41 @@
 /* global _ */
 import React, {Component} from 'react';
-import { FormGroup, Label } from 'reactstrap';
+import { FormGroup, Label, Col } from 'reactstrap';
 import DropdownList from 'react-widgets/lib/DropdownList';
 import 'react-widgets/dist/css/react-widgets.css';
 export class FormDropdown extends Component {
 	render() {
-		const {labelClassName, id, label, formGroupClassName, input, valueField, textField, placeholder} = this.props;
+		const {labelClassName, id, label, formGroupClassName, input, valueField, textField, placeholder, colWrapper, col} = this.props;
 		
-		return (
-			<FormGroup className={formGroupClassName}>
-	          	<Label className={labelClassName} for={id}>{label}</Label>
-	          	
-	          	<DropdownList {...input}
-	    		    data={this.empty()}
-	    		    valueField={valueField}
-	    		    textField={textField}
-	    		    placeholder={placeholder}
-	    		    onChange={input.onChange} />
-	        </FormGroup>    
-		);		
+		if( colWrapper ) {
+			return (
+				<FormGroup className={formGroupClassName}>
+		          	<Label className={labelClassName} for={id}>{label}</Label>
+		          	<Col sm={col}>
+			          	<DropdownList {...input}
+			    		    data={this.empty()}
+			    		    valueField={valueField}
+			    		    textField={textField}
+			    		    placeholder={placeholder}
+			    		    onChange={input.onChange} />
+		    		</Col>	    
+		        </FormGroup>    
+			);		
+		} else {
+			return (
+				<FormGroup className={formGroupClassName}>
+		          	<Label className={labelClassName} for={id}>{label}</Label>
+		          	
+		          	<DropdownList {...input}
+		    		    data={this.empty()}
+		    		    valueField={valueField}
+		    		    textField={textField}
+		    		    placeholder={placeholder}
+		    		    onChange={input.onChange} />
+		        </FormGroup>    
+			);			
+		}
+		
 	}
 
 	empty() {

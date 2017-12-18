@@ -21,7 +21,7 @@ import StudentDetail from '../components/StudentDetail/StudentDetail';
 
 import SchoolProfile from '../components/SchoolProfile/SchoolProfile';
 
-import SchoolStep from '../components/BuildSchoolStep/SchoolStep';
+// import SchoolStep from '../components/BuildSchoolStep/SchoolStep';
 import NotFound from '../components/Error/404';
 import Invalid from '../components/Error/Invalid';
 import Header from '../components/partials/Header';
@@ -38,7 +38,7 @@ import {
 	invalid, 
 	dashboard,
 	teacherListing,
-	addStudent,
+	studentListing,
 	teacherDetail,
 	studentDetail,
 	schoolProfile,
@@ -65,7 +65,7 @@ export const Router = props => {
 					<PrivateRoute path={teacherDetail} component={TeacherDetail} />
 					<PrivateRoute path={studentDetail} component={StudentDetail} />
 					<PrivateRoute path={schoolProfile} component={SchoolProfile} />
-					<PrivateRoute path={addStudent} component={Wrapper} />
+					<PrivateRoute path={studentListing} component={Wrapper} />
 					<PrivateRoute path={editTeacher} component={EditTeacherDetail} />
 					<PrivateRoute path={editStudent} component={EditStudentDetail} />
 					<Route path={faq} component={Faq} />

@@ -142,7 +142,7 @@ class AddStudent extends Component {
                                     <Field 
                                         component={FormCalender} type="text" formGroupClassName="col-md-12 col-lg-6"
                                         name="dob" label="DOB"
-                                        id="DOB" placeholder="MM/DD/YYYY" validate={[Required]} doValidate={true}/>
+                                        id="DOB" placeholder="DD/MM/YYYY" validate={[Required]} doValidate={true}/>
                                    <Field 
                                         component={FormSelect} formGroupClassName="col-md-6 col-lg-6" name="gender" type="select" 
                                         emptyText="Select Gender" label="Gender" options={options}
@@ -219,7 +219,7 @@ class AddStudent extends Component {
                 
                 this.setState({success:data.message, reset: true});
                 dispatch(reset('AddStudentForm'));
-                setTimeout(() => this.setState({success: ''}), 5000);
+                setTimeout(() => this.setState({success: '', reset: true}), 5000);
                 window.scrollTo(0, 0);
                 refreshList();
                 resolve();

@@ -1,4 +1,3 @@
-/* global IMAGE_PATH */
 import React, {Component} from 'react';
 //import TeacherPic from '../../assets/images/teacher-1.png';
 import EnvelopeGray from '../../assets/images/svg/envelope-gray.svg';
@@ -8,13 +7,15 @@ import {DropdownWithoutActiveProps} from '../partials/DropdownWithoutActiveProps
 import {fullName, limitTo, decorateLink} from '../../lib/Helper';
 import {editTeacher, teacherDetail} from '../../lib/SiteLinks';
 import {LinkContainer} from 'react-router-bootstrap';
-import DeleteTeacher from './DeleteTeacherModal';
+import DeleteTeacher from '../Common/DeleteModal';
 import ProgressiveImage from '../Common/ProgressiveImage';
+import {Http} from '../../lib/Http';
 
 class TeachersListElements extends Component {
 	constructor() {
 		super();
 		this.toggle = this.toggle.bind(this);
+		this.deleteTeacher = this.deleteTeacher.bind(this);
 		this.state = {
 			show: false,
 			_teacher: {}
@@ -27,14 +28,13 @@ class TeachersListElements extends Component {
 		this.toggle();
 		this.setState({_teacher});
 	}
+	deleteTeacher() {
+		return Http.delete(`delete_teacher?_id=${this.state._teacher._id}`);
+	}
 	render() {
 		const {dropdownToggle, toggle, teacher, dataIndex, refreshList} = this.props;
 		const {show, _teacher} = this.state;
-		const imageStyle = {
-			backgroundImage: 'url(' + ( `${IMAGE_PATH}/${teacher.profile_image.path}` ) + ')',
-			backgroundRepeat  : 'no-repeat',
-       		backgroundPosition: 'center',
-		}
+		
 		return (
 			<div>
 				<div className="light-white-bg teacher-box p-2 p-lg-3 relative">
@@ -56,15 +56,15 @@ class TeachersListElements extends Component {
 				        </DropdownWithoutActiveProps>
 				    </div>
 				    <div className="teacher-group-box relative">
-				    	{/*<ProgressiveImage className="teacher-picture" style={teacher.profile_image.path}>*/}
-				        <div className="teacher-picture" style={imageStyle}>
-				            {/* <img src={`${IMAGE_PATH}/${teacher.profile_image.path}`} alt={teacher.first_name} /> */}
-				        </div>
+				    	<ProgressiveImage className="teacher-picture" backgroundSrc={teacher.profile_image.path} />
+				        {/*<div className="teacher-picture" style={imageStyle}>
+				            <img src={`${IMAGE_PATH}/${teacher.profile_image.path}`} alt={teacher.first_name} />
+				        </div>*/}
 				        <div className="te-head text-capitalize">{limitTo(fullName(teacher.first_name, teacher.last_name),50)}</div>
 				        <div className="te-gen mb-1 text-capitalize">{teacher.gender}</div>
 				        <div className="te-sub">Subject &amp; Class</div>
 				        {/*<div className="te-code text-capitalize">E 401, M 201, S 501...</div>*/}
-				        <div className="te-code text-capitalize">N/A</div>
+				        <div className="te-code text-capitalize">NA</div>
 				    </div>
 				    <div className="d-flex justify-content-between mt-2">
 				        <button type="button" className="btn btn-link mesg-btn pointer"><img src={EnvelopeGray} alt="" /> Message</button>
@@ -73,7 +73,7 @@ class TeachersListElements extends Component {
 				        </LinkContainer>	
 				    </div>
 				</div>
-				{show && <DeleteTeacher show={show} refreshList={refreshList} toggle={this.toggle} teacher={_teacher}/>}
+				{show && <DeleteTeacher show={show} refreshList={refreshList} toggle={this.toggle} onDelete={this.deleteTeacher} user={_teacher}/>}
 			</div>	
 		);
 	}

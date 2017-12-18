@@ -10,7 +10,7 @@ import {Http} from '../../lib/Http';
 import {fullName, limitTo, decorateLink} from '../../lib/Helper';
 import Alert from '../Common/Alert';
 import {Link} from 'react-router-dom';
-import {teacherListing, teacherDetail} from '../../lib/SiteLinks';
+import {studentListing, studentDetail} from '../../lib/SiteLinks';
 import { connect } from 'react-redux';
 import { submit } from 'redux-form';
 import {LinkContainer} from 'react-router-bootstrap';
@@ -19,10 +19,12 @@ import {Loader} from '../Common/Loader';
 class AddTeachers extends Component {
     constructor() {
         super();
+        this.triggerSubmit = this.triggerSubmit.bind(this);
         this.state = {
-            teacher: {},
+            student: {},
             errors:'',
-            isLoading: false
+            isLoading: false,
+            submitting: false
         }
     }
     componentDidMount() {
@@ -31,16 +33,19 @@ class AddTeachers extends Component {
         const {id} = match.params;
         if( id ) {
             this.setState({isLoading: true});
-            Http.get(`view_teacher?_id=${id}`)
-            .then(({data}) => this.setState({teacher: data, isLoading: false}))
+            Http.get(`view_student?_id=${id}`)
+            .then(({data}) => this.setState({student: data, isLoading: false}))
             .catch(({errors}) => {
                 this.setState({errors: errors.message, isLoading: true});
                 setTimeout(() => this.setState({errors: ''}), 5000);
             });
         }
     }
+    triggerSubmit() {
+        this.setState({submitting: !this.state.submitting});
+    }
 	render() {
-        const {teacher, errors, isLoading} = this.state;
+        const {student, errors, isLoading, submitting} = this.state;
         const {dispatch} = this.props;
         
 		return (
@@ -61,8 +66,8 @@ class AddTeachers extends Component {
 
                                         <div className="breadcrumb-list">
                                             <ol className="breadcrumb">
-                                                <li className="breadcrumb-item"><Link to={teacherListing}>Student</Link></li>
-                                                <li className="breadcrumb-item text-capitalize"><Link to={`${decorateLink(teacherDetail)}/${teacher._id}`}>{teacher.first_name ? limitTo(fullName(teacher.first_name, teacher.last_name),50) : 'Loading ...'}</Link></li>
+                                                <li className="breadcrumb-item"><Link to={studentListing}>Student</Link></li>
+                                                <li className="breadcrumb-item text-capitalize"><Link to={`${decorateLink(studentDetail)}/${student._id}`}>{student.first_name ? limitTo(fullName(student.first_name, student.last_name),50) : 'Loading ...'}</Link></li>
                                                 <li className="breadcrumb-item active" aria-current="page">Edit</li>
                                             </ol>
                                         </div>
@@ -72,8 +77,14 @@ class AddTeachers extends Component {
 
                                 <div className="col-7 col-md-7 col-lg-8 col-xl-8">
                                     <div className="imports-button d-flex justify-content-end">
-                                        <button type="button" onClick={() => dispatch(submit('EditTeacherInformationForm'))} className="btn btn-primary ml-1 ml-lg-1 ml-xl-2">Update</button>
-                                        <LinkContainer to={teacherListing}>
+                                        <button 
+                                            type="button" 
+                                            disabled={submitting}
+                                            onClick={() => dispatch(submit('EditStudentInformationForm'))} 
+                                            className="btn btn-primary ml-1 ml-lg-1 ml-xl-2">{submitting ? 'Processing ...' : 'Update'}
+                                        </button>    
+
+                                        <LinkContainer to={studentListing}>
                                             <button type="button" className="btn btn-info ml-1 ml-lg-1 ml-xl-2">Cancel</button>
                                         </LinkContainer>    
                                     </div>
@@ -86,7 +97,8 @@ class AddTeachers extends Component {
 
                     <div className="dashboard-main inner-sub-page">
                         <div className="dash-left-box">
-                            <EditStudentInformation teacher={teacher} />
+                            { isLoading && <Loader /> }
+                            {!isLoading && !_.isEmpty(student) && <EditStudentInformation _triggerSubmit={this.triggerSubmit} student={student} initialValues={student}/>}
                         </div>
                         <div className="dash-right-box">
                             <ActivityPanel />

@@ -4,26 +4,51 @@ import { FormGroup, Label } from 'reactstrap';
 import DateTimePicker from 'react-widgets/lib/DateTimePicker';
 import momentLocaliser from 'react-widgets-moment';
 import 'react-widgets/dist/css/react-widgets.css';
+import { FormFeedback, Col } from 'reactstrap';
 momentLocaliser(moment);
 
 export class FormCalender extends Component {
 	render() {
-		const {labelClassName, id, label, formGroupClassName, input, placeholder, doValidate} = this.props;
-		const {onChange, value} = input;
-		if( doValidate ){
+		const {labelClassName, id, label, formGroupClassName, input, placeholder, doValidate, meta, colWrapper, col} = this.props;
+		const {onChange, onFocus, value, name} = input;
+		
+		if( doValidate && colWrapper ){
 			return (
-				<FormGroup className={formGroupClassName}>
+				<FormGroup className={`${!meta.touched ? null : (meta.error ? 'is-invalid': null)} ${formGroupClassName}`}>
+		          	<Label className={labelClassName} for={id}>{label}</Label>
+		          	<Col sm={col}>
+			          	<DateTimePicker 
+			          		onChange={onChange}
+			          		onFocus={onFocus}
+			          		name={name}
+		    				format="DD/MM/YYYY"
+			          	    defaultValue={new Date()}
+			          	    time={false}
+			          	    placeholder={placeholder}
+			          	    inputProps={{className: 'is-invalid'}}
+			          	    value={!value ? null : new Date(value)}
+			          	/>
+			          	{this.FormFeedback()}
+		          	</Col>	
+		        </FormGroup>    
+			);		
+		} else if( doValidate ){
+			return (
+				<FormGroup className={`${!meta.touched ? null : (meta.error ? 'is-invalid': null)} ${formGroupClassName}`}>
 		          	<Label className={labelClassName} for={id}>{label}</Label>
 		          	
 		          	<DateTimePicker 
 		          		onChange={onChange}
-	    				format="DD MMM YYYY"
+		          		onFocus={onFocus}
+			          	name={name}
+	    				format="DD/MM/YYYY"
 		          	    defaultValue={new Date()}
 		          	    time={false}
 		          	    placeholder={placeholder}
 		          	    inputProps={{className: 'is-invalid'}}
 		          	    value={!value ? null : new Date(value)}
 		          	/>
+		          	{this.FormFeedback()}
 		        </FormGroup>    
 			);		
 		} else {
@@ -43,6 +68,15 @@ export class FormCalender extends Component {
 		        </FormGroup>    
 			);		
 		}	
+	}
+	FormFeedback() {
+		const {meta, doValidate} = this.props;
+		//console.log(meta);
+		if( doValidate ) {
+			return (<FormFeedback>{meta.touched && meta.error ? meta.error : null}</FormFeedback>);
+		} else {
+			return null
+		}
 	}
 }
 

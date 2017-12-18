@@ -2,15 +2,13 @@
 import React, {Component} from 'react';
 import FormField from "../Common/FormField";
 import FormSelect from "../Common/FormSelect";
-import FormDropdown from "../Common/FormDropdown";
 import FormSubmit from "../Common/FormSubmit";
-import FileInput from "../Common/FileInput";
 import { Field, SubmissionError,reduxForm } from 'redux-form';
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Form } from 'reactstrap';
 import ImageCropper from '../Common/ImageCropper';
 import './AddTeachers.css';
-import {handleSubmitFailed} from '../../lib/Helper';
-import {Required, Email, Number, Phone, maxLength4,maxLength200,maxLength400, Alphabets, isValidAddress, ContactNumber} from '../../lib/Validate';
+import {handleSubmitFailed, gender} from '../../lib/Helper';
+import {Required, Email,maxLength200, Alphabets, isValidAddress, ContactNumber} from '../../lib/Validate';
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import {Http} from '../../lib/Http';
 import Alert from '../Common/Alert';
@@ -87,13 +85,10 @@ class RightPart extends Component {
         }
     }
 	render() {
-        const { error, handleSubmit, pristine, submitting, initialValues, change, user, toggleForm} = this.props;
+        const { error, handleSubmit, pristine, submitting, toggleForm} = this.props;
         const { success, reset } = this.state;
         
-        const options = [
-            {value: 'male', name: 'Male'},
-            {abbreviation: 'female', name: 'Female'}
-        ]
+        
 		return (
 
             <div className="right-group">
@@ -138,7 +133,7 @@ class RightPart extends Component {
                                 <div className="form-row">
                                     <Field 
                                         component={FormSelect} formGroupClassName="col-md-12 col-lg-12" name="gender" type="select" 
-                                        emptyText="Select gender" label="Gender" options={options}
+                                        emptyText="Select gender" label="Gender" options={gender}
                                         displayKey={"value"} displayLabel={"name"} empty={true} validate={[Required]} doValidate={true}/>
                                 </div>
 
@@ -164,7 +159,7 @@ class RightPart extends Component {
                                         component={FormField} type="text" formGroupClassName="col-md-12 col-lg-6"
                                         name="contact_telephoneno" label="Contact Number"
                                         id="Contact_Number" placeholder="Enter contact number"
-                                        doValidate={true} maskInput={true} inputAddOn={true} inputAddOnText="+1" validate={[ContactNumber]} doValidate={true}/>
+                                        doValidate={true} maskInput={true} inputAddOn={true} inputAddOnText="+1" validate={[ContactNumber]}/>
                                 </div>
                                 
                             </div>
@@ -188,12 +183,13 @@ class RightPart extends Component {
         if( _.has(values, 'contact_telephoneno') ) {
             values.contact_telephoneno = _.replace(values.contact_telephoneno, /-|\s|\+1/g, "");
         }
+        //console.log(values);
         return new Promise((resolve, reject) => {
             Http.upload('addteacher', values)
             .then(({data}) => {
                 this.setState({success:data.message, reset: true});
                 dispatch(reset('RightPartForm'));
-                setTimeout(() => this.setState({success: ''}), 5000);
+                setTimeout(() => this.setState({success: '', reset: false}), 5000);
                 window.scrollTo(0, 0);
                 refreshList();
                 resolve();

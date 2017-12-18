@@ -2,7 +2,7 @@
 import React, {Component} from 'react';
 import searcher from '../../assets/images/svg/musica-searcher.svg';
 import filter from '../../assets/images/svg/filter.svg';
-import { Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { FormGroup, Input } from 'reactstrap';
 import TeacherList from '../AddTeachers/TeacherList';
 import StudentList from '../AddStudent/StudentsList';
 import CreateTeacher from '../AddTeachers/CreateTeacher';
@@ -10,7 +10,7 @@ import AddStudent from '../AddStudent/AddStudent';
 import '../AddTeachers/AddTeachers.css';
 import URLSearchParams from 'url-search-params';
 import {decorateTitle} from '../../lib/Helper';
-import {teacherListing, addStudent} from '../../lib/SiteLinks';
+import {teacherListing, studentListing} from '../../lib/SiteLinks';
 
 class Wrapper extends Component {
     constructor() {
@@ -140,11 +140,11 @@ class Wrapper extends Component {
                     <div className={(toggleClass && !toggleFilter) ? "dashboard-main active toggleFilter" : (toggleClass ? "dashboard-main active": ((!toggleFilter) ? "dashboard-main toggleFilter" : "dashboard-main"))}>
                         <div className="dash-left-box">
                             {pathname === teacherListing && <TeacherList refresh={refreshList} toggle={toggleClass} open={this.toggle} refreshList={this.refresh}/>}
-                            {pathname === addStudent && <StudentList refresh={refreshList} toggle={toggleClass} open={this.toggle} refreshList={this.refresh}/>}
+                            {pathname === studentListing && <StudentList refresh={refreshList} toggle={toggleClass} open={this.toggle} refreshList={this.refresh}/>}
                         </div>
                         <div className="dash-right-box">
                             {pathname === teacherListing && <CreateTeacher toggleForm={this.toggle} refreshList={this.refresh}/>}
-                            {pathname === addStudent && <AddStudent toggleForm={this.toggle} refreshList={this.refresh}/>}
+                            {pathname === studentListing && <AddStudent toggleForm={this.toggle} refreshList={this.refresh}/>}
                         </div>
                     </div>
                 </div>

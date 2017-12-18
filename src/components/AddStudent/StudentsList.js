@@ -39,7 +39,7 @@ class LeftPart extends Component {
         }
     }
 	render() {
-        const { studentList, paging, dropdownToggle, isLoadingList } = this.state;
+        const { studentList, dropdownToggle, isLoadingList } = this.state;
         const {refreshList, open, toggle} = this.props;
         /*console.log(studentList);
         console.log(paging);*/

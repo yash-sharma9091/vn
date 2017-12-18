@@ -1,15 +1,11 @@
 /* global IMAGE_PATH */
 import React, {Component} from 'react';
-import TeacherPic from '../../assets/images/teacher-1.png';
-import EnvelopeGray from '../../assets/images/svg/envelope-gray.svg';
-import ThreeDots from '../../assets/images/svg/three-dots.svg';
-import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Form } from 'reactstrap';
 import './EditTeacherDetail.css';
 import ImageCropper from '../Common/ImageCropper';
 import { Field, SubmissionError,reduxForm } from 'redux-form';
-import {handleSubmitFailed} from '../../lib/Helper';
-import {Required, Email, Number, Phone, maxLength4,maxLength200,maxLength400, Alphabets, isValidAddress, ContactNumber} from '../../lib/Validate';
+import {handleSubmitFailed, gender} from '../../lib/Helper';
+import {Required, Email,maxLength200, Alphabets, isValidAddress, ContactNumber} from '../../lib/Validate';
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import FormField from "../Common/FormField";
 import FormSelect from "../Common/FormSelect";
@@ -97,13 +93,8 @@ class EditTeacherInformation extends Component {
         this.props.change('profile_image',null);
     }
 	render() {
-        const { error, handleSubmit, teacher} = this.props;
+        const { error, handleSubmit} = this.props;
         const {profileImage} = this.state;
-        
-        const options = [
-            {value: 'male', name: 'Male'},
-            {abbreviation: 'female', name: 'Female'}
-        ]
 		return (
             <div className="left-group">
                 <div className="left-group-content">
@@ -138,7 +129,7 @@ class EditTeacherInformation extends Component {
                                         <div className="col-sm-6">
                                             <Field 
                                             component={FormSelect} formGroupClassName="row" name="gender" type="select" 
-                                            emptyText="Select gender" label="Gender" options={options}
+                                            emptyText="Select gender" label="Gender" options={gender}
                                             labelClassName="col-sm-3" colWrapper={true} col={9}
                                             displayKey={"value"} displayLabel={"name"} empty={true} validate={[Required]} doValidate={true}/>
                                         </div>
@@ -147,7 +138,7 @@ class EditTeacherInformation extends Component {
                                                 <label className="col-sm-3 col-form-label">Subject</label>
                                                 <div className="col-sm-9">
                                                     <select id="inputState" className="form-control">
-                                                        <option selected>Select Subject</option>
+                                                        <option selected>Select subject</option>
                                                         <option>...</option>
                                                     </select>
                                                 </div>
@@ -172,7 +163,7 @@ class EditTeacherInformation extends Component {
                                                 <label className="col-sm-3 col-form-label">Official Grade</label>
                                                 <div className="col-sm-9">
                                                     <select id="inputState" className="form-control">
-                                                        <option selected>Select Grade</option>
+                                                        <option selected>Select official grade</option>
                                                         <option>...</option>
                                                     </select>
                                                 </div>
@@ -198,7 +189,7 @@ class EditTeacherInformation extends Component {
                                                 component={FormField} 
                                                 type="text" formGroupClassName="row" 
                                                 colWrapper={true} col={9} labelClassName="col-sm-3"
-                                                name="email_address" label="Email Address" placesAutocomplete={true} onSelect={this.handleSelect}
+                                                name="email_address" label="Email Address"
                                                 id="Email_Address" placeholder="Enter email address" validate={[Required, Email]} doValidate={true}/>    
                                         </div>
                                     </div>
@@ -240,12 +231,14 @@ let _EditTeacherInformation = reduxForm({
         //     throw new SubmissionError({teacher_address:'Invalid address'});
         //     return;
         // }
-        
+        const {_triggerSubmit} = props;
+        _triggerSubmit();
         return new Promise((resolve, reject) => {
             Http.upload('edit_teacher', values)
             .then(({data}) => {
                 success = data.message;
                 setTimeout(() => {success=''; dispatch(push(teacherListing));},3000);
+                _triggerSubmit();
                 window.scrollTo(0, 0);
                 resolve();
             })

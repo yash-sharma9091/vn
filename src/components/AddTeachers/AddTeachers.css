@@ -155,7 +155,8 @@
     position: absolute;
     left: 0;
     top: 0;
-    background: url('../../assets/images/teacher-1.png') no-repeat center center;
+    /*background: url('../../assets/images/teacher-1.png') no-repeat center center;*/
+    background-color: #6d87c8;
     background-size: cover;
 }
 /* .teacher-picture > img {

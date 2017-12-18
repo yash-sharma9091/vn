@@ -9,7 +9,7 @@ const ContactNumber = (value, allValues, props, name) => {
 	return (value ? undefined : 'Contact number is required');
 }
 const UAN = (value, allValues, props, name) => {
-	return (value ? undefined : 'Unique account number is required');
+	return (value ? undefined : 'Email or username is required');
 }
 const Email = (value, allValues, props, name) => {
 	return (value ? (/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ? undefined : 'Invalid email address') : undefined );
@@ -25,7 +25,10 @@ const Number = (value, allValues, props, name) => {
 }	
 const Phone = (value, allValues, props, name) => {
 	return  (value ? ( /^([0|[1-9][0-9]{9})$/i.test(_.replace(value, /-|\s|\+1/g, "")) ? undefined : 'Enter a valid number' ) : undefined );
-}	
+}
+const OSIS = (value, allValues, props, name) => {
+	return (value ? undefined : 'OSIS number is required');
+}
 const isValidAddress = (value, allValues, props, name) => {
 	
 	return new Promise((resolve, reject) => {
@@ -62,5 +65,6 @@ export{
 	Alphabets,
 	Phone,
 	isValidAddress,
-	ContactNumber
+	ContactNumber,
+	OSIS
 };

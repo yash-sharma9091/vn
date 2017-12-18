@@ -10,12 +10,13 @@ import dashImg8 from '../../assets/images/dash-8.png';
 import dashImg9 from '../../assets/images/dash-9.png';
 import dashImg10 from '../../assets/images/dash-10.png';
 import crossoutMark from '../../assets/images/svg/cross-out-mark.svg';
-import paid from '../../assets/images/paid.png';
+//import paid from '../../assets/images/paid.png';
 import './SchoolAdminDashboard.css';
 import dashboardBg from '../../assets/images/dashboard-bg.png';
 import {loadImage} from '../../lib/Helper';
-import {teacherListing, addStudent} from '../../lib/SiteLinks';
+import {teacherListing, studentListing} from '../../lib/SiteLinks';
 import {Link} from 'react-router-dom';
+import '../BuildSchoolStep/SchoolStep.css';
 
 class Dashboard extends Component {
 	constructor() {
@@ -170,7 +171,7 @@ class Dashboard extends Component {
 								</div>
 								<div className="col-2">
 									<div className="dash-box">
-										<Link to={addStudent}>
+										<Link to={studentListing}>
 											<div className="dash-icon"><img src={dashImg4} className="transition" alt="" /></div><span>Students</span>
 										</Link>
 									</div>
