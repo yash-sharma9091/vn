@@ -10,10 +10,10 @@ window._ = lodash;
 window.moment = moment;
 
 window.axios.defaults.headers.common = {'X-Requested-With': 'XMLHttpRequest'};
-window.axios.defaults.baseURL = ( process.env.NODE_ENV !== 'production') ? 'http://158.85.76.204:7000/api/' : 'http://158.85.76.204:7000/api/';
+window.axios.defaults.baseURL = ( process.env.NODE_ENV !== 'production') ? 'http://100.100.7.39:7000/api/' : 'http://158.85.76.204:7000/api/';
 
 // Global images url
-window.IMAGE_PATH = ( process.env.NODE_ENV !== 'production') ? 'http://158.85.76.204:7000' : 'http://158.85.76.204:7000';
+window.IMAGE_PATH = ( process.env.NODE_ENV !== 'production') ? 'http://100.100.7.39:7000' : 'http://158.85.76.204:7000';
 
 // Add a request interceptor
 axios.interceptors.request.use( config => {

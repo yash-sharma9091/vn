@@ -189,7 +189,7 @@ class EditTeacherInformation extends Component {
                                                 component={FormField} 
                                                 type="text" formGroupClassName="row" 
                                                 colWrapper={true} col={9} labelClassName="col-sm-3"
-                                                name="email_address" label="Email Address" placesAutocomplete={true} onSelect={this.handleSelect}
+                                                name="email_address" label="Email Address"
                                                 id="Email_Address" placeholder="Enter email address" validate={[Required, Email]} doValidate={true}/>    
                                         </div>
                                     </div>

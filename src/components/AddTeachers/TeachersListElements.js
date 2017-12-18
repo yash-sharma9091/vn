@@ -7,13 +7,15 @@ import {DropdownWithoutActiveProps} from '../partials/DropdownWithoutActiveProps
 import {fullName, limitTo, decorateLink} from '../../lib/Helper';
 import {editTeacher, teacherDetail} from '../../lib/SiteLinks';
 import {LinkContainer} from 'react-router-bootstrap';
-import DeleteTeacher from './DeleteTeacherModal';
+import DeleteTeacher from '../Common/DeleteModal';
 import ProgressiveImage from '../Common/ProgressiveImage';
+import {Http} from '../../lib/Http';
 
 class TeachersListElements extends Component {
 	constructor() {
 		super();
 		this.toggle = this.toggle.bind(this);
+		this.deleteTeacher = this.deleteTeacher.bind(this);
 		this.state = {
 			show: false,
 			_teacher: {}
@@ -26,15 +28,13 @@ class TeachersListElements extends Component {
 		this.toggle();
 		this.setState({_teacher});
 	}
+	deleteTeacher() {
+		return Http.delete(`delete_teacher?_id=${this.state._teacher._id}`);
+	}
 	render() {
 		const {dropdownToggle, toggle, teacher, dataIndex, refreshList} = this.props;
 		const {show, _teacher} = this.state;
-		/*let profileImg = `${IMAGE_PATH}/${teacher.profile_image.path}`;
-		const imageStyle = {
-			backgroundImage: 'url(' + ( profileImg ) + ')',
-			backgroundRepeat  : 'no-repeat',
-       		backgroundPosition: 'center',
-		}*/
+		
 		return (
 			<div>
 				<div className="light-white-bg teacher-box p-2 p-lg-3 relative">
@@ -73,7 +73,7 @@ class TeachersListElements extends Component {
 				        </LinkContainer>	
 				    </div>
 				</div>
-				{show && <DeleteTeacher show={show} refreshList={refreshList} toggle={this.toggle} teacher={_teacher}/>}
+				{show && <DeleteTeacher show={show} refreshList={refreshList} toggle={this.toggle} onDelete={this.deleteTeacher} user={_teacher}/>}
 			</div>	
 		);
 	}
