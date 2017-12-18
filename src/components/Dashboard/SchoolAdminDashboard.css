@@ -18,14 +18,14 @@
 
 
 /*dashboard-header.schooladmin*/
-.dashboard-header.schooladmin .LogoBox{position: absolute;left: 0;right: 0;}
+.dashboard-header.schooladmin .LogoBox{position: absolute;left: 0;right: 0; max-width:300px; margin: auto;}
 .dashboard-header.schooladmin {background-color: #0a4ba9;min-height: 50px;border-bottom: 1px solid #0d3c7f;position: absolute;top: 0;left: 0;right: 0;}
 .dashboard-header.schooladmin .LogoBox > img {
     width: 300px;
 }
 .dashboard-header.schooladmin .LogoBox > a {
 	height: 125px;
-	z-index: 10;
+	z-index: 5;
 }
 .dashboard-header.schooladmin .LogoBox > a > img {
     width: 200px;

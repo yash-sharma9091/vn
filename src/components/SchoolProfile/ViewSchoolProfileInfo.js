@@ -22,7 +22,10 @@ class ViewTeacherInfo extends Component {
                                         <div className="col-sm-12">
                                             <div className="profiles-mains">
                                                 <div className="teacher-profiles"></div>
-                                                <span>asdsad</span>
+                                                <div className="teacher-content-box">
+                                                    <span>Stuyvesant High School</span>
+                                                    <text>NPAUA01190400</text>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -34,25 +37,25 @@ class ViewTeacherInfo extends Component {
                                 <Form>
                                     <div className="form-row">
                                         <FormGroup className="col-sm-6">
-                                                <Label className="col-sm-3 col-md-4">Gender</Label>
-                                                <span className="col-sm-9 col-md-8 word-text text-capitalize">Male</span>
+                                                <Label className="col-sm-3 col-md-4">Type of School</Label>
+                                                <span className="col-sm-9 col-md-8 word-text text-capitalize">Private School</span>
                                         </FormGroup>
                                         <FormGroup className="col-sm-6">
-                                                <Label className="col-sm-3 col-md-4">Official Class</Label>
+                                                <Label className="col-sm-3 col-md-4">Address</Label>
                                                 {/*<span className="col-sm-9 col-md-8 word-text">E204</span>*/}
-                                                <span className="col-sm-9 col-md-8 word-text">N/A</span>
+                                                <span className="col-sm-9 col-md-8 word-text">345 Chambers Street, New York, NY 10282. Phone: (212) 312-4800</span>
                                          </FormGroup>
                                     </div>
 
                                     <div className="form-row">
                                         <FormGroup className="col-sm-6">
-                                                <Label className="col-sm-3 col-md-4">Grade</Label>
-                                                {/*<span className="col-sm-9 col-md-8 word-text">E 201</span>*/}
-                                                <span className="col-sm-9 col-md-8 word-text">N/A</span>
+                                                <Label className="col-sm-3 col-md-4">Total No. of Students</Label>
+                                                {/*<span className="col-sm-9 col-md-8 word-text">E204</span>*/}
+                                                <span className="col-sm-9 col-md-8 word-text">400</span>
                                         </FormGroup>
                                         <FormGroup className="col-sm-6">
-                                                <Label className="col-sm-3 col-md-4">Subjects</Label>
-                                                <span className="col-sm-9 col-md-8 word-text">N/A</span>
+                                                <Label className="col-sm-3 col-md-4">School Code</Label>
+                                                <span className="col-sm-9 col-md-8 word-text">ES505</span>
                                                 {/*<span className="col-sm-9 col-md-8">
                                                     <ul className="code-list">
                                                         <li>N/A</li>
@@ -60,6 +63,14 @@ class ViewTeacherInfo extends Component {
                                                         <li>S 501</li>
                                                     </ul>
                                                 </span>*/}
+                                        </FormGroup>
+                                    </div>
+
+                                    <div className="form-row">
+                                        <FormGroup className="col-sm-6">
+                                                <Label className="col-sm-3 col-md-4">School Levels</Label>
+                                                {/*<span className="col-sm-9 col-md-8 word-text">E 201</span>*/}
+                                                <span className="col-sm-9 col-md-8 word-text">Primary</span>
                                         </FormGroup>
                                     </div>
                                 </Form>

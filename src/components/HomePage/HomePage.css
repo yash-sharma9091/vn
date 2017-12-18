@@ -1,7 +1,9 @@
 .main-header .LogoBox {
     position: absolute;
     left: 0;
-    right: 0;
+	right: 0;
+	max-width: 355px;
+	margin: auto;
 }
 
 /*Banner*/

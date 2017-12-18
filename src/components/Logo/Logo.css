@@ -10,6 +10,7 @@
 	cursor: pointer;
 	margin: auto;
 	height: 153px;
+	z-index: 5;
 }
 .LogoBox > a > img{
 	width: 223px;
