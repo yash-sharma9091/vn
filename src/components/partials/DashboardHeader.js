@@ -9,7 +9,7 @@ import EnvelopeImage from '../../assets/images/svg/envelope.svg';
 import UserImage from '../../assets/images/svg/user.svg';
 import {AUTH_LOGOUT_REQUEST} from '../../constant';
 import {push} from 'react-router-redux';
-import {dashboard} from '../../lib/SiteLinks';
+import {dashboard, schoolProfile} from '../../lib/SiteLinks';
 import Logo from  '../Logo/Logo';
 import {LinkContainer} from 'react-router-bootstrap';
 import {decorateTitle} from '../../lib/Helper';
@@ -78,7 +78,9 @@ class DashboardHeader extends Component {
                                         </div> Administrator
                                     </DropdownToggle>
                                     <DropdownMenu>
-                                        <DropdownItem header>My Profile</DropdownItem>
+                                        <LinkContainer to={schoolProfile}>
+                                            <DropdownItem >My Profile</DropdownItem>
+                                        </LinkContainer>    
                                         
                                         <DropdownItem divider />
                                         <DropdownItem onClick={() => this.logout()}>Logout</DropdownItem>

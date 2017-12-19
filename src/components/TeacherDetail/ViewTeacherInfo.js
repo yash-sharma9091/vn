@@ -20,9 +20,12 @@ class ViewTeacherInfo extends Component {
                                 <div className="form-row">
                                     <div className="col-sm-12">
                                         <div className="profiles-mains">
+
                                             {/*<div className="teacher-profiles" style={style}></div>*/}
                                             <ProgressiveImage className="teacher-profiles" backgroundSrc={teacher.profile_image.path} />
-                                            <span className="text-capitalize">{fullName(teacher.first_name, teacher.last_name)}</span>
+                                            <div className="teacher-content-box">
+                                                <span className="text-capitalize">{fullName(teacher.first_name, teacher.last_name)}</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

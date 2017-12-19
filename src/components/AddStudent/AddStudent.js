@@ -9,8 +9,8 @@ import { Field, SubmissionError,reduxForm } from 'redux-form';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import ImageCropper from '../Common/ImageCropper';
 import './AddStudent.css';
-import {handleSubmitFailed} from '../../lib/Helper';
-import {Required, Email, ContactNumber,maxLength200,maxLength400, Alphabets, isValidAddress} from '../../lib/Validate';
+import {handleSubmitFailed, scrollToByClassName} from '../../lib/Helper';
+import {Required, Email, ContactNumber,maxLength200,maxLength400, Alphabets, isValidAddress, OSIS, maxLength10} from '../../lib/Validate';
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import {Http} from '../../lib/Http';
 import Alert from '../Common/Alert';
@@ -151,9 +151,13 @@ class AddStudent extends Component {
 
                                 <div className="form-row">
                                     <Field 
-                                        component={FormDropdown} formGroupClassName="col-md-6 col-lg-12" name="additional_health_info" type="select" 
+                                        component={FormDropdown} formGroupClassName="col-md-12 col-lg-6" name="additional_health_info" type="select" 
                                         label="Additional Health Info " data={additional_health_info} placeholder="Select health info"
-                                        valueField={"_id"} textField={"name"} empty={true} emptyText="Select health info"/>       
+                                        valueField={"_id"} textField={"name"} empty={true} emptyText="Select health info"/>      
+                                    <Field 
+                                        component={FormField} type="text" formGroupClassName="col-md-12 col-lg-6"
+                                        name="osis_number" label="Student OSIS Number"
+                                        id="osis_number" placeholder="Enter osis number" validate={[Required,OSIS,maxLength10]} doValidate={true}/>     
                                 </div>
 
                                 <div className="form-row ml-1 mb-4 mt-3">
@@ -162,7 +166,7 @@ class AddStudent extends Component {
 
                                 <div className="tabs-heading text-uppercase font-weight-bold">contact INFORMATION</div>
 
-                                <div className="form-row">
+                                {/*<div className="form-row">
                                     <Field 
                                         component={FormField} type="text" formGroupClassName="col-md-12 col-lg-6"
                                         name="parent_name" label=" Name"
@@ -171,7 +175,7 @@ class AddStudent extends Component {
                                         component={FormField} type="text" formGroupClassName="col-md-12 col-lg-6"
                                         name="parent_relation" label="Relation"
                                         id="Relation" placeholder="Enter relation" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
-                                </div>
+                                </div>*/}
 
                                 <div className="form-row">
                                     <Field 
@@ -183,12 +187,12 @@ class AddStudent extends Component {
                                 <div className="form-row">
                                     <Field 
                                         component={FormField} type="text" formGroupClassName="col-md-12 col-lg-6"
-                                        name="email_address" label="Email Address"
-                                        id="Email (Optional)" placeholder="Enter email" validate={[Required, Email]} doValidate={true}/>
+                                        name="email_address" label="Email Address (Optional)"
+                                        id="Email (Optional)" placeholder="Enter email" validate={[Email]} doValidate={true}/>
                                     <Field 
                                         component={FormField} type="text" formGroupClassName="col-md-12 col-lg-6"
-                                        name="contact_telephoneno" label="Contact Number"  maskInput={true} inputAddOn={true} inputAddOnText="+1"
-                                        id="Contact Number" placeholder="Enter contact number" validate={[ContactNumber]} doValidate={true}/>
+                                        name="contact_telephoneno" label="Contact Number (Optional)"  maskInput={true} inputAddOn={true} inputAddOnText="+1"
+                                        id="Contact Number" placeholder="Enter contact number" />
                                 </div>
                                 
                             </div>
@@ -219,13 +223,13 @@ class AddStudent extends Component {
                 
                 this.setState({success:data.message, reset: true});
                 dispatch(reset('AddStudentForm'));
-                setTimeout(() => this.setState({success: '', reset: true}), 5000);
-                window.scrollTo(0, 0);
+                setTimeout(() => this.setState({success: '', reset: false}), 5000);
+                scrollToByClassName('right-group-content');
                 refreshList();
                 resolve();
+                
             })
             .catch(({errors}) => {
-                console.log(errors);
                 let _message = {_error: errors.message || 'Internal Server error'};
                 
                 if( errors.hasOwnProperty('email_address') ) {

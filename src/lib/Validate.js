@@ -17,6 +17,7 @@ const Email = (value, allValues, props, name) => {
 const Alphabets = (value, allValues, props, name) => {
 	return (/^[a-zA-Z .]+$/i.test(value) ? undefined : 'Only alphabets are allowed');
 }
+
 const Password = (value, allValues, props, name) => {
 	return (/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/.test(value) ? undefined : 'Password must contain at least 8 characters, at least one number and both lowercase and uppercase letters and special characters');
 }
@@ -27,7 +28,7 @@ const Phone = (value, allValues, props, name) => {
 	return  (value ? ( /^([0|[1-9][0-9]{9})$/i.test(_.replace(value, /-|\s|\+1/g, "")) ? undefined : 'Enter a valid number' ) : undefined );
 }
 const OSIS = (value, allValues, props, name) => {
-	return (value ? undefined : 'OSIS number is required');
+	return (value ? (/^[a-z0-9]+$/i.test(value) ? undefined : 'Only aplhanumeric characters are allowed'): undefined);
 }
 const isValidAddress = (value, allValues, props, name) => {
 	
@@ -51,6 +52,7 @@ const isValidAddress = (value, allValues, props, name) => {
 const maxLength = max => value =>
   value && value.length > max ? `Must be ${max} characters or less` : undefined
 const maxLength4 = maxLength(4);
+const maxLength10 = maxLength(10);
 const maxLength200 = maxLength(200);
 const maxLength400 = maxLength(400);
 export{
@@ -58,6 +60,7 @@ export{
 	Email,
 	Number,
 	maxLength4,
+	maxLength10,
 	maxLength200,
 	maxLength400,
 	UAN,

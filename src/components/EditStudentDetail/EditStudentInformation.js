@@ -8,7 +8,7 @@ import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import './EditStudentDetail.css';
 import ImageCropper from '../Common/ImageCropper';
 import { Field, SubmissionError,reduxForm } from 'redux-form';
-import {handleSubmitFailed, gender} from '../../lib/Helper';
+import {handleSubmitFailed, gender, scrollToByClassName} from '../../lib/Helper';
 import {Required, Email, maxLength200, Alphabets, isValidAddress, ContactNumber, OSIS} from '../../lib/Validate';
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import FormField from "../Common/FormField";
@@ -212,8 +212,7 @@ class EditTeacherInformation extends Component {
                                                 labelClassName="col-sm-3" col={8}
                                                 name="contact_telephoneno" label="Contact Number" 
                                                 id="contact_telephoneno" placeholder="Enter contact number"
-                                                maskInput={true} inputAddOn={true} inputAddOnText="+1" 
-                                                validate={[ContactNumber]} doValidate={true}/>  
+                                                maskInput={true} inputAddOn={true} inputAddOnText="+1" />  
                                         </div>
                                         <div className="col-sm-6">
                                             <Field 
@@ -221,7 +220,7 @@ class EditTeacherInformation extends Component {
                                                 type="text" formGroupClassName="row" 
                                                 colWrapper={true} col={9} labelClassName="col-sm-3"
                                                 name="email_address" label="Email Address"
-                                                id="Email_Address" placeholder="Enter email address" validate={[Required, Email]} doValidate={true}/>    
+                                                id="Email_Address" placeholder="Enter email address" validate={[Email]} doValidate={true}/>    
                                         </div>
                                     </div>
 
@@ -259,7 +258,7 @@ let _EditTeacherInformation = reduxForm({
                 success = data.message;
                 setTimeout(() => {success=''; dispatch(push(studentListing));},3000);
                 _triggerSubmit();
-                
+                scrollToByClassName('left-group-content');
                 resolve();
             })
             .catch(({errors}) => {
