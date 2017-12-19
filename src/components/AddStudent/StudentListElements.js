@@ -10,7 +10,7 @@ import './AddStudent.css';
 import {editStudent, studentDetail} from '../../lib/SiteLinks';
 import {LinkContainer} from 'react-router-bootstrap';
 import ProgressiveImage from '../Common/ProgressiveImage';
-import DeleteTeacher from '../Common/DeleteModal';
+import DeleteStudent from '../Common/DeleteModal';
 import {Http} from '../../lib/Http';
 
 class StudentListElements extends Component {
@@ -61,9 +61,10 @@ class StudentListElements extends Component {
 				    	<ProgressiveImage className="teacher-picture" backgroundSrc={student.profile_image.path} />
 				        {/*<div className="teacher-picture"  style={imageStyle}> </div>*/}
 				        <div className="te-heading text-capitalize"><b>{limitTo(fullName(student.first_name, student.last_name),50)}</b>, {student.gender}</div>
-				        <div className="te-gen mb-1 text-capitalize">N/A</div>
-				        <div className="te-sub">Parent Contact:</div>
-				        <div className="te-code text-capitalize">{student.parent_name} {student.contact_telephoneno ? `+1${student.contact_telephoneno}` : ''}</div>
+				        <div className="te-gen mb-1 text-capitalize">NA</div>
+				        <div className="te-sub">OSIS Number:</div>
+				        {/*<div className="te-code text-capitalize">{student.parent_name} {student.contact_telephoneno ? `+1${student.contact_telephoneno}` : ''}</div>*/}
+				        <div className="te-code text-capitalize">{student.osis_number}</div>
 				    </div>
 				    <div className="d-flex justify-content-between mt-2">
 				        <button type="button" className="btn btn-link mesg-btn pointer"><img src={EnvelopeGray} alt="" /> Message</button>
@@ -72,7 +73,7 @@ class StudentListElements extends Component {
 				        </LinkContainer>	
 				    </div>
 				</div>
-				{show && <DeleteTeacher show={show} refreshList={refreshList} toggle={this.toggle} onDelete={this.deleteStudent} user={_student}/>}
+				{show && <DeleteStudent show={show} refreshList={refreshList} toggle={this.toggle} onDelete={this.deleteStudent} user={_student}/>}
 			</div>
 		);
 	}
