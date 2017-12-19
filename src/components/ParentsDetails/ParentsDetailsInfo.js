@@ -11,6 +11,7 @@ import {Http} from '../../lib/Http';
 import {connect} from 'react-redux';
 import {push} from 'react-router-redux';
 import {studentListing} from '../../lib/SiteLinks';
+
 class ViewStudentInfo extends Component {
     constructor() {
         super();

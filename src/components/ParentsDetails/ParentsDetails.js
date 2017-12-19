@@ -1,6 +1,6 @@
 /* global _ */
 import React, {Component} from 'react';
-import ViewStudentInfo from './ViewStudentInfo';
+import ParentsDetailsInfo from './ParentsDetailsInfo';
 import ActivityPanel from '../Activity/ActivityPanel.js';
 import './ParentsDetails.css';
 import {Http} from '../../lib/Http';
@@ -81,7 +81,7 @@ class AddTeachers extends Component {
                                 
                                  
                                 { isLoading && <Loader /> }
-                                { !isLoading && !_.isEmpty(student) && <ViewStudentInfo student={student}/>  }
+                                { !isLoading && !_.isEmpty(student) && <ParentsDetailsInfo student={student}/>  }
                             </div>
                             <div className="dash-right-box">
                                 <ActivityPanel />
