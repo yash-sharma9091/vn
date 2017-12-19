@@ -84,6 +84,49 @@ class Activity extends Component {
                             </div>
                         </div>
                     </div>*/}
+
+{/*==================================================================================*/}
+
+                    <div className="profile-complete-percentage">       
+                         <div className="profile-complete-percentage-box-1">   
+                            <div className="profile-box-percentage">     
+                              <div className="profile-box">
+                                </div>
+                              <span className="percentage-line">44% Complete</span>
+                         </div>
+                     </div>
+
+                    
+                 <div className="profile-complete-percentage-box-1">  
+                            <div className="stud-teach-in">
+                               <span> 120 </span>
+                            </div>
+
+                                    <h5>Teachers In</h5>
+                                    <button className="btn btn-info"> View All</button>
+                                    <a href="">Add Teachers</a>
+
+                        </div>
+
+
+                        <div className="profile-complete-percentage-box-1">   
+                          
+                            <div className="stud-teach-in">
+                               <span> 440 </span>
+                            </div>
+
+                                    <h5>Students In</h5>
+                                    <button className="btn btn-info"> View All</button>
+                                    <a href="">Add Students</a>
+
+                        </div>
+                   
+
+
+
+</div>
+
+{/*==================================================================================*/}
                 </div>
             </div>        
 		) 

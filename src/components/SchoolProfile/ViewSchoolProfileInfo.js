@@ -96,9 +96,7 @@ class ViewTeacherInfo extends Component {
                                     </div>
 
                                     <div className="form-row">
-                                        <div className="col-sm-6">
-                                        </div>
-                                        <FormGroup className="col-sm-6">
+                                         <FormGroup className="col-sm-6">
                                             <Label className="col-sm-3 col-md-4">Contact Number</Label>
                                             <span className="col-sm-9 col-md-8 word-text">{school.contact_telephoneno}</span>
                                         </FormGroup>

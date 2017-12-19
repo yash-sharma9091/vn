@@ -1,0 +1,90 @@
+.profile-complete-percentage{ padding:10px; }
+
+.profile-complete-percentage-box-1{     background: #f7f7f9;
+	position: relative;
+    padding: 12px;
+    margin-bottom: 15px;
+    display: inline-block;
+    width: 100%; }
+
+.profile-box::after{background: #1252af; /* Old browsers */
+	background: -moz-linear-gradient(left, #1252af 1%, #c2cb51 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left, #1252af 1%,#c2cb51 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right, #1252af 1%,#c2cb51 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1252af', endColorstr='#c2cb51',GradientType=1 ); 
+	width: 100px;
+	content: '';
+	height: 100px;
+	top: 65%;
+	left: 0;
+	z-index: 999;
+	position: absolute;
+	border-top:1px solid #ddd;
+}
+
+.profile-box-percentage{ position: relative; }
+.percentage-line{
+    position: absolute;
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+    top:30%;
+    text-align: right;
+    right: auto;
+    z-index: 9;
+    max-width: 270px;
+    left:25%;}
+
+.percentage-line:before{content: ''; left: 0; border-left: 1px solid #ccc; height: 40px; margin-top: 4px; position: absolute;}
+.profile-box{
+	background: #fff;
+	z-index: 99;
+	position: relative;
+	overflow: hidden;
+	width: 100px;
+	height: 100px;
+	border: 4px solid #ddd;
+	border-radius: 50px;
+}
+
+.stud-teach-in{
+   float: left; margin-right: 10px;
+    border-radius: 60px;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    font-size: 22px;
+    line-height: 83px;
+	background: #f1e933; /* Old browsers */
+	background: -moz-linear-gradient(top, #f1e933 0%, #050501 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, #f1e933 0%,#050501 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, #f1e933 0%,#050501 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1e933', endColorstr='#050501',GradientType=0 ); /* IE6-9 */
+	position: relative;
+}
+
+.stud-teach-in span{
+    background: #fff;
+    width: 84px;
+    height: 84px;
+    display: block;
+    border-radius: 60px;
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    line-height: 82px;
+}
+
+.profile-complete-percentage-box-1 a{
+    position: absolute;
+    text-align: right;
+    right: 12px;
+    bottom: 6px;
+    color: #666;
+}
+
+.profile-complete-percentage-box-1 h5{
+    margin-top: 15px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    font-size: 18px;
+}

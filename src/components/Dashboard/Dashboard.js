@@ -9,6 +9,8 @@ import dashImg7 from '../../assets/images/dash-7.png';
 import dashImg8 from '../../assets/images/dash-8.png';
 import dashImg9 from '../../assets/images/dash-9.png';
 import dashImg10 from '../../assets/images/dash-10.png';
+import dashImg11 from '../../assets/images/dash-11.png';
+
 import crossoutMark from '../../assets/images/svg/cross-out-mark.svg';
 //import paid from '../../assets/images/paid.png';
 import './SchoolAdminDashboard.css';
@@ -212,6 +214,13 @@ class Dashboard extends Component {
 										<a><div className="dash-icon"><img src={dashImg10} className="transition" alt="" /></div><span>Contacts</span></a>
 									</div>
 								</div>
+								<div className="col-2 pt-4">
+									<div className="dash-box">
+									
+										<a><div className="dash-icon"><img src={dashImg11} className="transition" alt="" /></div><span>Parents</span></a>
+									
+									</div>
+								</div> 
 							</div>
 						</div>
 				</div>

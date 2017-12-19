@@ -94,7 +94,7 @@ class EditSchoolProfile extends Component {
         this.props.change('school_logo',null);
     }
     render() {
-        const { error, handleSubmit, additional_health_info} = this.props;
+        const { error, handleSubmit, school_type, school_level} = this.props;
         const {schoolLogo} = this.state;
         return (
             <div className="left-group">
@@ -127,20 +127,18 @@ class EditSchoolProfile extends Component {
                                                 component={FormDropdown} 
                                                 formGroupClassName="row" name="school_type"
                                                 label="Type of school "  colWrapper={true} col={9}
-                                                data={additional_health_info} placeholder="Select type"
-                                                valueField={"_id"} textField={"name"} empty={true} emptyText="Select health info" 
+                                                data={school_type} placeholder="Select type"
+                                                valueField={"_id"} textField={"name"} empty={true} emptyText="Select type" 
                                                 labelClassName="col-sm-3"/>       
                                         </div>
                                         <div className="col-sm-6">
-                                             <div className="form-group row">
-                                                <label className="col-sm-3 col-form-label">Subject</label>
-                                                <div className="col-sm-9">
-                                                    <select id="inputState" className="form-control">
-                                                        <option selected>Select subject</option>
-                                                        <option>...</option>
-                                                    </select>
-                                                </div>
-                                            </div>
+                                            <Field 
+                                                component={FormDropdown} 
+                                                formGroupClassName="row" name="school_level"
+                                                label="School Levels "  colWrapper={true} col={9}
+                                                data={school_level} placeholder="Select level"
+                                                valueField={"_id"} textField={"name"} empty={true} emptyText="Select level" 
+                                                labelClassName="col-sm-3"/>       
                                         </div>
                                     </div>
 
