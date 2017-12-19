@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 class SchoolProfileProgress extends Component {
 	render() {
-       
+       const {school} = this.props;
 		return (
 
             <div className="right-group">
@@ -21,9 +21,9 @@ class SchoolProfileProgress extends Component {
                         <div className="profile-complete-percentage-box-1">   
                             <div className="profile-box-percentage">     
                                 <div className="profile-box">
-                                    <span style={{bottom: '50%'}}></span>
+                                    <span style={{bottom: `${school.profile_percentage || '0'}%`}}></span>
                                 </div>
-                                <span className="percentage-line">44% Complete</span>
+                                <span className="percentage-line">{school.profile_percentage || '0'}% Complete</span>
                             </div>
                         </div>
 
