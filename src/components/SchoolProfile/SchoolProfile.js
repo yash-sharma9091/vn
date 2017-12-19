@@ -7,10 +7,12 @@ import './SchoolProfile.css';
 import {Http} from '../../lib/Http';
 import {fullName, limitTo, decorateLink} from '../../lib/Helper';
 import Alert from '../Common/Alert';
-import { editTeacher} from '../../lib/SiteLinks';
+import { editSchoolProfile, schoolProfile} from '../../lib/SiteLinks';
 import {Loader} from '../Common/Loader';
 import {LinkContainer} from 'react-router-bootstrap';
-class AddTeachers extends Component {
+import {connect} from 'react-redux';
+import { submit } from 'redux-form';
+class SchoolProfile extends Component {
     constructor() {
         super();
         this.triggerSubmit = this.triggerSubmit.bind(this);
@@ -40,6 +42,8 @@ class AddTeachers extends Component {
     }
 	render() {
         const {school, errors, isLoading, submitting} = this.state;
+        const {dispatch, location} = this.props;
+        const {pathname} = location;
         
 		return (
             <div>
@@ -65,11 +69,32 @@ class AddTeachers extends Component {
                                 </div>
 
                                 <div className="col-7 col-md-7 col-lg-8 col-xl-8">
-                                    <div className="imports-button d-flex justify-content-end">
-                                        <LinkContainer to={`${decorateLink(editTeacher)}/${school._id}`}>
-                                            <button type="button" className="btn btn-primary ml-1 ml-lg-1 ml-xl-2">Edit</button>
-                                        </LinkContainer>        
-                                    </div>
+                                    {
+                                        decorateLink(pathname) === decorateLink(schoolProfile) 
+                                        ? (
+                                            <div className="imports-button d-flex justify-content-end">
+                                                <LinkContainer to={`${decorateLink(editSchoolProfile)}/${school._id}`}>
+                                                <button type="button" className="btn btn-primary ml-1 ml-lg-1 ml-xl-2">Edit</button>
+                                                </LinkContainer>    
+                                            </div>    
+                                        ) : null
+                                    }
+                                    {
+                                        decorateLink(pathname) === decorateLink(editSchoolProfile) 
+                                        ? (
+                                            <div className="imports-button d-flex justify-content-end">
+                                                <button 
+                                                    type="button" 
+                                                    disabled={submitting}
+                                                    onClick={() => dispatch(submit('EditSchoolProfileForm'))} 
+                                                    className="btn btn-primary ml-1 ml-lg-1 ml-xl-2">{submitting ? 'Processing ...' : 'Update'}
+                                                </button>    
+                                                <LinkContainer to={`${decorateLink(schoolProfile)}/${school._id}`}>
+                                                    <button type="button" className="btn btn-info ml-1 ml-lg-1 ml-xl-2">Cancel</button>
+                                                </LinkContainer> 
+                                            </div>    
+                                        ) : null
+                                    } 
                                 </div>
                             </div>
                         </div>
@@ -80,11 +105,11 @@ class AddTeachers extends Component {
                     <div className="dashboard-main inner-sub-page">
                             <div className="dash-left-box">
                                 { isLoading && <Loader /> }
-                                {/*!isLoading && !_.isEmpty(school) && <ViewSchoolProfileInfo school={school}/>*/}
-                                {!isLoading && !_.isEmpty(school) && <EditSchoolProfile _triggerSubmit={this.triggerSubmit} school={school} initialValues={school}/>}
+                                {!isLoading && !_.isEmpty(school) && decorateLink(pathname) === decorateLink(schoolProfile) && <ViewSchoolProfileInfo school={school}/>}
+                                {!isLoading && !_.isEmpty(school) && decorateLink(pathname) === decorateLink(editSchoolProfile) && <EditSchoolProfile _triggerSubmit={this.triggerSubmit} school={school} initialValues={school}/>}
                             </div>
                             <div className="dash-right-box">
-                                <SchoolProfileActivity />
+                                <SchoolProfileActivity school={school}/>
                             </div>
                     </div>
                 
@@ -95,4 +120,5 @@ class AddTeachers extends Component {
 	}
 }
 
-export default AddTeachers;
+
+export default connect()(SchoolProfile);

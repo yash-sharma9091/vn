@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import { Form } from 'reactstrap';
 import ImageCropper from '../Common/ImageCropper';
 import { Field, SubmissionError,reduxForm } from 'redux-form';
-import {handleSubmitFailed, gender, scrollToByClassName} from '../../lib/Helper';
+import {handleSubmitFailed, gender, scrollToByClassName, decorateLink} from '../../lib/Helper';
 import {Required, Email,maxLength200, Alphabets, isValidAddress, ContactNumber} from '../../lib/Validate';
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import FormField from "../Common/FormField";
@@ -11,7 +11,7 @@ import FormSelect from "../Common/FormSelect";
 import FormDropdown from "../Common/FormDropdown";
 import {Http} from '../../lib/Http';
 import Alert from '../Common/Alert';
-import {teacherListing} from '../../lib/SiteLinks';
+import {schoolProfile} from '../../lib/SiteLinks';
 import {push} from 'react-router-redux';
 import {connect} from 'react-redux';
 let success='';
@@ -94,7 +94,8 @@ class EditSchoolProfile extends Component {
         this.props.change('school_logo',null);
     }
     render() {
-        const { error, handleSubmit, school_type, school_level} = this.props;
+        const { error, handleSubmit} = this.props;
+        const {school_type, school_level} = this.props.masterdata;
         const {schoolLogo} = this.state;
         return (
             <div className="left-group">
@@ -137,7 +138,7 @@ class EditSchoolProfile extends Component {
                                                 formGroupClassName="row" name="school_level"
                                                 label="School Levels "  colWrapper={true} col={9}
                                                 data={school_level} placeholder="Select level"
-                                                valueField={"_id"} textField={"name"} empty={true} emptyText="Select level" 
+                                                valueField={"_id"} textField={"value"} empty={true} emptyText="Select level" 
                                                 labelClassName="col-sm-3"/>       
                                         </div>
                                     </div>
@@ -206,10 +207,10 @@ let _EditSchoolProfile = reduxForm({
         const {_triggerSubmit} = props;
         _triggerSubmit();
         return new Promise((resolve, reject) => {
-            Http.upload('edit_teacher', values)
+            Http.upload('update_schoolprofile', values)
             .then(({data}) => {
                 success = data.message;
-                setTimeout(() => {success=''; dispatch(push(teacherListing));},3000);
+                setTimeout(() => {success=''; dispatch(push(`${decorateLink(schoolProfile)}/${values._id}`));},3000);
                 _triggerSubmit();
                 scrollToByClassName('left-group-content');
                 resolve();

@@ -49,6 +49,7 @@ import {
 	editStudent,
 	parentlistings,
 	faq, 
+	editSchoolProfile
 	//schoolstep
 } from '../lib/SiteLinks';
 export const Router = props => {
@@ -69,6 +70,7 @@ export const Router = props => {
 					<PrivateRoute path={teacherDetail} component={TeacherDetail} />
 					<PrivateRoute path={studentDetail} component={StudentDetail} />
 					<PrivateRoute path={schoolProfile} component={SchoolProfile} />
+					<PrivateRoute path={editSchoolProfile} component={SchoolProfile} />
 					<PrivateRoute path={studentListing} component={Wrapper} />
 					<PrivateRoute path={editTeacher} component={EditTeacherDetail} />
 					<PrivateRoute path={editStudent} component={EditStudentDetail} />
