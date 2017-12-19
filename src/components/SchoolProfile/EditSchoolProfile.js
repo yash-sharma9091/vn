@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import { Form } from 'reactstrap';
 import ImageCropper from '../Common/ImageCropper';
 import { Field, SubmissionError,reduxForm } from 'redux-form';
-import {handleSubmitFailed, gender} from '../../lib/Helper';
+import {handleSubmitFailed, gender, scrollToByClassName} from '../../lib/Helper';
 import {Required, Email,maxLength200, Alphabets, isValidAddress, ContactNumber} from '../../lib/Validate';
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import FormField from "../Common/FormField";
@@ -143,27 +143,13 @@ class EditSchoolProfile extends Component {
                                     </div>
 
                                     <div className="form-row">
-                                        <div className="col-sm-6">
-                                            <div className="form-group row">
-                                                <label className="col-sm-3 col-form-label">Grade</label>
-                                                <div className="col-sm-9">
-                                                    <select id="inputState" className="form-control">
-                                                        <option selected>Select grade</option>
-                                                        <option>...</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="col-sm-6">
-                                             <div className="form-group row">
-                                                <label className="col-sm-3 col-form-label">Official Grade</label>
-                                                <div className="col-sm-9">
-                                                    <select id="inputState" className="form-control">
-                                                        <option selected>Select official grade</option>
-                                                        <option>...</option>
-                                                    </select>
-                                                </div>
-                                            </div>
+                                        <div className="col-sm-12">
+                                            <Field 
+                                                component={FormField} type="text" formGroupClassName="row" 
+                                                colWrapper={true} col={9}
+                                                labelClassName="col-sm-3"
+                                                name="school_address" label="School Address" placesAutocomplete={true} onSelect={this.handleSelect}
+                                                id="School_Address" placeholder="Enter address" validate={[Required]} doValidate={true}/>
                                         </div>
                                     </div>
                                 </div>
@@ -175,10 +161,9 @@ class EditSchoolProfile extends Component {
                                         <div className="col-sm-6">
                                             <Field 
                                                 component={FormField} type="text" formGroupClassName="row" 
-                                                colWrapper={true} col={9}
-                                                labelClassName="col-sm-3"
-                                                name="teacher_address" label="Teacher Address" placesAutocomplete={true} onSelect={this.handleSelect}
-                                                id="Teacher_Address" placeholder="Enter address" validate={[Required]} doValidate={true}/>
+                                                colWrapper={true} col={9} labelClassName="col-sm-3"
+                                                name="contact_name" label="Contact Person"
+                                                id="contact_name" placeholder="Enter contact name" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
                                         </div>
                                         <div className="col-sm-6">
                                             <Field 
@@ -191,9 +176,6 @@ class EditSchoolProfile extends Component {
                                     </div>
 
                                     <div className="form-row">
-                                        <div className="col-sm-6">
-                                                
-                                        </div>
                                         <div className="col-sm-6">
                                             <Field 
                                                 component={FormField} type="text" 
@@ -218,15 +200,9 @@ class EditSchoolProfile extends Component {
 let _EditSchoolProfile = reduxForm({
     form: 'EditSchoolProfileForm',
     asyncValidate: isValidAddress,
-    asyncBlurFields: ['teacher_address'],
+    asyncBlurFields: ['school_address'],
     onSubmitFail: handleSubmitFailed,
     onSubmit: (values, dispatch, props) => {
-        //console.log(values);return;
-        // const {lat, lng} = values;
-        // if( !lat && !lng ) {
-        //     throw new SubmissionError({teacher_address:'Invalid address'});
-        //     return;
-        // }
         const {_triggerSubmit} = props;
         _triggerSubmit();
         return new Promise((resolve, reject) => {
@@ -235,7 +211,7 @@ let _EditSchoolProfile = reduxForm({
                 success = data.message;
                 setTimeout(() => {success=''; dispatch(push(teacherListing));},3000);
                 _triggerSubmit();
-                window.scrollTo(0, 0);
+                scrollToByClassName('left-group-content');
                 resolve();
             })
             .catch(({errors}) => {

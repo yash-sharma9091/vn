@@ -4,7 +4,6 @@ import FormField from "../Common/FormField";
 import { Field, SubmissionError,reduxForm } from 'redux-form';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import {maxLength400} from '../../lib/Validate';
-import './Activity.css';
 import {connect} from 'react-redux';
 import activeImg1 from '../../assets/images/act-img-1.png';
 import activeImg2 from '../../assets/images/act-img-2.png';

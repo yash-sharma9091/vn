@@ -2,7 +2,7 @@
 import React, {Component} from 'react';
 import ViewSchoolProfileInfo from './ViewSchoolProfileInfo';
 import EditSchoolProfile from './EditSchoolProfile';
-import ActivityPanel from '../Activity/ActivityPanel.js';
+import SchoolProfileActivity from './SchoolProfileActivity.js';
 import './SchoolProfile.css';
 import {Http} from '../../lib/Http';
 import {fullName, limitTo, decorateLink} from '../../lib/Helper';
@@ -84,7 +84,7 @@ class AddTeachers extends Component {
                                 {!isLoading && !_.isEmpty(school) && <EditSchoolProfile _triggerSubmit={this.triggerSubmit} school={school} initialValues={school}/>}
                             </div>
                             <div className="dash-right-box">
-                                <ActivityPanel />
+                                <SchoolProfileActivity />
                             </div>
                     </div>
                 

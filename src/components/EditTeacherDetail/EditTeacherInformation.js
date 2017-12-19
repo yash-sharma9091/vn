@@ -4,7 +4,7 @@ import { Form } from 'reactstrap';
 import './EditTeacherDetail.css';
 import ImageCropper from '../Common/ImageCropper';
 import { Field, SubmissionError,reduxForm } from 'redux-form';
-import {handleSubmitFailed, gender} from '../../lib/Helper';
+import {handleSubmitFailed, gender, scrollToByClassName} from '../../lib/Helper';
 import {Required, Email,maxLength200, Alphabets, isValidAddress, ContactNumber} from '../../lib/Validate';
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import FormField from "../Common/FormField";
@@ -239,7 +239,7 @@ let _EditTeacherInformation = reduxForm({
                 success = data.message;
                 setTimeout(() => {success=''; dispatch(push(teacherListing));},3000);
                 _triggerSubmit();
-                window.scrollTo(0, 0);
+                scrollToByClassName('left-group-content');
                 resolve();
             })
             .catch(({errors}) => {
