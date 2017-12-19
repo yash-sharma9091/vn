@@ -1,28 +1,22 @@
 /* global IMAGE_PATH */
 import React, {Component} from 'react';
-//import TeacherPic from '../../assets/images/student-1.png';
-import EnvelopeGray from '../../assets/images/svg/envelope-gray.svg';
-import ThreeDots from '../../assets/images/svg/three-dots.svg';
-import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-import './EditStudentDetail.css';
+import { Form } from 'reactstrap';
 import ImageCropper from '../Common/ImageCropper';
 import { Field, SubmissionError,reduxForm } from 'redux-form';
-import {handleSubmitFailed, gender, scrollToByClassName} from '../../lib/Helper';
-import {Required, Email, maxLength200, Alphabets, isValidAddress, ContactNumber, OSIS, maxLength10} from '../../lib/Validate';
+import {handleSubmitFailed, gender} from '../../lib/Helper';
+import {Required, Email,maxLength200, Alphabets, isValidAddress, ContactNumber} from '../../lib/Validate';
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import FormField from "../Common/FormField";
 import FormSelect from "../Common/FormSelect";
+import FormDropdown from "../Common/FormDropdown";
 import {Http} from '../../lib/Http';
 import Alert from '../Common/Alert';
-import {studentListing} from '../../lib/SiteLinks';
-import FormCalender from '../Common/FormCalender';
-import {connect} from 'react-redux';
-import FormDropdown from "../Common/FormDropdown";
+import {teacherListing} from '../../lib/SiteLinks';
 import {push} from 'react-router-redux';
+import {connect} from 'react-redux';
 let success='';
 
-class EditTeacherInformation extends Component {
+class EditSchoolProfile extends Component {
     constructor() {
         super();
         //this.formSubmit = this.formSubmit.bind(this);
@@ -33,7 +27,7 @@ class EditTeacherInformation extends Component {
         this.state = {
             success: '',
             reset: false,
-            profileImage:''
+            schoolLogo:''
         }
     }
     handleSelect(address) {
@@ -62,7 +56,7 @@ class EditTeacherInformation extends Component {
         };
         if( address.length > 0 ) {
             let address_components = address[0].address_components;
-            change('student_address', address[0].formatted_address);
+            change('teacher_address', address[0].formatted_address);
             for (var i = 0; i < address_components.length; i++) {
                 var addressType = address_components[i].types[0];
                 if (componentForm[addressType]) {
@@ -84,30 +78,25 @@ class EditTeacherInformation extends Component {
         }
     }
     
-    formSubmit(values) {
-        console.log(values);
-    }
     componentDidMount(newProps) {
-        const {student} = this.props;
-        if(student) {
-            const {profile_image} = student;
-            if( profile_image ) {
-                let profileImage = `${IMAGE_PATH}/${profile_image.path}`; 
+        const {school} = this.props;
+        if(school) {
+            const {school_logo} = school;
+            if( school_logo ) {
+                let schoolLogo = `${IMAGE_PATH}/${school_logo.path}`; 
 
-                this.setState({profileImage});
+                this.setState({schoolLogo});
             }
         }
     }
     removeImage() {
-        this.setState({profileImage:''});
-        this.props.change('profile_image',null);
+        this.setState({schoolLogo:''});
+        this.props.change('school_logo',null);
     }
-	render() {
-        const { error, handleSubmit} = this.props;
-        const {additional_health_info} = this.props.masterdata;
-        const {profileImage} = this.state;
-        
-		return (
+    render() {
+        const { error, handleSubmit, additional_health_info} = this.props;
+        const {schoolLogo} = this.state;
+        return (
             <div className="left-group">
                 <div className="left-group-content">
                     <div className="p-3 p-lg-3">
@@ -117,19 +106,14 @@ class EditTeacherInformation extends Component {
                                 <div className="p-3">
                                     <div className="row align-items-center">
                                         <div className="col-md-3 col-lg-2 inner-cropper">
-                                            <Field component={ImageCropper} name="image" logo={profileImage} removeImage={this.removeImage}/>
+                                            <Field component={ImageCropper} name="image" logo={schoolLogo} removeImage={this.removeImage}/>
                                         </div>
                                         <div className="col-md-9 col-lg-10">
                                             <div className="form-row pl-3">
                                                 <Field 
                                                     component={FormField} type="text" formGroupClassName="mr-2"
-                                                    name="first_name" label="First Name"
-                                                    id="First_Name" placeholder="Enter first name" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
-
-                                                <Field 
-                                                    component={FormField} type="text"
-                                                    name="last_name" label="Last Name"
-                                                    id="Last_Name" placeholder="Enter last name" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>    
+                                                    name="school_name" label="School Name"
+                                                    id="school_name" placeholder="Enter school name" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
                                             </div>
                                         </div>
                                     </div>
@@ -139,65 +123,50 @@ class EditTeacherInformation extends Component {
                                 <div className="p-3">
                                     <div className="form-row">
                                         <div className="col-sm-6">
-
                                             <Field 
-                                                component={FormCalender} type="text" formGroupClassName="row" 
-                                                name="dob" label="DOB" colWrapper={true} col={9}
-                                                labelClassName="col-sm-3"
-                                                id="DOB" placeholder="DD/MM/YYYY" validate={[Required]} doValidate={true}/>
+                                                component={FormDropdown} 
+                                                formGroupClassName="row" name="school_type"
+                                                label="Type of school "  colWrapper={true} col={9}
+                                                data={additional_health_info} placeholder="Select type"
+                                                valueField={"_id"} textField={"name"} empty={true} emptyText="Select health info" 
+                                                labelClassName="col-sm-3"/>       
                                         </div>
                                         <div className="col-sm-6">
-                                            <div className="form-group row">
+                                             <div className="form-group row">
                                                 <label className="col-sm-3 col-form-label">Subject</label>
                                                 <div className="col-sm-9">
                                                     <select id="inputState" className="form-control">
-                                                        <option selected>Select Subject</option>
+                                                        <option selected>Select subject</option>
                                                         <option>...</option>
                                                     </select>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-
-                                    <div className="form-row">
-                                        <div className="col-sm-6">
-                                            <Field 
-                                                component={FormSelect} formGroupClassName="row" name="gender" type="select" 
-                                                emptyText="Select gender" label="Gender" options={gender}
-                                                labelClassName="col-sm-3" colWrapper={true} col={9}
-                                                displayKey={"value"} displayLabel={"name"} empty={true} validate={[Required]} doValidate={true}/>
-                                        </div>
-                                        <div className="col-sm-6">
-                                            <Field 
-                                                component={FormField} type="text" formGroupClassName="row" 
-                                                colWrapper={true} col={9}
-                                                labelClassName="col-sm-3"
-                                                name="osis_number" label="OSIS Number"
-                                                id="Student Code" placeholder="Enter code (osis number)" validate={[Required,OSIS,maxLength10]} doValidate={true}/>
-                                         </div>
                                     </div>
 
                                     <div className="form-row">
                                         <div className="col-sm-6">
                                             <div className="form-group row">
-                                                <label className="col-sm-3 col-form-label">Class</label>
+                                                <label className="col-sm-3 col-form-label">Grade</label>
                                                 <div className="col-sm-9">
                                                     <select id="inputState" className="form-control">
-                                                        <option selected>Select class</option>
+                                                        <option selected>Select grade</option>
                                                         <option>...</option>
                                                     </select>
                                                 </div>
                                             </div>
                                         </div>
                                         <div className="col-sm-6">
-                                            <Field 
-                                                component={FormDropdown} 
-                                                formGroupClassName="row" name="additional_health_info"
-                                                label="Additional Health Info "  colWrapper={true} col={9}
-                                                data={additional_health_info} placeholder="Select health info"
-                                                valueField={"_id"} textField={"name"} empty={true} emptyText="Select health info" 
-                                                labelClassName="col-sm-3"/>       
-                                         </div>
+                                             <div className="form-group row">
+                                                <label className="col-sm-3 col-form-label">Official Grade</label>
+                                                <div className="col-sm-9">
+                                                    <select id="inputState" className="form-control">
+                                                        <option selected>Select official grade</option>
+                                                        <option>...</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 
@@ -207,12 +176,11 @@ class EditTeacherInformation extends Component {
                                     <div className="form-row">
                                         <div className="col-sm-6">
                                             <Field 
-                                                component={FormField} type="text" 
-                                                formGroupClassName="row" colWrapper={true} 
-                                                labelClassName="col-sm-3" col={8}
-                                                name="contact_telephoneno" label="Contact Number" 
-                                                id="contact_telephoneno" placeholder="Enter contact number"
-                                                maskInput={true} inputAddOn={true} inputAddOnText="+1" />  
+                                                component={FormField} type="text" formGroupClassName="row" 
+                                                colWrapper={true} col={9}
+                                                labelClassName="col-sm-3"
+                                                name="teacher_address" label="Teacher Address" placesAutocomplete={true} onSelect={this.handleSelect}
+                                                id="Teacher_Address" placeholder="Enter address" validate={[Required]} doValidate={true}/>
                                         </div>
                                         <div className="col-sm-6">
                                             <Field 
@@ -220,18 +188,23 @@ class EditTeacherInformation extends Component {
                                                 type="text" formGroupClassName="row" 
                                                 colWrapper={true} col={9} labelClassName="col-sm-3"
                                                 name="email_address" label="Email Address"
-                                                id="Email_Address" placeholder="Enter email address" validate={[Email]} doValidate={true}/>    
+                                                id="Email_Address" placeholder="Enter email address" validate={[Required, Email]} doValidate={true}/>    
                                         </div>
                                     </div>
 
                                     <div className="form-row">
                                         <div className="col-sm-6">
+                                                
+                                        </div>
+                                        <div className="col-sm-6">
                                             <Field 
-                                                component={FormField} type="text" formGroupClassName="row" 
-                                                colWrapper={true} col={9}
-                                                labelClassName="col-sm-3"
-                                                name="student_address" label="Student Address" placesAutocomplete={true} onSelect={this.handleSelect}
-                                                id="Student_Address" placeholder="Enter address" validate={[Required]} doValidate={true}/>
+                                                component={FormField} type="text" 
+                                                formGroupClassName="row" colWrapper={true} 
+                                                labelClassName="col-sm-3" col={8}
+                                                name="contact_telephoneno" label="Contact Number" 
+                                                id="contact_telephoneno" placeholder="Enter contact number"
+                                                maskInput={true} inputAddOn={true} inputAddOnText="+1" 
+                                                validate={[ContactNumber]} doValidate={true}/>        
                                         </div>
                                     </div>
 
@@ -241,24 +214,30 @@ class EditTeacherInformation extends Component {
                     </div>
                 </div>
             </div>
-		) 
-	}
+        ) 
+    }
 }
-let _EditTeacherInformation = reduxForm({
-    form: 'EditStudentInformationForm',
+let _EditSchoolProfile = reduxForm({
+    form: 'EditSchoolProfileForm',
     asyncValidate: isValidAddress,
-    asyncBlurFields: ['student_address'],
+    asyncBlurFields: ['teacher_address'],
     onSubmitFail: handleSubmitFailed,
     onSubmit: (values, dispatch, props) => {
+        //console.log(values);return;
+        // const {lat, lng} = values;
+        // if( !lat && !lng ) {
+        //     throw new SubmissionError({teacher_address:'Invalid address'});
+        //     return;
+        // }
         const {_triggerSubmit} = props;
         _triggerSubmit();
         return new Promise((resolve, reject) => {
-            Http.upload('edit_student', values)
+            Http.upload('edit_teacher', values)
             .then(({data}) => {
                 success = data.message;
-                setTimeout(() => {success=''; dispatch(push(studentListing));},3000);
+                setTimeout(() => {success=''; dispatch(push(teacherListing));},3000);
                 _triggerSubmit();
-                scrollToByClassName('left-group-content');
+                window.scrollTo(0, 0);
                 resolve();
             })
             .catch(({errors}) => {
@@ -272,10 +251,10 @@ let _EditTeacherInformation = reduxForm({
             });
         });
     }
-})(EditTeacherInformation);
+})(EditSchoolProfile);
 
 
 const mapStateToProps = (state) => ({
     masterdata: state.masterdb
 })
-export default connect(mapStateToProps)(_EditTeacherInformation);
+export default connect(mapStateToProps)(_EditSchoolProfile);

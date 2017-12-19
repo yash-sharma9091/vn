@@ -27,11 +27,11 @@ class Header extends Component {
 		});
 	}
     render() {
-      	const {location, token} = this.props;
+      	const {location, token, dispatch, user} = this.props;
       	const { errorMsg} = this.state;
       	if( errorMsg ) {
   			networkAlert();
-  			return null;
+  			//return null;
   		} 
       	return (
         	<div>
@@ -40,7 +40,7 @@ class Header extends Component {
         			<strong>Network Failure! Make sure you have an active internet connection</strong> 
         		</div>
         		{token 
-        			? <DashboardHeader location={location}/> 
+        			? <DashboardHeader location={location} dispatch={dispatch} user={user}/> 
         			: (	<header>
           					{!_.isEmpty(location) && removePartials(location) && <Logo />}
         				</header>)
@@ -52,6 +52,7 @@ class Header extends Component {
 
 const mapStateToProps = (state) => ({
 	location: state.router.location,
-	token: state.auth.token
+	token: state.auth.token,
+	user: state.auth.user
 });
 export default connect(mapStateToProps, null, null, {pure:false})(Header);

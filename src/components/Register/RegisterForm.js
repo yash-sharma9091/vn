@@ -5,7 +5,7 @@ import FormField from "../Common/FormField";
 //import FormSelect from "../Common/FormSelect";
 import FormSubmit from "../Common/FormSubmit";
 import { Field, SubmissionError,reduxForm } from 'redux-form';
-import {Required, Email, Number, maxLength4,maxLength200,maxLength400, Alphabets, isValidAddress} from '../../lib/Validate';
+import {Required, Email, Number, maxLength4,maxLength200,maxLength400, Alphabets, isValidAddress, ContactNumber, Phone} from '../../lib/Validate';
 import {Http} from '../../lib/Http';
 import Alert from '../Common/Alert';
 import './Register.css';
@@ -114,13 +114,13 @@ class RegisterForm extends Component {
 		                        		component={FormField} type="text" formGroupClassName="col-md-6"
 		                        		name="contact_telephoneno" label="Enter contact Telephone Number*"
 		                        		id="ContactTelephoneNumber" labelClassName="gradient-color"
-		                        		placeholder="Enter contact telephone number"
+		                        		placeholder="Enter contact telephone number" validate={[ContactNumber, Phone]}
 		                        		doValidate={true} maskInput={true} inputAddOn={true} inputAddOnText="+1"/>
 		                        	<Field 
 		                        		component={FormField} type="text" formGroupClassName="col-md-6"
 		                        		name="school_telephoneno" label="School Telephone Number"
 		                        		id="SchoolTelephoneNumber" labelClassName="gradient-color"
-		                        		placeholder="Enter school telephone number"
+		                        		placeholder="Enter school telephone number" validate={[Phone]}
 		                        		doValidate={true} maskInput={true} inputAddOn={true} inputAddOnText="+1"/>
 		                        </div>
 		                        <Field 
@@ -267,15 +267,6 @@ const _RegisterForm = reduxForm({
   	form: 'signupForm',
   	asyncValidate: isValidAddress,
     asyncBlurFields: ['school_address'],
-  	validate: (values) => {
-    	const errors = {};
-    	if(!values.contact_telephoneno) {
-      		errors.contact_telephoneno = 'Contact number is required';
-    	}  else if(!/^([0|[1-9][0-9]{9})$/i.test(_.replace(values.contact_telephoneno, /-|\s|\+1/g, ""))) {
-    		errors.contact_telephoneno = 'Enter valid number';
-    	}
-    	return errors;
-    },
     onSubmitFail: handleSubmitFailed
 })(RegisterForm);
 

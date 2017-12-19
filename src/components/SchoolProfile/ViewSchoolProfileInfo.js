@@ -4,10 +4,12 @@ import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reac
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import './SchoolProfile.css';
 import {fullName} from '../../lib/Helper';
+import ProgressiveImage from '../Common/ProgressiveImage';
 
 class ViewTeacherInfo extends Component {
 	render() {
-        const {teacher} = this.props;
+        const {school} = this.props;
+        console.log(school);
         // const style = {
         //     backgroundImage: 'url(' + (IMAGE_PATH + '/' + teacher.profile_image.path) + ')'
         // }
@@ -21,10 +23,10 @@ class ViewTeacherInfo extends Component {
                                     <div className="form-row">
                                         <div className="col-sm-12">
                                             <div className="profiles-mains">
-                                                <div className="teacher-profiles"></div>
+                                                <ProgressiveImage className="teacher-profiles" backgroundSrc={school.school_logo.path} />
                                                 <div className="teacher-content-box">
-                                                    <span>Stuyvesant High School</span>
-                                                    <text>NPAUA01190400</text>
+                                                    <span>{school.school_name}</span>
+                                                    <text>{school.uan}</text>
                                                 </div>
                                             </div>
                                         </div>
@@ -37,41 +39,44 @@ class ViewTeacherInfo extends Component {
                                 <Form>
                                     <div className="form-row">
                                         <FormGroup className="col-sm-6">
-                                                <Label className="col-sm-3 col-md-4">Type of School</Label>
-                                                <span className="col-sm-9 col-md-8 word-text text-capitalize">Private School</span>
+                                            <Label className="col-sm-3 col-md-4">Type of School</Label>
+                                            <span className="col-sm-9 col-md-8 word-text text-capitalize">{school.school_type ? school.school_type.name : 'NA'}</span>
                                         </FormGroup>
                                         <FormGroup className="col-sm-6">
-                                                <Label className="col-sm-3 col-md-4">Address</Label>
-                                                {/*<span className="col-sm-9 col-md-8 word-text">E204</span>*/}
-                                                <span className="col-sm-9 col-md-8 word-text">345 Chambers Street, New York, NY 10282. Phone: (212) 312-4800</span>
+                                            <Label className="col-sm-3 col-md-4">School Levels</Label>
+                                            <span className="col-sm-9 col-md-8 word-text">Primary</span>
+                                        </FormGroup>
+                                        
+                                    </div>
+
+                                    <div className="form-row">
+                                        <FormGroup className="col-sm-6">
+                                            <Label className="col-sm-3 col-md-4">Total No. of Students</Label>
+                                            <span className="col-sm-9 col-md-8 word-text">{school.no_of_students}</span>
+                                        </FormGroup>
+                                        <FormGroup className="col-sm-6">
+                                            <Label className="col-sm-3 col-md-4">School Telephone Number</Label>
+                                            <span className="col-sm-9 col-md-8 word-text">{school.contact_telephoneno}</span>
                                          </FormGroup>
+                                        
                                     </div>
 
                                     <div className="form-row">
-                                        <FormGroup className="col-sm-6">
-                                                <Label className="col-sm-3 col-md-4">Total No. of Students</Label>
-                                                {/*<span className="col-sm-9 col-md-8 word-text">E204</span>*/}
-                                                <span className="col-sm-9 col-md-8 word-text">400</span>
+                                        <FormGroup className="col-sm-12">
+                                            <Label className="col-sm-3 col-md-4">School Address</Label>
+                                            <span className="col-sm-9 col-md-8 word-text">{school.school_address}</span>
                                         </FormGroup>
-                                        <FormGroup className="col-sm-6">
-                                                <Label className="col-sm-3 col-md-4">School Code</Label>
-                                                <span className="col-sm-9 col-md-8 word-text">ES505</span>
-                                                {/*<span className="col-sm-9 col-md-8">
-                                                    <ul className="code-list">
-                                                        <li>N/A</li>
-                                                        <li>M 201</li>
-                                                        <li>S 501</li>
-                                                    </ul>
-                                                </span>*/}
-                                        </FormGroup>
-                                    </div>
-
-                                    <div className="form-row">
-                                        <FormGroup className="col-sm-6">
-                                                <Label className="col-sm-3 col-md-4">School Levels</Label>
-                                                {/*<span className="col-sm-9 col-md-8 word-text">E 201</span>*/}
-                                                <span className="col-sm-9 col-md-8 word-text">Primary</span>
-                                        </FormGroup>
+                                        {/*<FormGroup className="col-sm-6">
+                                            <Label className="col-sm-3 col-md-4">School Code</Label>
+                                            <span className="col-sm-9 col-md-8 word-text">ES505</span>
+                                            <span className="col-sm-9 col-md-8">
+                                                <ul className="code-list">
+                                                    <li>N/A</li>
+                                                    <li>M 201</li>
+                                                    <li>S 501</li>
+                                                </ul>
+                                            </span>
+                                        </FormGroup>*/}
                                     </div>
                                 </Form>
                             </div>
@@ -81,12 +86,12 @@ class ViewTeacherInfo extends Component {
                                 <Form>
                                     <div className="form-row">
                                         <FormGroup className="col-sm-6">
-                                                <Label className="col-sm-3 col-md-4">Teacher Address</Label>
-                                                <span className="col-sm-9 col-md-8 word-text">fdsfsdf</span>
+                                            <Label className="col-sm-3 col-md-4">Contact Person</Label>
+                                            <span className="col-sm-9 col-md-8 word-text">{school.contact_name}</span>
                                         </FormGroup>
                                         <FormGroup className="col-sm-6">
-                                                <Label className="col-sm-3 col-md-4">Email</Label>
-                                                <span className="col-sm-9 col-md-8 word-text email-text">fdsfds</span>
+                                            <Label className="col-sm-3 col-md-4">Email Address</Label>
+                                            <span className="col-sm-9 col-md-8 word-text email-text">{school.email_address}</span>
                                          </FormGroup>
                                     </div>
 
@@ -95,7 +100,7 @@ class ViewTeacherInfo extends Component {
                                         </div>
                                         <FormGroup className="col-sm-6">
                                             <Label className="col-sm-3 col-md-4">Contact Number</Label>
-                                            <span className="col-sm-9 col-md-8 word-text">321321311131</span>
+                                            <span className="col-sm-9 col-md-8 word-text">{school.contact_telephoneno}</span>
                                         </FormGroup>
                                     </div>
 

@@ -1,26 +1,28 @@
 /* global _ */
 import React, {Component} from 'react';
-import searcher from '../../assets/images/svg/musica-searcher.svg';
-import filter from '../../assets/images/svg/filter.svg';
-import { Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import ViewSchoolProfileInfo from './ViewSchoolProfileInfo';
+import EditSchoolProfile from './EditSchoolProfile';
 import ActivityPanel from '../Activity/ActivityPanel.js';
 import './SchoolProfile.css';
 import {Http} from '../../lib/Http';
 import {fullName, limitTo, decorateLink} from '../../lib/Helper';
 import Alert from '../Common/Alert';
-import {Link} from 'react-router-dom';
-import {teacherListing, editTeacher} from '../../lib/SiteLinks';
+import { editTeacher} from '../../lib/SiteLinks';
 import {Loader} from '../Common/Loader';
 import {LinkContainer} from 'react-router-bootstrap';
 class AddTeachers extends Component {
     constructor() {
         super();
+        this.triggerSubmit = this.triggerSubmit.bind(this);
         this.state = {
-            teacher: {},
+            school: {},
             errors:'',
-            isLoading: false
+            isLoading: false,
+            submitting: false
         }
+    }
+    triggerSubmit() {
+        this.setState({submitting: !this.state.submitting});
     }
     componentDidMount() {
         
@@ -28,8 +30,8 @@ class AddTeachers extends Component {
         const {id} = match.params;
         if( id ) {
             this.setState({isLoading: true});
-            Http.get(`view_teacher?_id=${id}`)
-            .then(({data}) => this.setState({teacher: data, isLoading: false}))
+            Http.get(`getschoolprofile_step?_id=${id}`)
+            .then(({data}) => this.setState({school: data, isLoading: false}))
             .catch(({errors}) => {
                 this.setState({errors: errors.message, isLoading: false});
                 setTimeout(() => this.setState({errors: ''}), 5000);
@@ -37,7 +39,8 @@ class AddTeachers extends Component {
         }
     }
 	render() {
-        const {teacher, errors, isLoading} = this.state;
+        const {school, errors, isLoading, submitting} = this.state;
+        
 		return (
             <div>
 
@@ -53,8 +56,8 @@ class AddTeachers extends Component {
                                     <div className="d-flex justify-content-start">
                                         <div className="breadcrumb-list">
                                             <ol className="breadcrumb">
-                                                <li className="breadcrumb-item"><Link to={teacherListing}>Teachers</Link></li>
-                                                <li className="breadcrumb-item active text-capitalize">{teacher.first_name ? limitTo(fullName(teacher.first_name, teacher.last_name),50) : 'Loading ...'}</li>
+                                                <li className="breadcrumb-item"><a>School Profile</a></li>
+                                                
                                             </ol>
                                         </div>
                                     </div>
@@ -63,15 +66,9 @@ class AddTeachers extends Component {
 
                                 <div className="col-7 col-md-7 col-lg-8 col-xl-8">
                                     <div className="imports-button d-flex justify-content-end">
-                                        <LinkContainer to={`${decorateLink(editTeacher)}/${teacher._id}`}>
+                                        <LinkContainer to={`${decorateLink(editTeacher)}/${school._id}`}>
                                             <button type="button" className="btn btn-primary ml-1 ml-lg-1 ml-xl-2">Edit</button>
-                                        </LinkContainer>  
-                                        <LinkContainer to={teacherListing}>
-                                            <button type="button" className="btn btn-info ml-1 ml-lg-1 ml-xl-2">Cancel</button>
-                                        </LinkContainer>    
-                                        {/*<LinkContainer to={`${teacherListing}?toggleClass=active`}>
-                                            <button type="button" className="btn btn-info ml-1 ml-lg-1 ml-xl-2">Create</button>
-                                         </LinkContainer>*/}       
+                                        </LinkContainer>        
                                     </div>
                                 </div>
                             </div>
@@ -82,8 +79,9 @@ class AddTeachers extends Component {
 
                     <div className="dashboard-main inner-sub-page">
                             <div className="dash-left-box">
-                                {/* { isLoading && <Loader /> } */}
-                                <ViewSchoolProfileInfo />
+                                { isLoading && <Loader /> }
+                                {/*!isLoading && !_.isEmpty(school) && <ViewSchoolProfileInfo school={school}/>*/}
+                                {!isLoading && !_.isEmpty(school) && <EditSchoolProfile _triggerSubmit={this.triggerSubmit} school={school} initialValues={school}/>}
                             </div>
                             <div className="dash-right-box">
                                 <ActivityPanel />

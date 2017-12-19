@@ -10,7 +10,7 @@ import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import ImageCropper from '../Common/ImageCropper';
 import './AddStudent.css';
 import {handleSubmitFailed, scrollToByClassName} from '../../lib/Helper';
-import {Required, Email, ContactNumber,maxLength200,maxLength400, Alphabets, isValidAddress, OSIS, maxLength10} from '../../lib/Validate';
+import {Required, Email, ContactNumber,maxLength200,maxLength400, Alphabets, isValidAddress, OSIS, maxLength10, Phone} from '../../lib/Validate';
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import {Http} from '../../lib/Http';
 import Alert from '../Common/Alert';
@@ -192,7 +192,7 @@ class AddStudent extends Component {
                                     <Field 
                                         component={FormField} type="text" formGroupClassName="col-md-12 col-lg-6"
                                         name="contact_telephoneno" label="Contact Number (Optional)"  maskInput={true} inputAddOn={true} inputAddOnText="+1"
-                                        id="Contact Number" placeholder="Enter contact number" />
+                                        id="Contact Number" placeholder="Enter contact number" validate={Phone} doValidate={true}/>
                                 </div>
                                 
                             </div>

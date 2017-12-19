@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
+//import {connect} from 'react-redux';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import {DropdownWithoutActiveProps} from './DropdownWithoutActiveProps';
 import NavBarImage from '../../assets/images/svg/menu.svg';
@@ -12,7 +12,7 @@ import {push} from 'react-router-redux';
 import {dashboard, schoolProfile} from '../../lib/SiteLinks';
 import Logo from  '../Logo/Logo';
 import {LinkContainer} from 'react-router-bootstrap';
-import {decorateTitle} from '../../lib/Helper';
+import {decorateTitle, decorateLink} from '../../lib/Helper';
 
 class DashboardHeader extends Component {
     constructor(props) {
@@ -41,7 +41,7 @@ class DashboardHeader extends Component {
     }
   	render() {
           
-        const {location} = this.props;
+        const {location, user} = this.props;
     	return (
             <header className={`dashboard-header ${location.pathname === dashboard ? 'schooladmin':''}`}>
                 {location.pathname === dashboard && <Logo />}
@@ -78,7 +78,8 @@ class DashboardHeader extends Component {
                                         </div> Administrator
                                     </DropdownToggle>
                                     <DropdownMenu>
-                                        <LinkContainer to={schoolProfile}>
+                                        
+                                        <LinkContainer to={`${decorateLink(schoolProfile)}/${user._id}`}>
                                             <DropdownItem >My Profile</DropdownItem>
                                         </LinkContainer>    
                                         
@@ -108,4 +109,4 @@ class DashboardHeader extends Component {
 }
 
 
-export default connect(null)(DashboardHeader);
+export default DashboardHeader;

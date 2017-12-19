@@ -13,10 +13,11 @@ import crossoutMark from '../../assets/images/svg/cross-out-mark.svg';
 //import paid from '../../assets/images/paid.png';
 import './SchoolAdminDashboard.css';
 import dashboardBg from '../../assets/images/dashboard-bg.png';
-import {loadImage} from '../../lib/Helper';
-import {teacherListing, studentListing} from '../../lib/SiteLinks';
+import {loadImage, decorateLink} from '../../lib/Helper';
+import {teacherListing, studentListing, schoolProfile} from '../../lib/SiteLinks';
 import {Link} from 'react-router-dom';
 import '../BuildSchoolStep/SchoolStep.css';
+import {connect} from 'react-redux';
 
 class Dashboard extends Component {
 	constructor() {
@@ -39,6 +40,7 @@ class Dashboard extends Component {
 	}
 	render() {
 		const {dashboardBg, toggleActivity} = this.state;
+		const {user} = this.props;
 		return (
 			<div className="school-dashboard d-flex align-items-center" style={dashboardBg}>
 					<button type="button" onClick={() => this.toggleActivity()} className="activity-btn">Activity</button>
@@ -154,12 +156,12 @@ class Dashboard extends Component {
 								</div>
 								<div className="col-2">
 									<div className="dash-box">
-										<a>
+										<Link to={`${decorateLink(schoolProfile)}/${user._id}`}>
 											<div className="dash-icon">
-												<img src={dashImg2} className="transition" alt="" />
+												<img src={dashImg2} className="transition" alt="School Profile" />
 											</div>
 											<span>School Profile</span>
-										</a>
+										</Link>
 									</div>
 								</div>
 								<div className="col-2">
@@ -218,4 +220,7 @@ class Dashboard extends Component {
 	}
 }
 
-export default Dashboard;
+const mapStateToProps = (state) => ({
+	user: state.auth.user
+});
+export default connect(mapStateToProps)(Dashboard);
