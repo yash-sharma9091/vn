@@ -15,4 +15,6 @@ editStudent 	= '/edit-student/:id',
 schoolProfile 	= '/school-profile',
 faq 	        = '/faq',
 schoolstep 	    = '/school-step',
+parentlistings 	= '/parents',
 notFound 		= '*';
+

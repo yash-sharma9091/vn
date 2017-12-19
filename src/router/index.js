@@ -21,6 +21,9 @@ import StudentDetail from '../components/StudentDetail/StudentDetail';
 
 import SchoolProfile from '../components/SchoolProfile/SchoolProfile';
 
+import ParentListings from '../components/ParentsDetails/ParentsDetails';
+
+
 // import SchoolStep from '../components/BuildSchoolStep/SchoolStep';
 import NotFound from '../components/Error/404';
 import Invalid from '../components/Error/Invalid';
@@ -44,6 +47,7 @@ import {
 	schoolProfile,
 	editTeacher,
 	editStudent,
+	parentlistings,
 	faq, 
 	//schoolstep
 } from '../lib/SiteLinks';
@@ -68,6 +72,7 @@ export const Router = props => {
 					<PrivateRoute path={studentListing} component={Wrapper} />
 					<PrivateRoute path={editTeacher} component={EditTeacherDetail} />
 					<PrivateRoute path={editStudent} component={EditStudentDetail} />
+					<PrivateRoute path={parentlistings} component={ParentListings} />
 					<Route path={faq} component={Faq} />
 					{/*<PrivateRoute path={schoolstep} component={SchoolStep} />*/}
 					<Route path={invalid} component={Invalid} />
