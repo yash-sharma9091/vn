@@ -91,6 +91,7 @@ class Activity extends Component {
                          <div className="profile-complete-percentage-box-1">   
                             <div className="profile-box-percentage">     
                               <div className="profile-box">
+                              <span ></span>
                                 </div>
                               <span className="percentage-line">44% Complete</span>
                          </div>
