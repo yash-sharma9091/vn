@@ -42,6 +42,8 @@ import {
 	dashboard,
 	teacherListing,
 	studentListing,
+	ClassListing,
+	AddClass,
 	teacherDetail,
 	studentDetail,
 	schoolProfile,
@@ -67,6 +69,7 @@ export const Router = props => {
 					<BeforeAuthRoute path={resetPassword} component={ResetPassword} />
 					<PrivateRoute path={dashboard} component={Dashboard} />
 					<PrivateRoute path={teacherListing} component={Wrapper} />
+					<PrivateRoute path={ClassListing} component={Wrapper} />
 					<PrivateRoute path={teacherDetail} component={TeacherDetail} />
 					<PrivateRoute path={studentDetail} component={StudentDetail} />
 					<PrivateRoute path={schoolProfile} component={SchoolProfile} />
