@@ -8,11 +8,13 @@ import StudentList from '../AddStudent/StudentsList';
 import ClassList from '../ClassesCodes/ClassListing';
 import CreateTeacher from '../AddTeachers/CreateTeacher';
 import AddStudent from '../AddStudent/AddStudent';
+import AddParent from '../Parents/AddParent';
+import ParentList from '../Parents/ParentListing';
 import AddClassComponent from '../ClassesCodes/AddClass';
 import '../AddTeachers/AddTeachers.css';
 import URLSearchParams from 'url-search-params';
 import {decorateTitle} from '../../lib/Helper';
-import {teacherListing, studentListing, ClassListing, AddClass} from '../../lib/SiteLinks';
+import {teacherListing, studentListing, ClassListing, AddClass, parentListing} from '../../lib/SiteLinks';
 
 class Wrapper extends Component {
     constructor() {
@@ -144,11 +146,13 @@ class Wrapper extends Component {
                             {pathname === teacherListing && <TeacherList refresh={refreshList} toggle={toggleClass} open={this.toggle} refreshList={this.refresh}/>}
                             {pathname === studentListing && <StudentList refresh={refreshList} toggle={toggleClass} open={this.toggle} refreshList={this.refresh}/>}
                             {pathname === ClassListing && <ClassList toggle={toggleClass} open={this.toggle}/>}
+                            {pathname === parentListing && <ParentList refresh={refreshList} toggle={toggleClass} open={this.toggle} refreshList={this.refresh}/>}
                         </div>
                         <div className="dash-right-box">
                             {pathname === teacherListing && <CreateTeacher toggleForm={this.toggle} refreshList={this.refresh}/>}
                             {pathname === studentListing && <AddStudent toggleForm={this.toggle} refreshList={this.refresh}/>}
                             {pathname === ClassListing && <AddClassComponent toggleForm={this.toggle}/>}
+                            {pathname === parentListing && <AddParent toggleForm={this.toggle} refreshList={this.refresh}/>}
                         </div>
                     </div>
                 </div>

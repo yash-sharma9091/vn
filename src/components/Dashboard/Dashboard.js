@@ -16,7 +16,7 @@ import crossoutMark from '../../assets/images/svg/cross-out-mark.svg';
 import './SchoolAdminDashboard.css';
 import dashboardBg from '../../assets/images/dashboard-bg.png';
 import {loadImage, decorateLink} from '../../lib/Helper';
-import {teacherListing, studentListing, schoolProfile} from '../../lib/SiteLinks';
+import {teacherListing, studentListing, schoolProfile, parentListing} from '../../lib/SiteLinks';
 import {Link} from 'react-router-dom';
 import '../BuildSchoolStep/SchoolStep.css';
 import {connect} from 'react-redux';
@@ -216,9 +216,9 @@ class Dashboard extends Component {
 								</div>
 								<div className="col-2 pt-4">
 									<div className="dash-box">
-									
-										<a><div className="dash-icon"><img src={dashImg11} className="transition" alt="" /></div><span>Parents</span></a>
-									
+										<Link to={parentListing}>
+											<div className="dash-icon"><img src={dashImg11} className="transition" alt="" /></div><span>Parents</span>
+										</Link>
 									</div>
 								</div> 
 							</div>

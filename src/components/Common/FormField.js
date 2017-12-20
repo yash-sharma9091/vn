@@ -84,11 +84,15 @@ class FormField extends Component {
 				mask="999-999-9999" maskChar={null} /> 
 			);
 		} else if( doValidate && placesAutocomplete )  {
+			/*const options = {
+			  types: ['address'],
+			  componentRestrictions: {country: 'uk'}
+			}*/
 			return (
 				<PlacesAutocomplete 
 					clearItemsOnError={true} onSelect={onSelect}
 					classNames={{autocompleteContainer: 'autocomplete-container', input:`form-control ${className ? className : ''} ${!meta.touched ? null : (meta.error ? 'is-invalid': null)} ${meta.asyncValidating ? 'async-validating' : ''}`}}
-					inputProps={{...input, placeholder: placeholder}} />
+					inputProps={{...input, placeholder: placeholder}}/>
 			)	
 		} else if(doValidate) {
 			return ( <Input 

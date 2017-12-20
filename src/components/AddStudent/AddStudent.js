@@ -9,7 +9,7 @@ import { Field, SubmissionError,reduxForm } from 'redux-form';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import ImageCropper from '../Common/ImageCropper';
 import './AddStudent.css';
-import {handleSubmitFailed, scrollToByClassName} from '../../lib/Helper';
+import {handleSubmitFailed, scrollToByClassName, gender} from '../../lib/Helper';
 import {Required, Email, ContactNumber,maxLength200,maxLength400, Alphabets, isValidAddress, OSIS, maxLength10, Phone} from '../../lib/Validate';
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import {Http} from '../../lib/Http';
@@ -91,11 +91,6 @@ class AddStudent extends Component {
         const { error, handleSubmit, pristine, submitting, initialValues, change, user, toggleForm} = this.props;
         const { success, reset } = this.state;
         const {additional_health_info} = this.props.masterdata;
-        
-        const options = [
-            {value: 'male', name: 'Male'},
-            {abbreviation: 'female', name: 'Female'}
-        ]
 
 		return (
 
@@ -145,7 +140,7 @@ class AddStudent extends Component {
                                         id="DOB" placeholder="DD/MM/YYYY" validate={[Required]} doValidate={true}/>
                                    <Field 
                                         component={FormSelect} formGroupClassName="col-md-6 col-lg-6" name="gender" type="select" 
-                                        emptyText="Select Gender" label="Gender" options={options}
+                                        emptyText="Select Gender" label="Gender" options={gender}
                                         displayKey={"value"} displayLabel={"name"} empty={true} validate={[Required]} doValidate={true}/>
                                 </div>
 

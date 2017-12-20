@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import {teacherListing, studentListing} from '../../lib/SiteLinks';
+import {LinkContainer} from 'react-router-bootstrap';
+import {Link} from 'react-router-dom';
 class SchoolProfileProgress extends Component {
 	render() {
        const {school} = this.props;
@@ -30,25 +33,29 @@ class SchoolProfileProgress extends Component {
                     
                         <div className="profile-complete-percentage-box-1">  
                             <div className="stud-teach-in">
-                               <span> 120 </span>
+                               <span> {school.teacher_count} </span>
                             </div>
                             <h5>Teachers In</h5>
                             <div className="imports-button">
-                                <button type="button" className="btn btn-info"> View All</button>
+                                <LinkContainer to={teacherListing}>
+                                    <button type="button" className="btn btn-info"> View All</button>
+                                </LinkContainer>    
                             </div>
-                            <a href="">Add Teachers</a>
+                            <Link to={`${teacherListing}?toggleClass=active`}>Add Teachers</Link>
                         </div>
 
 
                         <div className="profile-complete-percentage-box-1">
                             <div className="stud-teach-in">
-                               <span> 440 </span>
+                               <span> {school.student_count} </span>
                             </div>
                             <h5>Students In</h5>
                             <div className="imports-button">
-                                <button type="button" className="btn btn-info"> View All</button>
+                                <LinkContainer to={studentListing}>
+                                    <button type="button" className="btn btn-info"> View All</button>
+                                </LinkContainer>    
                             </div>
-                            <a href="">Add Students</a>
+                            <Link to={`${studentListing}?toggleClass=active`}>Add Students</Link>
                         </div>
                     </div>
                 </div>
