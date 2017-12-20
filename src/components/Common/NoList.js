@@ -6,6 +6,7 @@ const NoList = ({open, toggle, text}) => {
         <div className="no-records-available d-flex justify-content-center align-items-center">
             <div className="no-records-content text-center">
                 <img src={norecordImg} alt="No Records" /><br />
+                <span>No Record Avilable</span>
                 <button type="button" onClick={open} className={`btn btn-primary ${toggle ? 'd-none':''}`}>{text}</button>
             </div>
         </div>
