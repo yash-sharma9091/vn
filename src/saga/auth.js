@@ -1,6 +1,6 @@
 import { call, put } from 'redux-saga/effects';
-import {login} from '../api/login';
-import {  AUTH_SUCCESS, AUTH_FAILURE, AUTH_LOGOUT } from '../constant';
+import {login, updateSchoolProfile} from '../api/login';
+import {  AUTH_SUCCESS, AUTH_FAILURE, AUTH_LOGOUT, PROFILE_UPDATE } from '../constant';
 import {Cookie} from '../lib/Cookie';
 
 export function* authorize(action) {
@@ -21,6 +21,17 @@ export function* authorize(action) {
 		yield put({ type: AUTH_FAILURE, payload: errors.message });
 		Cookie.delete('token');
 		action.callbackError(errors.message);
+	}
+}
+
+export function* updateProfile(action) {
+	try {
+	   	let {user, message} = yield call(updateSchoolProfile, action.user);
+		yield put({ type: PROFILE_UPDATE, user });
+		Cookie.set('user', user, 1);
+		action.callbackSuccess(message);
+	} catch (error) {
+		action.callbackError(error);
 	}
 }
 

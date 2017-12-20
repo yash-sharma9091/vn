@@ -10,3 +10,11 @@ export function login(url, options={}) {
 		});
 	});
 }
+
+export function updateSchoolProfile(values) {
+	return new Promise((resolve, reject) => {
+		Http.upload('update_schoolprofile', values)
+		.then(({data}) => resolve({user: data.user, message: data.message}) )
+		.catch(error => reject(error));
+	})
+}

@@ -16,20 +16,32 @@ class SchoolProfile extends Component {
     constructor() {
         super();
         this.triggerSubmit = this.triggerSubmit.bind(this);
+        this.triggerRefresh = this.triggerRefresh.bind(this);
         this.state = {
             school: {},
             errors:'',
             isLoading: false,
+            refresh: false,
             submitting: false
         }
     }
     triggerSubmit() {
         this.setState({submitting: !this.state.submitting});
     }
+    triggerRefresh() {
+        this.setState({refresh: true});
+        setTimeout(() => this.setState({refresh: true}), 1500);
+    }
+    componentWillReceiveProps(newProps) {
+        if( this.state.refresh ){
+            this.fetchProfile(newProps);
+        }
+    }
     componentDidMount() {
-        
-        const {match} = this.props;
-        const {id} = match.params;
+        this.fetchProfile(this.props);        
+    }
+    fetchProfile(props) {
+        const {id} = props.match.params;
         if( id ) {
             this.setState({isLoading: true});
             Http.get(`getschoolprofile_step?_id=${id}`)
@@ -106,7 +118,15 @@ class SchoolProfile extends Component {
                             <div className="dash-left-box">
                                 { isLoading && <Loader /> }
                                 {!isLoading && !_.isEmpty(school) && decorateLink(pathname) === decorateLink(schoolProfile) && <ViewSchoolProfileInfo school={school}/>}
-                                {!isLoading && !_.isEmpty(school) && decorateLink(pathname) === decorateLink(editSchoolProfile) && <EditSchoolProfile _triggerSubmit={this.triggerSubmit} school={school} initialValues={school}/>}
+                                {!isLoading && 
+                                !_.isEmpty(school) && 
+                                decorateLink(pathname) === decorateLink(editSchoolProfile) && 
+                                <EditSchoolProfile 
+                                    refresh={this.triggerRefresh} 
+                                    _triggerSubmit={this.triggerSubmit} 
+                                    school={school} 
+                                    initialValues={school}/>
+                                }
                             </div>
                             <div className="dash-right-box">
                                 <SchoolProfileActivity school={school}/>

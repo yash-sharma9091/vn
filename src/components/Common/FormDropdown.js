@@ -10,7 +10,8 @@ export class FormDropdown extends Component {
 		if( colWrapper ) {
 			return (
 				<FormGroup className={formGroupClassName}>
-		          	<Label className={labelClassName} for={id}>{label}</Label>
+		          	<Label className={labelClassName} for={id}>{label}{this.isRequired()}</Label>
+		          	
 		          	<Col sm={col}>
 			          	<DropdownList {...input}
 			    		    data={this.empty()}
@@ -24,7 +25,7 @@ export class FormDropdown extends Component {
 		} else {
 			return (
 				<FormGroup className={formGroupClassName}>
-		          	<Label className={labelClassName} for={id}>{label}</Label>
+		          	<Label className={labelClassName} for={id}>{label}{this.isRequired()}</Label>
 		          	
 		          	<DropdownList {...input}
 		    		    data={this.empty()}
@@ -37,7 +38,14 @@ export class FormDropdown extends Component {
 		}
 		
 	}
-
+	isRequired() {
+		const {isRequired} = this.props;
+		if( isRequired ) {
+			return (<span className="asterisk-required">*</span>)
+		} else {
+			return null
+		}
+	}
 	empty() {
 		const {empty, emptyText, label, data, valueField, textField} = this.props;
 		if( empty && _.isArray(data) ) {

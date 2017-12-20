@@ -92,29 +92,29 @@ class RegisterForm extends Component {
                       	<div className="row justify-content-center">
                       		<Form onSubmit={handleSubmit(this.formSubmit)} className="col-md-10 col-lg-8 col-xl-7">
                       			<Alert alertVisible={error} alertMsg={error} className={error ? "danger":"success"}/>
-								<span className="float-right d-inline-block mandatory-tag">All fields mark as * are mandatory</span>
+								<span className="float-right d-inline-block mandatory-tag">All fields mark as <span className="asterisk-required">*</span> are mandatory</span>
 		                        <Field 
               			        	component={FormField} type="text"
-              			        	name="contact_name" label="Contact Name*"
+              			        	name="contact_name" label="Contact Name"
               			        	id="contactName" labelClassName="gradient-color"
-              			        	placeholder="Enter contact name" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
+              			        	placeholder="Enter contact name" validate={[Required, Alphabets, maxLength200]} doValidate={true} isRequired={true}/>
               			        <Field 
               			        	component={FormField} type="text"
-              			        	name="contact_title" label="Contact Title*"
+              			        	name="contact_title" label="Contact Title"
               			        	id="contactTitle" labelClassName="gradient-color"
-              			        	placeholder="Enter contact title" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
+              			        	placeholder="Enter contact title" validate={[Required, Alphabets, maxLength200]} doValidate={true} isRequired={true}/>
               			        	
               			        <Field 
               			        	component={FormField} type="email"
-              			        	name="email_address" label="Email Address*"
+              			        	name="email_address" label="Email Address"
               			        	id="email" labelClassName="gradient-color"
-              			        	placeholder="Enter email address" validate={[Required,Email]} doValidate={true}/>
+              			        	placeholder="Enter email address" validate={[Required,Email]} doValidate={true} isRequired={true}/>
 		                        <div className="form-row">
 		                        	<Field 
 		                        		component={FormField} type="text" formGroupClassName="col-md-6"
-		                        		name="contact_telephoneno" label="Enter contact Telephone Number*"
+		                        		name="contact_telephoneno" label="Enter contact Telephone Number"
 		                        		id="ContactTelephoneNumber" labelClassName="gradient-color"
-		                        		placeholder="Enter contact telephone number" validate={[ContactNumber, Phone]}
+		                        		placeholder="Enter contact telephone number" validate={[ContactNumber, Phone]} isRequired={true}
 		                        		doValidate={true} maskInput={true} inputAddOn={true} inputAddOnText="+1"/>
 		                        	<Field 
 		                        		component={FormField} type="text" formGroupClassName="col-md-6"
@@ -125,14 +125,14 @@ class RegisterForm extends Component {
 		                        </div>
 		                        <Field 
               			        	component={FormField} type="text"
-              			        	name="school_name" label="School Name*"
+              			        	name="school_name" label="School Name"
               			        	id="schoolName" labelClassName="gradient-color"
-              			        	placeholder="Enter school name" validate={[Required, maxLength200]} doValidate={true}/>
+              			        	placeholder="Enter school name" validate={[Required, maxLength200]} doValidate={true} isRequired={true}/>
               			        <Field 
               			        	component={FormField} type="text"
-              			        	name="school_address" label="School Address*"
+              			        	name="school_address" label="School Address"
               			        	id="schoolAddress" labelClassName="gradient-color" placesAutocomplete={true} onSelect={this.handleSelect}
-              			        	placeholder="Enter school address" validate={[Required, maxLength200]} doValidate={true}/>
+              			        	placeholder="Enter school address" validate={[Required, maxLength200]} doValidate={true} isRequired={true}/>
 		                        
 								<Field 
 		                            component={FormField} type="text"

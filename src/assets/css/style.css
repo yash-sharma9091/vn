@@ -155,7 +155,10 @@ label {
 
 /*create-teacher*/
 .create-teacher{border-left:1px solid #eaeaec; background-color: #ffffff;}
-
+.asterisk-required{
+  /*color:#dc3545;*/
+  -webkit-text-fill-color: #dc3545;
+}
 
 /*Responsive*/
 @media (max-width:1600px){

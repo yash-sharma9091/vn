@@ -43,7 +43,7 @@ class ForgotPassForm extends Component {
 							component={FormField} type="text"
 							name="email_address" label="Email Address"
 							id="Email Address" labelClassName="gradient-color"
-							placeholder="Enter email address" validate={Required} doValidate={true}/>
+							placeholder="Enter email address" validate={Required} doValidate={true} isRequired={true}/>
 						
 						<FormSubmit 
 							error={error} invalid={pristine}

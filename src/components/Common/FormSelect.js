@@ -6,7 +6,8 @@ export class FormSelect extends Component {
 		if( colWrapper ) {
 			return (
 				<FormGroup className={formGroupClassName}>
-		          	<Label className={labelClassName} for={id}>{label}</Label>
+		          	<Label className={labelClassName} for={id}>{label}{this.isRequired()}</Label>
+		          	
 		          	<Col sm={col}>
 			          	<Input {...input} type={type} className={this.isInvalid()}>
 			          		{this.empty()}
@@ -19,7 +20,8 @@ export class FormSelect extends Component {
 		} else {
 			return (
 				<FormGroup className={formGroupClassName}>
-		          	<Label className={labelClassName} for={id}>{label}</Label>
+		          	<Label className={labelClassName} for={id}>{label}{this.isRequired()}</Label>
+		          	
 		          	<Input {...input} type={type} className={this.isInvalid()}>
 		          		{this.empty()}
 			        	{this.options()}
@@ -28,6 +30,14 @@ export class FormSelect extends Component {
 		        </FormGroup>    
 			);
 		}	
+	}
+	isRequired() {
+		const {isRequired} = this.props;
+		if( isRequired ) {
+			return (<span className="asterisk-required">*</span>)
+		} else {
+			return null
+		}
 	}
 	isInvalid() {
 		const {meta, doValidate} = this.props;
