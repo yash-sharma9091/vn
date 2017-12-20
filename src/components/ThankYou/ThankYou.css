@@ -1,4 +1,4 @@
-.thanku-panel{background:url('../../assets/images/thanku-bg.png') no-repeat center center;background-size: cover;height: 100vh;width:100%;display: table;text-align: center;position: relative;}
+.thanku-panel{background:url('../../assets/images/thanku-bg-resize.png') no-repeat center center;background-size: cover;height: 100vh;width:100%;display: table;text-align: center;position: relative;}
 .thanku-group{display: table-cell;vertical-align: middle;}
 .thanku-modal{background-color: #ffffff;}
 .thanku-header{position: absolute;left: 0;right: 0;margin: auto;}

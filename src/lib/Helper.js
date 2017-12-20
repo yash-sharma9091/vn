@@ -36,7 +36,7 @@ export const flattenObject = (c, d = '.') => {
   (function f(o, p) {
       Object.keys(o).forEach(k => (o[k] && typeof o[k] === 'object' ? f(o[k], p ? `${p}${d}${k}` : k) : (r[p ? `${p}${d}${k}` : k] = o[k])));
   }(c));
-  console.log(r);
+  //console.log(r);
   return r;
 }
 

@@ -81,7 +81,8 @@ export class FormDropdown extends Component {
 		if( empty && _.isArray(data) ) {
 			if(  data.length > 0 ) {
 				if( !_.isNull (data[0][valueField]) ) {
-					data.unshift({ [valueField]: null, [textField]: emptyText || label });
+					data.unshift("");
+					data.unshift({ [valueField]: "", [textField]: emptyText || label });
 				}
 			}
 		}
