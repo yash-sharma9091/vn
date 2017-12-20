@@ -156,6 +156,12 @@ label {
 /*create-teacher*/
 .create-teacher{border-left:1px solid #eaeaec; background-color: #ffffff;}
 
+.asterisk-required{
+  /*color:#dc3545;*/
+  -webkit-text-fill-color: #dc3545;
+}
+
+
 /*dropdown-list*/
 .dropdown-list .dropdown-item{
     font-size: 16px !important;
@@ -179,6 +185,7 @@ label {
     margin: 20px 0;
 }
 
+>>>>>>> 484e38a6e387ab66ead79019836d54abd4e1de80
 
 /*Responsive*/
 @media (max-width:1600px){

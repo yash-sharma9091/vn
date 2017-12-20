@@ -14,6 +14,7 @@ import Alert from '../Common/Alert';
 import {schoolProfile} from '../../lib/SiteLinks';
 import {push} from 'react-router-redux';
 import {connect} from 'react-redux';
+import { PROFILE_UPDATE_REQUEST } from '../../constant';
 let success='';
 
 class EditSchoolProfile extends Component {
@@ -112,7 +113,7 @@ class EditSchoolProfile extends Component {
                                         <div className="col-md-9 col-lg-10">
                                             <div className="form-row pl-3">
                                                 <Field 
-                                                    component={FormField} type="text" formGroupClassName="mr-2"
+                                                    component={FormField} type="text" formGroupClassName="mr-2 col-sm-6"
                                                     name="school_name" label="School Name"
                                                     id="school_name" placeholder="Enter school name" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
                                             </div>
@@ -171,7 +172,7 @@ class EditSchoolProfile extends Component {
                                                 component={FormField} 
                                                 type="text" formGroupClassName="row" 
                                                 colWrapper={true} col={9} labelClassName="col-sm-3"
-                                                name="email_address" label="Email Address"
+                                                name="email_address" label="Email Address" readOnly={true}
                                                 id="Email_Address" placeholder="Enter email address" validate={[Required, Email]} doValidate={true}/>    
                                         </div>
                                     </div>
@@ -204,14 +205,15 @@ let _EditSchoolProfile = reduxForm({
     asyncBlurFields: ['school_address'],
     onSubmitFail: handleSubmitFailed,
     onSubmit: (values, dispatch, props) => {
-        const {_triggerSubmit} = props;
+        const {_triggerSubmit, refresh} = props;
         _triggerSubmit();
         return new Promise((resolve, reject) => {
-            Http.upload('update_schoolprofile', values)
+            /*Http.upload('update_schoolprofile', values)
             .then(({data}) => {
                 success = data.message;
                 setTimeout(() => {success=''; dispatch(push(`${decorateLink(schoolProfile)}/${values._id}`));},3000);
                 _triggerSubmit();
+                refresh();
                 scrollToByClassName('left-group-content');
                 resolve();
             })
@@ -223,7 +225,28 @@ let _EditSchoolProfile = reduxForm({
                 }
                 
                 reject(new SubmissionError(_message));
-            });
+            });*/
+            dispatch({
+                type: PROFILE_UPDATE_REQUEST,
+                user: values,
+                callbackError: ({errors}) => {
+                    let _message = {_error: errors.message || 'Internal Server error'};
+                    
+                    if( errors.hasOwnProperty('email_address') ) {
+                        _message = {email_address: errors.email_address.message};
+                    }
+                    
+                    reject(new SubmissionError(_message));
+                },
+                callbackSuccess: (message) => {
+                    success = message;
+                    setTimeout(() => {success=''; dispatch(push(`${decorateLink(schoolProfile)}/${values._id}`));},3000);
+                    _triggerSubmit();
+                    refresh();
+                    scrollToByClassName('left-group-content');
+                    resolve();
+                }
+            })
         });
     }
 })(EditSchoolProfile);

@@ -11,7 +11,8 @@ class FormField extends Component {
 					
 			return (
 				<FormGroup className={formGroupClassName}>
-					<Label className={labelClassName} for={id}>{label}</Label>
+					<Label className={labelClassName} for={id}>{label}{this.isRequired()}</Label>
+					
 					<Col sm={col}>
 						<InputGroup>
 				          	<InputGroupAddon>{inputAddOnText}</InputGroupAddon>
@@ -24,7 +25,8 @@ class FormField extends Component {
 		}else if( inputAddOn ) {
 			return (
 				<FormGroup className={formGroupClassName}>
-					<Label className={labelClassName} for={id}>{label}</Label>
+					<Label className={labelClassName} for={id}>{label}{this.isRequired()}</Label>
+					
 					<InputGroup>
 			          	<InputGroupAddon>{inputAddOnText}</InputGroupAddon>
 			          	{this.renderInput()}
@@ -35,7 +37,8 @@ class FormField extends Component {
 		} else if( colWrapper ) {
 			return (
 				<FormGroup className={formGroupClassName}>
-		          	<Label className={labelClassName} for={id}>{label}</Label>
+		          	<Label className={labelClassName} for={id}>{label}{this.isRequired()}</Label>
+		          	
 		          	<Col sm={col}>
 			          	{this.renderInput()}
 			          	{this.FormFeedback()}
@@ -45,13 +48,22 @@ class FormField extends Component {
 		} else {
 			return (
 				<FormGroup className={formGroupClassName}>
-		          	<Label className={labelClassName} for={id}>{label}</Label>
+		          	<Label className={labelClassName} for={id}>{label}{this.isRequired()}</Label>
+		          	
 		          	{this.renderInput()}
 		          	{this.FormFeedback()}
 		        </FormGroup>
 	    	);
 		}
     	
+	}
+	isRequired() {
+		const {isRequired} = this.props;
+		if( isRequired ) {
+			return (<span className="asterisk-required">*</span>)
+		} else {
+			return null
+		}
 	}
 	FormFeedback() {
 		const {meta, doValidate, maskInput, placesAutocomplete} = this.props;
@@ -63,6 +75,7 @@ class FormField extends Component {
 	}
 	renderInput() {
 		const {meta, input, type, label, placeholder, className, doValidate, id, maskInput, rows, placesAutocomplete, onSelect, readOnly} = this.props;
+
 		if( maskInput ) {
 			return ( <InputMask 
 				{...input} 

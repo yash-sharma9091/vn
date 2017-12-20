@@ -15,7 +15,8 @@ export class FormCalender extends Component {
 		if( doValidate && colWrapper ){
 			return (
 				<FormGroup className={`${!meta.touched ? null : (meta.error ? 'is-invalid': null)} ${formGroupClassName}`}>
-		          	<Label className={labelClassName} for={id}>{label}</Label>
+		          	<Label className={labelClassName} for={id}>{label}{this.isRequired()}</Label>
+		          	
 		          	<Col sm={col}>
 			          	<DateTimePicker 
 			          		onChange={onChange}
@@ -35,7 +36,7 @@ export class FormCalender extends Component {
 		} else if( doValidate ){
 			return (
 				<FormGroup className={`${!meta.touched ? null : (meta.error ? 'is-invalid': null)} ${formGroupClassName}`}>
-		          	<Label className={labelClassName} for={id}>{label}</Label>
+		          	<Label className={labelClassName} for={id}>{label}{this.isRequired()}</Label>
 		          	
 		          	<DateTimePicker 
 		          		onChange={onChange}
@@ -68,6 +69,14 @@ export class FormCalender extends Component {
 		        </FormGroup>    
 			);		
 		}	
+	}
+	isRequired() {
+		const {isRequired} = this.props;
+		if( isRequired ) {
+			return (<span className="asterisk-required">*</span>)
+		} else {
+			return null
+		}
 	}
 	FormFeedback() {
 		const {meta, doValidate} = this.props;

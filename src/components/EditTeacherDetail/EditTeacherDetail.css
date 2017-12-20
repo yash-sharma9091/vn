@@ -44,6 +44,12 @@
 .edit-group-box .form-control{
     max-width:300px;
 }
+.edit-group-box .rw-widget-input{
+    max-width:300px;
+}
+.edit-group-box .rw-widget-picker{
+    max-width:300px;
+}
 .edit-group-box .input-group .form-control{
     max-width: 260px;
 }

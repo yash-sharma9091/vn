@@ -38,14 +38,14 @@ class Loginform extends Component {
 					 		<Alert alertVisible={error} alertMsg={error} className={error ? "danger":"success"}/>
 							<Field 
 								component={FormField} type="text"
-								name="uan" label="Email Or Username*"
+								name="uan" label="Email Or Username"
 								id="Unique_Account_Number" labelClassName="gradient-color white-space-nowrap"
-								placeholder="Enter email or username" validate={UAN} doValidate={true}/>
+								placeholder="Enter email or username" validate={UAN} doValidate={true} isRequired={true}/>
 							<Field 
 								component={FormField} type="password"
-								name="password" label="Password*"
+								name="password" label="Password"
 								id="Password" labelClassName="gradient-color white-space-nowrap"
-								placeholder="Enter password" validate={Required} doValidate={true}/>
+								placeholder="Enter password" validate={Required} doValidate={true} isRequired={true}/>
 
 							<div className="form-group row col-sm-12">
 									<div className="form-check">
