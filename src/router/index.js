@@ -13,6 +13,7 @@ import Dashboard from '../components/Dashboard/Dashboard';
 // import AddTeachers from '../components/AddTeachers/AddTeachers';
 // import AddStudent from '../components/AddStudent/AddStudent';
 import Wrapper from '../components/Wrapper/Wrapper';
+
 import EditTeacherDetail from '../components/EditTeacherDetail/EditTeacherDetail';
 import EditStudentDetail from '../components/EditStudentDetail/EditStudentDetail';
 
@@ -20,7 +21,6 @@ import TeacherDetail from '../components/TeacherDetail/TeacherDetail';
 import StudentDetail from '../components/StudentDetail/StudentDetail';
 
 import SchoolProfile from '../components/SchoolProfile/SchoolProfile';
-
 import ParentListings from '../components/ParentsDetails/ParentsDetails';
 
 

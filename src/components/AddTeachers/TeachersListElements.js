@@ -45,7 +45,7 @@ class TeachersListElements extends Component {
 				                    <img src={ThreeDots} alt="action" data-index={dataIndex} />
 				                </div> 
 				            </DropdownToggle>
-				            <DropdownMenu>
+				            <DropdownMenu right>
 				            	<LinkContainer to={`${decorateLink(editTeacher)}/${teacher._id}`}>
 				                	<DropdownItem>Edit</DropdownItem>
 				                </LinkContainer>	
