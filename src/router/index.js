@@ -11,11 +11,17 @@ import Login from '../components/Login/Login';
 import Faq from '../components/Faq/Faq';
 import Dashboard from '../components/Dashboard/Dashboard';
 import Wrapper from '../components/Wrapper/Wrapper';
+
 import EditTeacherDetail from '../components/EditTeacherDetail/EditTeacherDetail';
 import EditStudentDetail from '../components/EditStudentDetail/EditStudentDetail';
 import TeacherDetail from '../components/TeacherDetail/TeacherDetail';
 import StudentDetail from '../components/StudentDetail/StudentDetail';
 import SchoolProfile from '../components/SchoolProfile/SchoolProfile';
+
+import ParentListings from '../components/ParentsDetails/ParentsDetails';
+
+
+
 // import SchoolStep from '../components/BuildSchoolStep/SchoolStep';
 import NotFound from '../components/Error/404';
 import Invalid from '../components/Error/Invalid';
