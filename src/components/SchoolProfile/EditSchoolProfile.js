@@ -144,7 +144,7 @@ class EditSchoolProfile extends Component {
                                     </div>
 
                                     <div className="form-row">
-                                        <div className="col-sm-12">
+                                        <div className="col-sm-6">
                                             <Field 
                                                 component={FormField} type="text" formGroupClassName="row" 
                                                 colWrapper={true} col={9}

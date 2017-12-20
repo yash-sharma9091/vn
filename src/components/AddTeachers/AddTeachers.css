@@ -70,6 +70,7 @@
     bottom: 0;
     width: 100%;
     overflow: auto;
+    z-index: 5;
 }
 
 /*dashboard-main.active*/
@@ -197,8 +198,11 @@
     color:#6d6d6d;
     text-decoration: none !important;
 }
+.mesg-btn span{
+    vertical-align: middle;
+}
 .mesg-btn img{
-    width:16px;
+    width:14px;
 }
 .mesg-btn:hover{
     color:#6d6d6d;

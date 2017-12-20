@@ -62,7 +62,7 @@ class ViewTeacherInfo extends Component {
                                     </div>
 
                                     <div className="form-row">
-                                        <FormGroup className="col-sm-12">
+                                        <FormGroup className="col-sm-6">
                                             <Label className="col-sm-3 col-md-4">School Address</Label>
                                             <span className="col-sm-9 col-md-8 word-text">{school.school_address}</span>
                                         </FormGroup>

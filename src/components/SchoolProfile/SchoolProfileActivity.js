@@ -33,7 +33,9 @@ class SchoolProfileProgress extends Component {
                                <span> 120 </span>
                             </div>
                             <h5>Teachers In</h5>
-                            <button className="btn btn-info"> View All</button>
+                            <div className="imports-button">
+                                <button type="button" className="btn btn-info"> View All</button>
+                            </div>
                             <a href="">Add Teachers</a>
                         </div>
 
@@ -43,7 +45,9 @@ class SchoolProfileProgress extends Component {
                                <span> 440 </span>
                             </div>
                             <h5>Students In</h5>
-                            <button className="btn btn-info"> View All</button>
+                            <div className="imports-button">
+                                <button type="button" className="btn btn-info"> View All</button>
+                            </div>
                             <a href="">Add Students</a>
                         </div>
                     </div>

@@ -77,7 +77,7 @@ class DashboardHeader extends Component {
                                             <img src={UserImage} alt="Avatar"/>
                                         </div> Administrator
                                     </DropdownToggle>
-                                    <DropdownMenu>
+                                    <DropdownMenu className="dropdown-list">
                                         
                                         <LinkContainer to={`${decorateLink(schoolProfile)}/${user._id}`}>
                                             <DropdownItem >My Profile</DropdownItem>

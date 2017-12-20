@@ -156,6 +156,29 @@ label {
 /*create-teacher*/
 .create-teacher{border-left:1px solid #eaeaec; background-color: #ffffff;}
 
+/*dropdown-list*/
+.dropdown-list .dropdown-item{
+    font-size: 16px !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    font-weight: normal !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    color: #6e6c6c !important
+}
+.dropdown-list .dropdown-item.active{
+    color: #ffffff !important;
+}
+
+/*no-records-content*/
+.no-records-content span{
+    text-align: center;
+    display: block;
+    color: #797979;
+    font-size: 18px;
+    margin: 20px 0;
+}
+
 
 /*Responsive*/
 @media (max-width:1600px){
