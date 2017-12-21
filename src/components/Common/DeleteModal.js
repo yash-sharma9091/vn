@@ -57,7 +57,10 @@ class DeleteModal extends Component {
 						<div className="media">
 							<div className="align-self-center mr-3" style={imageStyle}></div>
 							<div className="media-body">
-								<h5 className="mt-0">{limitTo(fullName(user.first_name, user.last_name),50)}</h5>
+								{ user.role === 'parent' 
+									? (<h5 className="mt-0">{limitTo(user.name,50)}</h5>)
+									: (<h5 className="mt-0">{limitTo(fullName(user.first_name, user.last_name),50)}</h5>)
+								}
 							</div>
 						</div>
 					</div>

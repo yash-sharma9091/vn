@@ -10,18 +10,16 @@ import HomePage from '../components/HomePage/HomePage';
 import Login from '../components/Login/Login';
 import Faq from '../components/Faq/Faq';
 import Dashboard from '../components/Dashboard/Dashboard';
-// import AddTeachers from '../components/AddTeachers/AddTeachers';
-// import AddStudent from '../components/AddStudent/AddStudent';
 import Wrapper from '../components/Wrapper/Wrapper';
 
 import EditTeacherDetail from '../components/EditTeacherDetail/EditTeacherDetail';
 import EditStudentDetail from '../components/EditStudentDetail/EditStudentDetail';
-
 import TeacherDetail from '../components/TeacherDetail/TeacherDetail';
 import StudentDetail from '../components/StudentDetail/StudentDetail';
-
 import SchoolProfile from '../components/SchoolProfile/SchoolProfile';
+
 import ParentListings from '../components/ParentsDetails/ParentsDetails';
+
 
 
 // import SchoolStep from '../components/BuildSchoolStep/SchoolStep';
@@ -49,7 +47,7 @@ import {
 	schoolProfile,
 	editTeacher,
 	editStudent,
-	parentlistings,
+	parentListing,
 	faq, 
 	editSchoolProfile
 	//schoolstep
@@ -77,7 +75,7 @@ export const Router = props => {
 					<PrivateRoute path={studentListing} component={Wrapper} />
 					<PrivateRoute path={editTeacher} component={EditTeacherDetail} />
 					<PrivateRoute path={editStudent} component={EditStudentDetail} />
-					<PrivateRoute path={parentlistings} component={ParentListings} />
+					<PrivateRoute path={parentListing} component={Wrapper} />
 					<Route path={faq} component={Faq} />
 					{/*<PrivateRoute path={schoolstep} component={SchoolStep} />*/}
 					<Route path={invalid} component={Invalid} />

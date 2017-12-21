@@ -1,3 +1,4 @@
+/* global IMAGE_PATH */
 import React, { Component } from 'react';
 import BeforeLogoBox from '../../assets/images/logo-box.png';
 import AfterLogoBox from '../../assets/images/logo-box-white.png';
@@ -10,8 +11,14 @@ import {connect} from 'react-redux';
 
 class Logo extends Component {
   	render() {  	
-  		const {token} = this.props;
+  		const {token, user} = this.props;
+  		
   		if( token ) {
+  			
+  			let schoolLogo = "";
+  			if( user.school_logo ) {
+  				schoolLogo = `${IMAGE_PATH}/${user.school_logo.path}`;	
+  			}
 	    	return (
 				<div className="LogoBox text-center">
 					<img src={AfterLogoBox} alt={AfterLogoBox}/>
@@ -19,6 +26,7 @@ class Logo extends Component {
 	            </div>
 	    	);
 	    } else {
+
 	    	return (
 				<div className="LogoBox text-center">
 					<img src={BeforeLogoBox} alt={BeforeLogoBox}/>
@@ -29,6 +37,7 @@ class Logo extends Component {
   	}
 }
 const mapStateToProps = (state) => ({
-	token: state.auth.token
+	token: state.auth.token,
+	user: state.auth.user
 })
 export default connect(mapStateToProps)(Logo);

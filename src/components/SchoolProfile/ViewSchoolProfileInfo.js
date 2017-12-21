@@ -9,10 +9,6 @@ import ProgressiveImage from '../Common/ProgressiveImage';
 class ViewTeacherInfo extends Component {
 	render() {
         const {school} = this.props;
-        console.log(school);
-        // const style = {
-        //     backgroundImage: 'url(' + (IMAGE_PATH + '/' + teacher.profile_image.path) + ')'
-        // }
 		return (
             <div className="left-group">
                 <div className="left-group-content">
