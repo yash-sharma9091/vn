@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import {home} from '../../lib/SiteLinks';
+import errorImg from '../../assets/images/404Img.png';
 import './404.css';
 
 class ErrorContent extends Component {
@@ -9,18 +10,15 @@ class ErrorContent extends Component {
             <div className="error-box-show light-sm-bg padding-40">
               <div className="container">
                 <div className="d-flex justify-content-around">
-                    <div className="text-center">
-                        <strong className="num404">
-                            <span>404</span>
-                            <small>Something is Wrong</small>
-                        </strong>
-                    </div>
-                    <div className="text-center">
-                        <div className="error404">
-                            <h2>Oops.</h2>
-                            <p>The page you are looking for was moved, removed, renamed or might never exist.</p>
-                            <Link to={home} className="blueBg">Go Home</Link>
-                        </div>  
+                    <div className="text-center padding-40">
+                        <div className="num404">
+                            <img src={errorImg} alt="" />
+                        </div>
+                        <div className="error404 text-left">
+                            <h3>Sorry!</h3>
+                            <p>The Page You’re Looking For <br/> Was Not Found</p>
+                            <button to={home} type="submit" class="btn-primary btn">Go Back</button>
+                        </div>
                     </div>
                 </div>
               </div>
