@@ -34,21 +34,11 @@ class ViewTeacherInfo extends Component {
 
                             <div className="group-tehead">Personal Information</div>
                             <div className="p-3">
-                                    <div className="form-row">
-                                        <FormGroup className="col-sm-6">
-                                                <Label className="col-sm-3 col-md-4">Gender</Label>
-                                                <span className="col-sm-9 col-md-8 word-text">{_.capitalize(teacher.gender)}</span>
-                                        </FormGroup>
-                                        <FormGroup className="col-sm-6">
-                                                <Label className="col-sm-3 col-md-4">Official Class</Label>
-                                                {/*<span className="col-sm-9 col-md-8 word-text">E204</span>*/}
-                                                <span className="col-sm-9 col-md-8 word-text">N/A</span>
-                                         </FormGroup>
-                                    </div>
+                                    
 
                                     <div className="form-row">
                                         <FormGroup className="col-sm-6">
-                                                <Label className="col-sm-3 col-md-4">Grade</Label>
+                                                <Label className="col-sm-3 col-md-4">Class</Label>
                                                 {/*<span className="col-sm-9 col-md-8 word-text">E 201</span>*/}
                                                 <span className="col-sm-9 col-md-8 word-text">N/A</span>
                                         </FormGroup>
@@ -63,6 +53,16 @@ class ViewTeacherInfo extends Component {
                                                     </ul>
                                                 </span>*/}
                                         </FormGroup>
+                                    </div>
+                                    <div className="form-row">
+                                        <FormGroup className="col-sm-6">
+                                                <Label className="col-sm-3 col-md-4">Gender</Label>
+                                                <span className="col-sm-9 col-md-8 word-text">{_.capitalize(teacher.gender)}</span>
+                                        </FormGroup>
+                                        {/*<FormGroup className="col-sm-6">
+                                                <Label className="col-sm-3 col-md-4">Official Class</Label>
+                                                <span className="col-sm-9 col-md-8 word-text">N/A</span>
+                                         </FormGroup>*/}
                                     </div>
                                 
                             </div>

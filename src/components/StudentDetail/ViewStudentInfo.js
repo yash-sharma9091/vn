@@ -47,7 +47,7 @@ class ViewStudentInfo extends Component {
                                         <div className="col-sm-12">
                                             <div className="activity-action-list">
                                                 <ul>
-                                                    <li><a onClick={this.toggle}>Delete</a></li>
+                                                    {/*<li><a onClick={this.toggle}>Delete</a></li>*/}
                                                     <li><a>Assign Subject</a></li>
                                                     <li><a>Assign Class</a></li>
                                                     <li><a>View Parent Info</a></li>

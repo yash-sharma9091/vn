@@ -12,7 +12,7 @@ import {push} from 'react-router-redux';
 import {dashboard, schoolProfile} from '../../lib/SiteLinks';
 import Logo from  '../Logo/Logo';
 import {LinkContainer} from 'react-router-bootstrap';
-import {decorateTitle, decorateLink} from '../../lib/Helper';
+import {decorateTitle, decorateLink, limitTo} from '../../lib/Helper';
 
 class DashboardHeader extends Component {
     constructor(props) {
@@ -51,7 +51,7 @@ class DashboardHeader extends Component {
                         <NavbarBrand><img src={NavBarImage} alt="NavBar" />
                         </NavbarBrand>
                     </LinkContainer>    
-                    <div className="school-name">{decorateTitle(location.pathname)}</div>
+                    <div className="school-name">{limitTo(user.school_name,18)}</div>
                     <NavbarToggler onClick={this.toggle} />
                         <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav className="ml-auto" navbar>
