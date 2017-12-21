@@ -78,14 +78,15 @@ export class FormDropdown extends Component {
 	}
 	empty() {
 		const {empty, emptyText, label, data, valueField, textField} = this.props;
+		
 		if( empty && _.isArray(data) ) {
 			if(  data.length > 0 ) {
 				if( !_.isNull (data[0][valueField]) ) {
-					data.unshift("");
-					data.unshift({ [valueField]: "", [textField]: emptyText || label });
+					data.unshift({ [valueField]: null, [textField]: emptyText || label });
 				}
 			}
 		}
+		
 		return data;
 	}
 	FormFeedback() {

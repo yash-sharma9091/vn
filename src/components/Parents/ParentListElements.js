@@ -5,7 +5,7 @@ import ThreeDots from '../../assets/images/svg/three-dots.svg';
 import { DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import {DropdownWithoutActiveProps} from '../partials/DropdownWithoutActiveProps';
 import {fullName, limitTo, decorateLink} from '../../lib/Helper';
-import {editTeacher, teacherDetail} from '../../lib/SiteLinks';
+import {editParent, parentDetail} from '../../lib/SiteLinks';
 import {LinkContainer} from 'react-router-bootstrap';
 import DeleteParent from '../Common/DeleteModal';
 import ProgressiveImage from '../Common/ProgressiveImage';
@@ -46,7 +46,7 @@ class ParentListElements extends Component {
 				                </div> 
 				            </DropdownToggle>
 				            <DropdownMenu>
-				            	<LinkContainer to={`${decorateLink(editTeacher)}/${parent._id}`}>
+				            	<LinkContainer to={`${decorateLink(editParent)}/${parent._id}`}>
 				                	<DropdownItem>Edit</DropdownItem>
 				                </LinkContainer>	
 				                <DropdownItem onClick={() => this.onDelete(parent)}>Delete</DropdownItem>
@@ -65,7 +65,7 @@ class ParentListElements extends Component {
 				    </div>
 				    <div className="d-flex justify-content-between mt-2">
 				        <button type="button" className="btn btn-link mesg-btn pointer"><img src={EnvelopeGray} alt="" /> <span>Message</span></button>
-				        <LinkContainer to={`${decorateLink(teacherDetail)}/${parent._id}`}>
+				        <LinkContainer to={`${decorateLink(parentDetail)}/${parent._id}`}>
 				        	<button type="button" className="btn btn-link view-btn pointer">View Detail</button>
 				        </LinkContainer>	
 				    </div>

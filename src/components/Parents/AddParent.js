@@ -160,7 +160,7 @@ class AddParent extends Component {
 			                        <Field 
                                         component={FormDropdown} formGroupClassName="col-md-12 col-lg-6" name="relation" type="select" 
                                         label="Relation" data={student_relation} placeholder="Select relation"
-                                        valueField={"_id"} textField={"name"} empty={true} emptyText="Select relation" validate={[Required]} doValidate={true}/>  
+                                        valueField={"_id"} textField={"name"} validate={[Required]} doValidate={true}/>  
 			                    </div>		                    
 
 			                    <div className="form-row ml-1 mb-4 mt-3">
