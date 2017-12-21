@@ -41,6 +41,8 @@
 .teacher-profile-boxes .word-text {
     color: #636c72;
     font-size: 16px;
+    vertical-align: top;
+    display: inline-block;
 }
 .teacher-profile-boxes .email-text{
     color: #0a4ba9;

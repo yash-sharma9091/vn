@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 //import TeacherPic from '../../assets/images/teacher-1.png';
 import EnvelopeGray from '../../assets/images/svg/envelope-gray.svg';
-import ThreeDots from '../../assets/images/svg/three-dots.svg';
+import ThreeDots from '../../assets/images/svg/menugray.svg';
 import { DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import {DropdownWithoutActiveProps} from '../partials/DropdownWithoutActiveProps';
 import {fullName, limitTo, decorateLink} from '../../lib/Helper';

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import NoList from '../Common/NoList';
-import ThreeDots from '../../assets/images/svg/three-dots.svg';
+import ThreeDots from '../../assets/images/svg/menugray.svg';
 import './AddClass.css';
 
 class ClassListing extends Component {
@@ -12,7 +12,7 @@ class ClassListing extends Component {
 					<div className="p-3 p-lg-3">
 						<div className="d-flex justify-content-left flex-wrap align-items-stretch align-content-around classes-code-main">
 							<div>
-								<div className="code-box ml-3 mr-3">
+								<div className="code-box ml-3 mr-3 mb-3">
 									<div class="d-flex justify-content-between">
 										<div><h3>Marking Periods</h3></div>
 										<div><button type="button" class="btn btn-link add-link pointer" href="/join">+Add </button></div>
@@ -48,7 +48,7 @@ class ClassListing extends Component {
 							</div>
 							
 							<div>
-								<div className="code-box ml-3 mr-3">
+								<div className="code-box ml-3 mr-3 mb-3">
 									<div class="d-flex justify-content-between">
 										<div><h3>Classes</h3></div>
 										<div><button type="button" class="btn btn-link add-link pointer" href="/join">+Add </button></div>
@@ -69,12 +69,22 @@ class ClassListing extends Component {
 											<span>Created on : 12 Oct, 2017</span>
 											<a className="drop-open"><img src={ThreeDots} alt="" /></a>
 										</li>
+										<li class="list-group-item relative">
+											<h4>3</h4>
+											<span>Created on : 12 Oct, 2017</span>
+											<a className="drop-open"><img src={ThreeDots} alt="" /></a>
+										</li>
+										<li class="list-group-item relative">
+											<h4>4</h4>
+											<span>Created on : 12 Oct, 2017</span>
+											<a className="drop-open"><img src={ThreeDots} alt="" /></a>
+										</li>
 									</ul>
 								</div>
 							</div>
 
 							<div>
-								<div className="code-box ml-3 mr-3">
+								<div className="code-box ml-3 mr-3 mb-3">
 									<div class="d-flex justify-content-between">
 										<div><h3>Sections</h3></div>
 										<div><button type="button" class="btn btn-link add-link pointer" href="/join">+Add </button></div>
@@ -105,7 +115,7 @@ class ClassListing extends Component {
 							</div>
 
 							<div>
-								<div className="code-box ml-3 mr-3">
+								<div className="code-box ml-3 mr-3 mb-3">
 									<div class="d-flex justify-content-between">
 										<div><h3>Subject Code</h3></div>
 										<div><button type="button" class="btn btn-link add-link pointer" href="/join">+Add </button></div>
