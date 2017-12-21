@@ -8,6 +8,7 @@ import FileInput from "../Common/FileInput";
 import { Field, SubmissionError,reduxForm } from 'redux-form';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import ImageCropper from '../Common/ImageCropper';
+import './AddClass.css';
 
 import {handleSubmitFailed, scrollToByClassName} from '../../lib/Helper';
 import {Required, Email, ContactNumber,maxLength200,maxLength400, Alphabets, isValidAddress, OSIS, maxLength10, Phone} from '../../lib/Validate';
@@ -41,6 +42,8 @@ class AddClass extends Component {
 			<div className="right-group">
 			    <div className="right-group-content">
 			        <div className="create-teacher">
+
+						{/*ADD MARKING PERIODS*/}
 			            <Form onSubmit={handleSubmit(this.formSubmit)}>
 			                <Alert alertVisible={error || success} alertMsg={error || success} className={error ? "danger":"success"}/>
 			                <div className="p-3 teacher-forms">
@@ -51,7 +54,7 @@ class AddClass extends Component {
 			                            </div>
 			                        </div>
 			                        <div>
-			                            <div className="text-uppercase font-weight-bold teach-head">Add Student</div>
+			                            <div className="text-uppercase font-weight-bold teach-head">ADD MARKING PERIODS</div>
 			                        </div>
 			                        <div>
 
@@ -65,57 +68,234 @@ class AddClass extends Component {
 			    
 			                <div className="p-3">
 			                    
-			                    <div className="tabs-heading text-uppercase font-weight-bold">student INFORMATION</div>
 			                    <div className="form-row">
-			                        <Field 
-			                            component={FormField} type="text" formGroupClassName="col-md-12 col-lg-6"
-			                            name="first_name" label="First Name"
-			                            id="First_Name" placeholder="Enter first name" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
-			                        <Field 
-			                            component={FormField} type="text" formGroupClassName="col-md-12 col-lg-6"
-			                            name="last_name" label="Last Name"
-			                            id="First_Name" placeholder="Enter last name" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
-			                    </div>
-
-			                    <div className="form-row">
-			                        <Field 
-			                            component={FormCalender} type="text" formGroupClassName="col-md-12 col-lg-6"
-			                            name="dob" label="DOB"
-			                            id="DOB" placeholder="DD/MM/YYYY" validate={[Required]} doValidate={true}/>
-			                       <Field 
-			                            component={FormSelect} formGroupClassName="col-md-6 col-lg-6" name="gender" type="select" 
-			                            emptyText="Select Gender" label="Gender" options={options}
+									<Field 
+			                            component={FormSelect} formGroupClassName="col-md-12 col-lg-12" name="How many marking periods in a year?" type="select" 
+			                            emptyText="2" label="How many marking periods in a year?" options={options}
 			                            displayKey={"value"} displayLabel={"name"} empty={true} validate={[Required]} doValidate={true}/>
 			                    </div>
 
-			                    
-
-			                    <div className="form-row ml-1 mb-4 mt-3">
-			                        <Field component={ImageCropper} name="image" reset={reset}/>
-			                    </div>
-
-			                    <div className="tabs-heading text-uppercase font-weight-bold">contact INFORMATION</div>
-
+								
 			                    <div className="form-row">
-			                        <Field 
+									<Field 
 			                            component={FormField} type="text" formGroupClassName="col-md-12 col-lg-12"
-			                            name="student_address" label="Student Address" placesAutocomplete={true} onSelect={this.handleSelect}
-			                            id="Address" placeholder="Enter address" validate={[Required, maxLength200]} doValidate={true}/>
+			                            name="Add Name" label="Add Name"
+			                            id="Add_Name" placeholder="Marking Period 1" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
+			                       
 			                    </div>
 
-			                    <div className="form-row">
-			                        <Field 
-			                            component={FormField} type="text" formGroupClassName="col-md-12 col-lg-6"
-			                            name="email_address" label="Email Address (Optional)"
-			                            id="Email (Optional)" placeholder="Enter email" validate={[Email]} doValidate={true}/>
-			                        <Field 
-			                            component={FormField} type="text" formGroupClassName="col-md-12 col-lg-6"
-			                            name="contact_telephoneno" label="Contact Number (Optional)"  maskInput={true} inputAddOn={true} inputAddOnText="+1"
-			                            id="Contact Number" placeholder="Enter contact number" validate={Phone} doValidate={true}/>
+								<div className="form-row">
+									<Field 
+			                            component={FormField} type="text" formGroupClassName="col-md-6 col-lg-6"
+			                            name="Start Date" label="Start Date"
+			                            id="Start Date" placeholder="MM/DD/YYYY" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
+
+									<Field 
+			                            component={FormField} type="text" formGroupClassName="col-md-6 col-lg-6"
+			                            name="End Date" label="End Date"
+			                            id="End Date" placeholder="MM/DD/YYYY" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
+			                       
 			                    </div>
+
+								<div className="add-more-box">
+									<div className="form-row">
+										<Field 
+											component={FormField} type="text" formGroupClassName="col-md-12 col-lg-12"
+											name="Add Name" label="Add Name"
+											id="Add_Name" placeholder="Marking Period 2" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
+									
+									</div>
+
+									<div className="form-row">
+										<Field 
+											component={FormField} type="text" formGroupClassName="col-md-6 col-lg-6"
+											name="Start Date" label="Start Date"
+											id="Start Date" placeholder="MM/DD/YYYY" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
+
+										<Field 
+											component={FormField} type="text" formGroupClassName="col-md-6 col-lg-6"
+											name="End Date" label="End Date"
+											id="End Date" placeholder="MM/DD/YYYY" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
+									
+									</div>
+								</div>
+
+								<div className="add-more-box">
+									<div className="form-row">
+										<Field 
+											component={FormField} type="text" formGroupClassName="col-md-12 col-lg-12"
+											name="Add Name" label="Add Name"
+											id="Add_Name" placeholder="Marking Period 2" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
+									
+									</div>
+
+									<div className="form-row">
+										<Field 
+											component={FormField} type="text" formGroupClassName="col-md-6 col-lg-6"
+											name="Start Date" label="Start Date"
+											id="Start Date" placeholder="MM/DD/YYYY" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
+
+										<Field 
+											component={FormField} type="text" formGroupClassName="col-md-6 col-lg-6"
+											name="End Date" label="End Date"
+											id="End Date" placeholder="MM/DD/YYYY" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
+									
+									</div>
+								</div>
+
 			                    
 			                </div>
 			            </Form>
+
+						{/*ADD CLASSES*/}
+						{/* <Form onSubmit={handleSubmit(this.formSubmit)}>
+			                <Alert alertVisible={error || success} alertMsg={error || success} className={error ? "danger":"success"}/>
+			                <div className="p-3 teacher-forms">
+			                    <div className="d-flex justify-content-between align-items-center">
+			                        <div>
+			                            <div className="imports-button d-flex justify-content-start">
+			                                <button type="button" className="btn btn-info" onClick={toggleForm}>Cancel</button>
+			                            </div>
+			                        </div>
+			                        <div>
+			                            <div className="text-uppercase font-weight-bold teach-head">ADD CLASSES</div>
+			                        </div>
+			                        <div>
+
+			                            <FormSubmit 
+			                                error={error} invalid={pristine}
+			                                submitting={submitting} className="btn-primary ml-1"
+			                                buttonSaveLoading="Processing..." buttonSave="Save"/>
+			                        </div>
+			                    </div>
+			                </div>
+			    
+			                <div className="p-3">
+			                    
+			                    <div className="form-row">
+									<Field 
+			                            component={FormSelect} formGroupClassName="col-md-12 col-lg-12" name="How many classes you have in your school?" type="select" 
+			                            emptyText="2" label="How many classes you have in your school?" options={options}
+			                            displayKey={"value"} displayLabel={"name"} empty={true} validate={[Required]} doValidate={true}/>
+			                    </div>
+
+								
+			                    <div className="form-row">
+									<Field 
+			                            component={FormField} type="text" formGroupClassName="col-md-12 col-lg-12"
+			                            name="Add Class" label="Add Class"
+			                            id="Add Class" placeholder="Enter Class" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
+			                       
+			                    </div>
+
+								<div className="form-row">
+									<Field 
+			                            component={FormField} type="text" formGroupClassName="col-md-12 col-lg-12"
+			                            name="Add Class" label="Add Class"
+			                            id="Add Class" placeholder="Enter Class" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
+			                       
+			                    </div>
+			                    
+			                </div>
+			            </Form> */}
+
+						{/*ADD SECTIONS*/}
+						{/* <Form onSubmit={handleSubmit(this.formSubmit)}>
+			                <Alert alertVisible={error || success} alertMsg={error || success} className={error ? "danger":"success"}/>
+			                <div className="p-3 teacher-forms">
+			                    <div className="d-flex justify-content-between align-items-center">
+			                        <div>
+			                            <div className="imports-button d-flex justify-content-start">
+			                                <button type="button" className="btn btn-info" onClick={toggleForm}>Cancel</button>
+			                            </div>
+			                        </div>
+			                        <div>
+			                            <div className="text-uppercase font-weight-bold teach-head">ADD sections</div>
+			                        </div>
+			                        <div>
+
+			                            <FormSubmit 
+			                                error={error} invalid={pristine}
+			                                submitting={submitting} className="btn-primary ml-1"
+			                                buttonSaveLoading="Processing..." buttonSave="Save"/>
+			                        </div>
+			                    </div>
+			                </div>
+			    
+			                <div className="p-3">
+			                    
+			                    <div className="form-row">
+									<Field 
+			                            component={FormSelect} formGroupClassName="col-md-12 col-lg-12" name="How many classes you have in your school?" type="select" 
+			                            emptyText="2" label="How many classes you have in your school?" options={options}
+			                            displayKey={"value"} displayLabel={"name"} empty={true} validate={[Required]} doValidate={true}/>
+			                    </div>
+
+								
+			                    <div className="form-row">
+									<Field 
+			                            component={FormSelect} formGroupClassName="col-md-6 col-lg-6" name="Add Class" type="select" 
+			                            emptyText="Select class" label="Add Class" options={options}
+			                            displayKey={"value"} displayLabel={"name"} empty={true} validate={[Required]} doValidate={true}/>
+
+									<Field 
+			                            component={FormSelect} formGroupClassName="col-md-6 col-lg-6" name="Section" type="select" 
+			                            emptyText="Select Section" label="Section" options={options}
+			                            displayKey={"value"} displayLabel={"name"} empty={true} validate={[Required]} doValidate={true}/>
+			                       
+			                    </div>
+
+								<div className="form-row">
+									<Field 
+										component={FormSelect} formGroupClassName="col-md-6 col-lg-6" name="Add Class" type="select" 
+										emptyText="Select class" label="Add Class" options={options}
+										displayKey={"value"} displayLabel={"name"} empty={true} validate={[Required]} doValidate={true}/>
+
+									<Field 
+										component={FormSelect} formGroupClassName="col-md-6 col-lg-6" name="Section" type="select" 
+										emptyText="Select Section" label="Section" options={options}
+										displayKey={"value"} displayLabel={"name"} empty={true} validate={[Required]} doValidate={true}/>
+							   
+								</div>
+
+			                    
+			                </div>
+			            </Form> */}
+
+						{/*ADD SUBJECT CODE*/}
+						{/* <Form onSubmit={handleSubmit(this.formSubmit)}>
+			                <Alert alertVisible={error || success} alertMsg={error || success} className={error ? "danger":"success"}/>
+			                <div className="p-3 teacher-forms">
+			                    <div className="d-flex justify-content-between align-items-center">
+			                        <div>
+			                            <div className="imports-button d-flex justify-content-start">
+			                                <button type="button" className="btn btn-info" onClick={toggleForm}>Cancel</button>
+			                            </div>
+			                        </div>
+			                        <div>
+			                            <div className="text-uppercase font-weight-bold teach-head">ADD sUBJECT CODE</div>
+			                        </div>
+			                        <div>
+
+			                            <FormSubmit 
+			                                error={error} invalid={pristine}
+			                                submitting={submitting} className="btn-primary ml-1"
+			                                buttonSaveLoading="Processing..." buttonSave="Save"/>
+			                        </div>
+			                    </div>
+			                </div>
+			    
+			                <div className="p-3">
+			                    
+								<div className="form-row">
+									<Field 
+			                            component={FormField} type="text" formGroupClassName="col-md-12 col-lg-12"
+			                            name="Add Subject" label="Add Subject"
+			                            id="Add_Subject" placeholder="Enter subject code" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
+								</div>
+
+			                </div>
+			            </Form> */}
 
 			        </div>
 			    </div>
