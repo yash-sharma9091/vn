@@ -22,7 +22,7 @@ class ViewTeacherInfo extends Component {
                                                 <ProgressiveImage className="teacher-profiles" backgroundSrc={school.school_logo.path} />
                                                 <div className="teacher-content-box">
                                                     <span>{school.school_name}</span>
-                                                    <text>{school.uan}</text>
+                                                    <span className="text">{school.uan}</span>
                                                 </div>
                                             </div>
                                         </div>

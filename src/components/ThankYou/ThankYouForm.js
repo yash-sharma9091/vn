@@ -1,8 +1,8 @@
-/* global */
 import React, { Component } from 'react';
 import './ThankYou.css';
 
 class ThankYouForm extends Component {
+    
   	render() {
     	return (
             <div className="d-flex justify-content-center">

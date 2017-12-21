@@ -28,9 +28,11 @@ class ProgressiveImage extends Component {
 			url = (IMAGE_PATH + '/' + src);
 			loadImage(url)
 			.then(res => this.setState({loadSrc: src, isLoading: false}) )
+			.catch(err => console.log(err));
 			
 		} else if( backgroundSrc ) {
 			let pic = `${IMAGE_PATH}/${backgroundSrc}`;
+			
 			url = {
 				backgroundImage: 'url(' + ( pic ) + ')',
 				backgroundRepeat  : 'no-repeat',
@@ -38,6 +40,7 @@ class ProgressiveImage extends Component {
 			}
 			loadImage(`${IMAGE_PATH}/${backgroundSrc}`)
 			.then(res => this.setState({loadBackgoundSrc: url, isLoading: false}) )
+			.catch(err => console.log(err));
 		}		
 	}
   	render() {

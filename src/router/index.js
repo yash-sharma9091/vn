@@ -14,8 +14,10 @@ import Wrapper from '../components/Wrapper/Wrapper';
 
 import EditTeacherDetail from '../components/EditTeacherDetail/EditTeacherDetail';
 import EditStudentDetail from '../components/EditStudentDetail/EditStudentDetail';
+import EditParentDetail from '../components/Parents/EditParentDetail';
 import TeacherDetail from '../components/TeacherDetail/TeacherDetail';
 import StudentDetail from '../components/StudentDetail/StudentDetail';
+import ParentDetail from '../components/Parents/ParentDetail';
 import SchoolProfile from '../components/SchoolProfile/SchoolProfile';
 
 import ParentListings from '../components/ParentsDetails/ParentsDetails';
@@ -44,12 +46,15 @@ import {
 	AddClass,
 	teacherDetail,
 	studentDetail,
+	parentDetail,
 	schoolProfile,
 	editTeacher,
 	editStudent,
 	parentListing,
 	faq, 
-	editSchoolProfile
+	editSchoolProfile,
+	editParent
+	//thanks
 	//schoolstep
 } from '../lib/SiteLinks';
 export const Router = props => {
@@ -65,16 +70,19 @@ export const Router = props => {
 					<BeforeAuthRoute path={login} component={Login} />
 					<BeforeAuthRoute path={forgotPassword} component={ForgotPass} />
 					<BeforeAuthRoute path={resetPassword} component={ResetPassword} />
+					{/*<BeforeAuthRoute path={thanks} component={ThankYou} />*/}
 					<PrivateRoute path={dashboard} component={Dashboard} />
 					<PrivateRoute path={teacherListing} component={Wrapper} />
 					<PrivateRoute path={ClassListing} component={Wrapper} />
 					<PrivateRoute path={teacherDetail} component={TeacherDetail} />
 					<PrivateRoute path={studentDetail} component={StudentDetail} />
+					<PrivateRoute path={parentDetail} component={ParentDetail} />
 					<PrivateRoute path={schoolProfile} component={SchoolProfile} />
 					<PrivateRoute path={editSchoolProfile} component={SchoolProfile} />
 					<PrivateRoute path={studentListing} component={Wrapper} />
 					<PrivateRoute path={editTeacher} component={EditTeacherDetail} />
 					<PrivateRoute path={editStudent} component={EditStudentDetail} />
+					<PrivateRoute path={editParent} component={EditParentDetail} />
 					<PrivateRoute path={parentListing} component={Wrapper} />
 					<Route path={faq} component={Faq} />
 					{/*<PrivateRoute path={schoolstep} component={SchoolStep} />*/}

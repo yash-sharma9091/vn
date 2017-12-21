@@ -78,6 +78,7 @@ export class FormDropdown extends Component {
 	}
 	empty() {
 		const {empty, emptyText, label, data, valueField, textField} = this.props;
+		
 		if( empty && _.isArray(data) ) {
 			if(  data.length > 0 ) {
 				if( !_.isNull (data[0][valueField]) ) {
@@ -85,6 +86,7 @@ export class FormDropdown extends Component {
 				}
 			}
 		}
+		
 		return data;
 	}
 	FormFeedback() {
