@@ -1,0 +1,49 @@
+.classes-code-main > div{
+    width: 25%;
+}
+
+.add-link{
+    color: #0a4ba9;
+    font-size: 14px;
+    padding: 0;
+}
+
+h3{
+    color: #292b2c;
+    font-size: 16px;
+    font-family: 'gilroyextrabold';
+}
+
+.code-box .list-group .list-group-item h4{
+    color: #0a4ba9;
+    font-size: 16px;
+    margin-bottom: 2px;
+    text-transform: uppercase;
+}
+
+.code-box .list-group .list-group-item{
+    padding: 12px 30px 12px 15px;
+}
+
+.code-box .list-group .list-group-item span{
+    color:#6d6d6d;
+    font-size:12px;
+}
+
+.code-box .list-group .list-group-item .drop-open{
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 6px;
+    cursor: pointer;
+}
+
+.code-box .list-group .list-group-item .drop-open img{
+    width: 18px;
+}
+
+.add-more-box{
+    border-top: 1px solid #eeeeee;
+    padding-top: 20px;
+    margin-top: 20px;
+}
