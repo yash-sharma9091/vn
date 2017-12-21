@@ -1,5 +1,17 @@
-.transition{transition:all 0.5s ease; -ms-transition:all 0.5s ease; -webkit-transition:all 0.5s ease; -o-transition:all 0.5s ease; -moz-transition:all 0.5s ease;}
-.school-dashboard{height: 100vh;background: url('../../assets/images/dashboard-bg-thumb.png') no-repeat center center;background-size: cover;width: 100%;position: relative;}
+.transition{
+	transition:all 0.5s ease; 
+	-ms-transition:all 0.5s ease; 
+	-webkit-transition:all 0.5s ease; 
+	-o-transition:all 0.5s ease; 
+	-moz-transition:all 0.5s ease;
+}
+.school-dashboard{
+	height: 100vh;
+	background: url('../../assets/images/dashboard-bg-thumb.png') no-repeat center center;
+	background-size: cover;
+	width: 100%;
+	position: relative;
+}
 .school-dashboard .activity-btn {
 	position: absolute;
 	right: 20px;
@@ -11,15 +23,28 @@
 	padding: 10px 15px;
 	font-weight: 800;
 	border-radius: 2px;
-	z-index: 10;
+	z-index: 1;
     cursor: pointer;
     outline: none;
 }
 
-
 /*dashboard-header.schooladmin*/
-.dashboard-header.schooladmin .LogoBox{position: absolute;left: 0;right: 0; max-width:300px; margin: auto;}
-.dashboard-header.schooladmin {background-color: #0a4ba9;min-height: 50px;border-bottom: 1px solid #0d3c7f;position: absolute;top: 0;left: 0;right: 0;}
+.dashboard-header.schooladmin .LogoBox{
+	position: absolute;
+	left: 0;
+	right: 0; 
+	max-width:300px; 
+	margin: auto;
+}
+.dashboard-header.schooladmin{
+	background-color: #0a4ba9;
+	min-height: 50px;
+	border-bottom: 1px solid #0d3c7f;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+}
 .dashboard-header.schooladmin .LogoBox > img {
     width: 300px;
 }
@@ -32,12 +57,32 @@
 }
 
 /*admin-box*/
-.admin-box{background-color: rgba(255,255,255,0.1);border-radius: 3px;}
-.dash-box a{display:block; text-align:center; cursor:pointer; text-decoration: none;}
-.dash-box a .dash-icon{position: relative;}
-.dash-box a .dash-icon img{margin: auto; display: block;}
-.dash-box a span{color:#ffffff; font-size: 14px; cursor: pointer; font-weight:800;}
-.dash-box a .dash-icon > img:hover{transform: scale(1.1);}
+.admin-box{
+	background-color: rgba(255,255,255,0.1);
+	border-radius: 3px;
+}
+.dash-box a{
+	display:block;
+	text-align:center;
+	cursor:pointer;
+	text-decoration: none;
+}
+.dash-box a .dash-icon{
+	position: relative;
+}
+.dash-box a .dash-icon img{
+	margin: auto;
+	display: block;
+}
+.dash-box a span{
+	color:#ffffff;
+	font-size: 14px;
+	cursor: pointer;
+	font-weight:800;
+}
+.dash-box a .dash-icon > img:hover{
+	transform: scale(1.1);
+}
 
 /*activity-box*/
 .activity-box{

@@ -47,3 +47,16 @@ h3{
     padding-top: 20px;
     margin-top: 20px;
 }
+
+/*Responisve*/
+@media screen and (max-width: 1399px) and (min-width: 1025px) {
+    .classes-code-main > div {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 979px){
+    .classes-code-main > div {
+        width: 50%;
+    }
+}
