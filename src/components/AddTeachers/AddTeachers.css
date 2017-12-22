@@ -247,7 +247,7 @@
     z-index: 2;
 }
 .box-settings img{width:20px;}
-.teach-head{font-size: 19px; text-align: center;}
+.teach-head{font-size: 19px; text-align: center; font-family: 'gilroyextrabold';}
 
 .teacher-forms{
     border-bottom:1px solid #eeeeee;
