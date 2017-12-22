@@ -24,7 +24,7 @@ class ViewParentInfo extends Component {
                     <div className="left-group-content">
                         <div className="p-3 p-lg-3">
                             <div className="teacher-profile-boxes">
-                            <div className="p-3">
+                                <div className="p-3">
                                     <div className="form-row">
                                         <div className="col-sm-12">
                                             <div className="activity-action-list">
@@ -40,7 +40,6 @@ class ViewParentInfo extends Component {
                                             </div>
                                         </div>
                                     </div>
-                                    
                                 </div>
 
                                 <div className="group-tehead">Personal Information</div>
@@ -48,7 +47,7 @@ class ViewParentInfo extends Component {
                                     <div className="form-row">
                                         <FormGroup className="col-sm-6">
                                             <Label className="col-sm-3 col-md-4">Relation</Label>
-                                            <span className="col-sm-9 col-md-8 word-text">{_.capitalize(parent.relation.name)}</span>
+                                            <span className="col-sm-9 col-md-8 word-text">{parent.relation ? _.capitalize(parent.relation.name): 'NA'}</span>
                                         </FormGroup>
                                         <FormGroup className="col-sm-6">
                                             <Label className="col-sm-3 col-md-4">Contact Number</Label>

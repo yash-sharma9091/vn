@@ -8,7 +8,7 @@ import FileInput from "../Common/FileInput";
 import { Field, SubmissionError,reduxForm } from 'redux-form';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import ImageCropper from '../Common/ImageCropper';
-import {handleSubmitFailed, scrollToByClassName} from '../../lib/Helper';
+import {handleSubmitFailed, scrollToByClassName, gender} from '../../lib/Helper';
 import {Required, Email, ContactNumber,maxLength200,maxLength400, Alphabets, isValidAddress, Phone} from '../../lib/Validate';
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import {Http} from '../../lib/Http';
@@ -120,7 +120,7 @@ class AddParent extends Component {
 	render() {
 		const { error, handleSubmit, pristine, submitting, initialValues, change, user, toggleForm} = this.props;
 		const { success, reset } = this.state;
-		const {student_relation} = this.props.masterdata;
+		//const {student_relation} = this.props.masterdata;
         
        
 		return (
@@ -157,10 +157,14 @@ class AddParent extends Component {
 			                            component={FormField} type="text" formGroupClassName="col-md-12 col-lg-6"
 			                            name="name" label="Name"
 			                            id="parent_name" placeholder="Enter name" validate={[Required, Alphabets, maxLength200]} doValidate={true}/>
-			                        <Field 
+                                    <Field 
+                                        component={FormSelect} formGroupClassName="col-md-6 col-lg-6" name="gender" type="select" 
+                                        emptyText="Select Gender" label="Gender" options={gender}
+                                        displayKey={"value"} displayLabel={"name"} empty={true} validate={[Required]} doValidate={true}/>    
+			                        {/*<Field 
                                         component={FormDropdown} formGroupClassName="col-md-12 col-lg-6" name="relation" type="select" 
                                         label="Relation" data={student_relation} placeholder="Select relation"
-                                        valueField={"_id"} textField={"name"} validate={[Required]} doValidate={true}/>  
+                                        valueField={"_id"} textField={"name"} validate={[Required]} doValidate={true}/>*/}  
 			                    </div>		                    
 
 			                    <div className="form-row ml-1 mb-4 mt-3">
@@ -206,6 +210,6 @@ let AddParentForm = reduxForm({
 
 const mapStateToProps = (state) => ({
     user: state.auth.user,
-    masterdata: state.masterdb
+    //masterdata: state.masterdb
 })
 export default connect(mapStateToProps)(AddParentForm);

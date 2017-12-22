@@ -9,8 +9,7 @@ import {Required} from '../../lib/Validate';
 import FormSubmit from '../Common/FormSubmit';
 import Alert from '../Common/Alert';
 import {connect} from 'react-redux';
-import {fullName} from '../../lib/Helper';
-class LinkStudent extends React.Component {
+class LinkParent extends React.Component {
   	constructor(props) {
     	super(props);
     	this.onSearch = this.onSearch.bind(this);
@@ -26,8 +25,8 @@ class LinkStudent extends React.Component {
   		const {item} = data;
 	  	return (
 	  		<span>
-	    		<strong>{fullName(item.first_name, item.last_name)}</strong>
-	    		{" " + item.osis_number}
+	    		<strong>{item.name}</strong>
+	    		{" " + item.email_address}
 	  		</span>
 		)
   	}
@@ -35,20 +34,20 @@ class LinkStudent extends React.Component {
   		
   		if( query && !_.isObject(query)) {
   			this.setState({isLoading: true});
-  			Http.get(`get_student_listing?osis_number=${query}`)
+  			Http.get(`get_parent_listing?email_address=${query}`)
   			.then(({data}) => this.setState({data, isLoading: false}))
   			.catch(({errors}) => { throw new SubmissionError({_error: errors.message}) });
   		}
   	}
   	formSubmit(value) {
   		if( !value ) return;
-  		if( !value.student ) {
-  			throw new SubmissionError({_error: 'student is required'});
+  		if( !value.parent ) {
+  			throw new SubmissionError({_error: 'parent is required'});
   		}
-  		const {parent, user, dispatch, reset} = this.props;
+  		const {student, user, dispatch, reset} = this.props;
   		const request = { 
-  			parent_id: parent._id, 
-  			student_id: value.student ? value.student._id : null,
+  			child_id: student._id, 
+  			parent_id: value.parent ? value.parent._id : null,
   			school_id: user._id
   		}
   		return new Promise((resolve, reject) => {
@@ -56,12 +55,12 @@ class LinkStudent extends React.Component {
   			.then(({data}) => {
   				this.setState({success: data.message})
   				setTimeout(() => this.setState({success: ''}), 5000);
-  				dispatch(reset('LinkStudentForm'));
+  				dispatch(reset('LinkParentForm'));
   				resolve();
   			})
   			.catch(({errors}) => {
   				reject(new SubmissionError({_error: errors.message}))
-  				setTimeout(() => dispatch(clearSubmitErrors("LinkStudentForm")), 5000);
+  				setTimeout(() => dispatch(clearSubmitErrors("LinkParentForm")), 5000);
   			})
   		});  		
   	}
@@ -72,23 +71,23 @@ class LinkStudent extends React.Component {
     	return (
 	      	<div>
 	        	<Modal isOpen={show} toggle={toggle} >
-	          		<ModalHeader toggle={toggle}>Link student</ModalHeader>
+	          		<ModalHeader toggle={toggle}>Link parent</ModalHeader>
 	          		<Form onSubmit={handleSubmit(this.formSubmit)}>
 	          			
 		          		<ModalBody>
 		          			<Alert alertVisible={error || success} alertMsg={error || success} className={error ? "danger":"success"}/>
 		          			<Field 
 		          			    component={FormCombobox} 
-		          			    name="student" 
+		          			    name="parent" 
 		          			    onSearch={this.onSearch}
 		          			    data={data}
 		          			    busy={isLoading}
 		          			    ListItem={this.ListItem}
-		          			    textField="osis_number"
-		          			    label="Select Student"
+		          			    textField="email_address"
+		          			    label="Select Parent"
 		            		    valueField="_id"
 		            		    validate={[Required]} doValidate={true}
-		          			    placeholder="Type osis number to search ...."/>
+		          			    placeholder="Type email address to search ...."/>
 		          			<Field 
                                 component={FormDropdown} name="relation" label="Select Relation"
                                 data={student_relation} placeholder="Select relation"
@@ -107,11 +106,11 @@ class LinkStudent extends React.Component {
     	);
   	}
 }
-let LinkStudentForm = reduxForm({
-    form: 'LinkStudentForm'
-})(LinkStudent);
+let LinkParentForm = reduxForm({
+    form: 'LinkParentForm'
+})(LinkParent);
 const mapStateToProps = (state) => ({
 	user: state.auth.user,
 	masterdata: state.masterdb
 })
-export default connect(mapStateToProps)(LinkStudentForm);
+export default connect(mapStateToProps)(LinkParentForm);

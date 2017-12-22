@@ -54,7 +54,6 @@ class ImageModal extends Component {
 	          	<ModalBody>
 	            	<Cropper
 	                    style={{ height: 350, width: '100%' }}
-	                    aspectRatio={16 / 9}
 	                    autoCropArea={0.5}
 	                    guides={false}
 	                    src={src}

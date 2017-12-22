@@ -59,7 +59,8 @@ class ParentListElements extends Component {
 				    	<ProgressiveImage className="teacher-picture" backgroundSrc={parent.profile_image.path} />
 				        
 				        <div className="te-head text-capitalize">{limitTo(parent.name,50)}</div>
-				        <div className="te-gen mb-1 text-capitalize">{parent.relation.name}</div>
+				        {/*<div className="te-gen mb-1 text-capitalize">{parent.relation ? parent.relation.name : 'NA'}</div>*/}
+				        <div className="te-gen mb-1 text-capitalize">{parent.gender}</div>
 				        <div className="te-sub">Parent Contact:</div>
 				        <div className="te-code text-capitalize">{parent.contact_telephoneno}</div>
 				    </div>

@@ -11,19 +11,19 @@ import {connect} from 'react-redux';
 
 class Logo extends Component {
   	render() {  	
-  		const {token, user} = this.props;
+  		const {token} = this.props;
   		
   		if( token ) {
   			
-  			let schoolLogo = "";
+  			/*let schoolLogo = "";
   			if( user.school_logo ) {
   				schoolLogo = `${IMAGE_PATH}/${user.school_logo.path}`;	
-  			}
+  			}*/
 	    	return (
 				<div className="LogoBox text-center">
 					<img src={AfterLogoBox} alt={AfterLogoBox}/>
 					<Link to={dashboard}>
-						<img src={schoolLogo} alt={AfterLogoIcon}/>
+						<img src={AfterLogoIcon} alt={AfterLogoIcon}/>
 					</Link>
 	            </div>
 	    	);
@@ -39,7 +39,6 @@ class Logo extends Component {
   	}
 }
 const mapStateToProps = (state) => ({
-	token: state.auth.token,
-	user: state.auth.user
+	token: state.auth.token
 })
 export default connect(mapStateToProps)(Logo);

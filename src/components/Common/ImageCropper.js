@@ -103,7 +103,7 @@ class ImaegCropper extends Component {
 				        <div className="camera-icon" style={imageStyle}>
 				            {/* <img src={src || logo || CameraImage} /> */}
 				        </div>
-				        {(src || logo) && <a className="delete-button-image" onClick={this.removeImage}><img src={DeleteImage} alt="Delete"/></a>}
+				        <button disabled={!(src || logo)} className="delete-button-image" onClick={this.removeImage}><img src={DeleteImage} alt="Delete"/></button>
 				        <a className="edit-button-image"><img src={EditImage} alt="Edit"/>
 				            <input 
 				            	type="file" 

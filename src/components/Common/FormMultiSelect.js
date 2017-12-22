@@ -7,7 +7,6 @@ export class FormMultiSelect extends Component {
 	render() {
 		const {textField, onSearch, valueField, formGroupClassName, input, placeholder, busy, data} = this.props;
 		const {onChange, onFocus, value, name} = input;
-		console.log(input);
 		return (
 			<FormGroup className={formGroupClassName}>	          	
 	          	<Multiselect

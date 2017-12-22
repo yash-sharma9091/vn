@@ -10,6 +10,7 @@ import DeleteStudent from '../Common/DeleteModal';
 import {Http} from '../../lib/Http';
 import {connect} from 'react-redux';
 import {push} from 'react-router-redux';
+import LinkParent from './LinkParent';
 import {studentListing} from '../../lib/SiteLinks';
 class ViewStudentInfo extends Component {
     constructor() {
@@ -51,6 +52,7 @@ class ViewStudentInfo extends Component {
                                                     <li><a>Assign Subject</a></li>
                                                     <li><a>Assign Class</a></li>
                                                     <li><a>View Parent Info</a></li>
+                                                    <li><a onClick={this.toggle}>Link Parent</a></li>
                                                 </ul>
                                             </div>
                                             <div className="profiles-mains">
@@ -144,7 +146,8 @@ class ViewStudentInfo extends Component {
                         </div>
                     </div>
                 </div>
-                {show && <DeleteStudent show={show} toggle={this.toggle} redirect={this.redirect} onDelete={this.deleteStudent} user={student}/>}
+                {/*show && <DeleteStudent show={show} toggle={this.toggle} redirect={this.redirect} onDelete={this.deleteStudent} user={student}/>*/}
+                {show && <LinkParent show={show} toggle={this.toggle} student={student}/>}
             </div>
 		) 
 	}
