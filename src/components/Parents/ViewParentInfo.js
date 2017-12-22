@@ -68,6 +68,7 @@ class ViewParentInfo extends Component {
                                          </FormGroup>
                                     </div>
                                 </div>
+                                <div className="group-tehead">Personal Information</div>
                             </div>
                             
                             <div className="pt-3 pb-3 pt-lg-3 pb-lg-3">
