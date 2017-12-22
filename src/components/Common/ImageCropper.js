@@ -42,7 +42,7 @@ class ImaegCropper extends Component {
 	    	this.setState({ invalidSize: true });
 	    } else if(!['image/jpeg','image/jpg','image/png','image/gif'].includes(files[0].type)) {
 	    	this.setState({ invalidFile: true });
-	    } else if(dimensionsCheck) {
+	    }/* else if(dimensionsCheck) {
 	    	const img = new Image();
         	img.onload = function() {
         		
@@ -51,7 +51,7 @@ class ImaegCropper extends Component {
         		}
         	};
         	img.src = window.URL.createObjectURL(files[0]);
-	    }else {
+	    }*/else {
 	    	this.setState({ invalidFile: false, invalidSize: false });	
 	    	const reader = new FileReader();
 	    	reader.onload = (e) => {

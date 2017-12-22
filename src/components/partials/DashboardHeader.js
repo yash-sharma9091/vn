@@ -51,7 +51,7 @@ class DashboardHeader extends Component {
                         <NavbarBrand><img src={NavBarImage} alt="NavBar" />
                         </NavbarBrand>
                     </LinkContainer>    
-                    <div className="school-name">{limitTo(user.school_name,18)}</div>
+                    <div className="school-name">{limitTo(user.school_name,17)}</div>
                     <NavbarToggler onClick={this.toggle} />
                         <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav className="ml-auto" navbar>
