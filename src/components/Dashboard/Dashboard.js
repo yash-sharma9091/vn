@@ -144,7 +144,7 @@ class Dashboard extends Component {
 					</div>
 
 					<div className="row justify-content-md-center col-sm-12 no-gutters">
-						<div className="col-8 col-md-10 col-lg-8 col-xl-5 admin-box pt-5 pb-5 pl-2 pr-2">
+						<div className="col-8 col-md-10 col-lg-8 col-xl-6 admin-box pt-5 pb-5 pl-2 pr-2">
 							<div className="d-flex flex-wrap align-content-around no-gutters">
 								<div className="col-2">
 									<div className="dash-box">

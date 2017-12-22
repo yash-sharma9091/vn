@@ -48,7 +48,9 @@
     color: #0a4ba9;
     font-size: 16px;
 }
-.teacher-profile-boxes .code-list{display: inline-block;}
+.teacher-profile-boxes .code-list{
+    display:inline-block;
+}
 .teacher-profile-boxes .code-list li {
     display: inline-block;
     background-color: #d4e5fc;
