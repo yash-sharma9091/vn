@@ -19,6 +19,7 @@ import TeacherDetail from '../components/TeacherDetail/TeacherDetail';
 import StudentDetail from '../components/StudentDetail/StudentDetail';
 import ParentDetail from '../components/Parents/ParentDetail';
 import SchoolProfile from '../components/SchoolProfile/SchoolProfile';
+import SchoolAdminDashboard from '../components/SchoolAdminDashboard/SchoolAdminDashboard';
 
 import ParentListings from '../components/ParentsDetails/ParentsDetails';
 
@@ -48,6 +49,7 @@ import {
 	studentDetail,
 	parentDetail,
 	schoolProfile,
+	schoolAdminDashboard,
 	editTeacher,
 	editStudent,
 	parentListing,
@@ -78,6 +80,7 @@ export const Router = props => {
 					<PrivateRoute path={studentDetail} component={StudentDetail} />
 					<PrivateRoute path={parentDetail} component={ParentDetail} />
 					<PrivateRoute path={schoolProfile} component={SchoolProfile} />
+					<PrivateRoute path={schoolAdminDashboard} component={SchoolAdminDashboard} />
 					<PrivateRoute path={editSchoolProfile} component={SchoolProfile} />
 					<PrivateRoute path={studentListing} component={Wrapper} />
 					<PrivateRoute path={editTeacher} component={EditTeacherDetail} />

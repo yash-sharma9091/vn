@@ -10,7 +10,7 @@ class ErrorContent extends Component {
               <div className="d-flex justify-content-around">
                     <div className="text-center padding-40">
                         <div className="num404">
-                            <img src={errorImg} alt="" />
+                            <img src={errorImgNew} alt="" />
                         </div>
                         <div className="error404 text-left">
                             <h3>Oops.</h3>

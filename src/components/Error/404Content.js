@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import {home} from '../../lib/SiteLinks';
 import errorImg from '../../assets/images/404Img.png';
+import errorImgNew from '../../assets/images/505Img.png';
 import './404.css';
 
 class ErrorContent extends Component {
