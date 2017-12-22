@@ -27,6 +27,7 @@ class ImaegCropper extends Component {
     	}
     }
 	onChange(e) {
+		const {dimensionsCheck} = this.props;
 	    let files;
 	    if (e.dataTransfer) {
 	      	files = e.dataTransfer.files;
@@ -36,11 +37,21 @@ class ImaegCropper extends Component {
 	    if(files.length === 0) {
 	    	return;
 	    }
+
 	    if(files[0].size > 5242880) {
 	    	this.setState({ invalidSize: true });
 	    } else if(!['image/jpeg','image/jpg','image/png','image/gif'].includes(files[0].type)) {
 	    	this.setState({ invalidFile: true });
-	    } else {
+	    }/* else if(dimensionsCheck) {
+	    	const img = new Image();
+        	img.onload = function() {
+        		
+        		if( this.width <= 140 && this.height <= 45 ) {
+
+        		}
+        	};
+        	img.src = window.URL.createObjectURL(files[0]);
+	    }*/else {
 	    	this.setState({ invalidFile: false, invalidSize: false });	
 	    	const reader = new FileReader();
 	    	reader.onload = (e) => {

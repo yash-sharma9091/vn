@@ -166,7 +166,7 @@ class ViewParentInfo extends Component {
                         </div>
                     </div>
                 </div>
-                {show && <LinkStudent show={show} toggle={this.toggle}/>}
+                {show && <LinkStudent show={show} toggle={this.toggle} parent={parent}/>}
             </div>
 		) 
 	}

@@ -6,7 +6,7 @@ import BeforeLogoIcon from '../../assets/images/logo.png';
 import AfterLogoIcon from '../../assets/images/logo-white.png';
 import './Logo.css';
 import {Link} from 'react-router-dom';
-import {home} from '../../lib/SiteLinks';
+import {home, dashboard} from '../../lib/SiteLinks';
 import {connect} from 'react-redux';
 
 class Logo extends Component {
@@ -22,7 +22,9 @@ class Logo extends Component {
 	    	return (
 				<div className="LogoBox text-center">
 					<img src={AfterLogoBox} alt={AfterLogoBox}/>
-					<Link to={home}><img src={AfterLogoIcon} alt={AfterLogoIcon}/></Link>
+					<Link to={dashboard}>
+						<img src={schoolLogo} alt={AfterLogoIcon}/>
+					</Link>
 	            </div>
 	    	);
 	    } else {

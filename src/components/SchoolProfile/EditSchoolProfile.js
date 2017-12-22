@@ -108,7 +108,7 @@ class EditSchoolProfile extends Component {
                                 <div className="p-3">
                                     <div className="row align-items-center">
                                         <div className="col-md-3 col-lg-2 inner-cropper">
-                                            <Field component={ImageCropper} name="image" logo={schoolLogo} removeImage={this.removeImage}/>
+                                            <Field component={ImageCropper} dimensionsCheck={true} name="image" logo={schoolLogo} removeImage={this.removeImage}/>
                                         </div>
                                         <div className="col-md-9 col-lg-10">
                                             <div className="form-row pl-3">
