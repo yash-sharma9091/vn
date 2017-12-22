@@ -16,7 +16,7 @@ class Activity extends Component {
 
             <div className="right-group">
                 <div className="right-group-content activity-bg">
-                    <div className="create-teacher">
+                    {/* <div className="create-teacher">
                         <div className="p-3 teacher-forms">
                             <div className="d-flex justify-content-center align-items-center">
                                 <div>
@@ -24,7 +24,8 @@ class Activity extends Component {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
+                    
                     {/*<div className="p-2 activity-date">November 14, 2017 </div>
                     <div className="now-activity-list p-3">
                         <div className="media">
@@ -84,6 +85,23 @@ class Activity extends Component {
                             </div>
                         </div>
                     </div>*/}
+
+                    <div className="create-teacher">
+                        <div className="p-3 teacher-forms">
+                            <div className="d-flex justify-content-center align-items-center">
+                                <div>
+                                    <div className="text-uppercase text-center teach-head">Lesson summary</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="p-4">
+                        <div className="form-group">
+                            <label className="white-space-nowrap">Subject</label>
+                            <ul className="code-list"><li>E701</li><li>M702</li><li>SS703</li><li>S704</li></ul>
+                        </div>
+                    </div>
 
                 </div>
             </div>        

@@ -23,6 +23,7 @@ AddClass 		= '/add-class',
 ClassListing 	= '/classes',
 faq 	        = '/help',
 schoolstep 	    = '/school-step',
+lessonPlan 	    = '/lesson-plan',
 parentlistings 	= '/parents',
 notFound 		= '*';
 

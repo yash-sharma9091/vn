@@ -54,11 +54,11 @@
 .teacher-profile-boxes .code-list li {
     display: inline-block;
     background-color: #d4e5fc;
-    margin-right: 5px;
+    margin-right: 10px;
     border-radius: 50px;
-    padding: 1px 15px;
+    padding: 2px 18px;
     color: #0a4ba9;
-    font-size: 13px;
+    font-size: 14px;
 }
 
 .teacher-profile-boxes .activity-action-list{
@@ -83,6 +83,10 @@
     width: 1px;
     height: 75%;
 }
+.teacher-profile-boxes .activity-action-list ul li:last-child::after{
+    content: none;
+}
+
 .teacher-profile-boxes .activity-action-list ul li a {
     color: #636c72;
     font-size: 13px;
