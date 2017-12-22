@@ -8,7 +8,7 @@ class SchoolProfileProgress extends Component {
 		return (
 
             <div className="right-group">
-                <div className="right-group-content activity-bg">
+                <div className="right-group-content">
                     <div className="create-teacher">
                         <div className="p-3 teacher-forms">
                             <div className="d-flex justify-content-center align-items-center">

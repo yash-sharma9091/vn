@@ -29,25 +29,25 @@ class AskQuestion extends Component {
 						<Alert alertVisible={error||success} alertMsg={error||success} className={error ? "danger":"success"}/>
 						<Field 
 							component={FormField} type="textarea"
-							name="question" label="Question/Comment"
+							name="question" label="Question/Comment" isRequired={true}
 							id="goalStudentClass" labelClassName="gradient-color" rows="3" validate={[Required,maxLength400]} doValidate={true}/>
 
                         <Field 
 							component={FormField} type="text"
 							name="name" label="Name"
-							id="Name" labelClassName="gradient-color"
+							id="Name" labelClassName="gradient-color" isRequired={true}
 							placeholder="Enter your name" validate={[Required,maxLength200]} doValidate={true}/>
 						
 						<Field 
 							component={FormField} type="email"
 							name="email" label="Email"
-							id="email" labelClassName="gradient-color"
+							id="email" labelClassName="gradient-color" isRequired={true}
 							placeholder="Enter your email address" validate={[Required,Email]} doValidate={true}/>
 
 						<Field 
 							component={FormField} type="text"
 							name="phone" label="Phone"
-							id="Phone" labelClassName="gradient-color"
+							id="Phone" labelClassName="gradient-color" isRequired={true}
 							placeholder="Enter your phone" validate={Required} doValidate={true}  maskInput={true} inputAddOn={true} inputAddOnText="+1"/>
 
 												

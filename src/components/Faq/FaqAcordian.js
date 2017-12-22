@@ -5,6 +5,8 @@ import Question from '../../assets/images/svg/question.svg';
 import './Faq.css';
 import {Http} from '../../lib/Http';
 import {Loader} from '../Common/Loader';
+import {LinkContainer} from 'react-router-bootstrap';
+import {faq} from '../../lib/SiteLinks';
 
 class FaqAcordian extends Component {
 	constructor(props) {
@@ -60,7 +62,9 @@ class FaqAcordian extends Component {
 							} 
 						</div>
 						<div className="d-flex flex-row justify-content-center p-2">
-							<button type="button" className="btn btn-link forgot-link pointer">Don’t See A Question</button>
+							<LinkContainer to={`${faq}?tab=contact`}>
+								<button type="button" className="btn btn-link forgot-link pointer">Don’t See A Question</button>
+							</LinkContainer>	
 						</div>
 					</div>
     			</div> 

@@ -127,11 +127,15 @@ class EditTeacherInformation extends Component {
                                 <div className="p-3">
                                     <div className="form-row">
                                         <div className="col-sm-6">
-                                            <Field 
-                                            component={FormSelect} formGroupClassName="row" name="gender" type="select" 
-                                            emptyText="Select gender" label="Gender" options={gender}
-                                            labelClassName="col-sm-3" colWrapper={true} col={9}
-                                            displayKey={"value"} displayLabel={"name"} empty={true} validate={[Required]} doValidate={true}/>
+                                            <div className="form-group row">
+                                                <label className="col-sm-3 col-form-label">Class</label>
+                                                <div className="col-sm-9">
+                                                    <select id="inputState" className="form-control">
+                                                        <option selected>Select class</option>
+                                                        <option>...</option>
+                                                    </select>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div className="col-sm-6">
                                              <div className="form-group row">
@@ -145,31 +149,18 @@ class EditTeacherInformation extends Component {
                                             </div>
                                         </div>
                                     </div>
-
                                     <div className="form-row">
                                         <div className="col-sm-6">
-                                            <div className="form-group row">
-                                                <label className="col-sm-3 col-form-label">Grade</label>
-                                                <div className="col-sm-9">
-                                                    <select id="inputState" className="form-control">
-                                                        <option selected>Select grade</option>
-                                                        <option>...</option>
-                                                    </select>
-                                                </div>
-                                            </div>
+                                            <Field 
+                                            component={FormSelect} formGroupClassName="row" name="gender" type="select" 
+                                            emptyText="Select gender" label="Gender" options={gender}
+                                            labelClassName="col-sm-3" colWrapper={true} col={9}
+                                            displayKey={"value"} displayLabel={"name"} empty={true} validate={[Required]} doValidate={true}/>
                                         </div>
-                                        <div className="col-sm-6">
-                                             <div className="form-group row">
-                                                <label className="col-sm-3 col-form-label">Official Grade</label>
-                                                <div className="col-sm-9">
-                                                    <select id="inputState" className="form-control">
-                                                        <option selected>Select official grade</option>
-                                                        <option>...</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        
                                     </div>
+
+                                    
                                 </div>
                                 
 
