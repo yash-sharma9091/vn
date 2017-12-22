@@ -3,6 +3,8 @@ import React, {Component} from 'react';
 import { FormGroup, Label } from 'reactstrap';
 import LinkStudent from './LinkStudent';
 import ProgressiveImage from '../Common/ProgressiveImage';
+import TeacherPic from '../../assets/images/teacher-1.png';
+import EnvelopeGray from '../../assets/images/svg/envelope-gray.svg';
 
 class ViewParentInfo extends Component {
     constructor() {
@@ -68,6 +70,99 @@ class ViewParentInfo extends Component {
                                     </div>
                                 </div>
                             </div>
+                            
+                            <div className="pt-3 pb-3 pt-lg-3 pb-lg-3">
+                                <div className="d-flex justify-content-left flex-wrap align-items-stretch align-content-around teachers-row">
+                                    <div className="light-white-bg teacher-box p-2 p-lg-3 relative">
+                                        <div className="teacher-group-box relative">
+                                            <div className="teacher-picture">
+                                                <img src={TeacherPic} alt="" />
+                                            </div>
+                                            <div className="te-head text-capitalize">ddsd</div>
+                                            <div className="te-gen mb-1 text-capitalize">dsdadsa</div>
+                                            <div className="te-sub">Subject &amp; Class</div>
+                                            {/*<div className="te-code text-capitalize">E 401, M 201, S 501...</div>*/}
+                                            <div className="te-code text-capitalize">N/A</div>
+                                        </div>
+                                        <div className="d-flex justify-content-between mt-2">
+                                            <button type="button" className="btn btn-link mesg-btn pointer"><img src={EnvelopeGray} alt="" /> <span>Message</span></button>
+                                            <button type="button" className="btn btn-link view-btn pointer">View Detail</button>	
+                                        </div>
+                                    </div>
+
+                                    <div className="light-white-bg teacher-box p-2 p-lg-3 relative">
+                                        <div className="teacher-group-box relative">
+                                            <div className="teacher-picture">
+                                                <img src={TeacherPic} alt="" />
+                                            </div>
+                                            <div className="te-head text-capitalize">ddsd</div>
+                                            <div className="te-gen mb-1 text-capitalize">dsdadsa</div>
+                                            <div className="te-sub">Subject &amp; Class</div>
+                                            {/*<div className="te-code text-capitalize">E 401, M 201, S 501...</div>*/}
+                                            <div className="te-code text-capitalize">N/A</div>
+                                        </div>
+                                        <div className="d-flex justify-content-between mt-2">
+                                            <button type="button" className="btn btn-link mesg-btn pointer"><img src={EnvelopeGray} alt="" /> <span>Message</span></button>
+                                            <button type="button" className="btn btn-link view-btn pointer">View Detail</button>	
+                                        </div>
+                                    </div>
+
+                                    <div className="light-white-bg teacher-box p-2 p-lg-3 relative">
+                                        <div className="teacher-group-box relative">
+                                            <div className="teacher-picture">
+                                                <img src={TeacherPic} alt="" />
+                                            </div>
+                                            <div className="te-head text-capitalize">ddsd</div>
+                                            <div className="te-gen mb-1 text-capitalize">dsdadsa</div>
+                                            <div className="te-sub">Subject &amp; Class</div>
+                                            {/*<div className="te-code text-capitalize">E 401, M 201, S 501...</div>*/}
+                                            <div className="te-code text-capitalize">N/A</div>
+                                        </div>
+                                        <div className="d-flex justify-content-between mt-2">
+                                            <button type="button" className="btn btn-link mesg-btn pointer"><img src={EnvelopeGray} alt="" /> <span>Message</span></button>
+                                            <button type="button" className="btn btn-link view-btn pointer">View Detail</button>	
+                                        </div>
+                                    </div>
+
+                                    
+                                    <div className="light-white-bg teacher-box p-2 p-lg-3 relative">
+                                        <div className="teacher-group-box relative">
+                                            <div className="teacher-picture">
+                                                <img src={TeacherPic} alt="" />
+                                            </div>
+                                            <div className="te-head text-capitalize">ddsd</div>
+                                            <div className="te-gen mb-1 text-capitalize">dsdadsa</div>
+                                            <div className="te-sub">Subject &amp; Class</div>
+                                            {/*<div className="te-code text-capitalize">E 401, M 201, S 501...</div>*/}
+                                            <div className="te-code text-capitalize">N/A</div>
+                                        </div>
+                                        <div className="d-flex justify-content-between mt-2">
+                                            <button type="button" className="btn btn-link mesg-btn pointer"><img src={EnvelopeGray} alt="" /> <span>Message</span></button>
+                                            <button type="button" className="btn btn-link view-btn pointer">View Detail</button>	
+                                        </div>
+                                    </div>
+
+                                    
+                                    <div className="light-white-bg teacher-box p-2 p-lg-3 relative">
+                                        <div className="teacher-group-box relative">
+                                            <div className="teacher-picture">
+                                                <img src={TeacherPic} alt="" />
+                                            </div>
+                                            <div className="te-head text-capitalize">ddsd</div>
+                                            <div className="te-gen mb-1 text-capitalize">dsdadsa</div>
+                                            <div className="te-sub">Subject &amp; Class</div>
+                                            {/*<div className="te-code text-capitalize">E 401, M 201, S 501...</div>*/}
+                                            <div className="te-code text-capitalize">N/A</div>
+                                        </div>
+                                        <div className="d-flex justify-content-between mt-2">
+                                            <button type="button" className="btn btn-link mesg-btn pointer"><img src={EnvelopeGray} alt="" /> <span>Message</span></button>
+                                            <button type="button" className="btn btn-link view-btn pointer">View Detail</button>	
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
