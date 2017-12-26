@@ -1,7 +1,7 @@
 /* global _ */
 import React, {Component} from 'react';
 import ViewLessonPlan from './ViewLessonPlan';
-import ActivityPanel from '../Activity/ActivityPanel.js';
+import LessonActivity from '../LessonActivity/LessonActivityPanel.js';
 import './LessonPlan.css';
 import {Http} from '../../lib/Http';
 import {fullName, limitTo, decorateLink} from '../../lib/Helper';
@@ -82,7 +82,7 @@ class LessonPlan extends Component {
                                 <ViewLessonPlan />
                             </div>
                             <div className="dash-right-box">
-                                <ActivityPanel />
+                                <LessonActivity />
                             </div>
                     </div>
                 
