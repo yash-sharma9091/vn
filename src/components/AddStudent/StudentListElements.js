@@ -61,7 +61,7 @@ class StudentListElements extends Component {
 				    	<ProgressiveImage className="teacher-picture" backgroundSrc={student.profile_image.path} />
 				        {/*<div className="teacher-picture"  style={imageStyle}> </div>*/}
 				        <div className="te-heading text-capitalize"><b>{limitTo(fullName(student.first_name, student.last_name),50)}</b>, {student.gender}</div>
-				        <div className="te-gen mb-1 text-capitalize">NA</div>
+				        <div className="te-gen mb-1 text-capitalize">N/A</div>
 				        <div className="te-sub">OSIS Number:</div>
 				        {/*<div className="te-code text-capitalize">{student.parent_name} {student.contact_telephoneno ? `+1${student.contact_telephoneno}` : ''}</div>*/}
 				        <div className="te-code text-capitalize">{student.osis_number}</div>

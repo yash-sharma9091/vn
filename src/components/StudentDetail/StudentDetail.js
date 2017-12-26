@@ -13,6 +13,7 @@ import {LinkContainer} from 'react-router-bootstrap';
 class AddTeachers extends Component {
     constructor() {
         super();
+        this.fetchInfo = this.fetchInfo.bind(this);
         this.state = {
             student: {},
             errors:'',
@@ -20,7 +21,9 @@ class AddTeachers extends Component {
         }
     }
     componentDidMount() {
-        
+        this.fetchInfo();
+    }
+    fetchInfo(props) {
         const {match} = this.props;
         const {id} = match.params;
         if( id ) {
@@ -79,7 +82,7 @@ class AddTeachers extends Component {
                                 
                                  
                                 { isLoading && <Loader /> }
-                                { !isLoading && !_.isEmpty(student) && <ViewStudentInfo student={student}/>  }
+                                { !isLoading && !_.isEmpty(student) && <ViewStudentInfo refreshInfo={this.fetchInfo} student={student}/>  }
                             </div>
                             <div className="dash-right-box">
                                 <ActivityPanel />

@@ -40,21 +40,29 @@ class LinkParent extends React.Component {
   		}
   	}
   	formSubmit(value) {
+  		
   		if( !value ) return;
   		if( !value.parent ) {
   			throw new SubmissionError({_error: 'parent is required'});
   		}
-  		const {student, user, dispatch, reset} = this.props;
+  		
+  		const {student, user, dispatch, reset, toggle, refreshInfo} = this.props;
+  		
   		const request = { 
-  			child_id: student._id, 
+  			student_id: student._id, 
   			parent_id: value.parent ? value.parent._id : null,
-  			school_id: user._id
+  			school_id: user._id,
+  			relation: value.relation
   		}
   		return new Promise((resolve, reject) => {
   			Http.post('link_parent_student', request)
   			.then(({data}) => {
   				this.setState({success: data.message})
-  				setTimeout(() => this.setState({success: ''}), 5000);
+  				setTimeout(() => {
+  					this.setState({success: ''});
+  					toggle();
+  					refreshInfo();
+  				}, 5000);
   				dispatch(reset('LinkParentForm'));
   				resolve();
   			})

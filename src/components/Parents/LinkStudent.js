@@ -45,17 +45,22 @@ class LinkStudent extends React.Component {
   		if( !value.student ) {
   			throw new SubmissionError({_error: 'student is required'});
   		}
-  		const {parent, user, dispatch, reset} = this.props;
+  		const {parent, user, dispatch, reset, refreshInfo, toggle} = this.props;
   		const request = { 
   			parent_id: parent._id, 
   			student_id: value.student ? value.student._id : null,
-  			school_id: user._id
+  			school_id: user._id,
+  			relation: value.relation
   		}
   		return new Promise((resolve, reject) => {
   			Http.post('link_parent_student', request)
   			.then(({data}) => {
   				this.setState({success: data.message})
-  				setTimeout(() => this.setState({success: ''}), 5000);
+  				setTimeout(() => {
+  					this.setState({success: ''});
+  						toggle();
+  						refreshInfo();
+  				}, 5000);
   				dispatch(reset('LinkStudentForm'));
   				resolve();
   			})

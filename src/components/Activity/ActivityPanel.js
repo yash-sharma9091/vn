@@ -24,7 +24,7 @@ class Activity extends Component {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> 
                     
                     {/*<div className="p-2 activity-date">November 14, 2017 </div>
                     <div className="now-activity-list p-3">
@@ -86,6 +86,67 @@ class Activity extends Component {
                         </div>
                     </div>*/}
 
+<<<<<<< HEAD
+=======
+                    {/*<div className="create-teacher">
+                        <div className="p-3 teacher-forms">
+                            <div className="d-flex justify-content-center align-items-center">
+                                <div>
+                                    <div className="text-uppercase text-center teach-head">Lesson summary</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="p-4">
+                        <div className="form-group">
+                            <label className="white-space-nowrap">Subject</label>
+                            <ul className="delete-code-list">
+                                <li className="e1">E701 <a>x</a></li>
+                                <li className="m1">M702 <a>x</a></li>
+                                <li className="s1">SS703 <a>x</a></li>
+                            </ul>
+                        </div>
+                        <div className="lesson-theme">
+                            <div class="d-flex justify-content-start flex-wrap">
+                                <div>
+                                    <div className="theme-head">Theme :</div>
+                                    <div className="theme-cont">Growing Up</div>
+                                </div>
+                                <div>
+                                    <div className="theme-head">Stategy :</div>
+                                    <div className="theme-cont">Point of view/prespective</div>
+                                </div>
+                                <div>
+                                    <div className="theme-head">Subjective :</div>
+                                    <div className="theme-cont">Reading &amp; Writing</div>
+                                </div>
+                                <div>
+                                    <div className="theme-head">Standard :</div>
+                                    <div className="theme-cont">Reading &amp; Writing</div>
+                                </div>
+                                <div>
+                                    <div className="theme-head">Text :</div>
+                                    <div className="theme-cont">The drive in movie by gray solo</div>
+                                </div>
+                                <div>
+                                    <div className="theme-head">Grade Level :</div>
+                                    <div className="theme-cont">5/6</div>
+                                </div>
+                                <div>
+                                    <div className="theme-head">Objective :</div>
+                                    <div className="theme-cont">Student increase comprehension of text by determining author’s prespetive</div>
+                                </div>
+                                <div>
+                                    <div className="theme-head">Essential Question :</div>
+                                    <div className="theme-cont">How do we respond to point of view/prespective questions?</div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>*/}
+
+>>>>>>> 7c84dee1d8573677fb83625683e7a9f3ad0d33a2
                 </div>
             </div>        
 		) 
