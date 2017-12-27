@@ -44,7 +44,7 @@ class ViewLessonPlan extends Component {
 
                                     <div className="form-row">
                                         <div className="form-group col-sm-12">
-                                            <label className="white-space-nowrap">Select Subject</label><br />
+                                            <label className="white-space-nowrap">Select Subject</label>
                                             <ul className="code-list">
                                                 <li>E701</li>
                                                 <li>M702</li>
@@ -116,7 +116,7 @@ class ViewLessonPlan extends Component {
                                     <div className="lesson-heading">Attributes</div>
 
                                     <div className="form-row">
-                                        <div className="form-group col-sm-4">
+                                        <div className="form-group col-md-6 col-lg-4">
                                             <div className="attributes-box p-3">
                                                 <div className="row align-items-center ml-0 mr-0">
                                                     <div class="form-check mb-0 ml-0 mr-0 pl-0 col-sm-9">
@@ -133,7 +133,7 @@ class ViewLessonPlan extends Component {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="form-group col-sm-4">
+                                        <div className="form-group col-md-6 col-lg-4">
                                             <div className="attributes-box p-3">
                                                 <div className="row align-items-center ml-0 mr-0">
                                                     <div class="form-check mb-0 ml-0 mr-0 pl-0 col-sm-9">
@@ -150,7 +150,7 @@ class ViewLessonPlan extends Component {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="form-group col-sm-4">
+                                        <div className="form-group col-md-6 col-lg-4">
                                             <div className="attributes-box p-3">
                                                 <div className="row align-items-center ml-0 mr-0">
                                                     <div class="form-check mb-0 ml-0 mr-0 pl-0 col-sm-9">
@@ -167,10 +167,8 @@ class ViewLessonPlan extends Component {
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <div className="form-row">
-                                        <div className="form-group col-sm-4">
+                                        <div className="form-group col-md-6 col-lg-4">
                                             <div className="attributes-box p-3">
                                                 <div className="row align-items-center ml-0 mr-0">
                                                     <div class="form-check mb-0 ml-0 mr-0 pl-0 col-sm-9">
@@ -187,7 +185,7 @@ class ViewLessonPlan extends Component {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="form-group col-sm-4">
+                                        <div className="form-group col-md-6 col-lg-4">
                                             <div className="attributes-box p-3">
                                                 <div className="row align-items-center ml-0 mr-0">
                                                     <div class="form-check mb-0 ml-0 mr-0 pl-0 col-sm-9">
@@ -204,7 +202,7 @@ class ViewLessonPlan extends Component {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="form-group col-sm-4">
+                                        <div className="form-group col-md-6 col-lg-4">
                                             <div className="attributes-box p-3">
                                                 <div className="row align-items-center ml-0 mr-0">
                                                     <div class="form-check mb-0 ml-0 mr-0 pl-0 col-sm-9">
@@ -221,10 +219,8 @@ class ViewLessonPlan extends Component {
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <div className="form-row">
-                                        <div className="form-group col-sm-4">
+                                        <div className="form-group col-md-6 col-lg-4">
                                             <div className="attributes-box p-3">
                                                 <div className="row align-items-center ml-0 mr-0">
                                                     <div class="form-check mb-0 ml-0 mr-0 pl-0 col-sm-9">
@@ -241,7 +237,7 @@ class ViewLessonPlan extends Component {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="form-group col-sm-4">
+                                        <div className="form-group col-md-6 col-lg-4">
                                             <div className="attributes-box p-3">
                                                 <div className="row align-items-center ml-0 mr-0">
                                                     <div class="form-check mb-0 ml-0 mr-0 pl-0 col-sm-9">
@@ -258,7 +254,7 @@ class ViewLessonPlan extends Component {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="form-group col-sm-4">
+                                        <div className="form-group col-md-6 col-lg-4">
                                             <div className="attributes-box p-3">
                                                 <div className="row align-items-center ml-0 mr-0">
                                                     <div class="form-check mb-0 ml-0 mr-0 pl-0 col-sm-9">

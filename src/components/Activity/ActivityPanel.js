@@ -86,8 +86,6 @@ class Activity extends Component {
                         </div>
                     </div>*/}
 
-<<<<<<< HEAD
-=======
                     {/*<div className="create-teacher">
                         <div className="p-3 teacher-forms">
                             <div className="d-flex justify-content-center align-items-center">
@@ -145,8 +143,7 @@ class Activity extends Component {
                             </div>
                         </div>
                     </div>*/}
-
->>>>>>> 7c84dee1d8573677fb83625683e7a9f3ad0d33a2
+                    
                 </div>
             </div>        
 		) 
