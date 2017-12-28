@@ -24,6 +24,7 @@ ClassListing 	= '/classes',
 faq 	        = '/help',
 schoolstep 	    = '/school-step',
 lessonPlan 	    = '/lesson-plan',
+lessonPlanNew   = '/lesson-plan-new',
 parentlistings 	= '/parents',
 notFound 		= '*';
 

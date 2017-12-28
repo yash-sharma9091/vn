@@ -143,7 +143,6 @@ class Activity extends Component {
                             </div>
                         </div>
                     </div>*/}
-
                 </div>
             </div>        
 		) 
