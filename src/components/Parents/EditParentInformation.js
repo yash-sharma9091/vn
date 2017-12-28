@@ -143,13 +143,19 @@ class EditParentInformation extends Component {
 
                                     <div className="form-row">
                                         <div className="col-sm-6">
-                                            <Field 
+                                            {/*<Field 
                                                 component={FormDropdown} 
                                                 formGroupClassName="row" name="relation"
                                                 label="Relation "  colWrapper={true} col={9}
                                                 data={student_relation} placeholder="Select health info"
                                                 valueField={"_id"} textField={"name"}
-                                                labelClassName="col-sm-3"/>
+                                                labelClassName="col-sm-3"/>*/}
+                                            <Field 
+                                                component={FormSelect} 
+                                                formGroupClassName="row" name="gender" type="select" 
+                                                emptyText="Select gender" label="Gender" options={gender}
+                                                labelClassName="col-sm-3" colWrapper={true} col={9}
+                                                displayKey={"value"} displayLabel={"name"} empty={true} validate={[Required]} doValidate={true}/>   
                                         </div>
                                         <div className="col-sm-6">
                                             <Field 

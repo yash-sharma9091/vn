@@ -51,8 +51,9 @@ class ViewParentInfo extends Component {
                                 <div className="p-3">
                                     <div className="form-row">
                                         <FormGroup className="col-sm-6">
-                                            <Label className="col-sm-3 col-md-4">Relation</Label>
-                                            <span className="col-sm-9 col-md-8 word-text">{parent.relation ? _.capitalize(parent.relation.name): 'N/A'}</span>
+                                            <Label className="col-sm-3 col-md-4">Gender</Label>
+                                            {/*<span className="col-sm-9 col-md-8 word-text">{parent.relation ? _.capitalize(parent.relation.name): 'N/A'}</span>*/}
+                                            <span className="col-sm-9 col-md-8 word-text">{_.capitalize(parent.gender)}</span>
                                         </FormGroup>
                                         <FormGroup className="col-sm-6">
                                             <Label className="col-sm-3 col-md-4">Contact Number</Label>
