@@ -143,6 +143,44 @@ class LessonActivity extends Component {
                         </div>
                     </div>
 
+                    <div className="pl-4 pr-4 pb-4">
+                        <div className="root-record">
+                            <div className="number">1</div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-12 mb-0">
+                                    <label className="white-space-nowrap">What is the root word of memoir?</label>
+                                        <div class="form-check form-check-inline">
+                                            <label class="form-check-label">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" /> Option A
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <label class="form-check-label">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" /> Option B
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <label class="form-check-label">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" /> Option C
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <label class="form-check-label">
+                                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4" /> Option D
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="points-list">
+                                    <ul>
+                                        <li><a>5 Points</a></li>
+                                        <li><a>10:22:05</a></li>
+                                    </ul>
+                                </div>
+                                <a className="remove-link">Remove</a>
+                        </div>
+                    </div>
+
                 </div>
             </div>        
 		) 
