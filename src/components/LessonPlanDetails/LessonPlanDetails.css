@@ -1,0 +1,131 @@
+.subject-box {
+    border: 1px solid #dfdfdf;
+    border-radius: 2px;
+    background-color: #ffffff;
+    position: relative;
+}
+.lesson-theme.with-lesson-details > div > div {
+    width: 33.33%;
+    background-color: #f7f7f9;
+    padding: 12px 12px;
+    border-bottom: 1px solid #ecedee;
+}
+.lesson-theme.with-lesson-details > div > div:nth-child(2n+1){
+    border-right: 1px solid #ecedee;
+}
+.lesson-theme.with-lesson-details > div > div:nth-child(2n){
+    border-right: 1px solid #ecedee;
+}
+.subject-box .drop-icons {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 10px 5px;
+    cursor: pointer;
+}
+.subject-box .drop-icons img {
+    width: 20px;
+}
+
+/*lesson-plan-accordian-list*/
+.lesson-plan-accordian-list .card {
+    background-color: #ffffff;
+    border-radius: 3px;
+    margin-bottom: 15px;
+    border: none;
+}
+.lesson-plan-accordian-list .card .card-header {
+	background-color: transparent;
+	border-radius: 0;
+	border: none;
+	padding: 10px 15px;
+	position: relative;
+    cursor: pointer;
+    border: 1px solid #dfdfdf;
+    font-size: 18px;
+    color: #545556;
+    font-family: 'gilroyextrabold';
+}
+.lesson-plan-accordian-list .card .card-body {
+    padding: 0 0 15px 0;
+    color: #656563;
+    font-size: 14px;
+    border: 1px solid #dfdfdf;
+    border-top: none;
+}
+.lesson-plan-accordian-list .card .card-header .downArrow {
+    position: absolute;
+    content: '';
+    right: 10px;
+    top: 19px;
+    width: 14px;
+	-webkit-transform: rotate(-90deg);
+	-ms-transform: rotate(-90deg);
+	transform: rotate(-90deg);
+}
+.lesson-plan-accordian-list .card .card-header.active .downArrow {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+}
+.lesson-plan-accordian-list .card .card-body{
+    padding-bottom: 0;
+}
+.lesson-plan-accordian-list .card .acordian-content{
+    padding: 10px 15px;
+}
+
+/*assigned-special-group*/
+.acordian-content .assigned-special-group{
+    margin-bottom: 15px;
+}
+.acordian-content .assigned-special-group .alarm-clock{
+    background-color: #ffdad8;
+    padding: 4px 10px;
+    border-radius: 24px;
+    color: #000000;
+    font-size: 13px;
+}
+.acordian-content .assigned-special-group .alarm-clock img{
+    width: 15px;
+    vertical-align: middle;
+}
+.acordian-content .assigned-special-group .alarm-clock span{
+    vertical-align: middle;
+    padding-left: 5px;
+}
+.acordian-content .assigned-special-group .shield-box img{
+    width: 20px;
+}
+.acordian-content .assigned-special-group .shield-box span{
+    color: #1756ac;
+    font-size: 14px;
+    margin: 0 5px;
+    vertical-align: middle;
+}
+
+/*assigned-special-group-content*/
+.acordian-content .group-content-box{
+    margin-bottom: 20px;
+}
+.acordian-content .assigned-special-group-content h2{
+    color: #37393a;
+    font-size: 16px;
+    margin-bottom:10px;
+}
+.acordian-content .assigned-special-group-content p{
+    color: #616568;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.group-content-root-record .form-check-input {
+    margin-top: 10px;
+}
+.group-content-root-record .form-check-inline {
+    padding-right: 50px;
+}
+.group-content-root-record img {
+    width: 45px;
+    padding-left: 15px;
+}

@@ -70,6 +70,30 @@ body{
    background: -webkit-linear-gradient(right,#070703 35%,#0a4cac);
 }
 
+/*gradient-button-green*/
+.btn.green-gradient-button{
+    background: -webkit-linear-gradient(right,#1a58aa 30%,#bcc754);
+    background: -moz-linear-gradient(right,#1a58aa 30%,#bcc754);
+    background: -webkit-linear-gradient(right,#1a58aa 30%,#bcc754);
+    color: #ffffff;
+    border-radius: 100px;
+    padding: 8px 25px;
+ }
+ .btn.green-gradient-button:active, .btn.green-gradient-button.active {
+    background: -webkit-linear-gradient(right,#1a58aa 30%,#bcc754);
+    background: -moz-linear-gradient(right,#1a58aa 30%,#bcc754);
+    background: -webkit-linear-gradient(right,#1a58aa 30%,#bcc754);
+    border-radius: 100px;
+    padding: 8px 25px;
+ }
+ .btn.green-gradient-button, .btn.green-gradient-button.active{
+    background: -webkit-linear-gradient(right,#1a58aa 30%,#bcc754);
+    background: -moz-linear-gradient(right,#1a58aa 30%,#bcc754);
+    background: -webkit-linear-gradient(right,#1a58aa 30%,#bcc754);
+    border-radius: 100px;
+    padding: 8px 25px;
+ }
+
 .light-gray{color:#6a6a68;}
 .mandatory-tag{-webkit-text-fill-color: #636c72; font-size: 13px; padding-top:2px;}
 .color-white{color: #ffffff;}

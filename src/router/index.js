@@ -10,6 +10,9 @@ import HomePage from '../components/HomePage/HomePage';
 import Login from '../components/Login/Login';
 import Faq from '../components/Faq/Faq';
 import Dashboard from '../components/Dashboard/Dashboard';
+import StudentDashboard from '../components/Dashboard/StudentDashboard';
+
+
 import Wrapper from '../components/Wrapper/Wrapper';
 
 import EditTeacherDetail from '../components/EditTeacherDetail/EditTeacherDetail';
@@ -23,6 +26,8 @@ import SchoolAdminDashboard from '../components/SchoolAdminDashboard/SchoolAdmin
 
 import LessonPlan from '../components/LessonPlan/LessonPlan';
 import LessonPlanNew from '../components/LessonPlanNew/LessonPlanNew';
+import LessonPlanList from '../components/LessonPlanList/LessonPlanList';
+import LessonPlanDetails from '../components/LessonPlanDetails/LessonPlanDetails';
 
 import ParentListings from '../components/ParentsDetails/ParentsDetails';
 
@@ -44,6 +49,7 @@ import {
 	notFound, 
 	invalid, 
 	dashboard,
+	studentDashboard,
 	teacherListing,
 	studentListing,
 	ClassListing,
@@ -60,7 +66,9 @@ import {
 	editSchoolProfile,
 	editParent,
 	lessonPlan,
-	lessonPlanNew
+	lessonPlanNew,
+	lessonPlanList,
+	lessonPlanDetails
 	//thanks
 	//schoolstep
 } from '../lib/SiteLinks';
@@ -79,6 +87,7 @@ export const Router = props => {
 					<BeforeAuthRoute path={resetPassword} component={ResetPassword} />
 					{/*<BeforeAuthRoute path={thanks} component={ThankYou} />*/}
 					<PrivateRoute path={dashboard} component={Dashboard} />
+					<PrivateRoute path={studentDashboard} component={StudentDashboard} />
 					<PrivateRoute path={teacherListing} component={Wrapper} />
 					<PrivateRoute path={ClassListing} component={Wrapper} />
 					<PrivateRoute path={teacherDetail} component={TeacherDetail} />
@@ -93,6 +102,8 @@ export const Router = props => {
 					<PrivateRoute path={editParent} component={EditParentDetail} />
 					<PrivateRoute path={lessonPlan} component={LessonPlan} />
 					<PrivateRoute path={lessonPlanNew} component={LessonPlanNew} />
+					<PrivateRoute path={lessonPlanList} component={LessonPlanList} />
+					<PrivateRoute path={lessonPlanDetails} component={LessonPlanDetails} />
 					<PrivateRoute path={parentListing} component={Wrapper} />
 					<Route path={faq} component={Faq} />
 					{/*<PrivateRoute path={schoolstep} component={SchoolStep} />*/}

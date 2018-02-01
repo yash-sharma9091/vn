@@ -4,6 +4,25 @@ import { Form, FormGroup, Label } from 'reactstrap';
 import './LessonPlanNew.css';
 import {fullName} from '../../lib/Helper';
 import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
+import DoNow from './DoNow.js';
+import GuidedPractice from './GuidedPractice.js';
+import IndependentPractice from './IndependentPractice.js';
+import HomeWork from './HomeWork.js';
+import Assign from './Assign.js';
+import donow1 from '../../assets/images/donow-1.png';
+import donow2 from '../../assets/images/donow-2.png';
+import donow3 from '../../assets/images/donow-3.png';
+import donow4 from '../../assets/images/donow-4.png';
+import donow5 from '../../assets/images/donow-5.png';
+import donow6 from '../../assets/images/donow-6.png';
+import donow7 from '../../assets/images/donow-7.png';
+import donow8 from '../../assets/images/donow-8.png';
+import donow9 from '../../assets/images/donow-9.png';
+import donow10 from '../../assets/images/donow-10.png';
+import donow11 from '../../assets/images/donow-11.png';
+import donow12 from '../../assets/images/donow-12.png';
+import menuLine from '../../assets/images/svg/menu-line.svg';
+import addPlus from '../../assets/images/svg/add-plus-button.svg';
 import classnames from 'classnames';
 
 class ViewLessonPlanNew extends Component {
@@ -64,32 +83,19 @@ class ViewLessonPlanNew extends Component {
 
                                     <TabContent activeTab={this.state.activeTab}>
                                         <TabPane tabId="1">
-                                            <div className="p-4">
-                                                <div class="d-flex justify-content-center">
-                                                    <div class="d-flex flex-row col-sm-6">
-                                                        <div class="p-2">Add Content:
-                                                            <ul>
-                                                                <li><a><img src="" alt="" />Embed</a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="p-2">Add Question:
-                                                        
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <DoNow />
                                         </TabPane>
                                         <TabPane tabId="2">
-                                            gfdgfd
+                                            <GuidedPractice />
                                         </TabPane>
                                         <TabPane tabId="3">
-                                            gfdgfd
+                                            <IndependentPractice />
                                         </TabPane>
                                         <TabPane tabId="4">
-                                            gfdgfd
+                                            <HomeWork />
                                         </TabPane>
                                         <TabPane tabId="5">
-                                            gfdgfd
+                                            <Assign />
                                         </TabPane>
                                     </TabContent>
                             </div>

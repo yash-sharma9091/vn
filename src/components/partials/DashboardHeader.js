@@ -9,7 +9,7 @@ import EnvelopeImage from '../../assets/images/svg/envelope.svg';
 import UserImage from '../../assets/images/svg/user.svg';
 import {AUTH_LOGOUT_REQUEST} from '../../constant';
 import {push} from 'react-router-redux';
-import {dashboard, schoolProfile} from '../../lib/SiteLinks';
+import {dashboard, schoolProfile, studentDashboard} from '../../lib/SiteLinks';
 import Logo from  '../Logo/Logo';
 import {LinkContainer} from 'react-router-bootstrap';
 import {decorateTitle, decorateLink, limitTo} from '../../lib/Helper';
@@ -41,10 +41,12 @@ class DashboardHeader extends Component {
     }
   	render() {
           
+
         const {location, user} = this.props;
+        
     	return (
-            <header className={`dashboard-header ${location.pathname === dashboard ? 'schooladmin':''}`}>
-                {location.pathname === dashboard && <Logo />}
+            <header className={`dashboard-header ${[dashboard, studentDashboard].includes(location.pathname) ? 'schooladmin':''}`}>
+                {[dashboard, studentDashboard].includes(location.pathname) && <Logo />}
                 <div>
                     <Navbar color="faded" light expand="md">
                     <LinkContainer to={dashboard}>

@@ -29,7 +29,7 @@
 	min-width: 210px;
 	padding-top: 4px;
 }
-.dashboard-header .navbar .navbar-collapse .navbar-nav li.nav-item a{color:#ffffff; font-size: 16px; padding-left: 10px; padding-right: 10px;}
+.dashboard-header .navbar .navbar-collapse .navbar-nav li.nav-item a{color:#ffffff; font-size: 16px; padding-left: 10px; padding-right: 10px; cursor: pointer;}
 .dashboard-header .navbar .navbar-collapse .navbar-nav li.nav-item a img{width: 20px;}
 .dashboard-header .navbar .navbar-collapse .navbar-nav li.nav-item a .notification-image {
     width: 20px;
