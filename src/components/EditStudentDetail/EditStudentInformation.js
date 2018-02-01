@@ -151,7 +151,7 @@ class EditTeacherInformation extends Component {
                                                 <label className="col-sm-3 col-form-label">Subject</label>
                                                 <div className="col-sm-9">
                                                     <select id="inputState" className="form-control">
-                                                        <option selected>Select Subject</option>
+                                                        <option selected>Select subject</option>
                                                         <option>...</option>
                                                     </select>
                                                 </div>
