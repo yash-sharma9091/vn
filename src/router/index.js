@@ -28,6 +28,7 @@ import LessonPlan from '../components/LessonPlan/LessonPlan';
 import LessonPlanNew from '../components/LessonPlanNew/LessonPlanNew';
 import LessonPlanList from '../components/LessonPlanList/LessonPlanList';
 import LessonPlanDetails from '../components/LessonPlanDetails/LessonPlanDetails';
+import LessonPlanResponse from '../components/LessonPlanResponse/LessonPlanResponse';
 
 import ParentListings from '../components/ParentsDetails/ParentsDetails';
 
@@ -68,7 +69,8 @@ import {
 	lessonPlan,
 	lessonPlanNew,
 	lessonPlanList,
-	lessonPlanDetails
+	lessonPlanDetails,
+	lessonPlanResponse
 	//thanks
 	//schoolstep
 } from '../lib/SiteLinks';
@@ -104,6 +106,7 @@ export const Router = props => {
 					<PrivateRoute path={lessonPlanNew} component={LessonPlanNew} />
 					<PrivateRoute path={lessonPlanList} component={LessonPlanList} />
 					<PrivateRoute path={lessonPlanDetails} component={LessonPlanDetails} />
+					<PrivateRoute path={lessonPlanResponse} component={LessonPlanResponse} />
 					<PrivateRoute path={parentListing} component={Wrapper} />
 					<Route path={faq} component={Faq} />
 					{/*<PrivateRoute path={schoolstep} component={SchoolStep} />*/}
