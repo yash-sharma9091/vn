@@ -10,6 +10,10 @@ import dashImg8 from '../../assets/images/dash-8.png';
 import dashImg9 from '../../assets/images/dash-9.png';
 import dashImg10 from '../../assets/images/dash-10.png';
 import dashImg11 from '../../assets/images/dash-11.png';
+import dashImg12 from '../../assets/images/dash-12.png';
+import dashImg13 from '../../assets/images/dash-13.png';
+import dashImg14 from '../../assets/images/dash-14.png';
+import dashImg15 from '../../assets/images/dash-15.png';
 
 import crossoutMark from '../../assets/images/svg/cross-out-mark.svg';
 //import paid from '../../assets/images/paid.png';
@@ -160,7 +164,7 @@ class StudentDashboard extends Component {
 									<div className="dash-box">
                                          <a>
                                             <div className="dash-icon">
-                                                <img src={dashImg2} className="transition" alt="School Profile" />
+                                                <img src={dashImg12} className="transition" alt="School Profile" />
                                             </div>
                                             <span>Lesson Plans</span>
                                         </a>
@@ -170,7 +174,7 @@ class StudentDashboard extends Component {
 									<div className="dash-box">
                                         <a>
 										    <div className="dash-icon">
-                                                <img src={dashImg3} className="transition" alt="Teacher Listing" />
+                                                <img src={dashImg13} className="transition" alt="Teacher Listing" />
                                             </div>
                                             <span>Notebook</span>
                                         </a>
@@ -179,20 +183,20 @@ class StudentDashboard extends Component {
 								<div className="col-2">
 									<div className="dash-box">
 										<Link to={studentListing}>
-											<div className="dash-icon"><img src={dashImg4} className="transition" alt="" /></div><span>Calendar</span>
+											<div className="dash-icon"><img src={dashImg9} className="transition" alt="" /></div><span>Calendar</span>
 										</Link>
 									</div>
 								</div>
 								<div className="col-2">
 									<div className="dash-box">
-										<a><div className="dash-icon"><img src={dashImg5} className="transition" alt="" /></div><span>Message System</span></a>
+										<a><div className="dash-icon"><img src={dashImg6} className="transition" alt="" /></div><span>Message System</span></a>
 									</div>
 								</div>
 								<div className="col-2">
 									<div className="dash-box">
 										<a>
 											<div className="dash-icon">
-												<img src={dashImg6} className="transition" alt="" />
+												<img src={dashImg14} className="transition" alt="" />
 											</div>
 										<span>Subjects</span></a>
 									</div>
@@ -204,26 +208,9 @@ class StudentDashboard extends Component {
 								</div>
 								<div className="col-2 pt-4">
 									<div className="dash-box">
-										<a><div className="dash-icon"><img src={dashImg8} className="transition" alt="" /></div><span>Classes & Codes</span></a>
+										<a><div className="dash-icon"><img src={dashImg15} className="transition" alt="" /></div><span>Classes &amp; Codes</span></a>
 									</div>
 								</div>
-								<div className="col-2 pt-4">
-									<div className="dash-box">
-										<a><div className="dash-icon"><img src={dashImg9} className="transition" alt="" /></div><span>Calendar</span></a>
-									</div>
-								</div>
-								<div className="col-2 pt-4">
-									<div className="dash-box">
-										<a><div className="dash-icon"><img src={dashImg10} className="transition" alt="" /></div><span>Contacts</span></a>
-									</div>
-								</div>
-								<div className="col-2 pt-4">
-									<div className="dash-box">
-										<Link to={parentListing}>
-											<div className="dash-icon"><img src={dashImg11} className="transition" alt="" /></div><span>Parents</span>
-										</Link>
-									</div>
-								</div> 
 							</div>
 						</div>
 				</div>

@@ -28,6 +28,7 @@ lessonPlan 	    = '/lesson-plan',
 lessonPlanNew   = '/lesson-plan-new',
 lessonPlanList   = '/lesson-plan-list',
 lessonPlanDetails ='/lesson-plan-detail',
+lessonPlanResponse ='/lesson-plan-response',
 parentlistings 	= '/parents',
 notFound 		= '*';
 
