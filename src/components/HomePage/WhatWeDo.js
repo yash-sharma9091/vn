@@ -23,9 +23,13 @@ class WhatWeDo extends Component {
                                         <div key={index} className="md-whiteframe-1dp p-4 light-white-bg">
                                             <div className="mb-2"><img src={WorkImg} alt= "" /></div>
                                             <div className="gradient-color heading mb-2">{val.title}</div>
-                                            <p className="para">{limitTo(val.short_description, 160)}</p>
+                                            <p className="para">{limitTo(val.short_description, 160,true)}</p>
                                             {/*<Link to={val.slug} className="see-more-link gradient-color">See More</Link>*/}
-                                            <Link to={''} className="see-more-link gradient-color">See More</Link>
+                                            { 
+                                                val.short_description.length>160 
+                                                ? <Link to={''} className="see-more-link gradient-color">See More</Link> 
+                                                : null 
+                                            }
                                         </div>
                                     )
                                 })}

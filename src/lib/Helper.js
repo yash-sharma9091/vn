@@ -76,11 +76,20 @@ export const placesServiceStatus = [
 	{ status_code: "ZERO_RESULTS", message: "No result was found for this address"}
 ];
 
-export const limitTo = (text, length = 200) => {
+/*export const limitTo = (text, length = 200) => {
 	if( text && typeof(text) === 'string' ) {
 		return text.length < length ? text : text.substr(0, length) + '...';	
 	}
 	return text;
+}*/
+export const limitTo = (value, limit = 25, completeWords = false, ellipsis = '...') =>{
+	if (completeWords && value.length >limit) {
+		limit = value.substr(0, limit).lastIndexOf(' ');
+	}
+	if( value && typeof(value) === 'string' ) {
+		return value.length < limit ? value : value.substr(0, limit) + ellipsis;	
+	}
+    return value;
 }
 
 export const fullName = (first, last) => `${first} ${last}`;
