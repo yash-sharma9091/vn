@@ -114,7 +114,7 @@ export const gender =  [
     {value: 'female', name: 'Female'}
 ];
 
-export const formatDate = (date, format = 'DD/MM/YYYY') => moment(date).format(format);
+export const formatDate = (date, format = 'MM/DD/YYYY') => moment(date).format(format);
 
 export const scrollToByClassName = (className) => {
 	var _class = document.getElementsByClassName(className);
