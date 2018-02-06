@@ -12,7 +12,7 @@ class WhatWeDo extends Component {
     	return (
 	       <div className="light-md-bg padding-40">
                 <div className="container">
-                    <div className="gradient-color text-center md-heading">Here's What We Do For You!</div>
+                    <div className="gradient-color text-center md-heading">Here’s What we offer !</div>
                     <p className="text-center">Pencil’s Ink Virtual Notebook is a paperless classroom system that supports any teaching and learning instruction. It is a lesson planner, student notebook, and grading system in one.  All data is housed in one place and easily accessible.  </p>
                     {
                         _.isEmpty(what_we_do_steps)
