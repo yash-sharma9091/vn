@@ -11,6 +11,7 @@ import './LessonPlanResponse.css';
 import LessonPlanTabs from './LessonPlanTabs.js';
 import searcher from '../../assets/images/svg/musica-searcher.svg';
 import filter from '../../assets/images/svg/filter.svg';
+import personImg from '../../assets/images/lesson-plan-person.png';
 class LessonPlanResponse extends Component {
     constructor() {
         super();
@@ -100,10 +101,66 @@ class LessonPlanResponse extends Component {
                             <div className="left-group">
                                 <div className="left-group-content">
                                     <div class="container">
-                                        <div className="p-3 p-lg-3">
+                                        <div className="">
                                             <div className="lesson-detailed-boxes">
-
-                                                <LessonPlanTabs />
+                                            
+                                            <div className="row no-gutters">
+                                                <div className="col-sm-3">
+                                                    <div className="search-student-main-box p-3">
+                                                        <div className="search-student-box">
+                                                            <input name="text" placeholder="Search Student" class="form-control" type="text" />
+                                                            <div className="search-btn"><img class="filter-icon" src="/static/media/musica-searcher.ee2cdecd.svg" alt="" /></div>
+                                                        </div>
+                                                        <div className="student-list pt-2 pb-2">
+                                                            <ul>
+                                                                <li>
+                                                                    <div className="person-image"><img src={personImg} alt="" /></div>
+                                                                    <h2>Andrew Kozak</h2>
+                                                                    <span>Class 602</span>
+                                                                </li>
+                                                                <li>
+                                                                    <div className="person-image"><img src={personImg} alt="" /></div>
+                                                                    <h2>Andrew Kozak</h2>
+                                                                    <span>Class 602</span>
+                                                                </li>
+                                                                <li>
+                                                                    <div className="person-image"><img src={personImg} alt="" /></div>
+                                                                    <h2>Andrew Kozak</h2>
+                                                                    <span>Class 602</span>
+                                                                </li>
+                                                                <li>
+                                                                    <div className="person-image"><img src={personImg} alt="" /></div>
+                                                                    <h2>Andrew Kozak</h2>
+                                                                    <span>Class 602</span>
+                                                                </li>
+                                                                <li>
+                                                                    <div className="person-image"><img src={personImg} alt="" /></div>
+                                                                    <h2>Andrew Kozak</h2>
+                                                                    <span>Class 602</span>
+                                                                </li>
+                                                                <li>
+                                                                    <div className="person-image"><img src={personImg} alt="" /></div>
+                                                                    <h2>Andrew Kozak</h2>
+                                                                    <span>Class 602</span>
+                                                                </li>
+                                                                <li>
+                                                                    <div className="person-image"><img src={personImg} alt="" /></div>
+                                                                    <h2>Andrew Kozak</h2>
+                                                                    <span>Class 602</span>
+                                                                </li>
+                                                                <li>
+                                                                    <div className="person-image"><img src={personImg} alt="" /></div>
+                                                                    <h2>Andrew Kozak</h2>
+                                                                    <span>Class 602</span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="col-sm-8">
+                                                    <LessonPlanTabs />
+                                                </div>
+                                            </div>
 
                                             </div>
                                         </div>

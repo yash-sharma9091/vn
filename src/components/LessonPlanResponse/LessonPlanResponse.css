@@ -1,0 +1,164 @@
+/*lesson-plan-tabs*/
+.lesson-plan-tabs .nav-tabs .nav-link {
+    border: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    color:#ffffff;
+    font-size: 15px;
+    padding: 15px 20px;
+    position: relative;
+    cursor: pointer;
+}
+.lesson-plan-tabs .nav-tabs .nav-link.active{
+    background-color: transparent;
+    font-weight: 600;
+}
+.lesson-plan-tabs .nav-tabs .nav-link::after {
+	position: absolute;
+	content: '';
+	border-top: 8px solid transparent;
+	border-right: 8px solid transparent;
+	border-bottom: 8px solid #ffffff;
+	border-left: 8px solid transparent;
+	left: 0;
+	right: 0;
+	width: 10px;
+	margin: auto;
+    bottom: 0;
+    display: none;
+}
+.lesson-plan-tabs .nav-tabs .nav-link.active::after{
+    display: block;
+}
+.lesson-plan-tabs .tab-content{
+    background-color: #ffffff;
+    border: 1px solid #dfdfdf;
+    border-top: none;
+}
+.lesson-plan-tabs-content .heads{
+    background-color: transparent;
+    border-radius: 0;
+    border: none;
+    padding: 10px 15px;
+    position: relative;
+    cursor: pointer;
+    border-bottom: 1px solid #dfdfdf;
+    font-size: 18px;
+    color: #545556;
+    font-family: 'gilroyextrabold';
+}
+.lesson-plan-tabs-content .lesson-planbox-content .assigned-special-group .alarm-clock{
+    background-color: #ffdad8;
+    padding: 4px 10px;
+    border-radius: 24px;
+    color: #000000;
+    font-size: 13px;
+}
+.lesson-plan-tabs-content .lesson-planbox-content .assigned-special-group .alarm-clock img {
+    width: 15px;
+    vertical-align: middle;
+}
+.lesson-plan-tabs-content .lesson-planbox-content .assigned-special-group .alarm-clock span {
+    vertical-align: middle;
+    padding-left: 5px;
+}
+.lesson-plan-tabs-content .lesson-planbox-content .assigned-special-group {
+    margin-bottom: 15px;
+}
+.lesson-plan-tabs-content .lesson-planbox-content .assigned-special-group .shield-box img {
+    width: 20px;
+}
+.lesson-plan-tabs-content .lesson-planbox-content .assigned-special-group .shield-box span {
+    color: #1756ac;
+    font-size: 14px;
+    margin: 0 5px;
+    vertical-align: middle;
+}
+.lesson-plan-tabs-content .lesson-planbox-content .group-content-box {
+    margin-bottom: 20px;
+}
+.lesson-plan-tabs-content .lesson-planbox-content .assigned-special-group-content h2 {
+	color: #37393a;
+	font-size: 16px;
+	margin-bottom: 10px;
+}
+.lesson-plan-tabs-content .lesson-planbox-content .assigned-special-group-content p {
+	color: #616568;
+	font-size: 15px;
+    margin-bottom: 10px;
+}
+
+
+/*progress-range*/
+.progress-range .progress,.progress-range .progresss-steps{
+    width: 100%;
+}
+.progress-range .progresss-steps{
+    padding: 0 5px;
+}
+.progress-range > div{
+    color: #aeaeae;
+    font-size: 16px;
+    font-weight: 600;
+}
+.progresss-steps .progress-bar {
+    background-color: #2a63a2;
+}
+.progress-range .progress {
+    background-color: #aeaeae;
+}
+
+/*search-student-box*/
+.search-student-main-box{
+    background-color: #ffffff;
+    border-left: 1px solid #dfdfdf;
+    border-bottom: 1px solid #dfdfdf;
+}
+.search-student-main-box .search-student-box{
+    position: relative;
+}
+.search-student-main-box .search-student-box .form-control{
+    padding-right: 30px;
+}
+.search-student-main-box .search-student-box .search-btn{
+    position: absolute;
+    right: 8px;
+    top: 5px;
+    cursor: pointer;
+}
+.search-student-main-box .search-student-box .search-btn img{
+    width: 15px;
+}
+
+/*student-list*/
+.search-student-main-box .student-list ul li{
+    display: block;
+    border-bottom: 1px solid #dfdfdf;
+    padding: 15px 0 15px 45px;
+    position: relative;
+}
+.search-student-main-box .student-list ul li .person-image{
+    position: absolute;
+    width: 38px;
+    height: 38px;
+    left: 0;
+    top: 15px;
+    border-radius: 100%;
+}
+.search-student-main-box .student-list ul li h2{
+    font-size: 16px;
+    color: #292b2c;
+}
+.search-student-main-box .student-list ul li span{
+    color: #6d6d6d;
+    font-size: 14px;
+}
+
+
+/*Responsive*/
+@media (max-width: 1023px){
+    .full-container .container {
+        max-width: 100%;
+    }
+}
+

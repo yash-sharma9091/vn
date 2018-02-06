@@ -103,88 +103,91 @@ class LessonPlanDetails extends Component {
                         <div className="dash-left-box">
                             <div className="left-group">
                                 <div className="left-group-content">
-                                    <div class="container">
-                                        <div className="p-3 p-lg-3">
-                                            <div className="lesson-detailed-boxes">
+                                    <div className="full-container">
+                                        <div class="container">
+                                            <div className="p-3 p-lg-3">
+                                                <div className="lesson-c-boxes">
 
-                                                {/*subject-box*/}
-                                                <div className="subject-box">
-                                                    <div className="drop-icons">
-                                                        <DropdownWithoutActiveProps tag="li" nav="true" isOpen={toggleClass} toggle={this.toggle}>
-                                                            <DropdownToggle tag="a" >
-                                                                <div className="user-image">
-                                                                    <img src={ThreeDots} alt="action" />
-                                                                </div> 
-                                                            </DropdownToggle>
-                                                            <DropdownMenu right>
-                                                                <DropdownItem>Edit</DropdownItem>
-                                                                <DropdownItem>Copy</DropdownItem>
-                                                                <DropdownItem>Move</DropdownItem>
-                                                                <DropdownItem>Delete</DropdownItem>
-                                                                <DropdownItem>Response</DropdownItem>
-                                                                <DropdownItem>Invite</DropdownItem>
-                                                                <DropdownItem>Print</DropdownItem>
-                                                                <DropdownItem>Assign</DropdownItem>
-                                                            </DropdownMenu>
-                                                        </DropdownWithoutActiveProps>
-                                                    </div>
-                                                    <div className="p-4">
-                                                        <div className="form-group">
-                                                            <label className="white-space-nowrap">Subject</label>
-                                                            <ul className="delete-code-list">
-                                                                <li className="e1">E701 <a>x</a></li>
-                                                                <li className="m1">M702 <a>x</a></li>
-                                                                <li className="s1">SS703 <a>x</a></li>
-                                                            </ul>
+                                                    {/*subject-box*/}
+                                                    <div className="subject-box">
+                                                        <div className="drop-icons">
+                                                            <DropdownWithoutActiveProps tag="li" nav="true" isOpen={toggleClass} toggle={this.toggle}>
+                                                                <DropdownToggle tag="a" >
+                                                                    <div className="user-image">
+                                                                        <img src={ThreeDots} alt="action" />
+                                                                    </div> 
+                                                                </DropdownToggle>
+                                                                <DropdownMenu right>
+                                                                    <DropdownItem>Edit</DropdownItem>
+                                                                    <DropdownItem>Copy</DropdownItem>
+                                                                    <DropdownItem>Move</DropdownItem>
+                                                                    <DropdownItem>Delete</DropdownItem>
+                                                                    <DropdownItem>Response</DropdownItem>
+                                                                    <DropdownItem>Invite</DropdownItem>
+                                                                    <DropdownItem>Print</DropdownItem>
+                                                                    <DropdownItem>Assign</DropdownItem>
+                                                                </DropdownMenu>
+                                                            </DropdownWithoutActiveProps>
                                                         </div>
-                                                        <div className="lesson-theme with-lesson-details">
-                                                            <div class="d-flex justify-content-start flex-wrap">
-                                                                <div>
-                                                                    <div className="theme-head">Theme :</div>
-                                                                    <div className="theme-cont">Growing Up</div>
+                                                        <div className="p-4">
+                                                            <div className="form-group">
+                                                                <label className="white-space-nowrap">Subject</label>
+                                                                <ul className="delete-code-list">
+                                                                    <li className="e1">E701 <a>x</a></li>
+                                                                    <li className="m1">M702 <a>x</a></li>
+                                                                    <li className="s1">SS703 <a>x</a></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div className="lesson-theme with-lesson-details">
+                                                                <div class="d-flex justify-content-start flex-wrap">
+                                                                    <div>
+                                                                        <div className="theme-head">Theme :</div>
+                                                                        <div className="theme-cont">Growing Up</div>
+                                                                    </div>
+                                                                    <div>
+                                                                        <div className="theme-head">Stategy :</div>
+                                                                        <div className="theme-cont">Point of view/prespective</div>
+                                                                    </div>
+                                                                    <div>
+                                                                        <div className="theme-head">Subjective :</div>
+                                                                        <div className="theme-cont">Reading &amp; Writing</div>
+                                                                    </div>
+                                                                    <div>
+                                                                        <div className="theme-head">Standard :</div>
+                                                                        <div className="theme-cont">Reading &amp; Writing</div>
+                                                                    </div>
+                                                                    <div>
+                                                                        <div className="theme-head">Text :</div>
+                                                                        <div className="theme-cont">The drive in movie by gray solo</div>
+                                                                    </div>
+                                                                    <div>
+                                                                        <div className="theme-head">Grade Level :</div>
+                                                                        <div className="theme-cont">5/6</div>
+                                                                    </div>
+                                                                    <div>
+                                                                        <div className="theme-head">Objective :</div>
+                                                                        <div className="theme-cont">Student increase comprehension of text by determining author’s prespetive</div>
+                                                                    </div>
+                                                                    <div>
+                                                                        <div className="theme-head">Essential Question :</div>
+                                                                        <div className="theme-cont">How do we respond to point of view/prespective questions?</div>
+                                                                    </div>
+                                                                    
                                                                 </div>
-                                                                <div>
-                                                                    <div className="theme-head">Stategy :</div>
-                                                                    <div className="theme-cont">Point of view/prespective</div>
-                                                                </div>
-                                                                <div>
-                                                                    <div className="theme-head">Subjective :</div>
-                                                                    <div className="theme-cont">Reading &amp; Writing</div>
-                                                                </div>
-                                                                <div>
-                                                                    <div className="theme-head">Standard :</div>
-                                                                    <div className="theme-cont">Reading &amp; Writing</div>
-                                                                </div>
-                                                                <div>
-                                                                    <div className="theme-head">Text :</div>
-                                                                    <div className="theme-cont">The drive in movie by gray solo</div>
-                                                                </div>
-                                                                <div>
-                                                                    <div className="theme-head">Grade Level :</div>
-                                                                    <div className="theme-cont">5/6</div>
-                                                                </div>
-                                                                <div>
-                                                                    <div className="theme-head">Objective :</div>
-                                                                    <div className="theme-cont">Student increase comprehension of text by determining author’s prespetive</div>
-                                                                </div>
-                                                                <div>
-                                                                    <div className="theme-head">Essential Question :</div>
-                                                                    <div className="theme-cont">How do we respond to point of view/prespective questions?</div>
-                                                                </div>
-                                                                
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
 
-                                                {/*Acordian*/}
-                                                <div className="subject-acordian mt-3">
-                                                    <LessonPlanAcordian />
-                                                </div>
+                                                    {/*Acordian*/}
+                                                    <div className="subject-acordian mt-3">
+                                                        <LessonPlanAcordian />
+                                                    </div>
 
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
                             </div> 
                         </div>
