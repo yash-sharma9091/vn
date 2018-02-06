@@ -25,7 +25,7 @@ class AskQuestion extends Component {
 					<div className="d-flex flex-row justify-content-center">
 					 <Form onSubmit={handleSubmit(this.formSubmit)}  className="col-8 col-md-8 col-lg-5 col-xl-4">
 						<h3 className="gradient-color text-center">Ask a Question/Make a Comment</h3>
-						<p className="text-center light-gray">Lorem ipsum dolor sit amet, consectetur adipiscing</p>
+						<p> </p>
 						<Alert alertVisible={error||success} alertMsg={error||success} className={error ? "danger":"success"}/>
 						<Field 
 							component={FormField} type="textarea"

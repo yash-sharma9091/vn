@@ -146,7 +146,7 @@ class Dashboard extends Component {
 					<div className="row justify-content-md-center col-sm-12 no-gutters">
 						<div className="col-8 col-md-10 col-lg-8 col-xl-6 admin-box pt-5 pb-5 pl-2 pr-2">
 							<div className="d-flex flex-wrap align-content-around no-gutters">
-								<div className="col-2">
+							{/*	<div className="col-2">
 									<div className="dash-box">
 										<a>
 											<div className="dash-icon">
@@ -155,7 +155,7 @@ class Dashboard extends Component {
 											<span>Dashboard</span>
 										</a>
 									</div>
-								</div>
+								</div>*/}
 								<div className="col-2">
 									<div className="dash-box">
 										<Link to={`${decorateLink(schoolProfile)}/${user._id}`}>
@@ -194,7 +194,7 @@ class Dashboard extends Component {
 										<span>Message System</span></a>
 									</div>
 								</div>
-								<div className="col-2 pt-4">
+								<div className="col-2">
 									<div className="dash-box">
 										<a><div className="dash-icon"><img src={dashImg7} className="transition" alt="" /></div><span>Assesment</span></a>
 									</div>
