@@ -128,7 +128,7 @@ class ViewStudentInfo extends Component {
                                             <span className="col-sm-9 col-md-8 word-text">{student.parent_relation}</span>
                                         </FormGroup>*/}
                                         <FormGroup className="col-sm-6">
-                                            <Label className="col-sm-3 col-md-4">Email Address</Label>
+                                            <Label className="col-sm-3 col-md-4">Student Email Address</Label>
                                             <span className="col-sm-9 col-md-8 email-text">{student.email_address || 'N/A'}</span>
                                         </FormGroup>
                                         <FormGroup className="col-sm-6">

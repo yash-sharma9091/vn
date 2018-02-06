@@ -137,7 +137,7 @@ class AddStudent extends Component {
                                     <Field 
                                         component={FormCalender} type="text" formGroupClassName="col-md-12 col-lg-6"
                                         name="dob" label="DOB"
-                                        id="DOB" placeholder="DD/MM/YYYY" validate={[Required]} doValidate={true}/>
+                                        id="DOB" placeholder="MM/DD/YYYY" validate={[Required]} doValidate={true}/>
                                    <Field 
                                         component={FormSelect} formGroupClassName="col-md-6 col-lg-6" name="gender" type="select" 
                                         emptyText="Select Gender" label="Gender" options={gender}

@@ -22,7 +22,7 @@ export class FormCalender extends Component {
 			          		onChange={onChange}
 			          		onFocus={onFocus}
 			          		name={name}
-		    				format="DD/MM/YYYY"
+		    				format="MM/DD/YYYY"
 			          	    defaultValue={new Date()}
 			          	    time={false}
 			          	    placeholder={placeholder}
@@ -42,7 +42,7 @@ export class FormCalender extends Component {
 		          		onChange={onChange}
 		          		onFocus={onFocus}
 			          	name={name}
-	    				format="DD/MM/YYYY"
+	    				format="MM/DD/YYYY"
 		          	    defaultValue={new Date()}
 		          	    time={false}
 		          	    placeholder={placeholder}

@@ -67,7 +67,20 @@ class Wrapper extends Component {
                                     </div>
 
                                 </div>
-
+                                {_.trimEnd(decorateTitle(pathname),'s') == 'Student'
+                                ?
+                                <div className="col-5 col-md-5 col-lg-6 col-xl-6">
+                                    <div className="d-flex justify-content-center">
+                                        <div className="input-group mr-2">
+                                            <input disabled={true} type="text" className="form-control" placeholder="Search by student name, email, phone number" aria-label="Recipient's username" aria-describedby="basic-addon2" />
+                                            <span className="input-group-addon" id="basic-addon2"><img className="filter-icon" src={searcher} alt="" /></span>
+                                        </div>
+                                        <button type="button" className="btn btn-secondary filter-btn" disabled={true} onClick={this.toggleFilter}>
+                                            <img className="filter-icon" src={filter} alt="" />
+                                        </button>
+                                    </div>
+                                </div>
+                                :
                                 <div className="col-5 col-md-5 col-lg-6 col-xl-6">
                                     <div className="d-flex justify-content-center">
                                         <div className="input-group mr-2">
@@ -78,8 +91,8 @@ class Wrapper extends Component {
                                             <img className="filter-icon" src={filter} alt="" />
                                         </button>
                                     </div>
-
                                 </div>
+                               }
 
                                 <div className="col-4 col-md-4 col-lg-3 col-xl-3">
                                     <div className="imports-button d-flex justify-content-end">
