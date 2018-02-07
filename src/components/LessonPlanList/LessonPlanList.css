@@ -93,6 +93,7 @@
 } 
 .lesson-box .lesson-details-box .minutes{
     font-size: 14px;
+    text-align: right;
 } 
 .cyan-bg{
     background-color: #dff7fe;
@@ -114,4 +115,19 @@
 }
 .yellow-color{
     color: #453310;
+}
+
+
+/*Responsive*/
+@media(max-width:1169px){
+    .lesson-plan-listing > div {
+        width: 49.333%;
+        margin-bottom: 25px;
+    }
+}
+
+@media(max-width:979px){
+    .lesson-plan-listing > div {
+        width: 100%;
+    }
 }

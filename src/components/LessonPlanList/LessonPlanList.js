@@ -147,15 +147,15 @@ class LessonPlanList extends Component {
                                                         </div>
                                                     </div>
                                                     <div className="d-flex justify-content-between align-items-stretch lesson-details-box">
-                                                        <div className="cyan-bg d-flex justify-content-between align-items-center p-3">
+                                                        <div className="cyan-bg d-flex justify-content-between align-items-center p-md-2 p-xl-3">
                                                             <div className="times">Time</div>
                                                             <div className="minutes cyan-color">50 Min.</div>
                                                         </div>
-                                                        <div className="pink-bg d-flex justify-content-between align-items-center p-3">
+                                                        <div className="pink-bg d-flex justify-content-between align-items-center p-md-2 p-xl-3">
                                                             <div className="times">Total Marks</div>
                                                             <div className="minutes pink-color">30 Points</div>
                                                         </div>
-                                                        <div className="yellow-bg d-flex justify-content-between align-items-center p-3">
+                                                        <div className="yellow-bg d-flex justify-content-between align-items-center p-md-2 p-xl-3">
                                                             <div className="times">Total Answered</div>
                                                             <div className="minutes yellow-color">20</div>
                                                         </div>
@@ -177,15 +177,15 @@ class LessonPlanList extends Component {
                                                         </div>
                                                     </div>
                                                     <div className="d-flex justify-content-between align-items-stretch lesson-details-box">
-                                                        <div className="cyan-bg d-flex justify-content-between align-items-center p-3">
+                                                        <div className="cyan-bg d-flex justify-content-between align-items-center p-md-2 p-xl-3">
                                                             <div className="times">Time</div>
                                                             <div className="minutes cyan-color text-right">50 Min.</div>
                                                         </div>
-                                                        <div className="pink-bg d-flex justify-content-between align-items-center p-3">
+                                                        <div className="pink-bg d-flex justify-content-between align-items-center p-md-2 p-xl-3">
                                                             <div className="times">Total Marks</div>
                                                             <div className="minutes pink-color text-right">30 Points</div>
                                                         </div>
-                                                        <div className="yellow-bg d-flex justify-content-between align-items-center p-3">
+                                                        <div className="yellow-bg d-flex justify-content-between align-items-center p-md-2 p-xl-3">
                                                             <div className="times">Total Answered</div>
                                                             <div className="minutes yellow-color text-right">20</div>
                                                         </div>
@@ -207,15 +207,15 @@ class LessonPlanList extends Component {
                                                         </div>
                                                     </div>
                                                     <div className="d-flex justify-content-between align-items-stretch lesson-details-box">
-                                                        <div className="cyan-bg d-flex justify-content-between align-items-center p-3">
+                                                        <div className="cyan-bg d-flex justify-content-between align-items-center p-md-2 p-xl-3">
                                                             <div className="times">Time</div>
                                                             <div className="minutes cyan-color text-right">50 Min.</div>
                                                         </div>
-                                                        <div className="pink-bg d-flex justify-content-between align-items-center p-3">
+                                                        <div className="pink-bg d-flex justify-content-between align-items-center p-md-2 p-xl-3">
                                                             <div className="times">Total Marks</div>
                                                             <div className="minutes pink-color text-right">30 Points</div>
                                                         </div>
-                                                        <div className="yellow-bg d-flex justify-content-between align-items-center p-3">
+                                                        <div className="yellow-bg d-flex justify-content-between align-items-center p-md-2 p-xl-3">
                                                             <div className="times">Total Answered</div>
                                                             <div className="minutes yellow-color text-right">20</div>
                                                         </div>
@@ -244,15 +244,15 @@ class LessonPlanList extends Component {
                                                         </div>
                                                     </div>
                                                     <div className="d-flex justify-content-between align-items-stretch lesson-details-box">
-                                                        <div className="cyan-bg d-flex justify-content-between align-items-center p-3">
+                                                        <div className="cyan-bg d-flex justify-content-between align-items-center p-md-2 p-xl-3">
                                                             <div className="times">Time</div>
                                                             <div className="minutes cyan-color">50 Min.</div>
                                                         </div>
-                                                        <div className="pink-bg d-flex justify-content-between align-items-center p-3">
+                                                        <div className="pink-bg d-flex justify-content-between align-items-center p-md-2 p-xl-3">
                                                             <div className="times">Total Marks</div>
                                                             <div className="minutes pink-color">30 Points</div>
                                                         </div>
-                                                        <div className="yellow-bg d-flex justify-content-between align-items-center p-3">
+                                                        <div className="yellow-bg d-flex justify-content-between align-items-center p-md-2 p-xl-3">
                                                             <div className="times">Total Answered</div>
                                                             <div className="minutes yellow-color">20</div>
                                                         </div>
@@ -281,15 +281,15 @@ class LessonPlanList extends Component {
                                                         </div>
                                                     </div>
                                                     <div className="d-flex justify-content-between align-items-stretch lesson-details-box">
-                                                        <div className="cyan-bg d-flex justify-content-between align-items-center p-3">
+                                                        <div className="cyan-bg d-flex justify-content-between align-items-center p-md-2 p-xl-3">
                                                             <div className="times">Time</div>
                                                             <div className="minutes cyan-color">50 Min.</div>
                                                         </div>
-                                                        <div className="pink-bg d-flex justify-content-between align-items-center p-3">
+                                                        <div className="pink-bg d-flex justify-content-between align-items-center p-md-2 p-xl-3">
                                                             <div className="times">Total Marks</div>
                                                             <div className="minutes pink-color">30 Points</div>
                                                         </div>
-                                                        <div className="yellow-bg d-flex justify-content-between align-items-center p-3">
+                                                        <div className="yellow-bg d-flex justify-content-between align-items-center p-md-2 p-xl-3">
                                                             <div className="times">Total Answered</div>
                                                             <div className="minutes yellow-color">20</div>
                                                         </div>
