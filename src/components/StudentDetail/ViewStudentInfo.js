@@ -103,7 +103,7 @@ class ViewStudentInfo extends Component {
                                     <div className="form-row">
                                         <FormGroup className="col-sm-6">
                                             <Label className="col-sm-3 col-md-4">Class</Label>
-                                            <span className="col-sm-9 col-md-8 word-text">N/A</span>
+                                            <span className="col-sm-9 col-md-8 word-text">-</span>
                                         </FormGroup>
                                         <FormGroup className="col-sm-6">
                                             <Label className="col-sm-3 col-md-4">Additional Health Info</Label>
