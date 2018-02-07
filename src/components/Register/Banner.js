@@ -27,7 +27,6 @@ class Banner extends Component {
     		<div className="Banner" style={bannerImg}>
 				<div className="Banner-tags text-center color-white">
 					<h2 className="text-uppercase">Become A Pilot School</h2>
-					<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
 				</div>	
 			</div>
     	);
