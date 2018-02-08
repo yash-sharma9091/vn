@@ -32,8 +32,7 @@ class LeftSidebar extends Component {
     	return (
      		<div className="login-side" style={bannerImg}>
 				<div className="login-tags color-white">
-					<h2 className="text-uppercase">Lorem ipsum dolor sit amet</h2>
-					<div className="text-uppercase tag-line">Free yourself to teach while <br /> we handle the classroom data.</div>
+			<h2 className="text-uppercase ">Free yourself to teach while <br /> we handle the classroom data.</h2>
 				</div>
 				<div className="login-bottom">
 					<div className="share-links">
