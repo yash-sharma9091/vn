@@ -1,0 +1,56 @@
+.student-table-list {
+    background-color: #ffffff;
+    border: 1px solid #d9d9d9;
+    border-radius: 10px;
+}
+
+.student-table-list thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #e9ecef;
+    color: #666666;
+    font-size: 16px;
+    font-family: 'gilroyextrabold';
+    padding: 20px 15px;
+    background-color: #ffffff;
+}
+.student-table-list td {
+    color: #666666;
+    font-size: 14px;
+}
+.student-table-list tr:nth-of-type(2n+1) {
+    background-color: #f9f9f9;
+    box-shadow: 0 0 2px 0px #eeeeee;
+}
+.student-table-list .table-icon {
+    border: 1px solid #ececec;
+    width: 38px;
+    height: 38px;
+    border-radius: 3px;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+.student-table-list .table-icon img{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    max-width: 36px;
+}
+.student-table-list .views-btn{
+    color: #0a4ba9 !important;
+    text-decoration: underline !important;
+    cursor: pointer !important;
+}
+.student-table-list .edit-btn{
+    color: #62bb46 !important;
+    text-decoration: underline !important;
+    cursor: pointer !important;
+}
+.student-table-list .delete-btn{
+    color: #ed1c24 !important;
+    text-decoration: underline !important;
+    cursor: pointer !important;
+}
